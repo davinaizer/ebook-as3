@@ -75,7 +75,6 @@ package com.unboxds.ebook.view.components
 
 		private function parseConfig():void
 		{
-			//-- read dataXML
 			x = parseFloat(contentXML.@x);
 			y = parseFloat(contentXML.@y);
 
@@ -92,8 +91,6 @@ package com.unboxds.ebook.view.components
 
 		private function draw():void
 		{
-			Logger.log("BarMeter.draw > max: " + max);
-
 			bgView.graphics.clear();
 			bgView.graphics.beginFill(bgColor, bgColorAlpha);
 			bgView.graphics.drawRect(0, 0, _width, _height);
@@ -121,8 +118,6 @@ package com.unboxds.ebook.view.components
 
 		override public function setProgress(progress:uint):void
 		{
-			Logger.log("BarMeter.setProgress > " + progress + ", " + max);
-
 			this.progress = progress;
 
 			if (hasInit)
@@ -131,8 +126,6 @@ package com.unboxds.ebook.view.components
 
 		override public function setSecondaryProgress(progress:uint):void
 		{
-			Logger.log("BarMeter.setSecondaryProgress > " + progress + ", " + max);
-
 			this.secondaryProgress = progress;
 
 			if (hasInit)
