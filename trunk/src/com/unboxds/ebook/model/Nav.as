@@ -28,7 +28,7 @@
 		public function Nav()
 		{
 			Logger.log("Nav.Nav");
-			onChange = new Signal(PageData, int);
+			onChange = new Signal(PageData);
 		}
 		
 		public function init():void
@@ -149,9 +149,8 @@
 		}
 		
 		/**
-		 * Navega para uma página em especifico, determinada por modulo e pagina.
-		 * @param	module - numero do modulo a ser navegado.
-		 * @param	page - numero da pagina a ser navegada.
+		 * Navega para uma página em especifico, determinada pelo indice da pagina.
+		 * @param	index  numero da pagina a ser navegada.
 		 */
 		public function navigateToPageIndex(index:int):void
 		{
@@ -212,7 +211,7 @@
 			_onBeforeNextPage = null;
 			_onBeforeBackPage = null;
 			
-			onChange.dispatch(getCurrentPage(), _navDirection);
+			onChange.dispatch(getCurrentPage());
 		}
 		
 		/**
@@ -223,7 +222,7 @@
 		{
 			return _navDirection;
 		}
-		
+
 		/**
 		 * Seta a direcao da animacao da navegacao, 1 para avancar, e -1 para voltar.
 		 */
@@ -231,7 +230,7 @@
 		{
 			_navDirection = value;
 		}
-		
+
 		public function get onBeforeNextPage():Function
 		{
 			return _onBeforeNextPage;
