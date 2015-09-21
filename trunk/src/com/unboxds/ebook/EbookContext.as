@@ -1,7 +1,6 @@
 package com.unboxds.ebook
 {
 	import com.gaiaframework.api.Gaia;
-	import com.unboxds.ebook.Ebook;
 	import com.unboxds.ebook.model.DataController;
 	import com.unboxds.ebook.model.Nav;
 	import com.unboxds.ebook.model.Status;
@@ -9,10 +8,12 @@ package com.unboxds.ebook
 	import com.unboxds.utils.ArrayUtils;
 	import com.unboxds.utils.DebugPanel;
 	import com.unboxds.utils.Logger;
+
 	import flash.display.DisplayObjectContainer;
 	import flash.external.ExternalInterface;
+
 	import org.osflash.signals.ISignal;
-	
+
 	/**
 	 * Wrapper class to basic Ebook Class initialization.
 	 *
@@ -66,11 +67,11 @@ package com.unboxds.ebook
 			status.lessonStatus.userPoints = ArrayUtils.fillArray(status.lessonStatus.maxPoints.length, -1);
 			
 			//-- start ebook params
-			dataController.enableAlerts = data.config.@enableAlerts == "true" ? true : false;
-			dataController.isConsultMode = data.config.@consultMode == "true" ? true : false;
+			dataController.enableAlerts = data.config.@enableAlerts == "true";
+			dataController.isConsultMode = data.config.@consultMode == "true";
 			dataController.dataServiceType = data.config.@dataServiceType;
-			dataController.scormReplaceDoubleQuotes = (data.config.@scormReplaceDoubleQuotes == "true") ? true : false;
-			dataController.enableDebugPanel = data.config.@enableDebugPanel == "true" ? true : false;
+			dataController.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
+			dataController.enableDebugPanel = data.config.@enableDebugPanel == "true";
 			
 			//-- start debug panel
 			if (dataController.enableDebugPanel)
@@ -82,7 +83,7 @@ package com.unboxds.ebook
 			}
 		}
 		
-		private function navHandler(page:PageData, navDirection:int):void
+		private function navHandler(page:PageData):void
 		{
 			Logger.log(page.toString());
 			
@@ -101,7 +102,7 @@ package com.unboxds.ebook
 		{
 			_onComplete = value;
 		}
-	
+
 	}
 
 }
