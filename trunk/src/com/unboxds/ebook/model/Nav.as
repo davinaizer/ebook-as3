@@ -3,8 +3,9 @@
 	import com.unboxds.ebook.Ebook;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.utils.Logger;
+
 	import org.osflash.signals.Signal;
-	
+
 	public class Nav
 	{
 		private var model:NavModel;
@@ -49,7 +50,7 @@
 			_navDirection = 1;
 			
 			_modPagesCount = [];
-			for (var i:int = 0; i < pages.length; i++) 
+			for (var i:int = 0; i < pages.length; i++)
 				_modPagesCount.push(pages[i].length);
 			
 			Logger.log(">>>> Navigation Statistics <<<<");
@@ -116,7 +117,7 @@
 		 * Sempre que for ter algum evento de navegacao, chamar esse metodo, que
 		 * alem de navegar para a pagina desejada, também atualiza o index para
 		 * correção da navegacao linear.
-		 * @param	pg - nome da pagina para onde irá se navegar.
+		 * @param    pg - nome da pagina para onde irá se navegar.
 		 */
 		public function navigateTo(pg:String):void
 		{
@@ -126,8 +127,8 @@
 		
 		/**
 		 * Navega para uma página em especifico, determinada por modulo e pagina.
-		 * @param	module - numero do modulo a ser navegado.
-		 * @param	page - numero da pagina a ser navegada.
+		 * @param    module - numero do modulo a ser navegado.
+		 * @param    page - numero da pagina a ser navegada.
 		 */
 		public function navigateToIndex(module:int, page:int):void
 		{
@@ -150,7 +151,7 @@
 		
 		/**
 		 * Navega para uma página em especifico, determinada pelo indice da pagina.
-		 * @param	index  numero da pagina a ser navegada.
+		 * @param    index  numero da pagina a ser navegada.
 		 */
 		public function navigateToPageIndex(index:int):void
 		{
@@ -201,7 +202,7 @@
 					status.maxModule = status.currentModule;
 					
 					if (status.currentPage != status.maxPage)
-						status.maxPage = (status.currentPage >= pages[status.maxModule].length) ?  pages[status.maxModule].length - 1 : status.currentPage;
+						status.maxPage = (status.currentPage >= pages[status.maxModule].length) ? pages[status.maxModule].length - 1 : status.currentPage;
 				}
 				
 				if (status.currentModule == status.maxModule && status.currentPage > status.maxPage)
@@ -291,12 +292,12 @@
 			_onChange = value;
 		}
 		
-		public function get modPagesCount():Array 
+		public function get modPagesCount():Array
 		{
 			return _modPagesCount;
 		}
 		
-		public function set modPagesCount(value:Array):void 
+		public function set modPagesCount(value:Array):void
 		{
 			_modPagesCount = value;
 		}
@@ -329,7 +330,7 @@
 			
 			return null;
 		}
-	
+
 	}
 
 }

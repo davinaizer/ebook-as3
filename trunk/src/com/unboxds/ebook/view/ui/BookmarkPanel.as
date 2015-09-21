@@ -2,6 +2,7 @@ package com.unboxds.ebook.view.ui
 {
 	import assets.BookmarkPanelSymbol;
 	import assets.buttons.btBookmarkItem;
+
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.Ebook;
 	import com.unboxds.ebook.model.ContentParser;
@@ -9,15 +10,15 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
-	import com.unboxds.ebook.view.ui.ContentObject;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.StringUtils;
+
 	import flash.display.DisplayObject;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.StyleSheet;
 	import flash.text.TextField;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX
@@ -200,7 +201,7 @@ package com.unboxds.ebook.view.ui
 			if (hasInit)
 				list.update(index);
 		}
-	
+
 	}
 
 }

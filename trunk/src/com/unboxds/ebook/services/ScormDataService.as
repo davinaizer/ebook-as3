@@ -4,9 +4,10 @@ package com.unboxds.ebook.services
 	import com.unboxds.ebook.model.vo.EbookData;
 	import com.unboxds.ebook.model.vo.ScormParams;
 	import com.unboxds.utils.Logger;
+
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -152,7 +153,7 @@ package com.unboxds.ebook.services
 		{
 			return _onSaved;
 		}
-	
+
 	}
 
 }

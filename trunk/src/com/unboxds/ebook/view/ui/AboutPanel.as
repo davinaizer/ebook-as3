@@ -1,11 +1,12 @@
 package com.unboxds.ebook.view.ui
 {
 	import assets.AboutPanelSymbol;
-	import com.unboxds.ebook.view.ui.ContentObject;
+
 	import com.unboxds.utils.Logger;
+
 	import flash.events.Event;
 	import flash.text.StyleSheet;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015
@@ -44,7 +45,7 @@ package com.unboxds.ebook.view.ui
 			target = view;
 			parseContent();
 		}
-	
+
 	}
 
 }

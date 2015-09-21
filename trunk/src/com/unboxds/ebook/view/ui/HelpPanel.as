@@ -1,15 +1,16 @@
 package com.unboxds.ebook.view.ui
 {
 	import assets.HelpPanelSymbol;
-	import com.greensock.events.TweenEvent;
+
 	import com.greensock.TweenMax;
-	import com.unboxds.ebook.view.ui.UIPanel;
+	import com.greensock.events.TweenEvent;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TweenParser;
+
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.StyleSheet;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015

@@ -1,16 +1,14 @@
 ﻿package com.unboxds.ebook.model
 {
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.Nav;
-	import com.unboxds.ebook.model.SessionTimer;
-	import com.unboxds.ebook.model.Status;
 	import com.unboxds.ebook.model.vo.EbookData;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.SolDataService;
 	import com.unboxds.utils.Logger;
+
 	import flash.external.ExternalInterface;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -240,15 +238,15 @@
 			
 			switch (functionName)
 			{
-			case "save": 
-				save();
-				break;
-			
-			case "exit": 
-				closeBrowser();
-				break;
-			
-			default: 
+				case "save":
+					save();
+					break;
+
+				case "exit":
+					closeBrowser();
+					break;
+
+				default:
 			}
 		}
 		

@@ -1,7 +1,7 @@
 ﻿package com.unboxds.ebook.model
 {
 	import com.unboxds.utils.NumberUtils;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -9,7 +9,6 @@
 	public class SessionTimer
 	{
 		private static var startTime:Number;
-		private static var endTime:Number;
 		private static var sessionTime:Number;
 		private static var d:Date;
 		
@@ -65,7 +64,7 @@
 			
 			return seconds;
 		}
-	
+
 	}
 
 }

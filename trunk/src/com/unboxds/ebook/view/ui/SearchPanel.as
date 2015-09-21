@@ -1,15 +1,15 @@
 ﻿package com.unboxds.ebook.view.ui
 {
-	import assets.buttons.btSearchResult;
 	import assets.SearchPanelSymbol;
 	import assets.TickerSymbol;
+	import assets.buttons.btSearchResult;
 
 	import com.chewtinfoil.utils.StringUtils;
+	import com.greensock.TweenMax;
 	import com.greensock.events.LoaderEvent;
 	import com.greensock.events.TweenEvent;
 	import com.greensock.loading.LoaderMax;
 	import com.greensock.loading.XMLLoader;
-	import com.greensock.TweenMax;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.Ebook;
 	import com.unboxds.ebook.model.events.SearchEvent;
@@ -138,7 +138,8 @@
 				onComplete: completeHandler,
 				onError: errorHandler
 			});
-			for (var i:int = 0; i < pageCount; ++i) {
+			for (var i:int = 0; i < pageCount; ++i)
+			{
 				if (pages[i].contentURL != null && pages[i].contentURL != "")
 					queue.append(new XMLLoader(pages[i].contentURL, {name: "contentXML_" + i, maxConnections: 3}));
 			}
@@ -149,15 +150,18 @@
 		{
 			Logger.log("SearchPanel.search > keyword : " + keyword);
 
-			if (keyword != "" && keyword != null) {
+			if (keyword != "" && keyword != null)
+			{
 				list.destroy();
 				iniTimer = getTimer();
 
 				var hasFound:Boolean = false;
-				for (var i:int = 0; i < pageCount; ++i) {
+				for (var i:int = 0; i < pageCount; ++i)
+				{
 					var str:String = StringUtil.cleanSpecialChars(contentBuffer[i].toLowerCase());
 					var foundStr:int = str.search(keyword);
-					if (foundStr > -1) {
+					if (foundStr > -1)
+					{
 						hasFound = true;
 						summary = parseSummary(contentBuffer[i], keyword);
 						insert(pages[i]);
@@ -198,13 +202,15 @@
 			btnNext.setEnabled(isNextEnabled);
 			btnBack.setEnabled(isBackEnabled);
 
-			if (scrollBar) {
+			if (scrollBar)
+			{
 				scrollBar.steps = listP.totalPages;
 				scrollBar.current = listP.currentPage + 1;
 			}
 
 			//-- RESULT REPORT
-			if (list.totalItems > 0) {
+			if (list.totalItems > 0)
+			{
 				firstItem = list.maxItensPerPage * list.currentPage + 1;
 				lastItem = (list.maxItensPerPage * (list.currentPage + 1));
 				lastItem = lastItem > list.totalItems ? list.totalItems : lastItem;
@@ -212,7 +218,8 @@
 
 				statusTxt.htmlText = com.unboxds.utils.StringUtils.parseTextVars(statusStr, this);
 			}
-			else {
+			else
+			{
 				statusTxt.text = com.unboxds.utils.StringUtils.parseTextVars(statusNotFoundStr, this);
 			}
 		}
@@ -220,16 +227,20 @@
 		private function invalidate():void
 		{
 			//TODO Remove EbookFramework dependecy
-			if (Ebook.getInstance().getDataController().isConsultMode == false) {
+			if (Ebook.getInstance().getDataController().isConsultMode == false)
+			{
 				var maxPageIndex:int = Ebook.getInstance().getNav().getUserLastPage().index;
-				for (var i:int = 0; i < list.totalItems; i++) {
+				for (var i:int = 0; i < list.totalItems; i++)
+				{
 					var btn:SimpleButton = list.getButtonByIndex(i);
 					btn.setEnabled(true);
 
-					if (list.listButtonsKeys[i] > maxPageIndex) {
+					if (list.listButtonsKeys[i] > maxPageIndex)
+					{
 						btn.setEnabled(false);
 					}
-					else {
+					else
+					{
 						var ticker:Sprite = new TickerSymbol();
 						btn.addChild(ticker);
 					}
@@ -243,10 +254,12 @@
 			var kArrLen:int = kArr.length;
 			var tmpStr:String = "";
 
-			for (var i:int = 0; i < kArrLen; ++i) {
+			for (var i:int = 0; i < kArrLen; ++i)
+			{
 				var str:String = StringUtil.cleanSpecialChars(kArr[i].toLowerCase());
 				var foundStr:int = str.search(keyword);
-				if (foundStr > -1) {
+				if (foundStr > -1)
+				{
 					var fstInd:int = 0;
 					var lstInd:int = 0;
 					var strLen:int = summaryLength;
@@ -258,15 +271,18 @@
 					fstInd = foundStr - strLen;
 
 					//-- find word begining
-					while (fstInd >= 0) {
-						if (str.charAt(fstInd) == " " || str.charAt(fstInd) == ".") {
+					while (fstInd >= 0)
+					{
+						if (str.charAt(fstInd) == " " || str.charAt(fstInd) == ".")
+						{
 							fstInd++;
 							break;
 						}
 						fstInd--;
 					}
 
-					while (lstInd <= str.length) {
+					while (lstInd <= str.length)
+					{
 						if (str.charAt(lstInd) == " " || str.charAt(lstInd) == ".")
 							break;
 						lstInd++;
@@ -307,10 +323,12 @@
 		private function navHandler(e:MouseEvent):void
 		{
 			var src:DisplayObject = e.target as DisplayObject;
-			if (src == btnNext) {
+			if (src == btnNext)
+			{
 				list.nextPage();
 			}
-			else if (src == btnBack) {
+			else if (src == btnBack)
+			{
 				list.backPage();
 			}
 		}
@@ -319,9 +337,11 @@
 		{
 			Logger.log("SearchPanel.completeHandler!");
 
-			for (var i:int = 0; i < pages.length; ++i) {
+			for (var i:int = 0; i < pages.length; ++i)
+			{
 				var xml:XML = LoaderMax.getContent("contentXML_" + i);
-				if (xml != null) {
+				if (xml != null)
+				{
 					//-- remove non-content nodes
 					delete xml..tween.*;
 					delete xml..vars.*;

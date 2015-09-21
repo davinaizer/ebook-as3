@@ -1,7 +1,7 @@
 ﻿package com.unboxds.ebook.model
 {
 	import com.unboxds.ebook.model.vo.CustomData;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -235,6 +235,6 @@
 		{
 			_endDate = value;
 		}
-	
+
 	}
 }

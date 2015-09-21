@@ -1,18 +1,19 @@
 package com.unboxds.ebook.view.ui
 {
 	import assets.NavbarSymbol;
+
 	import com.greensock.TweenMax;
 	import com.hybrid.ui.ToolTip;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.button.ToggleButton;
-	import com.unboxds.ebook.view.ui.SearchBox;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TweenParser;
+
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.StyleSheet;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX Learning Experience
@@ -189,7 +190,7 @@ package com.unboxds.ebook.view.ui
 		{
 			return _searchBox;
 		}
-	
+
 	}
 
 }

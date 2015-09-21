@@ -1,10 +1,10 @@
 ﻿package com.unboxds.ebook.model
 {
+	import com.greensock.TweenLite;
 	import com.greensock.events.LoaderEvent;
-	import com.greensock.loading.display.ContentDisplay;
 	import com.greensock.loading.ImageLoader;
 	import com.greensock.loading.LoaderMax;
-	import com.greensock.TweenLite;
+	import com.greensock.loading.display.ContentDisplay;
 	import com.hybrid.ui.ToolTip;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.components.FixedTooltip;
@@ -14,18 +14,19 @@
 	import com.unboxds.utils.ObjectUtils;
 	import com.unboxds.utils.StringUtils;
 	import com.unboxds.utils.TextFieldUtils;
+
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.events.TextEvent;
 	import flash.geom.Point;
-	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	import flash.text.StyleSheet;
 	import flash.text.TextField;
 	import flash.utils.getQualifiedClassName;
-	
+
 	/**
 	 * Helper class to build the content read from a XML
 	 * <p>To be parsed the content must use "content" tag and the attribute "type" must be set accordingly.</p>
@@ -66,35 +67,35 @@
 				
 				switch (type)
 				{
-					case ContentType.TEXTFIELD: 
+					case ContentType.TEXTFIELD:
 						parseTextfield(cXML);
 						break;
 					
-					case ContentType.LINK: 
+					case ContentType.LINK:
 						parseLinks(cXML);
 						break;
 					
-					case ContentType.TOOLTIP: 
+					case ContentType.TOOLTIP:
 						parseTooltip(cXML);
 						break;
 					
-					case ContentType.SIMPLEBUTTON: 
+					case ContentType.SIMPLEBUTTON:
 						parseSimpleButton(cXML);
 						break;
 					
-					case ContentType.IMAGE: 
+					case ContentType.IMAGE:
 						parseImage(cXML);
 						break;
 					
-					case ContentType.NAVIGATION: 
+					case ContentType.NAVIGATION:
 						parseNav(cXML);
 						break;
 					
-					case ContentType.VARIABLES: 
+					case ContentType.VARIABLES:
 						parseVars(cXML);
 						break;
 					
-					default: 
+					default:
 						break;
 				}
 			}
@@ -145,33 +146,6 @@
 			}
 		}
 		
-		/*		//MOVE TO ObjectUtils AFTER TESTING
-		   public static function applyAccessibility(target:Object, vars:Object):void
-		   {
-		   var accessProps:AccessibilityProperties = new AccessibilityProperties();
-		   for (var i:String in vars)
-		   {
-		   if (i in accessProps)
-		   {
-		   accessProps[i] = vars[i];
-		   Logger.log("Setting var '" + i + "' @ " + target);
-		   } else {
-		   Logger.log("ObjectUtils.applyAccessibility >> property " + i + " does not exist in AccessibilityProperties class.");
-		   }
-		   }
-		
-		   if ("accessibilityProperties" in target)
-		   {
-		   target["accessibilityProperties"] = accessProps;
-		   Logger.log("Accessibility properties successfully enabled for object : " + target);
-		   }
-		   else
-		   {
-		   Logger.log("ObjectUtils.applyAccessibility >> property 'accessibilityProperties' not found @ " + target);
-		   }
-		   }
-		 //MOVE TO ObjectUtils AFTER TESTING*/
-		
 		private function parseLinks(xmlNode:XML):void
 		{
 			var container:DisplayObjectContainer = _target.getChildByName(xmlNode.@target) as DisplayObjectContainer;
@@ -210,9 +184,9 @@
 				_tooltip.stylesheet = _stylesheet;
 				_tooltip.titleEmbed = true;
 				_tooltip.contentEmbed = true;
-				_tooltip.autoSize = (xmlNode.@autoSize == "true") ? true : false;
+				_tooltip.autoSize = (xmlNode.@autoSize == "true");
 				_tooltip.align = (xmlNode.@align.toString().length == 0) ? "left" : xmlNode.@align;
-				_tooltip.hook = (xmlNode.@hook == "false") ? false : true;
+				_tooltip.hook = (xmlNode.@hook == "false");
 				_tooltip.hookSize = xmlNode.@hookSize.toString().length == 0 ? 25 : parseInt(xmlNode.@hookSize);
 				_tooltip.cornerRadius = xmlNode.@cornerRadius.toString().length == 0 ? 10 : parseInt(xmlNode.@cornerRadius);
 				_tooltip.showDelay = xmlNode.@showDelay.toString().length == 0 ? 0 : parseInt(xmlNode.@showDelay);
@@ -289,7 +263,12 @@
 				container = _target;
 			
 			var itemCount:int = xmlNode.content.length();
-			imgLoader = new LoaderMax({name: _target.name + "_imageLoader", onComplete: onLoadImage, onError: errorHandler, itemCount: itemCount});
+			imgLoader = new LoaderMax({
+				name: _target.name + "_imageLoader",
+				onComplete: onLoadImage,
+				onError: errorHandler,
+				itemCount: itemCount
+			});
 			
 			for (var i:int = 0; i < itemCount; i++)
 			{
@@ -300,7 +279,13 @@
 				
 				if (container != null)
 				{
-					imgLoader.append(new ImageLoader(imgURL, {name: "image_" + i, container: imgContainer, x: pos.x, y: pos.y, alpha: 0}));
+					imgLoader.append(new ImageLoader(imgURL, {
+						name: "image_" + i,
+						container: imgContainer,
+						x: pos.x,
+						y: pos.y,
+						alpha: 0
+					}));
 					
 					//-- check for custom config
 					if ("vars" in xmlNode.content[i])
@@ -332,11 +317,11 @@
 				
 				switch (type)
 				{
-					case "onBeforeNextPage": 
+					case "onBeforeNextPage":
 						Ebook.getInstance().getNav().onBeforeNextPage = this.onBeforeNextPage;
 						break;
 					
-					case "onBeforeBackPage": 
+					case "onBeforeBackPage":
 						Ebook.getInstance().getNav().onBeforeBackPage = this.onBeforeBackPage;
 						break;
 				}
@@ -434,18 +419,18 @@
 			var linkType:String = urlStr.split("://")[0];
 			switch (linkType)
 			{
-				case "http": 
-				case "https": 
-				case "ftp": 
+				case "http":
+				case "https":
+				case "ftp":
 					break;
 				
-				case "file": 
+				case "file":
 					urlStr = urlStr.split("file://")[1];
 					break;
 				
-				case "tooltip": 
+				case "tooltip":
 					break;
-				default: 
+				default:
 					break;
 			}
 			
@@ -500,7 +485,7 @@
 		{
 			_tooltip = value;
 		}
-	
+
 	}
 
 }

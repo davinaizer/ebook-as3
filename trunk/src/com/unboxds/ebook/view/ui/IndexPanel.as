@@ -1,9 +1,10 @@
 package com.unboxds.ebook.view.ui
 {
-	import assets.buttons.btMenuItem;
-	import assets.buttons.btSubmenuItem;
 	import assets.IndexPanelSymbol;
 	import assets.TickerSymbol;
+	import assets.buttons.btMenuItem;
+	import assets.buttons.btSubmenuItem;
+
 	import com.unboxds.button.IButton;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.Ebook;
@@ -13,14 +14,14 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
-	import com.unboxds.ebook.view.ui.ContentObject;
 	import com.unboxds.utils.Logger;
+
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.StyleSheet;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -260,7 +261,7 @@ package com.unboxds.ebook.view.ui
 				for (i = 0; i < listP.totalItems; i++)
 				{
 					firstPage = Ebook.getInstance().getNav().getPageByName(data.content[i].@pageID);
-					lastPage  = "@lastPageID" in data.content[i] ? Ebook.getInstance().getNav().getPageByName(data.content[i].@lastPageID) : firstPage;
+					lastPage = "@lastPageID" in data.content[i] ? Ebook.getInstance().getNav().getPageByName(data.content[i].@lastPageID) : firstPage;
 					
 					btn = listP.getButtonByIndex(i);
 					
@@ -281,7 +282,7 @@ package com.unboxds.ebook.view.ui
 				}
 			}
 		}
-	
+
 	}
 
 }

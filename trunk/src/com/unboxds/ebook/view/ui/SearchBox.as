@@ -3,11 +3,10 @@ package com.unboxds.ebook.view.ui
 	import assets.SearchBoxSymbol;
 
 	import com.chewtinfoil.utils.StringUtils;
-	import com.greensock.easing.Quint;
 	import com.greensock.TweenLite;
+	import com.greensock.easing.Quint;
 	import com.unboxds.button.ToggleButton;
 	import com.unboxds.ebook.model.events.SearchEvent;
-	import com.unboxds.ebook.view.ui.UIPanel;
 	import com.unboxds.utils.Logger;
 
 	import flash.display.DisplayObject;
@@ -18,12 +17,11 @@ package com.unboxds.ebook.view.ui
 	import flash.events.MouseEvent;
 	import flash.text.StyleSheet;
 	import flash.text.TextField;
-	import flash.text.TextFieldType;
 	import flash.ui.Keyboard;
 	import flash.utils.setTimeout;
 
 	import net.tw.util.StringUtil;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -111,18 +109,22 @@ package com.unboxds.ebook.view.ui
 		
 		private function keyboardHandler(e:KeyboardEvent):void
 		{
-			if (e.keyCode == Keyboard.ENTER) {
+			if (e.keyCode == Keyboard.ENTER)
+			{
 				//TODO REFACTOR CODE
-				if (_hasSearched) {
+				if (_hasSearched)
+				{
 					if (searchTxt.text != keyword)
 						validateSearch();
 				}
-				else {
+				else
+				{
 					validateSearch();
 				}
 
 			}
-			else if (e.keyCode == Keyboard.ESCAPE) {
+			else if (e.keyCode == Keyboard.ESCAPE)
+			{
 				this.close();
 			}
 
@@ -136,11 +138,15 @@ package com.unboxds.ebook.view.ui
 		{
 			Logger.log("SearchBox.searchHandler > e: " + e.target.name);
 			
-			if (e.target == searchBtn) {
-				if (_isOpen) {
+			if (e.target == searchBtn)
+			{
+				if (_isOpen)
+				{
 					//TODO REFACTOR CODE
-					if (_hasSearched) {
-						if (searchTxt.text != keyword) {
+					if (_hasSearched)
+					{
+						if (searchTxt.text != keyword)
+						{
 							validateSearch();
 						}
 						else if (searchBtn.isToggled)
@@ -148,11 +154,13 @@ package com.unboxds.ebook.view.ui
 							close();
 						}
 					}
-					else {
+					else
+					{
 						validateSearch();
 					}
 				}
-				else {
+				else
+				{
 					this.open();
 				}
 			}
@@ -163,7 +171,8 @@ package com.unboxds.ebook.view.ui
 			var hasMinLength:Boolean = searchTxt.text.length >= minChars;
 			var hasChanged:Boolean = searchTxt.text != keyword;
 			
-			if (hasMinLength && hasChanged) {
+			if (hasMinLength && hasChanged)
+			{
 				_hasSearched = true;
 				
 				if (!searchBtn.isToggled)
@@ -176,7 +185,8 @@ package com.unboxds.ebook.view.ui
 		
 		private function searchFocusHandler(e:FocusEvent):void
 		{
-			switch (e.type) {
+			switch (e.type)
+			{
 				case FocusEvent.FOCUS_IN:
 					if (searchTxt.text == _title)
 						searchTxt.text = "";
@@ -185,7 +195,8 @@ package com.unboxds.ebook.view.ui
 					break;
 				
 				case FocusEvent.FOCUS_OUT:
-					if (searchTxt.text == "") {
+					if (searchTxt.text == "")
+					{
 						close();
 					}
 					break;
@@ -201,7 +212,8 @@ package com.unboxds.ebook.view.ui
 		{
 			Logger.log("SearchBox.dispatchKeyword");
 			
-			if (searchTxt.text != keyword && searchTxt.text != "") {
+			if (searchTxt.text != keyword && searchTxt.text != "")
+			{
 				keyword = searchTxt.text;
 				keyword = StringUtil.cleanSpecialChars(keyword.toLowerCase());
 				keyword = StringUtils.removeExtraWhitespace(keyword);
@@ -224,7 +236,8 @@ package com.unboxds.ebook.view.ui
 		{
 			Logger.log("SearchBox.open");
 			
-			if (!_isOpen) {
+			if (!_isOpen)
+			{
 				_isOpen = true;
 				
 				searchBoxBg.scaleX = 0;
@@ -243,7 +256,8 @@ package com.unboxds.ebook.view.ui
 		{
 			Logger.log("SearchBox.close");
 			
-			if (_isOpen) {
+			if (_isOpen)
+			{
 				_isOpen = false;
 				_hasSearched = false;
 				keyword = "";

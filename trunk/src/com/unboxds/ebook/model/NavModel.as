@@ -2,7 +2,7 @@ package com.unboxds.ebook.model
 {
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.utils.Logger;
-	
+
 	/**
 	 * ...
 	 * @author
@@ -71,7 +71,7 @@ package com.unboxds.ebook.model
 		{
 			return _pageQueue;
 		}
-	
+
 	}
 
 }

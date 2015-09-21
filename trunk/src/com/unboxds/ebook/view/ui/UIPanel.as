@@ -1,9 +1,10 @@
 package com.unboxds.ebook.view.ui
 {
 	import flash.text.StyleSheet;
+
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
-	
+
 	/**
 	 * ...
 	 * @author Davi Naizer @ UNBOX Learning Experience
@@ -62,7 +63,7 @@ package com.unboxds.ebook.view.ui
 		{
 			_isOpen = value;
 		}
-	
+
 	}
 
 }

@@ -1,17 +1,18 @@
 package com.unboxds.ebook.view.ui
 {
+	import com.greensock.TweenLite;
 	import com.greensock.plugins.AutoAlphaPlugin;
 	import com.greensock.plugins.TweenPlugin;
-	import com.greensock.TweenLite;
 	import com.unboxds.ebook.model.ContentParser;
-	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TweenParser;
+
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.text.StyleSheet;
+
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015
@@ -109,7 +110,7 @@ package com.unboxds.ebook.view.ui
 		{
 			return _target;
 		}
-	
+
 	}
 
 }

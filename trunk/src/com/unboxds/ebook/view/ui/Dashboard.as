@@ -1,24 +1,21 @@
 package com.unboxds.ebook.view.ui
 {
 	import assets.DashboardSymbol;
-	import com.gaiaframework.api.Gaia;
-	import com.greensock.events.TweenEvent;
+
 	import com.greensock.TweenLite;
 	import com.greensock.TweenMax;
-	import com.hybrid.ui.ToolTip;
+	import com.greensock.events.TweenEvent;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.model.vo.PageData;
-	import com.unboxds.ebook.view.ui.BookmarkPanel;
-	import com.unboxds.ebook.view.ui.ContentObject;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TweenParser;
+
 	import flash.display.DisplayObject;
-	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.text.StyleSheet;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -41,12 +38,10 @@ package com.unboxds.ebook.view.ui
 		private var uiObjects:Vector.<DisplayObject>;
 		private var panels:Vector.<ContentObject>;
 		private var simpleButtons:Vector.<SimpleButton>;
-		private var tooltip:ToolTip;
-		
+
 		private var indexPanel:IndexPanel;
 		private var bookmarkPanel:BookmarkPanel;
 		private var aboutPanel:AboutPanel;
-		private var tooltipData:XMLList;
 		private var openTween:TweenMax;
 		
 		public function Dashboard(contentXML:XML = null, stylesheet:StyleSheet = null)
@@ -146,19 +141,19 @@ package com.unboxds.ebook.view.ui
 				
 				switch (srcName)
 				{
-					case "indexBtn": 
+					case "indexBtn":
 						showPanel(0);
 						break;
 					
-					case "bookmarksBtn": 
+					case "bookmarksBtn":
 						showPanel(1);
 						break;
 					
-					case "aboutBtn": 
+					case "aboutBtn":
 						showPanel(2);
 						break;
 					
-					default: 
+					default:
 						break;
 				}
 			}
@@ -237,7 +232,7 @@ package com.unboxds.ebook.view.ui
 		{
 			bookmarkPanel.remove(page);
 		}
-	
+
 	}
 
 }
