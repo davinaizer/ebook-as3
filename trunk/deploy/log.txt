@@ -2,17 +2,7 @@
 build-swc-lib:
      [echo] Generating SWC Library
      [exec] Loading configuration file C:\Users\Naizer\AppData\Local\FlashDevelop\Apps\flexairsdk\4.6.0+18.0.0\frameworks\flex-config.xml
-     [exec] D:\Projetos\SVN_REPOS\UNBOX\ebookFramework\trunk\ebookFramework\src\com\unboxds\ebook\model\ContentParser.as(494): col: 33 Error: Type was not found or was not a compile-time constant: ToolTip.
-     [exec] 
-     [exec] 		public function get tooltip():ToolTip
-     [exec] 		                              ^
-     [exec] 
-     [exec] D:\Projetos\SVN_REPOS\UNBOX\ebookFramework\trunk\ebookFramework\src\com\unboxds\ebook\model\ContentParser.as(499): col: 37 Error: Type was not found or was not a compile-time constant: ToolTip.
-     [exec] 
-     [exec] 		public function set tooltip(value:ToolTip):void
-     [exec] 		                                  ^
-     [exec] 
-     [exec] Result: 2
+     [exec] D:\Projetos\SVN_REPOS\UNBOX\ebookFramework\trunk\ebookFramework\deploy\eBookAS_v3.1.2.swc (94272 bytes)
 
 BUILD SUCCESSFUL
 Total time: 2 seconds
