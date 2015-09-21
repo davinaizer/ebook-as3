@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>UNBOX - AS3 Framework v3</title>
+	<style type="text/css">
+		/*hide from ie on mac\*/
+		html 
+		{
+			height: 100%;
+			overflow: hidden; /* Hides scrollbar in IE */
+		}
+		body 
+		{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #FFFFFF;
+		}
+		#flashcontent {}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript" src="js/SCORM_API_wrapper.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript">
+		var params = {
+			quality: "high",
+			scale: "noScale",
+			wmode: "window",
+			allowscriptaccess: "always",
+			bgcolor: "#FFFFFF"
+		};
+		var flashvars = {
+			siteXML: "xml/ebook_nav.xml"
+		};
+		var attributes = {
+			id: "flashcontent",
+			name: "flashcontent"
+		};
+		swfobject.embedSWF("Main.swf", "flashcontent", "1000", "600", "12.0", "expressInstall.swf", flashvars, params, attributes);
+	</script>
+</head>
+<body scroll="no">
+	<div id="flashcontent">
+		<!--SEO-->
+		<div id="noflash">
+			<p><strong>You need to upgrade your Flash Player</strong></p>			
+		</div>
+	</div>
+</body>
+</html>

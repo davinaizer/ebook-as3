@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>113</y>
+				<width>442</width>
+				<height>54</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitle">Título da Página</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>580</x>
+				<y>110</y>
+				<width>365</width>
+				<height>84</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="redTitle">Lorem ipsum dolor sit amet, consectetuer.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_2">
+			<vars>
+				<x>48</x>
+				<y>158</y>
+				<width>289</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitleComp">Complemento do título<br>da página</span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_3">
+			<vars>
+				<x>48</x>
+				<y>255</y>
+				<width>289</width>
+				<height>39</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="size20"><b><span class="ls0Halfn"><span class="leading4n">Subtítulo Lorem Ipsum Dolor</span></span></b></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_4">
+			<vars>
+				<x>720</x>
+				<y>252</y>
+				<width>230</width>
+				<height>90</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="quoteText">Citação lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_5">
+			<vars>
+				<x>49</x>
+				<y>295</y>
+				<width>287</width>
+				<height>91</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold">Texto em destaque lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_6">
+			<vars>
+				<x>720</x>
+				<y>332</y>
+				<width>230</width>
+				<height>29</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="quoteText"><span class="right"> – Nome, data.</span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_7">
+			<vars>
+				<x>49</x>
+				<y>393</y>
+				<width>288</width>
+				<height>101</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_8">
+			<vars>
+				<x>720</x>
+				<y>420</y>
+				<width>225</width>
+				<height>62</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageSubtitle2"><span class="darkGray">Subtítulo lorem ipsum dolor sit amet</span></span></p>]]>			
+			</body>
+		</content>
+		<content instanceName="text_9">
+			<vars>
+				<x>720</x>
+				<y>474</y>
+				<width>230</width>
+				<height>99</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold2"><span class="red">Texto em destaque lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span></p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<tween>
+		<tween type="from"
+			   target="img0"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<align>
+					<align>B</align>
+					<mode>OUTSIDE</mode>
+				</align>
+			</vars>
+		</tween>
+		
+		<tween type="from"
+			   target="img1"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<alpha>0</alpha>
+				<transformAroundCenter>
+					<scale>0.8</scale>
+				</transformAroundCenter>
+			</vars>
+		</tween>
+		
+		<tween type="from"
+			   target="img2"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>1.4</delay>
+				<alpha>0</alpha>
+			</vars>
+		</tween>
+	</tween>
+</data>

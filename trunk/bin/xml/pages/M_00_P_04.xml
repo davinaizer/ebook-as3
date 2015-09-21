@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>113</y>
+				<width>442</width>
+				<height>54</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitle">Título da Página</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>48</x>
+				<y>158</y>
+				<width>441</width>
+				<height>38</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitleComp">Complemento do título da página</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_2">
+			<vars>
+				<x>89</x>
+				<y>278</y>
+				<width>629</width>
+				<height>120</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="modSubtitle"><span class="size50"><span class="ls1n">Frase em destaque lorem ipsum dolor sit amet, consectetuer.</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_3">
+			<vars>
+				<x>48</x>
+				<y>473</y>
+				<width>422</width>
+				<height>72</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<tween>
+		<tween type="from"
+			   target="img0"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<align>
+					<align>R</align>
+					<mode>OUTSIDE</mode>
+				</align>
+			</vars>
+		</tween>
+		
+		<tween type="from"
+			   target="img1"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<alpha>0</alpha>
+				<transformAroundCenter>
+					<scale>0.8</scale>
+				</transformAroundCenter>
+			</vars>
+		</tween>
+	</tween>
+</data>

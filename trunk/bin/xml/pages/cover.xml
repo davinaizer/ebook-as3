@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>63</y>
+				<width>378</width>
+				<height>54</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="coverTitle">MetLife Seguros de Vida</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>48</x>
+				<y>108</y>
+				<width>324</width>
+				<height>38</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="coverTitle2">Chamada lorem ipsum dolor sit amet</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_2">
+			<vars>
+				<x>49</x>
+				<y>505</y>
+				<width>246</width>
+				<height>79</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="copyright">Todos os direitos reservados e protegidos pela Lei 9.610 de 19/02/1998 pertencem a MetLife. Não é permitida a comercialização, reprodução, transmissão, modificação, publicação ou distribuição, a qualquer título ou forma, de parte ou da íntegra do conteúdo deste material.</p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<content type="text" target="startBtn">
+		<content instanceName="labelTxt">
+			<body>
+				<![CDATA[<p class="btInit">Iniciar</p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<tween>
+		<tween
+			   id="startBtn"
+			   type="to"
+			   target="startBtn"
+			   duration="1"
+			   ease="Linear.easeNone">
+				<vars>
+					<tint>0xEDB02E</tint>
+					<!--<glowFilter>
+						<color>0xFF6666</color>
+						<alpha>1</alpha>
+						<blurX>16</blurX>
+						<blurY>16</blurY>
+						<strength>3</strength>
+					</glowFilter>-->
+					<yoyo>true</yoyo>
+					<repeat>-1</repeat>
+				</vars>
+		</tween>
+
+		
+		<tween type="from"
+			   target="img0"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<scaleX>0</scaleX>
+			</vars>
+		</tween>
+		
+		<tween type="from"
+			   target="startBtn"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<align>
+					<align>R</align>
+					<mode>OUTSIDE</mode>
+				</align>
+			</vars>
+		</tween>
+		
+	</tween>
+
+</data>

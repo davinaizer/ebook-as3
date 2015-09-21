@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebook title="Seguro de Vida" history="false" indexFirst="true" flow="cross" menu="false" preloader="Preloader.swf">
+
+	<!--
+		 DATACONFIG OPTIONS
+		 enableDebugPanel: true | false
+		 enableAlerts: true | false
+		 consultMode: true | false
+		 dataServiceType: SharedObject | SCORM
+		 scormReplaceDoubleQuotes: true | false
+	-->
+
+	<config consultMode="true" enableAlerts="false" dataServiceType="SCORM" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBook_AS3_V3">
+		<customData>
+			<maxPoints>
+				<![CDATA[]]>
+			</maxPoints>
+			<lessonStatus>
+				<![CDATA[]]>
+			</lessonStatus>
+		</customData>
+	</config>
+
+	<!-- NAVSTATUS ref: helpBtn, dashboardBtn, backBtn, bookmarkAddBtn -->
+	<page id="index" src="content/pages/IndexPage.swf" depth="bottom">
+		<asset id="fonts" src="assets/fonts.swf" preload="true" fonts="Univers,UniversBold,UniversItalic,Univers45Light,FrutigerBTRoman,FrutigerBTBold,MinionLT,Rockwell,RockwellBold,TradeGothicNo_2Bold" />
+		<asset id="styles" src="css/styles.css" preload="true" />
+
+		<page id="nav" src="content/pages/NavPage.swf" depth="top">
+			<asset id="contentXML" src="xml/ebook_ui.xml" />
+
+			<page id="cover" title="Capa" src="content/pages/CoverPage.swf" navbarStatus="00000" showProgress="false" pageTransitionIn="slideXIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+				<asset id="contentXML" src="xml/pages/cover.xml" />
+			</page>
+
+			<page id="module_00" src="content/pages/ModulePage.swf" depth="top">
+
+				<page id="M_00_P_00" src="content/pages/M_00_P_00.swf" title="Introdução" navbarStatus="11011" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_00_P_00.xml" />
+				</page>
+
+				<page id="M_00_P_01" src="content/pages/M_00_P_01.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_00_P_01.xml" />
+				</page>
+				<page id="M_00_P_02" src="content/pages/M_00_P_02.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_00_P_02.xml" />
+				</page>
+				<page id="M_00_P_03" src="content/pages/M_00_P_03.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_00_P_03.xml" />
+				</page>
+				<page id="M_00_P_04" src="content/pages/M_00_P_04.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_00_P_04.xml" />
+				</page>
+			</page>
+
+			<page id="module_01" src="content/pages/ModulePage.swf" depth="top">
+				<page id="M_01_P_00" src="content/pages/M_01_P_00.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_01_P_00.xml" />
+					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
+				</page>
+				<page id="M_01_P_01" src="content/pages/M_01_P_01.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_01_P_01.xml" />
+					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
+				</page>
+				<page id="M_01_P_02" src="content/pages/M_01_P_02.swf" title="Avaliação" navbarStatus="00000" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_01_P_02.xml" />
+					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
+				</page>
+				<page id="M_01_P_03" src="content/pages/M_01_P_03.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_01_P_03.xml" />
+					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
+				</page>
+			</page>
+
+			<page id="module_02" src="content/pages/ModulePage.swf" depth="top">
+				<page id="M_02_P_00" src="content/pages/M_02_P_00.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+					<asset id="contentXML" src="xml/pages/M_02_P_00.xml" />
+				</page>
+			</page>
+
+		</page>
+
+	</page>
+
+</ebook>

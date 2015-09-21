@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>96</y>
+				<width>114</width>
+				<height>26</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pageModTitle">CONCLUSÃO</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>48</x>
+				<y>113</y>
+				<width>442</width>
+				<height>54</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitle">Conclusão</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_2">
+			<vars>
+				<x>48</x>
+				<y>158</y>
+				<width>441</width>
+				<height>38</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p><span class="pageTitleComp">Complemento do título da página</span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_3">
+			<vars>
+				<x>49</x>
+				<y>379</y>
+				<width>165</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold"><span class="size12">Texto em destaque lorem ipsum dolor sit amet, consectetuer.</span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_4">
+			<vars>
+				<x>233</x>
+				<y>379</y>
+				<width>165</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold"><span class="size12"><span class="leading2n">Texto em destaque lorem ipsum dolor sit amet, consectetuer.</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_5">
+			<vars>
+				<x>417</x>
+				<y>379</y>
+				<width>165</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold"><span class="size12"><span class="leading2n">Texto em destaque lorem ipsum dolor sit amet, consectetuer.</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_6">
+			<vars>
+				<x>601</x>
+				<y>379</y>
+				<width>165</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold"><span class="size12"><span class="leading2n">Texto em destaque lorem ipsum dolor sit amet, consectetuer.</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_7">
+			<vars>
+				<x>785</x>
+				<y>379</y>
+				<width>165</width>
+				<height>61</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pBold"><span class="size12"><span class="leading2n">Texto em destaque lorem ipsum dolor sit amet, consectetuer.</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_8">
+			<vars>
+				<x>49</x>
+				<y>440</y>
+				<width>165</width>
+				<height>116</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_9">
+			<vars>
+				<x>233</x>
+				<y>440</y>
+				<width>165</width>
+				<height>116</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_10">
+			<vars>
+				<x>417</x>
+				<y>440</y>
+				<width>165</width>
+				<height>116</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_11">
+			<vars>
+				<x>601</x>
+				<y>440</y>
+				<width>165</width>
+				<height>116</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_12">
+			<vars>
+				<x>785</x>
+				<y>440</y>
+				<width>165</width>
+				<height>116</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p>Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<tween>
+		<tween type="from"
+			   target="img0"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<align>
+					<align>L</align>
+					<mode>OUTSIDE</mode>
+				</align>
+			</vars>
+		</tween>
+	</tween>
+
+</data>

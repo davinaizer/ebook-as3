@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+	<config scorePerExercise="10"
+			minScore="80"
+			maxTries="3"
+			randomizeExercises="true"
+			introPage="index/nav/module_01/M_01_P_01"
+			conclusionPage="index/nav/module_01/M_01_P_03"
+			numberOfQuestions="10"
+			keepHigherScore="false" />
+
+	<intro>
+		<state type="not_completed">
+			<title>
+				<![CDATA[<p class="instructionTitle">Orientações para a avaliação</p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="instructionText"><ul><li>Leia os enunciados com atenção.<br></li><li>Cada questão vale 10 pontos, a prova tem valor máximo de 100 pontos.<br></li><li>A nota mínima a ser alcançada é 80 e você terá três chances para alcançá-la. Se, ao final da 3ª chance você não alcançar 80, o treinamento será concluído e registrado com a nota da última tentativa.<br></li><li>Depois que você começar a avaliação, recomendamos que não saia do curso sem concluí-la. Se fizer isso, suas respostas serão apagadas e você precisará reiniciar a avaliação.<br></li><li>A nota atingida nesta avaliação será registrada no portal de treinamentos.<br></li><li>Se quiser continuar, clique em avançar e inicie a avaliação.<br></li><li>Se quiser parar e voltar em outro momento, feche a janela. Quando retornar, o treinamento começará do ponto onde parou.</li></ul></p><br>]]>
+			</body>
+		</state>
+
+		<state type="completed">
+			<title>
+				<![CDATA[]]>
+			</title>
+			<body>
+				<![CDATA[<p class="instructionText">Você já completou essa avaliação.<br>Clique no botão AVANÇAR para concluir o treinamento.</p>]]>
+			</body>
+		</state>
+
+		<state type="browse_mode">
+			<title>
+				<![CDATA[]]>
+			</title>
+			<body>
+				<![CDATA[<p class="instructionText">Você está no modo Consulta.<br><br>Para fazer a avaliação, você deve acessar o curso no modo Treinamento.</p>]]>
+			</body>
+		</state>
+	</intro>
+
+	<result>
+		<!--<feedback type="approved">
+			 <title>
+			 <![CDATA[<h5><span class="darkGray">{$userName}</span>, você acertou {$correctQuestions} de 10 questões, seu id é <span class="darkGray">{$userId}</span> e sua nota foi {$userScore}.</h5>]]>
+			 </title>
+			 <body>
+			 <![CDATA[<p class="pCondBold">O treinamento será concluído e registrado com esta nota.<br><br>Sempre que você desejar rever o conteúdo ou caso tenha dúvidas em algum tópico, acesse novamente o treinamento.<br><br>Para concluir o treinamento, clique no botão fechar do navegador.</p>]]>
+			 </body>
+			 </feedback>-->
+
+		<feedback type="approved">
+			<title>
+				<![CDATA[<p class="resultTitle"><span class="left">{$userName},<br>você acertou <span class="size40">{$correctQuestions}</span> de <span class="size40">10</span> questões e sua nota foi {$userScore}.</span></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="resultText"><span class="left">O treinamento será concluído e registrado com esta nota.<br><br>Sempre que você desejar rever o conteúdo ou caso tenha dúvidas em algum tópico, acesse novamente o treinamento.<br><br>Para concluir o treinamento, clique no botão avançar.</span></p>]]>
+			</body>
+		</feedback>
+
+		<feedback type="try_again">
+			<title>
+				<![CDATA[<p class="resultTitle"><span class="left">{$userName},<br>você acertou <span class="size40">{$correctQuestions}</span> de <span class="size40">10</span> questões.</span></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="resultText"><span class="left">A nota mínima a ser alcançada é {$minScore} e você tem mais {$triesLeft} chances para alcançá-la. Se, ao final da 3ª chance você não alcançar {$minScore}, o treinamento será concluído e registrado com a nota da última tentativa.<br><br>Caso tenha dúvidas em algum tópico, use o menu para acessar novamente o respectivo conteúdo.<br><br>Se preferir reiniciar a avaliação agora, clique no botão Avançar.</span></p>]]>
+			</body>
+		</feedback>
+
+		<feedback type="last_chance">
+			<title>
+				<![CDATA[<p class="resultTitle"><span class="left">{$userName},<br>você acertou <span class="size40">{$correctQuestions}</span> de <span class="size40">10</span> questões.</span></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="resultText"><span class="left">A nota mínima a ser alcançada é {$minScore} e você tem mais {$triesLeft} chance para alcançá-la. Se, ao final da 3ª chance você não alcançar {$minScore}, o treinamento será concluído e registrado com a nota da última tentativa.<br><br>Caso tenha dúvidas em algum tópico, use o menu para acessar novamente o respectivo conteúdo.<br><br>Se preferir reiniciar a avaliação agora, clique no botão Avançar.</span></p>]]>
+			</body>
+		</feedback>
+
+		<feedback type="not_approved">
+			<title>
+				<![CDATA[<p class="resultTitle"><span class="left">{$userName},<br>você acertou {$correctQuestions} de 10 questões e sua nota foi {$userScore}.</span></h3>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="resultText"><span class="left">Você não poderá mais refazer a avaliação. O treinamento será concluído e registrado com esta nota.<br><br>Se mesmo assim desejar rever o conteúdo, use o menu para encontrar os tópicos que deseja estudar.<br><br>Para concluir o treinamento, clique no botão avançar.</span></p>]]>
+			</body>
+		</feedback>
+	</result>
+
+	<exercises>
+		<!-- QUESTION 1 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">O Empresa Segura possui duas alternativas de contratação, uma com sete e outra com quatro opções de garantias. Dentre as opções a seguir, qual delas não faz parte das coberturas oferecidas?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Vendaval, danos elétricos, incêndio;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Roubo e/ou furto qualificado de bens;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Despesas perduráveis;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Furto simples.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 2 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">Qual a forma de pagamento das parcelas mensais do Empresa Segura?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">O pagamento pode ser parcelado em 1 + 11 vezes sem juros, somente com débito em conta corrente;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">O pagamento pode ser parcelado e pago via carnê;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">O pagamento precisa ser à vista, sem opção de parcelamento;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">O pagamento pode ser parcelado em 15 vezes sem juros, somente com opção de débito em conta corrente.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+
+		<!-- QUESTION 3 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">Qual deverá ser sua orientação ao cliente, caso ele entre em contato com você informando de um sinistro?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Entrar em contato com a Central de Atendimento Exclusiva HSBC Corretora;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Repassar todas as informações por telefone ao Promotor de Seguros, para que assim ele possa agilizar o processo para o cliente;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Enviar um formulário com o descritivo da ocorrência no seu e-mail, para que assim você possa agilizar o processo para o cliente;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Sempre entrar em contato direto com o Promotor de Seguros, para que assim ele possa transferir à Central de Atendimento Exclusiva HSBC Corretora.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 4 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">Qual é o limite máximo de garantia oferecido pelo Empresa Segura?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Até R$ 100.000,00;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Até R$ 300.000,00;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Até R$ 400.000,00;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Até R$ 500.000,00.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 5 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="2"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">O que você poderá fazer se os valores e as coberturas disponíveis no Empresa Segura não atenderem às necessidades do cliente?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Agradecê-lo pelo contato e mudar o foco na venda, oferecendo outros produtos a ele;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Oferecer opções mais flexíveis, disponíveis no plano Empresa Segura <span class="pItalic">Premium</span>;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Recomendá-lo ao Promotor de Seguros, que apresentará a melhor solução a ele;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Agradecê-lo pelo contato e finalizar a ligação.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 6 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">A recomendação do cliente ao Promotor de Seguros pode ocorrer de três maneiras: pessoalmente, por telefone ou por e-mail. <br>O que você poderá fazer se não houver atendimento presencial dos Promotores em sua região?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Não haverá possibilidade de finalizar a recomendação;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Em todas as regiões existe atendimento presencial do Promotor de Seguros;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Será necessário, você mesmo, finalizar o processo de venda do produto;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Encaminhar um e-mail para a chave “Cotação AUTOBENS”, informando no campo do assunto: “Recomendação: Empresa Segura”. </p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 7 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">Durante o atendimento, pode acontecer de o cliente apresentar algumas objeções para não adquirir o Empresa Segura.<br>Assinale, dentre as opções a seguir, a alternativa que mostra um bom argumento para contrapor uma objeção.</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">O produto é uma ótima oportunidade para adquirir uma proteção abrangente com um preço acessível e com toda a solidez da marca HSBC;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Situações inesperadas podem surgir em qualquer lugar, a qualquer momento;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">O produto oferece segurança e tranquilidade ao negócio do cliente;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Todas as alternativas estão corretas. </p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 8 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="3"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">No fluxo de venda do produto Empresa Segura, quem é responsável por efetivar a proposta e concluir a venda?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">O Promotor de Seguros;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">O RM;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">O atendente da Central de Atendimento Exclusiva HSBC Corretora;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Nenhuma das alternativas está correta. </p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 9 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="1"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">O que acorre após a concretização da venda?</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">O RM precisa entrar em contato com o cliente, agradecendo pela concretização da venda;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">O RM receberá um <span class="pItalic">feedback</span> do Promotor de Seguros, para saber se a venda foi ou não concretizada;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">O RM precisará enviar um e-mail ao Promotor de Seguros, solicitando feedback sobre a venda;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">O RM receberá uma notificação em seu Diário de mesa. </p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+		<!-- QUESTION 10 -->
+		<content type="com.unboxds.ebook.components::MultiQuizTint">
+			<config>
+				<view classDef="QuizView"
+					  x="48"
+					  y="113" />
+				<alternatives autoArrange="false"
+							  spacing="10"
+							  randomize="false"
+							  correct="1"
+							  showIndex="false"
+							  indexType="letter" />
+			</config>
+
+			<question x="0"
+					  y="0"
+					  w="903"
+					  h="49">
+				<content>
+					<![CDATA[<p class="quizTitle">“O Seguro garante a edificação, os anexos e todo o conteúdo da empresa, como maquinários, móveis, equipamentos e instalações de força, luz e água”. Esta afirmação é:</p>]]>
+				</content>
+			</question>
+
+			<options className="assets.buttons.QuestionButton">
+				<content id="0">
+					<![CDATA[<p class="quizAltReg">Falsa, pois o seguro não garante maquinários e móveis;</p>]]>
+				</content>
+
+				<content id="1">
+					<![CDATA[<p class="quizAltReg">Verdadeira;</p>]]>
+				</content>
+
+				<content id="2">
+					<![CDATA[<p class="quizAltReg">Falsa, pois não é possível garantir a os equipamentos e as instalações de luz e água;</p>]]>
+				</content>
+
+				<content id="3">
+					<![CDATA[<p class="quizAltReg">Falsa, pois o seguro tem como objetivo repor apenas prejuízos externos da edificação.</p>]]>
+				</content>
+			</options>
+
+			<submitButton>
+				<![CDATA[<p class="btCheck">Solução</p>]]>
+			</submitButton>
+
+			<feedback tickerPaddingX="-28"
+					  tickerPaddingY="0" />
+		</content>
+
+
+	</exercises>
+</data>

@@ -1,0 +1,163 @@
+/* text styles */
+
+/* Texto de pagina de conteudo */
+p{font-family:"Frutiger BT";font-weight:normal;font-style:normal;font-size:12px;color:#666666;letter-spacing:0px;leading:0px;}
+/* Texto de conteudo em negrito */
+.pBold{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:14px;color:#333333;letter-spacing:-0.1px;leading:-2px;}
+.pBold2{font-family:"TradeGothicNo.2-Bold";font-size:14px;color:#333333;letter-spacing:-0.1px;leading:-2px;}
+
+/* Titulo de modulo de conteudo */
+.pageModTitle{font-family:"Frutiger BT";font-weight:normal;font-style:normal;font-size:10px;color:#999999;letter-spacing:0px;leading:-5px;}
+/* Título da Página */
+.pageTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:33px;color:#006AB7;letter-spacing:-0.5px;leading:-6px;}
+/* Complemento do título da página */
+.pageTitleComp{font-family:"Minion LT Regular";font-weight:normal;font-style:normal;font-size:22px;color:#006AB7;letter-spacing:-0.3px;leading:0px;}
+/* Subtítulo da Pagina */
+.pageSubTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:20px;color:#006AB7;letter-spacing:-0.5px;leading:-4px;}
+.pageSubTitle2{font-family:"TradeGothicNo.2-Bold";font-weight:bold;font-style:normal;font-size:20px;color:#006AB7;letter-spacing:-0.5px;leading:-4px;}
+/* Texto em caixa */
+.whiteBoxText{font-family:"Frutiger BT";font-weight:normal;font-style:normal;font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+/* Texto de observação */
+.obsText{font-family:"Frutiger BT";font-weight:normal;font-style:italic;font-size:10px;color:#999999;letter-spacing:0px;leading:0px;}
+
+/* Botao Iniciar da capa */
+.btInit{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:33px;color:#FFFFFF;letter-spacing:-1px;leading:0px;}
+/* Tedto de copyright da capa */
+.copyright{font-family:"Frutiger BT";font-weight:normal;font-style:normal;font-size:9px;color:#FFFFFF;letter-spacing:0.3px;leading:0px;}
+/* Titulo de Capa */
+.coverTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:33px;color:#FFFFFF;letter-spacing:-0.5px;leading:-6px;}
+/* Titulo de Capa */
+.coverTitle2{font-family:"Minion LT Regular";font-weight:normal;font-style:normal;font-size:22px;color:#FFFFFF;letter-spacing:-0.3px;leading:0px;}
+
+/* Sub-Titulo do modulo de capa */
+.modSubtitle{font-family:"Minion LT Regular";font-weight:normal;font-style:normal;font-size:22px;color:#FFFFFF;letter-spacing:-0.3px;leading:0px;}
+/* Titulo de módulo de capa */
+.modTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-style:normal;font-size:33px;color:#FFFFFF;letter-spacing:-0.5px;leading:-6px;}
+
+/* Texto de Citação */
+.quoteText{font-family:"Rockwell";font-weight:normal;font-style:normal;font-size:13px;color:#333333FC;letter-spacing:0px;leading:0px;}
+/* Titulo em vermelho */
+.redTitle{font-family:"Rockwell";font-weight:normal;font-style:normal;font-size:33px;color:#D51A43;letter-spacing:0px;leading:-8px;}
+
+/* Dashboard Styles */
+.dashboardTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-size:20px;color:#6FAEDD;letter-spacing:-0.5px;leading:-4px;}
+.dashboardStatus{font-family:"Frutiger Bold BT";font-weight:bold;font-size:15px;text-align:right;color:#FFFFFF;letter-spacing:-0.5px;leading:-4px;}
+.dashboardButton{font-family:"Frutiger BT";font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.dashboardButtonOver{font-family:"Frutiger Bold BT";font-weight:bold;font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+
+.aboutItemTitle{font-family:"Frutiger BT";font-size:12px;color:#6FAEDD;letter-spacing:0px;leading:4px;}
+.aboutItem{font-family:"Frutiger BT";font-weight:normal;font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:4px;}
+
+.buttonTitle{font-family:"Frutiger BT";font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.buttonTitleOver{font-family:"Frutiger Bold BT";font-weight:bold;font-size:12px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.bButton{font-family:"Frutiger BT";font-size:10px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.bButtonOver{font-family:"Frutiger Bold BT";font-weight:bold;font-size:10px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.button{font-family:"Univers";font-size:10px;color:#333333;letter-spacing:-0.2px;leading:0px;}
+.buttonOver{font-family:"Univers Bold";font-weight:bold;font-size:10px;color:#FFFFFF;letter-spacing:-0.2px;leading:0px;}
+
+.helpTitle{font-family:"Frutiger BT";font-size:14px;color:#FFFFFF;letter-spacing:0px;leading:0px;}
+.helpText{font-family:"Univers";font-size:12px;color:#72B1E8;letter-spacing:0px;leading:0px;}
+.helpTextItalic{font-family:"Univers Italic";font-size:12px;color:#72B1E8;letter-spacing:0px;leading:0px;}
+
+/* Texto de Tooltip */
+.tipText{font-family:"Frutiger BT";font-weight:normal;font-style:normal;font-size:10px;color:#FFFFFF;letter-spacing:0.5px;leading:0px;}
+
+/* Assessment */
+.instructionTitle{font-family:"Rockwell";font-size:33px;color:#D51A43;letter-spacing:0px;leading:-8px;}
+.instructionText{font-family:"Rockwell";font-size:13px;color:#333333;letter-spacing:0px;leading:-2px;}
+.resultTitle{font-family:"Rockwell";font-size:33px;color:#D51A43;letter-spacing:0px;leading:-8px;}
+.resultText{font-family:"TradeGothicNo.2-Bold";font-size:14px;color:#D51A43;letter-spacing:0px;leading:0px;}
+.scoreTitle{font-family:"Rockwell";font-size:33px;color:#FFFFFF;letter-spacing:0px;leading:-8px;}
+.scoreText{font-family:"Rockwell Bold";font-size:120px;color:#FFFFFF;letter-spacing:-4px;leading:-8px;}
+.pageModTitle{font-family:"Frutiger BT";font-size:10px;color:#999999;letter-spacing:0px;leading:-5px;}
+.quizTitle{font-family:"Frutiger Bold BT";font-weight:bold;font-size:20px;color:#006AB7;letter-spacing:-0.5px;leading:-4px;}
+.quizAltReg{font-family:"Frutiger BT";font-size:12px;color:#666666;letter-spacing:0px;leading:0px;}
+.btCheck{font-family:"Frutiger Bold BT";font-weight:bold;font-size:14px;color:#FFFFFF;letter-spacing:-0.1px;leading:-2px;}
+
+/* Pre-defined font-sizes */
+.size8{font-size:8px;}
+.size9{font-size:9px;}
+.size10{font-size:10px;}
+.size11{font-size:11px;}
+.size12{font-size:12px;}
+.size13{font-size:13px;}
+.size14{font-size:14px;}
+.size15{font-size:15px;}
+.size16{font-size:16px;}
+.size17{font-size:17px;}
+.size18{font-size:18px;}
+.size19{font-size:19px;}
+.size20{font-size:20px;}
+.size22{font-size:22px;}
+.size24{font-size:24px;}
+.size26{font-size:26px;}
+.size28{font-size:28px;}
+.size30{font-size:30px;}
+.size32{font-size:32px;}
+.size34{font-size:34px;}
+.size35{font-size:35px;}
+.size36{font-size:36px;}
+.size38{font-size:38px;}
+.size40{font-size:40px;}
+.size42{font-size:42px;}
+.size44{font-size:44px;}
+.size45{font-size:45px;}
+.size46{font-size:46px;}
+.size48{font-size:48px;}
+.size50{font-size:50px;}
+.size60{font-size:60px;}
+.size64{font-size:64px;}
+.size70{font-size:70px;}
+
+/* Layout color palette */
+
+/*Pre-defined leading values*/
+.leading10n{leading:-10px;}
+.leading8n{leading:-8px;}
+.leading6n{leading:-6px;}
+.leading5n{leading:-5px;}
+.leading4n{leading:-4px;}
+.leading3n{leading:-3px;}
+.leading2n{leading:-2px;}
+.leading1Halfn{leading:-1.5px;}
+.leading1n{leading:-1px;}
+.leading0Halfn{leading:-0.5px;}
+.leading0{leading:0px;}
+.leading0Half{leading:0.5px;}
+.leading1{leading:1px;}
+.leading1Half{leading:1.5px;}
+.leading2{leading:2px;}
+.leading3{leading:3px;}
+.leading4{leading:4px;}
+.leading5{leading:5px;}
+.leading6{leading:6px;}
+.leading8{leading:8px;}
+.leading10{leading:10px;}
+.leading20{leading:20px;}
+
+/*Pre-defined letter-spacing values*/
+.ls5n{letter-spacing:-5px;}
+.ls4n{letter-spacing:-4px;}
+.ls3n{letter-spacing:-3px;}
+.ls2n{letter-spacing:-2px;}
+.ls1Halfn{letter-spacing:-1.5px;}
+.ls1n{letter-spacing:-1px;}
+.ls0Halfn{letter-spacing:-0.5px;}
+.ls0{letter-spacing:0px;}
+.ls0Half{letter-spacing:0.5px;}
+.ls1{letter-spacing:1px;}
+.ls1Half{letter-spacing:1.5px;}
+.ls2{letter-spacing:2px;}
+.ls4{letter-spacing:4px;}
+.ls5{letter-spacing:5px;}
+
+/* color and alignments */
+.white{color:#FFFFFF;}
+.gray{color:#666666;}
+.darkgray{color:#333333;}
+.red{color:#D51A43;}
+.lightRed{color:#FF5068;}
+.blue{color:#0167CD;}
+.center{text-align:center;}
+.left{text-align:left;}
+.right{text-align:right;}

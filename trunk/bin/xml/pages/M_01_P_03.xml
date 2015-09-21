@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>96</y>
+				<width>85</width>
+				<height>26</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body>
+				<![CDATA[<p class="pageModTitle">06. AVALIAÇÃO</p>]]>
+			</body>
+		</content>
+		
+	</content>
+	
+	<content type="text" target="scoreMc">
+		<content instanceName="text_0">
+			<vars>
+				
+			</vars>
+			<body>
+				<![CDATA[<p><span class="scoreTitle"><span class="center">Sua nota foi</span></span></p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				
+			</vars>
+			<body>
+				<![CDATA[<p><span class="scoreText"><span class="center">{$userScore}</span></span></p>]]>
+			</body>
+		</content>
+	</content>
+</data>

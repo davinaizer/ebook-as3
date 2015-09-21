@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>113</y>
+				<width>379</width>
+				<height>54</height>
+			</vars>
+			<body>
+				<![CDATA[<p class="modTitle">Avaliação</p>]]>
+			</body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>48</x>
+				<y>158</y>
+				<width>282</width>
+				<height>38</height>
+			</vars>
+			<body>
+				<![CDATA[<p class="modSubtitle">Lorem ipsum dolor sit amet</p>]]>
+			</body>
+		</content>
+	</content>
+	
+	<tween>
+		<tween type="from"
+			   target="img0"
+			   duration="1"
+			   ease="Strong.easeOut"
+			   stagger="0.1">
+			<vars>
+				<delay>0.2</delay>
+				<align>
+					<align>T</align>
+					<mode>OUTSIDE</mode>
+				</align>
+			</vars>
+		</tween>
+	</tween>
+
+</data>
