@@ -1,7 +1,7 @@
 package com.unboxds.ebook.services
 {
 	import com.pipwerks.SCORM;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.vo.ScormData;
 	import com.unboxds.ebook.model.vo.ScormParams;
 	import com.unboxds.utils.Logger;
 
@@ -41,7 +41,7 @@ package com.unboxds.ebook.services
 			
 			Logger.log("ScormDataService.isAvailable: " + _isAvailable);
 			
-			_onLoaded = new Signal(EbookData);
+			_onLoaded = new Signal(ScormData);
 			_onSaved = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
@@ -58,7 +58,7 @@ package com.unboxds.ebook.services
 			
 			if (_isConnected)
 			{
-				var ebookData:EbookData = new EbookData();
+				var ebookData:ScormData = new ScormData();
 				ebookData.comments = getParam(ScormParams.PARAM_COMMENTS);
 				ebookData.credit = getParam(ScormParams.PARAM_CREDIT);
 				ebookData.entry = getParam(ScormParams.PARAM_ENTRY);
@@ -85,7 +85,7 @@ package com.unboxds.ebook.services
 		/**
 		 * Update and commit to the LMS the EbookData
 		 */
-		public function save(data:EbookData):void
+		public function save(data:ScormData):void
 		{
 			update(data);
 			
@@ -103,7 +103,7 @@ package com.unboxds.ebook.services
 		/**
 		 * Update without commiting to the LMS
 		 */
-		private function update(data:EbookData):void
+		private function update(data:ScormData):void
 		{
 			//success = scorm.set(PARAM_COMMENTS, scormVO.comments);
 			setParam(ScormParams.PARAM_EXIT, data.exit);

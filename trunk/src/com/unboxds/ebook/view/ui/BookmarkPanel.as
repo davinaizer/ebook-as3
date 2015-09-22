@@ -5,7 +5,7 @@ package com.unboxds.ebook.view.ui
 
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.ContentParser;
+	import com.unboxds.ebook.view.utils.ContentParser;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;

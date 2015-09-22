@@ -5,7 +5,7 @@
 
 	<object type="ProgressMeter"
 			depth="3"
-			className="com.unboxds.ebook.view.components::BarMeter"
+			className="com.unboxds.ebook.view.components::InteractiveBarMeter"
 			instanceName="progressMeter"
 
 			x="0"

@@ -1,17 +1,18 @@
-﻿package com.unboxds.ebook.model
+﻿package com.unboxds.ebook.controller
 {
+	import com.unboxds.ebook.model.*;
 	import com.unboxds.ebook.Ebook;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.utils.Logger;
 
 	import org.osflash.signals.Signal;
 
-	public class Nav
+	public class NavController
 	{
 		private var model:NavModel;
 		
 		private var ebook:Ebook;
-		private var status:Status; //TODO Create a NavVo to store data. Eleminate status Class dependecy.
+		private var status:EbookModel; //TODO Create a NavVo to store data. Eleminate status Class dependecy.
 		
 		private var pages:Vector.<Vector.<PageData>>;
 		private var pageQueue:Vector.<PageData>;
@@ -26,7 +27,7 @@
 		private var _onBeforeNextPage:Function;
 		private var _onBeforeBackPage:Function;
 		
-		public function Nav()
+		public function NavController()
 		{
 			Logger.log("Nav.Nav");
 			onChange = new Signal(PageData);

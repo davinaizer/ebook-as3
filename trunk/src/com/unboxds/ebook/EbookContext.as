@@ -1,9 +1,9 @@
 package com.unboxds.ebook
 {
 	import com.gaiaframework.api.Gaia;
-	import com.unboxds.ebook.model.DataController;
-	import com.unboxds.ebook.model.Nav;
-	import com.unboxds.ebook.model.Status;
+	import com.unboxds.ebook.controller.DataController;
+	import com.unboxds.ebook.controller.NavController;
+	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.utils.ArrayUtils;
 	import com.unboxds.utils.DebugPanel;
@@ -26,8 +26,8 @@ package com.unboxds.ebook
 		private var data:XML;
 		private var contextView:DisplayObjectContainer;
 		private var ebook:Ebook;
-		private var status:Status;
-		private var nav:Nav;
+		private var status:EbookModel;
+		private var nav:NavController;
 		private var dataController:DataController;
 		
 		private var _onComplete:ISignal;

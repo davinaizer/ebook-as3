@@ -1,6 +1,6 @@
 package com.unboxds.ebook.services
 {
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.vo.ScormData;
 	import com.unboxds.ebook.model.vo.ScormParams;
 	import com.unboxds.utils.Logger;
 
@@ -36,7 +36,7 @@ package com.unboxds.ebook.services
 			sol = SharedObject.getLocal("EbookSolData");
 			
 			_isAvailable = true;
-			_onLoaded = new Signal(EbookData);
+			_onLoaded = new Signal(ScormData);
 			_onSaved = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
@@ -48,7 +48,7 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("SolDataService.load");
 			
-			var ebookData:EbookData = new EbookData();
+			var ebookData:ScormData = new ScormData();
 			
 			// check if first time creating data
 			if (getParam(ScormParams.PARAM_SUSPEND_DATA) != null)
@@ -75,7 +75,7 @@ package com.unboxds.ebook.services
 		/**
 		 * Update and commit to the LMS the EbookData
 		 */
-		public function save(data:EbookData):void
+		public function save(data:ScormData):void
 		{
 			update(data);
 			
@@ -95,7 +95,7 @@ package com.unboxds.ebook.services
 		/**
 		 * Update without commiting to the LMS
 		 */
-		private function update(data:EbookData):void
+		private function update(data:ScormData):void
 		{
 			setParam(ScormParams.PARAM_EXIT, data.exit);
 			setParam(ScormParams.PARAM_LESSON_LOCATION, data.lesson_location);

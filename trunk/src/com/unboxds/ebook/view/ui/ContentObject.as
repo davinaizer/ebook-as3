@@ -3,7 +3,7 @@ package com.unboxds.ebook.view.ui
 	import com.greensock.TweenLite;
 	import com.greensock.plugins.AutoAlphaPlugin;
 	import com.greensock.plugins.TweenPlugin;
-	import com.unboxds.ebook.model.ContentParser;
+	import com.unboxds.ebook.view.utils.ContentParser;
 	import com.unboxds.utils.TweenParser;
 
 	import flash.display.Sprite;

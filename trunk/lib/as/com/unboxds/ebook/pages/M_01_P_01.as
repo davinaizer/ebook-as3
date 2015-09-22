@@ -5,7 +5,7 @@ package com.unboxds.ebook.pages
 	import com.gaiaframework.events.*;
 	import com.greensock.TweenMax;
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.Status;
+	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TextFieldUtils;
 	import flash.display.*;
@@ -63,7 +63,7 @@ package com.unboxds.ebook.pages
 			Logger.log( "0:QuizIntro ->> triesLeft : " + triesLeft );
 			
 			
-			if (Ebook.getInstance().getStatus().quizStatus == Status.STATUS_COMPLETED)
+			if (Ebook.getInstance().getStatus().quizStatus == EbookModel.STATUS_COMPLETED)
 			{
 				Logger.log("2:QUIZ INTRO -> QUIZ STATUS COMPLETED!");
 				//Show completed text

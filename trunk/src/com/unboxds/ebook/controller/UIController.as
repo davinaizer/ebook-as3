@@ -1,4 +1,4 @@
-package com.unboxds.ebook.view.ui
+package com.unboxds.ebook.controller
 {
 	import com.adobe.utils.ArrayUtil;
 	import com.gaiaframework.api.Gaia;
@@ -9,7 +9,9 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.ebook.model.events.NavEvent;
 	import com.unboxds.ebook.model.events.SearchEvent;
 	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.view.NavBarView;
 	import com.unboxds.ebook.view.components.*;
+	import com.unboxds.ebook.view.ui.*;
 	import com.unboxds.utils.ArrayUtils;
 	import com.unboxds.utils.KeyObject;
 	import com.unboxds.utils.Logger;
@@ -30,9 +32,9 @@ package com.unboxds.ebook.view.ui
 	 */
 	public class UIController extends ContentObject
 	{
-		private var navBar:NavBar;
+		private var navBar:NavBarView;
 		private var dashboard:Dashboard;
-		private var progressMeter:AbstractProgressMeter;
+		private var progressMeter:AbsProgressMeter;
 		private var helpPanel:HelpPanel;
 
 		private var searchPanel:SearchPanel;
@@ -47,6 +49,7 @@ package com.unboxds.ebook.view.ui
 
 		// for import only
 		BarMeter;
+		InteractiveBarMeter;
 
 		public function UIController(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
@@ -81,32 +84,28 @@ package com.unboxds.ebook.view.ui
 			Logger.log("UIController.setupStage");
 
 			//-- DASHBOARD
-			dashboard = new Dashboard();
-			dashboard.stylesheet = stylesheet;
-			dashboard.contentXML = XML(XMLList(contentXML.object.(@type == "Dashboard")).toXMLString());
+			var dashboardData:XML = XML(XMLList(contentXML.object.(@type == "Dashboard")).toXMLString());
+			dashboard = new Dashboard(dashboardData, stylesheet);
 
 			//-- NAVBAR
-			navBar = new NavBar();
-			navBar.stylesheet = stylesheet;
-			navBar.contentXML = XML(XMLList(contentXML.object.(@type == "NavBar")).toXMLString());
+			var navBarData:XML = XML(XMLList(contentXML.object.(@type == "NavBar")).toXMLString());
+			navBar = new NavBarView(navBarData, stylesheet);
 
 			//-- PROGRESS METER
 			var pmData:XML = XML(XMLList(contentXML.object.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
-			progressMeter = new PmClass() as AbstractProgressMeter;
+			progressMeter = new PmClass() as AbsProgressMeter;
 			progressMeter.contentXML = pmData;
 			progressMeter.stylesheet = stylesheet;
 			progressMeter.setMax(Ebook.getInstance().getNav().totalPages);
 
 			//-- HELP PANEL
-			helpPanel = new HelpPanel();
-			helpPanel.stylesheet = stylesheet;
-			helpPanel.contentXML = XML(XMLList(contentXML.object.(@type == "HelpPanel")).toXMLString());
+			var helpPanelData:XML = XML(XMLList(contentXML.object.(@type == "HelpPanel")).toXMLString());
+			helpPanel = new HelpPanel(helpPanelData, stylesheet);
 
 			//-- SEARCH PANEL
-			searchPanel = new SearchPanel();
-			searchPanel.contentXML = XML(XMLList(contentXML.object.(@type == "SearchPanel")).toXMLString());
-			searchPanel.stylesheet = stylesheet;
+			var searchPanelData:XML = XML(XMLList(contentXML.object.(@type == "SearchPanel")).toXMLString());
+			searchPanel = new SearchPanel(searchPanelData, stylesheet);
 
 			addChild(dashboard);
 			addChild(navBar);

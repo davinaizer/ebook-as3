@@ -5,7 +5,7 @@ package com.unboxds.ebook.model.vo
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class EbookData
+	public class ScormData
 	{
 		//ENTRY CONSTANTS
 		public static const ENTRY_ABINITIO:String = "ab-initio";
@@ -47,7 +47,7 @@ package com.unboxds.ebook.model.vo
 		private var _suspend_data:String;
 		private var _total_time:String;
 		
-		public function EbookData()
+		public function ScormData()
 		{
 			_comments = "comments";
 			_credit = "credit";

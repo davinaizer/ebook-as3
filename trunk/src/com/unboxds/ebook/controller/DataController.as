@@ -1,7 +1,9 @@
-﻿package com.unboxds.ebook.model
+﻿package com.unboxds.ebook.controller
 {
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.EbookModel;
+	import com.unboxds.ebook.model.SessionTimer;
+	import com.unboxds.ebook.model.vo.ScormData;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.SolDataService;
@@ -15,10 +17,10 @@
 	 */
 	public class DataController
 	{
-		private var nav:Nav;
+		private var nav:NavController;
 		private var ebook:Ebook;
 		private var dataService:IEbookDataService;
-		private var status:Status; // holds the lessondata, this data is stored inside _ebookData as lesson_suspend
+		private var status:EbookModel; // holds the lessondata, this data is stored inside _ebookData as lesson_suspend
 		private var sessionTimer:SessionTimer;
 		private var dataController:DataController;
 		
@@ -27,7 +29,7 @@
 		
 		private var _dataServiceType:String;
 		private var _scormReplaceDoubleQuotes:Boolean;
-		private var _ebookData:EbookData;
+		private var _ebookData:ScormData;
 		private var _isConsultMode:Boolean;
 		private var _enableAlerts:Boolean;
 		private var _hasAccessibility:Boolean;
@@ -48,7 +50,7 @@
 		{
 			Logger.log("DataController.start");
 			
-			_ebookData = new EbookData();
+			_ebookData = new ScormData();
 			
 			//-- get objects instances
 			ebook = Ebook.getInstance();
@@ -102,7 +104,7 @@
 			dataService.load();
 		}
 		
-		private function onDataLoaded(data:EbookData):void
+		private function onDataLoaded(data:ScormData):void
 		{
 			Logger.log("DataController.onDataLoaded");
 			
@@ -114,19 +116,19 @@
 				Logger.log("	LOAD SCORM DATA >> " + i + ", value : " + _ebookData[i]);
 			
 			//-- check browse mode
-			if (_ebookData.lesson_mode == EbookData.MODE_BROWSE)
+			if (_ebookData.lesson_mode == ScormData.MODE_BROWSE)
 			{
 				startBrowseMode();
 			}
 			else
 			{
-				if (_ebookData.suspend_data == null || _ebookData.suspend_data == "" || _ebookData.lesson_status == EbookData.STATUS_NOT_ATTEMPTED)
+				if (_ebookData.suspend_data == null || _ebookData.suspend_data == "" || _ebookData.lesson_status == ScormData.STATUS_NOT_ATTEMPTED)
 				{
 					Logger.log("DataController.initDataService >> SUSPEND_DATA null OR empty. New user!");
 					
-					_ebookData.lesson_status = EbookData.STATUS_INCOMPLETE;
+					_ebookData.lesson_status = ScormData.STATUS_INCOMPLETE;
 					
-					status.status = Status.STATUS_INITIALIZED;
+					status.status = EbookModel.STATUS_INITIALIZED;
 					sessionTimer.initSession();
 					nav.navigateToIndex(0, 0);
 					
@@ -176,10 +178,10 @@
 		{
 			Logger.log("DataController.save");
 			
-			if (isDataServiceAvaiable && !_isConsultMode && _ebookData.lesson_status == EbookData.STATUS_INCOMPLETE)
+			if (isDataServiceAvaiable && !_isConsultMode && _ebookData.lesson_status == ScormData.STATUS_INCOMPLETE)
 			{
-				if (status.status == Status.STATUS_COMPLETED)
-					_ebookData.lesson_status = EbookData.STATUS_COMPLETED;
+				if (status.status == EbookModel.STATUS_COMPLETED)
+					_ebookData.lesson_status = ScormData.STATUS_COMPLETED;
 				
 				//-- SUSPEND_DATA - REPLACE DOUBLE QUOTES? - LMS campatibility check (BUG from some LMS vendors)
 				_ebookData.suspend_data = (_scormReplaceDoubleQuotes) ? status.toString().replace(/"/g, "'") : status.toString();
@@ -201,11 +203,11 @@
 		{
 			Logger.log("DataController.finishEbook");
 			
-			if (!_isConsultMode && status.status == Status.STATUS_INITIALIZED)
+			if (!_isConsultMode && status.status == EbookModel.STATUS_INITIALIZED)
 			{
 				status.endDate = new Date();
-				status.status = Status.STATUS_COMPLETED;
-				_ebookData.exit = EbookData.EXIT_LOGOUT;
+				status.status = EbookModel.STATUS_COMPLETED;
+				_ebookData.exit = ScormData.EXIT_LOGOUT;
 				
 				save();
 			}
@@ -262,12 +264,12 @@
 			_isConsultMode = value;
 		}
 		
-		public function get ebookData():EbookData
+		public function get ebookData():ScormData
 		{
 			return _ebookData;
 		}
 		
-		public function set ebookData(value:EbookData):void
+		public function set ebookData(value:ScormData):void
 		{
 			
 			_ebookData = value;

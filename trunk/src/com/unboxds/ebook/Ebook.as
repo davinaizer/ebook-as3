@@ -1,8 +1,8 @@
 package com.unboxds.ebook
 {
-	import com.unboxds.ebook.model.DataController;
-	import com.unboxds.ebook.model.Nav;
-	import com.unboxds.ebook.model.Status;
+	import com.unboxds.ebook.controller.DataController;
+	import com.unboxds.ebook.controller.NavController;
+	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.utils.DebugPanel;
 	import com.unboxds.utils.Logger;
 	
@@ -15,7 +15,7 @@ package com.unboxds.ebook
 	 * <p>It was mainly developed to be used as eLearning creation framework but it can be used to create other non-learning content, as websites, hotsites, catalogs, etc.</p>
 	 * 
 	 * <p>The Ebook Framework was built over Gaia Framework. 
-	 * The Gaia framework has a very powerfull assets and page manager. 
+	 * The Gaia framework has a very powerful asset and page manager.
 	 * More info about how it works and documentation, can be found here (http://gaiaflashframework.tenderapp.com/).</p>
 	 * 
 	 * <p>To start building an application using UNBOXDS Ebook Framework, we higly recommend reading the Gaia´s documentation first.</p>
@@ -40,8 +40,8 @@ package com.unboxds.ebook
 	{
 		private static var instance:Ebook = new Ebook();
 		
-		private var implNav:Nav;
-		private var implStatus:Status;
+		private var implNav:NavController;
+		private var implStatus:EbookModel;
 		private var implScormController:DataController;
 		private var debugPanel:DebugPanel;
 		
@@ -69,19 +69,19 @@ package com.unboxds.ebook
 		/**
 		 * Function to access Ebook´s Nav Class instance.
 		 * Nav Class is responsible for Ebook´s content navigation.
-		 * @return Nav Class instance
+		 * @return com.unboxds.ebook.controller.NavController Class instance
 		 */
-		public function getNav():Nav
+		public function getNav():NavController
 		{
 			if (implNav == null)
-				implNav = new Nav();
+				implNav = new NavController();
 			return implNav;
 		}
 		
 		/**
 		 * Function to access Ebook´s Data Controller istance.
 		 * DataController Class is resposible for storing, controlling and acessing data services. eg. ScormDataService, SharedObjectDataService.
-		 * @return DataController Class instance
+		 * @return com.unboxds.ebook.controller.DataController Class instance
 		 */
 		public function getDataController():DataController
 		{
@@ -95,10 +95,10 @@ package com.unboxds.ebook
 		 * Status Class is responsible for all the tracking, navigation and user´s data.
 		 * @return
 		 */
-		public function getStatus():Status
+		public function getStatus():EbookModel
 		{
 			if (implStatus == null)
-				implStatus = new Status();
+				implStatus = new EbookModel();
 			return implStatus;
 		}
 		

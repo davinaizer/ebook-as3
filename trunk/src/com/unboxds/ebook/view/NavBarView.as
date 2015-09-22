@@ -1,5 +1,6 @@
-package com.unboxds.ebook.view.ui
+package com.unboxds.ebook.view
 {
+	import com.unboxds.ebook.view.ui.*;
 	import assets.NavbarSymbol;
 
 	import com.greensock.TweenMax;
@@ -18,7 +19,7 @@ package com.unboxds.ebook.view.ui
 	 * ...
 	 * @author UNBOX Learning Experience
 	 */
-	public class NavBar extends ContentObject
+	public class NavBarView extends ContentObject
 	{
 		private var view:NavbarSymbol;
 		
@@ -37,7 +38,7 @@ package com.unboxds.ebook.view.ui
 		public var nextBtn:SimpleButton;
 		private var _searchBox:SearchBox;
 		
-		public function NavBar(contentXML:XML = null, stylesheet:StyleSheet = null)
+		public function NavBarView(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
 			Logger.log("NavBar.NavBar");
 			

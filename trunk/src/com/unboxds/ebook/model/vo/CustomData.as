@@ -8,7 +8,7 @@ import com.serialization.json.JSON;
 	 * @version 0.1
 	 */
 	// TODO This class belongs to the user, not the framework.
-	// TODO Create an Interface to keep basic methods
+	// TODO this class should be an Abstraction. Abs or Interface
 	public class CustomData
 	{
 		private var _maxPoints:Array;

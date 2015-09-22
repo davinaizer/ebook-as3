@@ -6,7 +6,7 @@
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class Status
+	public class EbookModel
 	{
 		//-- STATUS CONSTANTS
 		public static const STATUS_NOT_INITIALIZED:int = 0;
@@ -36,10 +36,10 @@
 		private var _startDate:Date;
 		private var _endDate:Date;
 		
-		public function Status()
+		public function EbookModel()
 		{
 			_ebookVersion = "";
-			_status = Status.STATUS_NOT_INITIALIZED;
+			_status = EbookModel.STATUS_NOT_INITIALIZED;
 			_maxPage = 0;
 			_maxModule = 0;
 			_currentPage = 0;
@@ -47,7 +47,7 @@
 			_currentLesson = 0;
 			_quizTries = 0;
 			_quizScore = 0;
-			_quizStatus = Status.STATUS_NOT_INITIALIZED;
+			_quizStatus = EbookModel.STATUS_NOT_INITIALIZED;
 			_lessonStatus = new CustomData();
 			_startDate = new Date();
 			_endDate = new Date();

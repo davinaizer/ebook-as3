@@ -1,4 +1,4 @@
-﻿package com.unboxds.ebook.model
+﻿package com.unboxds.ebook.view.utils
 {
 	import com.greensock.TweenLite;
 	import com.greensock.events.LoaderEvent;

@@ -6,7 +6,7 @@ package com.unboxds.ebook.pages
 	import com.greensock.easing.Sine;
 	import com.greensock.TweenMax;
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.Status;
+	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.StringUtils;
 	import com.unboxds.utils.TextFieldUtils;
@@ -98,7 +98,7 @@ package com.unboxds.ebook.pages
 				resultTitle.htmlText = StringUtils.parseTextVars(assessmentXML.result.feedback.(@type == "approved").title, this);
 				resultBody.htmlText = StringUtils.parseTextVars(assessmentXML.result.feedback.(@type == "approved").body, this);
 				
-				Ebook.getInstance().getStatus().quizStatus = Status.STATUS_COMPLETED;
+				Ebook.getInstance().getStatus().quizStatus = EbookModel.STATUS_COMPLETED;
 				Ebook.getInstance().getDataController().ebookData.scoreRaw = Ebook.getInstance().getStatus().quizScore;
 				Gaia.api.getPage("index/nav").content.setNavStatus("0110");
 				Ebook.getInstance().getNav().onBeforeNextPage = null;
@@ -119,7 +119,7 @@ package com.unboxds.ebook.pages
 					//Enable Menu
 					Gaia.api.getPage("index/nav").content.setNavStatus("0100");
 					
-					Ebook.getInstance().getStatus().quizStatus = Status.STATUS_INITIALIZED;
+					Ebook.getInstance().getStatus().quizStatus = EbookModel.STATUS_INITIALIZED;
 					Ebook.getInstance().getNav().onBeforeNextPage = gotoIntro;
 					Logger.log("2:Result.show >> TRY_AGAIN");
 				} 
@@ -135,7 +135,7 @@ package com.unboxds.ebook.pages
 						//Enable Menu
 						Gaia.api.getPage("index/nav").content.setNavStatus("0100");
 						
-						Ebook.getInstance().getStatus().quizStatus = Status.STATUS_INITIALIZED;
+						Ebook.getInstance().getStatus().quizStatus = EbookModel.STATUS_INITIALIZED;
 						Ebook.getInstance().getNav().onBeforeNextPage = gotoIntro;
 						Logger.log("2:Result.show >> TRY_AGAIN");
 					}
@@ -146,7 +146,7 @@ package com.unboxds.ebook.pages
 						//Enable Menu
 						Gaia.api.getPage("index/nav").content.setNavStatus("0100");
 						
-						Ebook.getInstance().getStatus().quizStatus = Status.STATUS_INITIALIZED;
+						Ebook.getInstance().getStatus().quizStatus = EbookModel.STATUS_INITIALIZED;
 						Ebook.getInstance().getNav().onBeforeNextPage = gotoIntro;
 						
 						Logger.log("2:Result.show >> TRY_AGAIN");
@@ -157,7 +157,7 @@ package com.unboxds.ebook.pages
 					resultTitle.htmlText = StringUtils.parseTextVars(assessmentXML.result.feedback.(@type == "not_approved").title, this);
 					resultBody.htmlText = StringUtils.parseTextVars(assessmentXML.result.feedback.(@type == "not_approved").body, this);
 					
-					Ebook.getInstance().getStatus().quizStatus = Status.STATUS_COMPLETED;
+					Ebook.getInstance().getStatus().quizStatus = EbookModel.STATUS_COMPLETED;
 					Ebook.getInstance().getDataController().ebookData.scoreRaw = Ebook.getInstance().getStatus().quizScore;
 					Gaia.api.getPage("index/nav").content.setNavStatus("0110");
 					Ebook.getInstance().getNav().onBeforeNextPage = null;

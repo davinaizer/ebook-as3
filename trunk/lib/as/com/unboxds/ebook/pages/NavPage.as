@@ -7,7 +7,7 @@
 	import com.gaiaframework.api.IXml;
 	import com.gaiaframework.events.GaiaEvent;
 	import com.gaiaframework.templates.AbstractPage;
-	import com.unboxds.ebook.view.ui.UIController;
+	import com.unboxds.ebook.controller.UIController;
 	import com.unboxds.ebook.view.utils.PageAnimator;
 
 	import flash.text.StyleSheet;

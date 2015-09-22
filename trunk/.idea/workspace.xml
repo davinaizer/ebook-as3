@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1964f40f-e3f8-417c-8949-ba352cfc8e66" name="Default" comment="- removed not used function">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/AboutPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/AboutPanel.as" />
+    <list default="true" id="1964f40f-e3f8-417c-8949-ba352cfc8e66" name="Default" comment="- code optimization&#10;- import organization">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/fla/content/pages/NavPage.fla" afterPath="$PROJECT_DIR$/lib/fla/content/pages/NavPage.fla" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/content/pages/NavPage.swf" afterPath="$PROJECT_DIR$/bin/content/pages/NavPage.swf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/fla/assets/assets.fla" afterPath="$PROJECT_DIR$/lib/fla/assets/assets.fla" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/swc/assets.swc" afterPath="$PROJECT_DIR$/lib/swc/assets.swc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/BookmarkPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/BookmarkPanel.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/ContentObject.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/ContentObject.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/ContentParser.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/ContentParser.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/Dashboard.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/Dashboard.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/DataController.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/DataController.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/HelpPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/HelpPanel.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/Ebook.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/Ebook.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/EbookContext.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/EbookContext.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/EbookPage.as" afterPath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/EbookPage.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/services/IEbookDataService.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/services/IEbookDataService.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/IndexPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/IndexPanel.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/Nav.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/Nav.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/NavBar.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/NavBar.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/NavModel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/NavModel.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/M_01_P_01.as" afterPath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/M_01_P_01.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/M_01_P_03.as" afterPath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/M_01_P_03.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/NavPage.as" afterPath="$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/NavPage.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/NumericMeter.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/NumericMeter.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/services/ScormDataService.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/services/ScormDataService.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchBox.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchBox.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchPanel.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/SessionTimer.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/SessionTimer.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/services/SolDataService.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/services/SolDataService.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/model/Status.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/Status.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIPanel.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIPanel.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebookFramework.iml" afterPath="$PROJECT_DIR$/ebookFramework.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/xml/ebook_ui.xml" afterPath="$PROJECT_DIR$/bin/xml/ebook_ui.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\model\ContentParser.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/utils/ContentParser.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\model\DataController.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/controller/DataController.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\model\Nav.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/controller/NavController.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\model\Status.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/EbookModel.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\model\vo\EbookData.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/ScormData.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\components\AbstractProgressMeter.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbsProgressMeter.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\components\StackedBarMeter.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/InteractiveBarMeter.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\ui\NavBar.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/view/NavBarView.as" />
+      <change type="MOVED" beforePath="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\ui\UIController.as" afterPath="$PROJECT_DIR$/src/com/unboxds/ebook/controller/UIController.as" />
     </list>
     <ignored path="Ebook_Framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +54,28 @@
     <favorites_list name="Ebook_Framework" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="InteractiveBarMeter.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/InteractiveBarMeter.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7433036">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BarMeter.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,12 +100,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/events/SearchEvent.as" />
         <option value="$PROJECT_DIR$/deploy/log.txt" />
         <option value="$PROJECT_DIR$/src/Main.as" />
-        <option value="$PROJECT_DIR$/bin/xml/ebook_ui.xml" />
-        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/StackedBarMeter.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/EbookContext.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/Dashboard.as" />
@@ -85,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/NavBar.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchBox.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/SearchPanel.as" />
-        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIController.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIPanel.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/ContentParser.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/DataController.as" />
@@ -96,6 +124,27 @@
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/services/IEbookDataService.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/services/ScormDataService.as" />
         <option value="$PROJECT_DIR$/src/com/unboxds/ebook/services/SolDataService.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/utils/ContentParser.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIController.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/NavController.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbstractProgressMeter.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/controller/NavController.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/StatusModel.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/EbookModel.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/ScormData.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/NavBar.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/NavBarView.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/controller/DataController.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/Ebook.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/components/AbsProgressMeter.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/components/BarMeter.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbsProgressMeter.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/NumericMeter.as" />
+        <option value="$PROJECT_DIR$/bin/xml/ebook_ui.xml" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/controller/UIController.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as" />
+        <option value="$PROJECT_DIR$/src/com/unboxds/ebook/view/components/InteractiveBarMeter.as" />
       </list>
     </option>
   </component>
@@ -144,7 +193,6 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,6 +248,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ebook_Framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unboxds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -331,7 +409,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -364,6 +442,10 @@
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -386,6 +468,14 @@
               <option name="myItemId" value="unboxds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -402,6 +492,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unboxds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ebook_Framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ebook_Framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="swc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,6 +568,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="as" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,22 +609,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/swc" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\components" />
+      <recent name="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view" />
+      <recent name="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\controller" />
+      <recent name="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\components" />
+      <recent name="D:\Projetos\GIT_REPOS\eBookAS\trunk\src\com\unboxds\ebook\view\utils" />
+    </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
       <recent name="com.unboxds.ebook.view.components" />
     </key>
@@ -654,7 +800,8 @@
       <workItem from="1440557054939" duration="5098000" />
       <workItem from="1442845763625" duration="1776000" />
       <workItem from="1442857155526" duration="303000" />
-      <workItem from="1442857473126" duration="7331000" />
+      <workItem from="1442857473126" duration="7420000" />
+      <workItem from="1442926470991" duration="16974000" />
     </task>
     <task id="LOCAL-00001" summary="- update Intellij Project. Added Git Repo&#10;">
       <created>1442857295900</created>
@@ -692,32 +839,38 @@
       <option name="project" value="LOCAL" />
       <updated>1442864539687</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- code optimization&#10;- import organization">
+      <created>1442865220055</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1442865220055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16611000" />
+    <option name="totallyTimeSpent" value="33674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19264069" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18656716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3517316" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -741,6 +894,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <MESSAGE value="- update Intellij Project. Added Git Repo&#10;" />
     <MESSAGE value="- Remove Traces" />
     <MESSAGE value="- organize imports&#10;- code reformat&#10;- code optimization&#10;" />
@@ -748,7 +902,8 @@
     <MESSAGE value="- removed not used functions" />
     <MESSAGE value="- removed not used Interface" />
     <MESSAGE value="- created new class for Stacked Progress Bars. Yet to bem implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="- created new class for Stacked Progress Bars. Yet to bem implemented." />
+    <MESSAGE value="- code optimization&#10;- import organization" />
+    <option name="LAST_COMMIT_MESSAGE" value="- code optimization&#10;- import organization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -765,13 +920,11 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbstractProgressMeter.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbsProgressMeter.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -783,13 +936,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbstractProgressMeter.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbsProgressMeter.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -801,30 +952,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIController.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/controller/UIController.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
           <folding>
-            <element signature="n#!!doc;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#UIController#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAdded#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#init#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setupStage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#ui#0" expanded="false" />
+            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,38 +989,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIController.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/controller/UIController.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#UIController#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAdded#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#init#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setupStage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#ui#0" expanded="false" />
+            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#controller#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.089686096">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -882,13 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24775785">
           <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/NavPage.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66220737">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -903,15 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22073579">
           <caret line="11" column="37" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/NumericMeter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,92 +1041,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/Ebook.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13712375">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/GaiaContext.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.040133778">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbstractProgressMeter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.42474917">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030354131">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/xml/ebook_ui.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51602024">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="n#content#0;n#object#2;n#object#2;n#data#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5430017">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/EbookContext.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6963788">
-          <caret line="91" column="31" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="31" />
-          <folding>
-            <element signature="e#29#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/StackedBarMeter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.140625">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/Dashboard.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4375">
-          <caret line="32" column="8" selection-start-line="24" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/AboutPanel.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding>
-            <element signature="e#37#68#0" expanded="true" />
+            <element signature="e#37#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1021,22 +1059,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/ContentObject.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2611607">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="e#37#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/HelpPanel.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22098215">
           <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
-            <element signature="e#37#67#0" expanded="true" />
+            <element signature="e#37#67#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1046,17 +1074,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#37#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/NavBar.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#64#0" expanded="true" />
+            <element signature="e#37#68#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1066,7 +1084,7 @@
         <state vertical-scroll-proportion="2.1495535">
           <caret line="131" column="35" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
           <folding>
-            <element signature="e#37#67#0" expanded="true" />
+            <element signature="e#37#67#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1076,65 +1094,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#37#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIController.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22098215">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="n#!!doc;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#UIController#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAdded#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#init#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setupStage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#ui#0" expanded="false" />
-            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#ui#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIPanel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20089285">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding>
-            <element signature="e#37#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/ContentParser.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.520089">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#35#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/DataController.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46205357">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding>
-            <element signature="e#35#66#0" expanded="true" />
+            <element signature="e#37#69#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1169,39 +1129,250 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/Status.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/utils/ContentParser.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.439732">
+        <state vertical-scroll-proportion="0.92410713">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/UIPanel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/PageData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5223214">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/ScormParams.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/StatusData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/ContentType.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4017857">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/CustomData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5223214">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/vo/ScormData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/Dashboard.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7433036">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/SessionTimer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08650519">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.22098215">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/swc/gaiaframework.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.93303573">
+          <caret line="1871" column="45" selection-start-line="1871" selection-start-column="45" selection-end-line="1871" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/EbookPage.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34151787">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/as/com/unboxds/ebook/pages/NavPage.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38169643">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/GaiaContext.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51339287">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/controller/DataController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325893">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/controller/NavController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58258927">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/Ebook.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39285713">
+          <caret line="76" column="40" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/EbookContext.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2767857">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77901787">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/ui/ContentObject.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51339287">
+          <caret line="29" column="90" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/NumericMeter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28125">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/AbsProgressMeter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13169643">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/controller/UIController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39285713">
+          <caret line="49" column="14" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#stageHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyDownHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#keyUpHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#dashboardClickHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#navbarHandler#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#bookmarkPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#checkBookmark#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onGotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#gotoPage#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeGoto#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onBeforeTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#onAfterTransitionIn#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#enableNextButton#0;n#UIController#0;n#controller#0" expanded="false" />
+            <element signature="n#!!block;n#setNavStatus#0;n#UIController#0;n#controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/NavBarView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5223214">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/NavModel.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04017857">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-          <folding>
-            <element signature="e#35#78#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.18080357">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/Nav.as">
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/model/EbookModel.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12053572">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding>
-            <element signature="e#35#66#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.68303573">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/xml/ebook_ui.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3013393">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/BarMeter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/unboxds/ebook/view/components/InteractiveBarMeter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7433036">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,6 +1452,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>swc</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

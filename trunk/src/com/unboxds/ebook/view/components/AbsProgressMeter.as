@@ -8,15 +8,19 @@ package com.unboxds.ebook.view.components
 	import flash.events.Event;
 	import flash.text.StyleSheet;
 
-	public class AbstractProgressMeter extends ContentObject
+	/**
+	 * Abstract Generic Progress Meter Class
+	 */
+	public class AbsProgressMeter extends ContentObject
 	{
 		protected var progress:uint;
 		protected var secondaryProgress:uint;
 		protected var max:uint;
 
-		public function AbstractProgressMeter(contentXML:XML = null, stylesheet:StyleSheet = null)
+		public function AbsProgressMeter(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
 			super(contentXML, stylesheet);
+
 			addEventListener(Event.ADDED_TO_STAGE, onAdded);
 		}
 

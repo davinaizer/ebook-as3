@@ -5,16 +5,22 @@ package com.unboxds.ebook.view.components
 
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.text.StyleSheet;
 
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015
 	 */
-	public class BarMeter extends AbstractProgressMeter
+	public class BarMeter extends AbsProgressMeter
 	{
-		private var _width:Number;
-		private var _height:Number;
+		protected var _width:Number;
+		protected var _height:Number;
+		protected var hasInit:Boolean;
 
+		private var bgView:Sprite;
+		private var barView:Sprite;
+		private var secondaryBarView:Sprite;
+		
 		private var bgColor:Number;
 		private var bgColorAlpha:Number;
 		private var barColor:Number;
@@ -22,17 +28,9 @@ package com.unboxds.ebook.view.components
 		private var secondaryBarColor:Number;
 		private var secondaryBarColorAlpha:Number;
 
-		private var bgView:Sprite;
-		private var barView:Sprite;
-		private var secondaryBarView:Sprite;
-
-		private var hasInit:Boolean;
-
-		public function BarMeter()
+		public function BarMeter(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
-			Logger.log("BarMeter.BarMeter");
-
-			super();
+			super(contentXML, stylesheet);
 
 			_width = 100;
 			_height = 2;
@@ -56,6 +54,8 @@ package com.unboxds.ebook.view.components
 			parseConfig();
 			init();
 			draw();
+
+			hasInit = true;
 		}
 
 		override protected function init():void
@@ -69,11 +69,9 @@ package com.unboxds.ebook.view.components
 			addChild(bgView);
 			addChild(secondaryBarView);
 			addChild(barView);
-
-			hasInit = true;
 		}
 
-		private function parseConfig():void
+		protected function parseConfig():void
 		{
 			x = parseFloat(contentXML.@x);
 			y = parseFloat(contentXML.@y);
@@ -89,7 +87,7 @@ package com.unboxds.ebook.view.components
 			secondaryBarColorAlpha = parseFloat(contentXML.@secondaryBarColorAlpha);
 		}
 
-		private function draw():void
+		protected function draw():void
 		{
 			bgView.graphics.clear();
 			bgView.graphics.beginFill(bgColor, bgColorAlpha);
@@ -107,7 +105,7 @@ package com.unboxds.ebook.view.components
 			secondaryBarView.graphics.endFill();
 		}
 
-		private function update():void
+		protected function update():void
 		{
 			var newBarWidth:Number = _width * (progress / max);
 			var newSecondaryBarWidth:Number = _width * (secondaryProgress / max);
