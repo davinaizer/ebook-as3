@@ -3,9 +3,10 @@
  */
 package com.unboxds.ebook.view.components
 {
-	import assets.buttons.PlaneCursor;
+	import assets.buttons.ProgressCursor;
 
 	import com.greensock.TweenLite;
+	import com.greensock.easing.Strong;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.utils.Logger;
 
@@ -25,11 +26,13 @@ package com.unboxds.ebook.view.components
 		{
 			Logger.log("InteractiveBarMeter.init");
 
-			if (!hasInit)
-			{
-				cursor = new PlaneCursor() as SimpleButton;
-				addChild(cursor);
-			}
+			super.init();
+
+			cursor = new ProgressCursor() as SimpleButton;
+			cursor.name = "progressCursor";
+			addChild(cursor);
+
+			parseContent();
 		}
 
 		override protected function update():void
@@ -37,7 +40,12 @@ package com.unboxds.ebook.view.components
 			super.update();
 
 			var cursorX:Number = _width * (progress / max);
-			TweenLite.to(cursor, .25, {overwrite: 1, x: cursorX, alpha: 1});
+			TweenLite.to(cursor, .5, {overwrite: 1, x: cursorX, ease: Strong.easeOut});
+		}
+
+		public function get progressPercent():Number
+		{
+			return (progress / max) * 100;
 		}
 	}
 }

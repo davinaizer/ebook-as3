@@ -1,6 +1,7 @@
 package com.unboxds.ebook.view.components
 {
 	import com.greensock.TweenLite;
+	import com.greensock.easing.Strong;
 	import com.unboxds.utils.Logger;
 
 	import flash.display.Sprite;
@@ -20,7 +21,7 @@ package com.unboxds.ebook.view.components
 		private var bgView:Sprite;
 		private var barView:Sprite;
 		private var secondaryBarView:Sprite;
-		
+
 		private var bgColor:Number;
 		private var bgColorAlpha:Number;
 		private var barColor:Number;
@@ -50,15 +51,10 @@ package com.unboxds.ebook.view.components
 		private function onAdded(e:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
-
-			parseConfig();
 			init();
-			draw();
-
-			hasInit = true;
 		}
 
-		override protected function init():void
+		protected function init():void
 		{
 			Logger.log("BarMeter.init");
 
@@ -69,6 +65,11 @@ package com.unboxds.ebook.view.components
 			addChild(bgView);
 			addChild(secondaryBarView);
 			addChild(barView);
+
+			parseConfig();
+			draw();
+
+			hasInit = true;
 		}
 
 		protected function parseConfig():void
@@ -110,8 +111,8 @@ package com.unboxds.ebook.view.components
 			var newBarWidth:Number = _width * (progress / max);
 			var newSecondaryBarWidth:Number = _width * (secondaryProgress / max);
 
-			TweenLite.to(barView, .25, {overwrite: 1, width: newBarWidth, alpha: 1});
-			TweenLite.to(secondaryBarView, .25, {overwrite: 1, width: newSecondaryBarWidth, alpha: 1});
+			TweenLite.to(barView, .5, {overwrite: 1, width: newBarWidth, ease: Strong.easeOut});
+			TweenLite.to(secondaryBarView, .5, {overwrite: 1, width: newSecondaryBarWidth, ease: Strong.easeOut});
 		}
 
 		override public function setProgress(progress:uint):void

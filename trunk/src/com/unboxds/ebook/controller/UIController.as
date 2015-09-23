@@ -94,9 +94,7 @@ package com.unboxds.ebook.controller
 			//-- PROGRESS METER
 			var pmData:XML = XML(XMLList(contentXML.object.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
-			progressMeter = new PmClass() as AbsProgressMeter;
-			progressMeter.contentXML = pmData;
-			progressMeter.stylesheet = stylesheet;
+			progressMeter = new PmClass(pmData, stylesheet) as AbsProgressMeter;
 			progressMeter.setMax(Ebook.getInstance().getNav().totalPages);
 
 			//-- HELP PANEL

@@ -5,7 +5,6 @@ package com.unboxds.ebook.view.components
 {
 	import com.unboxds.ebook.view.ui.ContentObject;
 
-	import flash.events.Event;
 	import flash.text.StyleSheet;
 
 	/**
@@ -21,17 +20,6 @@ package com.unboxds.ebook.view.components
 		{
 			super(contentXML, stylesheet);
 
-			addEventListener(Event.ADDED_TO_STAGE, onAdded);
-		}
-
-		private function onAdded(e:Event):void
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
-			init();
-		}
-
-		protected function init():void
-		{
 			progress = 0;
 			secondaryProgress = 0;
 			max = 100;

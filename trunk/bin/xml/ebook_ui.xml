@@ -20,8 +20,30 @@
 			barColorAlpha="1"
 
 			secondaryBarColor="0x00A900"
-			secondaryBarColorAlpha="1"
-			/>
+			secondaryBarColorAlpha="1">
+
+				<content type="tooltip"
+						hook="true"
+						hookSize="20"
+						autoSize="true"
+						followCursor="true"
+						align="center"
+						cornerRadius="10"
+						showDelay="100"
+						hideDelay="0"
+						bgAlpha="1"
+						width="350"
+						colors="0x353535,0x353535"
+						padding="10">
+
+						<content instanceName="progressCursor">
+							<body>
+								<![CDATA[<p class="tipText">Seu progresso: {$progressPercent}%</p>]]>
+							</body>
+						</content>
+				</content>
+
+			</object>
 
 	<!----------------------- NavBar ----------------------->
 

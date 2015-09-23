@@ -409,7 +409,10 @@
 			var src:Sprite = e.target as Sprite;
 			var index:int = src.tabIndex;
 			var text:String = tooltips.content[index].title.toString() + tooltips.content[index].body.toString();
-			
+
+			if (text.indexOf("{$") > -1)
+				text = StringUtils.parseTextVars(text, src.parent);
+
 			_tooltip.show(src, text);
 		}
 		
