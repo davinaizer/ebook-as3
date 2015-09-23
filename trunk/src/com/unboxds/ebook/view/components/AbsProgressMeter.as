@@ -12,17 +12,17 @@ package com.unboxds.ebook.view.components
 	 */
 	public class AbsProgressMeter extends ContentObject
 	{
-		protected var progress:uint;
-		protected var secondaryProgress:uint;
-		protected var max:uint;
+		private var _progress:uint;
+		private var _secondaryProgress:uint;
+		private var _max:uint;
 
 		public function AbsProgressMeter(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
 			super(contentXML, stylesheet);
 
-			progress = 0;
-			secondaryProgress = 0;
-			max = 100;
+			_progress = 0;
+			_secondaryProgress = 0;
+			_max = 100;
 		}
 
 		/**
@@ -31,7 +31,7 @@ package com.unboxds.ebook.view.components
 		 */
 		public function setProgress(progress:uint):void
 		{
-			this.progress = progress;
+			this._progress = progress;
 		}
 
 		/**
@@ -42,7 +42,7 @@ package com.unboxds.ebook.view.components
 		 */
 		public function setSecondaryProgress(progress:uint):void
 		{
-			this.secondaryProgress = progress;
+			this._secondaryProgress = progress;
 		}
 
 		/**
@@ -51,7 +51,7 @@ package com.unboxds.ebook.view.components
 		 */
 		public function setMax(max:uint):void
 		{
-			this.max = max;
+			this._max = max;
 		}
 
 		/**
@@ -62,6 +62,36 @@ package com.unboxds.ebook.view.components
 		{
 			this.mouseEnabled = value;
 			this.mouseChildren = value;
+		}
+
+		public function get progress():uint
+		{
+			return _progress;
+		}
+
+		public function get secondaryProgress():uint
+		{
+			return _secondaryProgress;
+		}
+
+		public function get max():uint
+		{
+			return _max;
+		}
+
+		public function set progress(value:uint):void
+		{
+			_progress = value;
+		}
+
+		public function set secondaryProgress(value:uint):void
+		{
+			_secondaryProgress = value;
+		}
+
+		public function set max(value:uint):void
+		{
+			_max = value;
 		}
 	}
 }

@@ -423,7 +423,7 @@ package com.unboxds.ebook.controller
 			contentTween = TweenParser.getTweenFromXML(Gaia.api.getPage(Gaia.api.getCurrentBranch()).content, contentXML.tween.tween.(@id == "contentTween")[0]);
 
 			progressMeter.setProgress(currentPage.index + 1);
-			progressMeter.setSecondaryProgress(Ebook.getInstance().getNav().getUserLastPage().index);
+			progressMeter.setSecondaryProgress(Ebook.getInstance().getNav().getUserLastPage().index + 1);
 		}
 
 		private function onAfterTransitionIn(e:GaiaEvent):void

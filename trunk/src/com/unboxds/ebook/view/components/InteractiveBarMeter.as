@@ -30,6 +30,7 @@ package com.unboxds.ebook.view.components
 
 			cursor = new ProgressCursor() as SimpleButton;
 			cursor.name = "progressCursor";
+			cursor.useHandCursor = false;
 			addChild(cursor);
 
 			parseContent();
@@ -45,7 +46,7 @@ package com.unboxds.ebook.view.components
 
 		public function get progressPercent():Number
 		{
-			return (progress / max) * 100;
+			return (secondaryProgress / max) * 100;
 		}
 	}
 }

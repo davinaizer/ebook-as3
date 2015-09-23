@@ -8,42 +8,44 @@
 			className="com.unboxds.ebook.view.components::InteractiveBarMeter"
 			instanceName="progressMeter"
 
-			x="0"
+			x="50"
 			y="594"
-			width="1000"
+			width="900"
 			height="6"
 
-			bgColor="0xE4E4E4"
-			bgColorAlpha="1"
+			bgColor="0xFFFFFF"
+			bgColorAlpha=".75"
+			bgStrokeColor=""
 
-			barColor="0x006AB6"
+			barColor="0x008E00"
 			barColorAlpha="1"
 
 			secondaryBarColor="0x00A900"
 			secondaryBarColorAlpha="1">
 
-				<content type="tooltip"
-						hook="true"
-						hookSize="20"
-						autoSize="true"
-						followCursor="true"
-						align="center"
-						cornerRadius="10"
-						showDelay="100"
-						hideDelay="0"
-						bgAlpha="1"
-						width="350"
-						colors="0x353535,0x353535"
-						padding="10">
+		<content type="tooltip"
+				 hook="true"
+				 hookSize="20"
+				 autoSize="true"
+				 followCursor="true"
+				 align="center"
+				 cornerRadius="10"
+				 showDelay="100"
+				 hideDelay="0"
+				 bgAlpha="1"
+				 width="200"
+				 colors="0x353535,0x353535"
+				 padding="10">
 
-						<content instanceName="progressCursor">
-							<body>
-								<![CDATA[<p class="tipText">Seu progresso: {$progressPercent}%</p>]]>
-							</body>
-						</content>
-				</content>
+			<content instanceName="progressCursor">
+				<title><![CDATA[<p class="tipText">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
+				<body>
+					<![CDATA[<p class="tipText">Você já percorreu <b>{$progressPercent}%</b> da sua jornada</p>]]>
+				</body>
+			</content>
+		</content>
 
-			</object>
+	</object>
 
 	<!----------------------- NavBar ----------------------->
 
@@ -111,7 +113,7 @@
 
 		</content>
 
-		<object type="searchBox" x="210" y="0" title="" loadingMsg="" minChars="3" />
+		<object type="searchBox" x="210" y="0" title="" loadingMsg="" minChars="3"/>
 
 	</object>
 
@@ -189,8 +191,10 @@
 
 		<object type="bookmarkPanel" title="Favoritos //" x="0" y="0">
 
-			<object type="List" name="bookmarkList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1" buildAnimStagger="0.05" />
-			<object type="Scrollbar" x="950" y="175" width="2" height="304" scrollbarColor="0xFFFFFF" scrollbarColorAlpha="0" thumbColor="0x333333" thumbColorAlpha="1" autoHideThumb="true" />
+			<object type="List" name="bookmarkList" x="50" y="175" width="900" height="304" columns="2" rows="4"
+					spacing="1" buildAnimStagger="0.05"/>
+			<object type="Scrollbar" x="950" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0" thumbColor="0x333333" thumbColorAlpha="1" autoHideThumb="true"/>
 
 			<content type="text">
 				<content instanceName="titleTxt">
@@ -217,11 +221,15 @@
 
 		<object type="indexPanel" title="Índice //" x="0" y="0">
 
-			<object type="List" name="menuList" x="50" y="175" width="450" height="304" columns="1" rows="4" spacing="1" buildAnimStagger="0.05" />
-			<object type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF" scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true" />
+			<object type="List" name="menuList" x="50" y="175" width="450" height="304" columns="1" rows="4" spacing="1"
+					buildAnimStagger="0.05"/>
+			<object type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
-			<object type="List" name="submenuList" x="500" y="175" width="450" height="304" columns="1" rows="4" spacing="1" buildAnimStagger="0.05" />
-			<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF" scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true" />
+			<object type="List" name="submenuList" x="500" y="175" width="450" height="304" columns="1" rows="4"
+					spacing="1" buildAnimStagger="0.05"/>
+			<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
 			<content type="menu">
 
@@ -519,8 +527,10 @@
 			</tween>
 		</tween>
 
-		<object type="List" name="searchList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1" buildAnimStagger="0.05" />
-		<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF" scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true" />
+		<object type="List" name="searchList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1"
+				buildAnimStagger="0.05"/>
+		<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+				scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
 		<content type="text">
 			<content instanceName="titleTxt">
@@ -547,7 +557,7 @@
 				</title>
 			</content>
 		</content>
-		
+
 	</object>
 
 	<tween>

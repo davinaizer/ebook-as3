@@ -10,7 +10,7 @@
 		 scormReplaceDoubleQuotes: true | false
 	-->
 
-	<config consultMode="true" enableAlerts="false" dataServiceType="SCORM" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBook_AS3_V3">
+	<config consultMode="false" enableAlerts="false" dataServiceType="SCORM" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBook_AS3_V3">
 		<customData>
 			<maxPoints>
 				<![CDATA[]]>
@@ -34,11 +34,9 @@
 			</page>
 
 			<page id="module_00" src="content/pages/ModulePage.swf" depth="top">
-
 				<page id="M_00_P_00" src="content/pages/M_00_P_00.swf" title="Introdução" navbarStatus="11011" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
 					<asset id="contentXML" src="xml/pages/M_00_P_00.xml" />
 				</page>
-
 				<page id="M_00_P_01" src="content/pages/M_00_P_01.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
 					<asset id="contentXML" src="xml/pages/M_00_P_01.xml" />
 				</page>
@@ -50,31 +48,6 @@
 				</page>
 				<page id="M_00_P_04" src="content/pages/M_00_P_04.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
 					<asset id="contentXML" src="xml/pages/M_00_P_04.xml" />
-				</page>
-			</page>
-
-			<page id="module_01" src="content/pages/ModulePage.swf" depth="top">
-				<page id="M_01_P_00" src="content/pages/M_01_P_00.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_01_P_00.xml" />
-					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
-				</page>
-				<page id="M_01_P_01" src="content/pages/M_01_P_01.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_01_P_01.xml" />
-					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
-				</page>
-				<page id="M_01_P_02" src="content/pages/M_01_P_02.swf" title="Avaliação" navbarStatus="00000" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_01_P_02.xml" />
-					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
-				</page>
-				<page id="M_01_P_03" src="content/pages/M_01_P_03.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_01_P_03.xml" />
-					<asset id="assessmentXML" src="xml/pages/quiz/assessment.xml" />
-				</page>
-			</page>
-
-			<page id="module_02" src="content/pages/ModulePage.swf" depth="top">
-				<page id="M_02_P_00" src="content/pages/M_02_P_00.swf" title="Avaliação" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_02_P_00.xml" />
 				</page>
 			</page>
 

@@ -2,7 +2,10 @@ package com.unboxds.ebook.view.components
 {
 	import com.greensock.TweenLite;
 	import com.greensock.easing.Strong;
+	import com.greensock.layout.ScaleMode;
 	import com.unboxds.utils.Logger;
+
+	import flash.display.JointStyle;
 
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -91,6 +94,7 @@ package com.unboxds.ebook.view.components
 		protected function draw():void
 		{
 			bgView.graphics.clear();
+			bgView.graphics.lineStyle(2, bgColor, bgColorAlpha,false, ScaleMode.NONE, null, JointStyle.MITER);
 			bgView.graphics.beginFill(bgColor, bgColorAlpha);
 			bgView.graphics.drawRect(0, 0, _width, _height);
 			bgView.graphics.endFill();
