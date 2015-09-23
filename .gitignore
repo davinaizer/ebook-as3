@@ -1,2 +1,3 @@
-trunk/.idea/misc.xml
-trunk/.idea/workspace.xml
+# intellij IDEA files
+.idea/
+*.iml
