@@ -8,7 +8,7 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.button.IButton;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.view.utils.ContentParser;
+	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.model.events.NavEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
@@ -97,7 +97,7 @@ package com.unboxds.ebook.view.ui
 			scrollBar.barColorAlpha = parseFloat(scrollbarData[0].@scrollbarColorAlpha);
 			scrollBar.thumbColor = parseInt(scrollbarData[0].@thumbColor);
 			scrollBar.thumbColorAlpha = parseFloat(scrollbarData[0].@thumbColorAlpha);
-			scrollBar.autoHideThumb = scrollbarData[0].@autoHideThumb == "true" ? true : false;
+			scrollBar.autoHideThumb = scrollbarData[0].@autoHideThumb == "true";
 			
 			scrollBar2 = new StepperBar();
 			scrollBar2.x = parseFloat(scrollbarData[1].@x);
@@ -108,7 +108,7 @@ package com.unboxds.ebook.view.ui
 			scrollBar2.barColorAlpha = parseFloat(scrollbarData[1].@scrollbarColorAlpha);
 			scrollBar2.thumbColor = parseInt(scrollbarData[1].@thumbColor);
 			scrollBar2.thumbColorAlpha = parseFloat(scrollbarData[1].@thumbColorAlpha);
-			scrollBar2.autoHideThumb = scrollbarData[1].@autoHideThumb == "true" ? true : false;
+			scrollBar2.autoHideThumb = scrollbarData[1].@autoHideThumb == "true";
 			
 			addChild(subList);
 			addChild(list);

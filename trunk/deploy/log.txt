@@ -1,8 +1,8 @@
 
 build-swc-lib:
      [echo] Generating SWC Library
-     [exec] Loading configuration file C:\Users\Naizer\AppData\Local\FlashDevelop\Apps\flexairsdk\4.6.0+18.0.0\frameworks\flex-config.xml
-     [exec] D:\Projetos\SVN_REPOS\UNBOX\ebookFramework\trunk\ebookFramework\deploy\eBookAS_v3.1.2.swc (94272 bytes)
+     [exec] Loading configuration file /Volumes/USERS_HD/Projects/Tools/apache_flex/frameworks/flex-config.xml
+     [exec] /Volumes/USERS_HD/Projects/UNBOX/eBookAS/trunk/deploy/eBookAS_v3.2.0.swc (95094 bytes)
 
 BUILD SUCCESSFUL
-Total time: 2 seconds
+Total time: 3 seconds

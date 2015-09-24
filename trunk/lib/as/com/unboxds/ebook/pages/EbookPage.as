@@ -5,7 +5,7 @@ package com.unboxds.ebook.pages
 	import com.gaiaframework.api.IXml;
 	import com.gaiaframework.templates.AbstractPage;
 	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.view.utils.ContentParser;
+	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.utils.PageAnimator;
 	import com.unboxds.utils.TweenParser;

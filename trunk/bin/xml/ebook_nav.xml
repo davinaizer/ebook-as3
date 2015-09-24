@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ebook title="Seguro de Vida" history="false" indexFirst="true" flow="cross" menu="false" preloader="Preloader.swf">
+<ebook title="UNBOX eBook" history="false" indexFirst="true" flow="cross" menu="false" preloader="Preloader.swf">
 
 	<!--
 		 DATACONFIG OPTIONS
@@ -10,7 +10,7 @@
 		 scormReplaceDoubleQuotes: true | false
 	-->
 
-	<config consultMode="false" enableAlerts="false" dataServiceType="SCORM" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBook_AS3_V3">
+	<config consultMode="false" enableAlerts="false" dataServiceType="SCORM" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBookAS_V3">
 		<customData>
 			<maxPoints>
 				<![CDATA[]]>

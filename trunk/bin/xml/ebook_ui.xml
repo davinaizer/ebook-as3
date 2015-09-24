@@ -9,19 +9,18 @@
 			instanceName="progressMeter"
 
 			x="50"
-			y="594"
+			y="596"
 			width="900"
-			height="6"
+			height="4"
 
 			bgColor="0xFFFFFF"
 			bgColorAlpha=".75"
-			bgStrokeColor=""
 
 			barColor="0x008E00"
-			barColorAlpha="1"
+			barColorAlpha=".75"
 
 			secondaryBarColor="0x00A900"
-			secondaryBarColorAlpha="1">
+			secondaryBarColorAlpha=".75">
 
 		<content type="tooltip"
 				 hook="true"
@@ -231,26 +230,25 @@
 			<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
-			<content type="menu">
-
+			<object type="menu">
 				<content pageID="index/nav/module_00/M_00_P_00" lastPageID="index/nav/module_00/M_00_P_04">
 					<title>
 						<![CDATA[<p class="dashboardButton">01. Introdução</p>]]>
 					</title>
 
-					<content pageID="index/nav/module_00/M_00_P_01" lastPageID="index/nav/module_00/M_00_P_04">
+					<content pageID="index/nav/module_00/M_00_P_01" lastPageID="index/nav/module_00/M_00_P_01">
 						<title>
 							<![CDATA[<p class="dashboardButton">01. Página 1</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_00/M_00_P_02" lastPageID="index/nav/module_00/M_00_P_04">
+					<content pageID="index/nav/module_00/M_00_P_02" lastPageID="index/nav/module_00/M_00_P_02">
 						<title>
 							<![CDATA[<p class="dashboardButton">02. Página 2</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_00/M_00_P_03" lastPageID="index/nav/module_00/M_00_P_04">
+					<content pageID="index/nav/module_00/M_00_P_03" lastPageID="index/nav/module_00/M_00_P_03">
 						<title>
 							<![CDATA[<p class="dashboardButton">03. Página 3</p>]]>
 						</title>
@@ -261,45 +259,8 @@
 							<![CDATA[<p class="dashboardButton">04. Página 4</p>]]>
 						</title>
 					</content>
-
 				</content>
-
-				<content pageID="index/nav/module_01/M_01_P_00" lastPageID="index/nav/module_01/M_01_P_03">
-					<title>
-						<![CDATA[<p class="dashboardButton">02. Avaliação</p>]]>
-					</title>
-
-					<content pageID="index/nav/module_01/M_01_P_01" lastPageID="index/nav/module_01/M_01_P_03">
-						<title>
-							<![CDATA[<p class="dashboardButton">01. Orientações</p>]]>
-						</title>
-					</content>
-					<content pageID="index/nav/module_01/M_01_P_02" lastPageID="index/nav/module_01/M_01_P_03">
-						<title>
-							<![CDATA[<p class="dashboardButton">02. Questões</p>]]>
-						</title>
-					</content>
-					<content pageID="index/nav/module_01/M_01_P_03" lastPageID="index/nav/module_01/M_01_P_03">
-						<title>
-							<![CDATA[<p class="dashboardButton">03. Resultado</p>]]>
-						</title>
-					</content>
-
-				</content>
-
-				<content pageID="index/nav/module_02/M_02_P_00" lastPageID="index/nav/module_02/M_02_P_00">
-					<title>
-						<![CDATA[<p class="dashboardButton">03. Conclusão</p>]]>
-					</title>
-
-					<content pageID="index/nav/module_02/M_02_P_00" lastPageID="index/nav/module_02/M_02_P_00">
-						<title>
-							<![CDATA[<p class="dashboardButton">01. Conclusão</p>]]>
-						</title>
-					</content>
-				</content>
-
-			</content>
+			</object>
 
 			<content type="text">
 				<content instanceName="titleTxt">

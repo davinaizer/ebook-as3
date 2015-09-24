@@ -1,6 +1,6 @@
 package com.unboxds.ebook.view.components
 {
-	import com.unboxds.ebook.view.utils.ContentParser;
+	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.NumberUtils;
 	import com.unboxds.utils.StringUtils;
