@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Build SWC Library"
-	default="build-swc-lib">
+<project name="Build SWC Library" default="build-swc-lib">
 
 	<!-- Include the build.properties file -->
 	<property file="./build.properties" />
 
 	<!-- Point Ant to the Flex installation -->
-	<taskdef resource="flexTasks.tasks"
-		classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
 
 	<!-- Define the commands to generate a SWC library -->
-	<target name="build-swc-lib"	
-		description="Generates a SWC library from a directory of as3 classes">
+	<target name="build-swc-lib" description="Generates a SWC library from a directory of as3 classes">
 
 		<echo>Generating SWC Library</echo>
 
@@ -25,7 +22,7 @@
 			<!-- This is for linking directories or classes -->
 			<arg line="-source-path=lib/as" />
 			<!-- <arg line="-source-path+=C:/FlashClasses/as3" />  -->
-			
+
 			<!-- This is for linking other SWC libraries -->
 			<arg line="-external-library-path+=lib/swc" />
 			<arg line="-external-library-path+=lib/swc/assets.swc" />
@@ -36,9 +33,8 @@
 			<arg line="-external-library-path+=lib/swc/as3_unboxdslib_V1.3.15.swc" />
 
 			<!-- Compile for Flash Player 10.0.0 and higher -->
-			<arg line="-target-player=12.0"/>
-			<!-- Turn off strict mode -->
-			<!-- <arg line="-strict=false"/> -->
+			<arg line="-target-player=12.0" />
+			<!-- Turn off strict mode -->            <!-- <arg line="-strict=false"/> -->
 		</exec>
 
 	</target>
