@@ -2,7 +2,7 @@
 build-swc-lib:
      [echo] Generating SWC Library
      [exec] Loading configuration file /Volumes/USERS_HD/Projects/Tools/apache_flex/frameworks/flex-config.xml
-     [exec] /Volumes/USERS_HD/Projects/UNBOX/eBookAS/trunk/deploy/eBookAS_v3.2.0.swc (95094 bytes)
+     [exec] /Volumes/USERS_HD/Projects/UNBOX/eBookAS/trunk/deploy/eBookAS_v3.2.0.swc (98431 bytes)
 
 BUILD SUCCESSFUL
 Total time: 3 seconds
