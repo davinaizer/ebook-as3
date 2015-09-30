@@ -31,7 +31,7 @@
 			{
 				var type:String = contentXML.content[i].@type;
 				var cXML:XML = contentXML.content[i];
-
+				
 				var parser:AbsParser = ParserFactory.getParser(type);
 				if (parser != null)
 				{

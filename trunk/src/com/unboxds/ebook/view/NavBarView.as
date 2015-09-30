@@ -74,7 +74,7 @@ package com.unboxds.ebook.view
 			
 			//-- searchBox
 			_searchBox = new SearchBox();
-			_searchBox.contentXML = XML(XMLList(contentXML.object.(@type == "searchBox")).toXMLString());
+			_searchBox.contentXML = XML(XMLList(contentXML.component.(@type == "searchBox")).toXMLString());
 			_searchBox.show();
 			
 			view.addChild(_searchBox);

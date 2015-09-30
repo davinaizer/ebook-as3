@@ -86,15 +86,15 @@ package com.unboxds.ebook.view.ui
 			
 			//-- create panels and ui objetcs
 			aboutPanel = new AboutPanel();
-			aboutPanel.contentXML = XML(XMLList(contentXML.object.(@type == "aboutPanel")).toXMLString());
+			aboutPanel.contentXML = XML(XMLList(contentXML.component.(@type == "aboutPanel")).toXMLString());
 			aboutPanel.stylesheet = stylesheet;
 			
 			bookmarkPanel = new BookmarkPanel();
-			bookmarkPanel.contentXML = XML(XMLList(contentXML.object.(@type == "bookmarkPanel")).toXMLString());
+			bookmarkPanel.contentXML = XML(XMLList(contentXML.component.(@type == "bookmarkPanel")).toXMLString());
 			bookmarkPanel.stylesheet = stylesheet;
 			
 			indexPanel = new IndexPanel();
-			indexPanel.contentXML = XML(XMLList(contentXML.object.(@type == "indexPanel")).toXMLString());
+			indexPanel.contentXML = XML(XMLList(contentXML.component.(@type == "indexPanel")).toXMLString());
 			indexPanel.stylesheet = stylesheet;
 			
 			addChild(indexPanel);

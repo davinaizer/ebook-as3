@@ -84,25 +84,25 @@ package com.unboxds.ebook.controller
 			Logger.log("UIController.setupStage");
 
 			//-- DASHBOARD
-			var dashboardData:XML = XML(XMLList(contentXML.object.(@type == "Dashboard")).toXMLString());
+			var dashboardData:XML = XML(XMLList(contentXML.component.(@type == "Dashboard")).toXMLString());
 			dashboard = new Dashboard(dashboardData, stylesheet);
 
 			//-- NAVBAR
-			var navBarData:XML = XML(XMLList(contentXML.object.(@type == "NavBar")).toXMLString());
+			var navBarData:XML = XML(XMLList(contentXML.component.(@type == "NavBar")).toXMLString());
 			navBar = new NavBarView(navBarData, stylesheet);
 
 			//-- PROGRESS METER
-			var pmData:XML = XML(XMLList(contentXML.object.(@type == "ProgressMeter")).toXMLString());
+			var pmData:XML = XML(XMLList(contentXML.component.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
 			progressMeter = new PmClass(pmData, stylesheet) as AbsProgressMeter;
 			progressMeter.setMax(Ebook.getInstance().getNav().totalPages);
 
 			//-- HELP PANEL
-			var helpPanelData:XML = XML(XMLList(contentXML.object.(@type == "HelpPanel")).toXMLString());
+			var helpPanelData:XML = XML(XMLList(contentXML.component.(@type == "HelpPanel")).toXMLString());
 			helpPanel = new HelpPanel(helpPanelData, stylesheet);
 
 			//-- SEARCH PANEL
-			var searchPanelData:XML = XML(XMLList(contentXML.object.(@type == "SearchPanel")).toXMLString());
+			var searchPanelData:XML = XML(XMLList(contentXML.component.(@type == "SearchPanel")).toXMLString());
 			searchPanel = new SearchPanel(searchPanelData, stylesheet);
 
 			addChild(dashboard);

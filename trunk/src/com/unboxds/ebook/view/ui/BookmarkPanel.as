@@ -76,14 +76,14 @@ package com.unboxds.ebook.view.ui
 			btnNext = design.btnNext as SimpleButton;
 			btnBack = design.btnBack as SimpleButton;
 			
-			var listData:XMLList = contentXML.object.(@type == "List");
+			var listData:XMLList = contentXML.component.(@type == "List");
 			list = new ListBuilder().fromXML(listData[0]).build();
 			list.buttonClass = btBookmarkItem;
 			list.buttonPrefix = "btBookmarkItem";
 			list.stylesheet = stylesheet;
 			list.onChange.add(onListChange);
 			
-			var scrollbarData:XMLList = contentXML.object.(@type == "Scrollbar");
+			var scrollbarData:XMLList = contentXML.component.(@type == "Scrollbar");
 			scrollBar = new StepperBar();
 			scrollBar.x = parseFloat(scrollbarData[0].@x);
 			scrollBar.y = parseFloat(scrollbarData[0].@y);

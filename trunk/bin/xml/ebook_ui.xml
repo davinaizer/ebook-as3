@@ -3,7 +3,7 @@
 
 	<!-- --------------------- ProgressMeter ----------------------->
 
-	<object type="ProgressMeter"
+	<component type="ProgressMeter"
 			depth="3"
 			className="com.unboxds.ebook.view.components::InteractiveBarMeter"
 			instanceName="progressMeter"
@@ -44,11 +44,11 @@
 			</content>
 		</content>
 
-	</object>
+	</component>
 
 	<!----------------------- NavBar ----------------------->
 
-	<object type="NavBar" depth="4" instanceName="navBar" x="0" y="0" openX="0" openY="0" isKeyboardAvailable="true">
+	<component type="NavBar" depth="4" instanceName="navBar" x="0" y="0" openX="0" openY="0" isKeyboardAvailable="true">
 
 		<tween>
 			<tween id="nextBtn" type="to" target="nextBtn.btNextOver" duration="1" ease="Quint.easeIn">
@@ -112,13 +112,13 @@
 
 		</content>
 
-		<object type="searchBox" x="210" y="0" title="" loadingMsg="" minChars="3"/>
+		<component type="searchBox" x="210" y="0" title="" loadingMsg="" minChars="3"/>
 
-	</object>
+	</component>
 
 	<!----------------------- Dashboard ----------------------->
 
-	<object type="Dashboard" depth="0" instanceName="dashboard" x="0" y="-480" openX="0" openY="0">
+	<component type="Dashboard" depth="0" instanceName="dashboard" x="0" y="-480" openX="0" openY="0">
 
 		<tween>
 			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
@@ -132,7 +132,7 @@
 
 		<!----------------------- aboutPanel ----------------------->
 
-		<object type="aboutPanel" title="Créditos //" x="0" y="0">
+		<component type="aboutPanel" title="Créditos //" x="0" y="0">
 
 			<content type="text">
 				<content>
@@ -184,15 +184,15 @@
 				</content>
 			</content>
 
-		</object>
+		</component>
 
 		<!----------------------- bookmarkPanel ----------------------->
 
-		<object type="bookmarkPanel" title="Favoritos //" x="0" y="0">
+		<component type="bookmarkPanel" title="Favoritos //" x="0" y="0">
 
-			<object type="List" name="bookmarkList" x="50" y="175" width="900" height="304" columns="2" rows="4"
+			<component type="List" name="bookmarkList" x="50" y="175" width="900" height="304" columns="2" rows="4"
 					spacing="1" buildAnimStagger="0.05"/>
-			<object type="Scrollbar" x="950" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+			<component type="Scrollbar" x="950" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 					scrollbarColorAlpha="0" thumbColor="0x333333" thumbColorAlpha="1" autoHideThumb="true"/>
 
 			<content type="text">
@@ -214,23 +214,23 @@
 					</title>
 				</content>
 			</content>
-		</object>
+		</component>
 
 		<!----------------------- indexPanel ----------------------->
 
-		<object type="indexPanel" title="Índice //" x="0" y="0">
+		<component type="indexPanel" title="Índice //" x="0" y="0">
 
-			<object type="List" name="menuList" x="50" y="175" width="450" height="304" columns="1" rows="4" spacing="1"
+			<component type="List" name="menuList" x="50" y="175" width="450" height="304" columns="1" rows="4" spacing="1"
 					buildAnimStagger="0.05"/>
-			<object type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+			<component type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
-			<object type="List" name="submenuList" x="500" y="175" width="450" height="304" columns="1" rows="4"
+			<component type="List" name="submenuList" x="500" y="175" width="450" height="304" columns="1" rows="4"
 					spacing="1" buildAnimStagger="0.05"/>
-			<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+			<component type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
-			<object type="menu">
+			<component type="menu">
 				<content pageID="index/nav/module_00/M_00_P_00" lastPageID="index/nav/module_00/M_00_P_04">
 					<title>
 						<![CDATA[<p class="dashboardButton">01. Introdução</p>]]>
@@ -260,7 +260,7 @@
 						</title>
 					</content>
 				</content>
-			</object>
+			</component>
 
 			<content type="text">
 				<content instanceName="titleTxt">
@@ -270,7 +270,7 @@
 				</content>
 			</content>
 
-		</object>
+		</component>
 
 		<content type="tooltip"
 				 hook="true"
@@ -304,11 +304,11 @@
 			</content>
 		</content>
 
-	</object>
+	</component>
 
 	<!----------------------- HelpPanel ----------------------->
 
-	<object type="HelpPanel" depth="1" instanceName="helpPanel" x="0" y="-480">
+	<component type="HelpPanel" depth="1" instanceName="helpPanel" x="0" y="-480">
 
 		<tween>
 			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
@@ -472,11 +472,11 @@
 			</content>
 
 		</content>
-	</object>
+	</component>
 
 	<!----------------------- SearchPanel ----------------------->
 
-	<object type="SearchPanel" depth="2" instanceName="searchPanel" x="0" y="-480" title="Busca //" summaryLength="50">
+	<component type="SearchPanel" depth="2" instanceName="searchPanel" x="0" y="-480" title="Busca //" summaryLength="50">
 
 		<tween>
 			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
@@ -488,9 +488,9 @@
 			</tween>
 		</tween>
 
-		<object type="List" name="searchList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1"
+		<component type="List" name="searchList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1"
 				buildAnimStagger="0.05"/>
-		<object type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
+		<component type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 				scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
 		<content type="text">
@@ -519,7 +519,7 @@
 			</content>
 		</content>
 
-	</object>
+	</component>
 
 	<tween>
 		<tween id="contentTween" type="to" target="" duration=".5" ease="Linear.easeNone">
@@ -535,4 +535,5 @@
 			</vars>
 		</tween>
 	</tween>
+
 </data>

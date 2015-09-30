@@ -68,7 +68,7 @@ package com.unboxds.ebook.view.ui
 			design.baseBox_Placeholder.alpha = 0;
 			addChild(design);
 			
-			var listData:XMLList = contentXML.object.(@type == "List");
+			var listData:XMLList = contentXML.component.(@type == "List");
 			
 			//-- list panel 
 			list = new ListBuilder().fromXML(listData[0]).build();
@@ -87,7 +87,7 @@ package com.unboxds.ebook.view.ui
 			subList.onChange.add(onListChange);
 			
 			//-- create SCROLLBARS
-			var scrollbarData:XMLList = contentXML.object.(@type == "Scrollbar");
+			var scrollbarData:XMLList = contentXML.component.(@type == "Scrollbar");
 			scrollBar = new StepperBar();
 			scrollBar.x = parseFloat(scrollbarData[0].@x);
 			scrollBar.y = parseFloat(scrollbarData[0].@y);

@@ -98,14 +98,14 @@
 			itemLabel = contentXML.content.(@type == "text").content.(@instanceName == "itemLabel").title.toString();
 			statusNotFoundStr = contentXML.content.(@type == "text").content.(@instanceName == "statusNotFound").title.toString();
 
-			var listData:XMLList = contentXML.object.(@type == "List");
+			var listData:XMLList = contentXML.component.(@type == "List");
 			list = new ListBuilder().fromXML(listData[0]).build();
 			list.buttonClass = btSearchResult;
 			list.buttonPrefix = "btSearchResult";
 			list.stylesheet = stylesheet;
 			list.onChange.add(onListChange);
 
-			var scrollbarData:XMLList = contentXML.object.(@type == "Scrollbar");
+			var scrollbarData:XMLList = contentXML.component.(@type == "Scrollbar");
 			scrollBar = new StepperBar();
 			scrollBar.x = parseFloat(scrollbarData[0].@x);
 			scrollBar.y = parseFloat(scrollbarData[0].@y);
