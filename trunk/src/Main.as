@@ -7,6 +7,8 @@
 	import com.unboxds.ebook.GaiaContext;
 	import com.unboxds.utils.Logger;
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
 	import flash.system.Security;
 	
 	public class Main extends Sprite
@@ -28,6 +30,11 @@
 			Security.allowDomain("localhost");
 			Security.allowDomain("127.0.0.1");
 			
+			//- stage config
+			stage.align = StageAlign.TOP_LEFT;
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+
+			//--
 			gaiaContext = new GaiaContext();
 			gaiaContext.onComplete.add(onGaiaComplete);
 			

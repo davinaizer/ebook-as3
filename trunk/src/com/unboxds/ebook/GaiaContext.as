@@ -2,12 +2,12 @@ package com.unboxds.ebook
 {
 	import com.gaiaframework.api.Gaia;
 	import com.gaiaframework.core.GaiaMain;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
+
 	import flash.events.Event;
+
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
-	
+
 	/**
 	 * Wrapper for Gaia Framework initization.
 	 *
@@ -30,9 +30,7 @@ package com.unboxds.ebook
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-			stage.align = StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
-			alignSite(1000, 600);
+			//alignSite(1000, 600);
 			super.onAddedToStage(event);
 		}
 		
@@ -65,7 +63,7 @@ package com.unboxds.ebook
 		{
 			return _onComplete;
 		}
-	
+
 	}
 
 }
