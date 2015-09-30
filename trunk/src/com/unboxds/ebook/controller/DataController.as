@@ -97,8 +97,8 @@
 			if (isExtIntAvaiable)
 				ExternalInterface.addCallback("jsCall", jsCall);
 			
-			dataService.onLoaded.add(onDataLoaded);
-			dataService.onSaved.add(onDataSaved);
+			dataService.onLoad.add(onDataLoaded);
+			dataService.onSave.add(onDataSaved);
 			dataService.onLoadError.add(onDataLoadError);
 			dataService.onSaveError.add(onDataSaveError);
 			dataService.load();

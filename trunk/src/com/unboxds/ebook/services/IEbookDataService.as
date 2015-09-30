@@ -16,9 +16,9 @@ package com.unboxds.ebook.services
 		
 		function get isAvailable():Boolean;
 
-		function get onLoaded():ISignal;
+		function get onLoad():ISignal;
 
-		function get onSaved():ISignal;
+		function get onSave():ISignal;
 
 		function get onLoadError():ISignal;
 

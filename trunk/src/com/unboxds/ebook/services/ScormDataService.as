@@ -20,8 +20,8 @@ package com.unboxds.ebook.services
 		
 		// Interface methods
 		private var _isAvailable:Boolean;
-		private var _onLoaded:Signal;
-		private var _onSaved:Signal;
+		private var _onLoad:Signal;
+		private var _onSave:Signal;
 		private var _onLoadError:Signal;
 		private var _onSaveError:Signal;
 		
@@ -41,8 +41,8 @@ package com.unboxds.ebook.services
 			
 			Logger.log("ScormDataService.isAvailable: " + _isAvailable);
 			
-			_onLoaded = new Signal(ScormData);
-			_onSaved = new Signal();
+			_onLoad = new Signal(ScormData);
+			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
 		}
@@ -74,7 +74,7 @@ package com.unboxds.ebook.services
 				ebookData.suspend_data = getParam(ScormParams.PARAM_SUSPEND_DATA);
 				ebookData.total_time = getParam(ScormParams.PARAM_TOTAL_TIME);
 				
-				_onLoaded.dispatch(ebookData);
+				_onLoad.dispatch(ebookData);
 			}
 			else
 			{
@@ -92,7 +92,7 @@ package com.unboxds.ebook.services
 			var success:Boolean = scormAPI.save();
 			if (_isConnected && success)
 			{
-				_onSaved.dispatch();
+				_onSave.dispatch();
 			}
 			else
 			{
@@ -144,14 +144,14 @@ package com.unboxds.ebook.services
 			return _onSaveError;
 		}
 		
-		public function get onLoaded():ISignal
+		public function get onLoad():ISignal
 		{
-			return _onLoaded;
+			return _onLoad;
 		}
 		
-		public function get onSaved():ISignal
+		public function get onSave():ISignal
 		{
-			return _onSaved;
+			return _onSave;
 		}
 
 	}
