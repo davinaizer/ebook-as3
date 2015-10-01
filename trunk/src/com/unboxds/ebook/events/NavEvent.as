@@ -1,4 +1,4 @@
-package com.unboxds.ebook.model.events
+package com.unboxds.ebook.events
 {
 	import flash.events.Event;
 	
