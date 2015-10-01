@@ -11,8 +11,8 @@
 	import com.greensock.loading.LoaderMax;
 	import com.greensock.loading.XMLLoader;
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.events.SearchEvent;
+	import com.unboxds.ebook.EbookApi;
+	import com.unboxds.ebook.events.SearchEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
@@ -123,7 +123,7 @@
 			iniTimer = getTimer();
 			summaryLength = parseInt(contentXML.@summaryLength);
 			contentBuffer = new Vector.<String>();
-			pages = Ebook.getInstance().getNav().getPages();
+			pages = EbookApi.getInstance().getNavController().getPages();
 			pageCount = pages.length;
 
 			//-- get Open Tweeen
@@ -227,9 +227,9 @@
 		private function invalidate():void
 		{
 			//TODO Remove EbookFramework dependecy
-			if (Ebook.getInstance().getDataController().isConsultMode == false)
+			if (EbookApi.getInstance().getEbookController().isConsultMode == false)
 			{
-				var maxPageIndex:int = Ebook.getInstance().getNav().getUserLastPage().index;
+				var maxPageIndex:int = EbookApi.getInstance().getNavController().getUserLastPage().index;
 				for (var i:int = 0; i < list.totalItems; i++)
 				{
 					var btn:SimpleButton = list.getButtonByIndex(i);

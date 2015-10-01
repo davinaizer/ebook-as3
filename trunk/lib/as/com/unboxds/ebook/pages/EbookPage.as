@@ -4,7 +4,7 @@ package com.unboxds.ebook.pages
 	import com.gaiaframework.api.IStyleSheet;
 	import com.gaiaframework.api.IXml;
 	import com.gaiaframework.templates.AbstractPage;
-	import com.unboxds.ebook.Ebook;
+	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.utils.PageAnimator;
@@ -35,16 +35,16 @@ package com.unboxds.ebook.pages
 		{
 			init();
 			
-			_data = Ebook.getInstance().getNav().getCurrentPage();
+			_data = EbookApi.getInstance().getNavController().getCurrentPage();
 			
 			super.transitionIn();
 			try
 			{
-				PageAnimator[_data.pageTransitionIn](this, .5, Ebook.getInstance().getNav().navDirection, transitionInComplete);
+				PageAnimator[_data.pageTransitionIn](this, .5, EbookApi.getInstance().getNavController().navDirection, transitionInComplete);
 			}
 			catch (err:Error)
 			{
-				PageAnimator.fadeIn(this, .5, Ebook.getInstance().getNav().navDirection, transitionInComplete);
+				PageAnimator.fadeIn(this, .5, EbookApi.getInstance().getNavController().navDirection, transitionInComplete);
 			}
 			
 			if (_data.contentTransitionIn != "none")
@@ -56,11 +56,11 @@ package com.unboxds.ebook.pages
 			super.transitionOut();
 			try
 			{
-				PageAnimator[_data.pageTransitionOut](this, .5, Ebook.getInstance().getNav().navDirection, transitionOutComplete);
+				PageAnimator[_data.pageTransitionOut](this, .5, EbookApi.getInstance().getNavController().navDirection, transitionOutComplete);
 			}
 			catch (err:Error)
 			{
-				PageAnimator.fadeOut(this, .5, Ebook.getInstance().getNav().navDirection, transitionOutComplete);
+				PageAnimator.fadeOut(this, .5, EbookApi.getInstance().getNavController().navDirection, transitionOutComplete);
 			}
 		}
 		

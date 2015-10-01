@@ -7,9 +7,9 @@ package com.unboxds.ebook.view.ui
 
 	import com.unboxds.button.IButton;
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.Ebook;
+	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.view.parser.ContentParser;
-	import com.unboxds.ebook.model.events.NavEvent;
+	import com.unboxds.ebook.events.NavEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
@@ -246,9 +246,9 @@ package com.unboxds.ebook.view.ui
 		
 		private function invalidateList(data:XML, listP:List):void
 		{
-			if (Ebook.getInstance().getDataController().isConsultMode == false)
+			if (EbookApi.getInstance().getEbookController().isConsultMode == false)
 			{
-				var lastUserPage:PageData = Ebook.getInstance().getNav().getUserLastPage();
+				var lastUserPage:PageData = EbookApi.getInstance().getNavController().getUserLastPage();
 				var isLastModPage:Boolean = lastUserPage.counter[0] == lastUserPage.counter[1];
 				var isButtonEnabled:Boolean = false;
 				var isModuleCompleted:Boolean = false;
@@ -260,8 +260,8 @@ package com.unboxds.ebook.view.ui
 				
 				for (i = 0; i < listP.totalItems; i++)
 				{
-					firstPage = Ebook.getInstance().getNav().getPageByName(data.content[i].@pageID);
-					lastPage = "@lastPageID" in data.content[i] ? Ebook.getInstance().getNav().getPageByName(data.content[i].@lastPageID) : firstPage;
+					firstPage = EbookApi.getInstance().getNavController().getPageByName(data.content[i].@pageID);
+					lastPage = "@lastPageID" in data.content[i] ? EbookApi.getInstance().getNavController().getPageByName(data.content[i].@lastPageID) : firstPage;
 					
 					btn = listP.getButtonByIndex(i);
 					

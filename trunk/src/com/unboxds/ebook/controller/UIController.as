@@ -5,9 +5,9 @@ package com.unboxds.ebook.controller
 	import com.gaiaframework.events.GaiaEvent;
 	import com.greensock.TweenMax;
 	import com.unboxds.button.ToggleButton;
-	import com.unboxds.ebook.Ebook;
-	import com.unboxds.ebook.model.events.NavEvent;
-	import com.unboxds.ebook.model.events.SearchEvent;
+	import com.unboxds.ebook.EbookApi;
+	import com.unboxds.ebook.events.NavEvent;
+	import com.unboxds.ebook.events.SearchEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.NavBarView;
 	import com.unboxds.ebook.view.components.*;
@@ -95,7 +95,7 @@ package com.unboxds.ebook.controller
 			var pmData:XML = XML(XMLList(contentXML.component.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
 			progressMeter = new PmClass(pmData, stylesheet) as AbsProgressMeter;
-			progressMeter.setMax(Ebook.getInstance().getNav().totalPages);
+			progressMeter.setMax(EbookApi.getInstance().getNavController().totalPages);
 
 			//-- HELP PANEL
 			var helpPanelData:XML = XML(XMLList(contentXML.component.(@type == "HelpPanel")).toXMLString());
@@ -141,7 +141,7 @@ package com.unboxds.ebook.controller
 			//check for clicks outside UI
 			stage.addEventListener(MouseEvent.CLICK, stageHandler);
 
-			if (Ebook.getInstance().getDataController().enableDebugPanel == true)
+			if (EbookApi.getInstance().getEbookController().enableDebugPanel == true)
 			{
 				keyObj = new KeyObject(this.stage);
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
@@ -166,10 +166,10 @@ package com.unboxds.ebook.controller
 			// check keys combination to Debug Panel
 			if (keyObj.isDown(Keyboard.CONTROL) && keyObj.isDown(Keyboard.SHIFT) && keyObj.isDown(Keyboard.NUMBER_1))
 			{
-				if (Ebook.getInstance().getDebugPanel().view.visible)
-					Ebook.getInstance().getDebugPanel().hide();
+				if (EbookApi.getInstance().getDebugPanel().view.visible)
+					EbookApi.getInstance().getDebugPanel().hide();
 				else
-					Ebook.getInstance().getDebugPanel().show();
+					EbookApi.getInstance().getDebugPanel().show();
 			}
 
 			if (keyObj.isDown(Keyboard.ESCAPE))
@@ -187,7 +187,7 @@ package com.unboxds.ebook.controller
 						if (navBar.getNextButtonStatus())
 						{
 							isNavigationAvailable = false;
-							Ebook.getInstance().getNav().nextPage();
+							EbookApi.getInstance().getNavController().nextPage();
 						}
 						break;
 
@@ -195,7 +195,7 @@ package com.unboxds.ebook.controller
 						if (navBar.getBackButtonStatus())
 						{
 							isNavigationAvailable = false;
-							Ebook.getInstance().getNav().backPage();
+							EbookApi.getInstance().getNavController().backPage();
 						}
 						break;
 				}
@@ -227,11 +227,11 @@ package com.unboxds.ebook.controller
 			switch (sourceName)
 			{
 				case "nextBtn":
-					Ebook.getInstance().getNav().nextPage();
+					EbookApi.getInstance().getNavController().nextPage();
 					break;
 
 				case "backBtn":
-					Ebook.getInstance().getNav().backPage();
+					EbookApi.getInstance().getNavController().backPage();
 					break;
 
 				case "bookmarkRemoveBtn":
@@ -355,28 +355,28 @@ package com.unboxds.ebook.controller
 			Logger.log("UIController.bookmarkPage");
 
 			// -- SORT ARRAY
-			var pageFound:int = ArrayUtils.binarySearch(Ebook.getInstance().getStatus().lessonStatus.bookmarks, currentPage.index);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, currentPage.index);
 			if (pageFound > -1)
 			{
 				dashboard.removeBookmark(currentPage);
 				navBar.bookmarkPage(false);
 
-				ArrayUtil.removeValueFromArray(Ebook.getInstance().getStatus().lessonStatus.bookmarks, currentPage.index);
+				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, currentPage.index);
 			}
 			else
 			{
 				dashboard.addBookmark(currentPage);
 				navBar.bookmarkPage(true);
 
-				Ebook.getInstance().getStatus().lessonStatus.bookmarks.push(currentPage.index);
-				Ebook.getInstance().getStatus().lessonStatus.bookmarks.sort(Array.NUMERIC);
+				EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks.push(currentPage.index);
+				EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks.sort(Array.NUMERIC);
 			}
 		}
 
 		private function checkBookmark():void
 		{
 			var pageUID:int = currentPage.index;
-			var pageFound:int = ArrayUtils.binarySearch(Ebook.getInstance().getStatus().lessonStatus.bookmarks, pageUID);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, pageUID);
 			if (pageFound > -1)
 				navBar.bookmarkPage(true);
 			else
@@ -385,7 +385,7 @@ package com.unboxds.ebook.controller
 
 		private function onGotoPage(e:NavEvent):void
 		{
-			var index:int = Ebook.getInstance().getNav().getPageByName(e.pageID).index;
+			var index:int = EbookApi.getInstance().getNavController().getPageByName(e.pageID).index;
 			gotoPage(index);
 		}
 
@@ -393,7 +393,7 @@ package com.unboxds.ebook.controller
 		{
 			if (currentPage.index != index)
 			{
-				Ebook.getInstance().getNav().navigateToPageIndex(index);
+				EbookApi.getInstance().getNavController().navigateToPageIndex(index);
 			}
 			else
 			{
@@ -403,7 +403,7 @@ package com.unboxds.ebook.controller
 
 		private function onBeforeGoto(e:GaiaEvent):void
 		{
-			currentPage = Ebook.getInstance().getNav().getCurrentPage();
+			currentPage = EbookApi.getInstance().getNavController().getCurrentPage();
 
 			closePanels();
 
@@ -423,7 +423,7 @@ package com.unboxds.ebook.controller
 			contentTween = TweenParser.getTweenFromXML(Gaia.api.getPage(Gaia.api.getCurrentBranch()).content, contentXML.tween.tween.(@id == "contentTween")[0]);
 
 			progressMeter.setProgress(currentPage.index + 1);
-			progressMeter.setSecondaryProgress(Ebook.getInstance().getNav().getUserLastPage().index + 1);
+			progressMeter.setSecondaryProgress(EbookApi.getInstance().getNavController().getUserLastPage().index + 1);
 		}
 
 		private function onAfterTransitionIn(e:GaiaEvent):void
@@ -441,8 +441,8 @@ package com.unboxds.ebook.controller
 			{
 				navBar.status("11111");
 
-				var lastUserPage:PageData = Ebook.getInstance().getNav().getUserLastPage();
-				if (Ebook.getInstance().getDataController().isConsultMode || lastUserPage.index > currentPage.index)
+				var lastUserPage:PageData = EbookApi.getInstance().getNavController().getUserLastPage();
+				if (EbookApi.getInstance().getEbookController().isConsultMode || lastUserPage.index > currentPage.index)
 					navBar.enableNextButton(true);
 			}
 

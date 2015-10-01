@@ -4,7 +4,7 @@ package com.unboxds.ebook.view.ui
 	import assets.buttons.btBookmarkItem;
 
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.Ebook;
+	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
@@ -163,11 +163,11 @@ package com.unboxds.ebook.view.ui
 		{
 			if (!hasInit)
 			{
-				var bookmarks:Array = Ebook.getInstance().getStatus().lessonStatus.bookmarks;
+				var bookmarks:Array = EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks;
 				var len:int = bookmarks.length;
 				for (var i:int = 0; i < len; i++)
 				{
-					var page:PageData = Ebook.getInstance().getNav().getPageByIndex(bookmarks[i]);
+					var page:PageData = EbookApi.getInstance().getNavController().getPageByIndex(bookmarks[i]);
 					insert(page);
 				}
 				

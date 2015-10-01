@@ -1,7 +1,7 @@
 ﻿package com.unboxds.ebook.pages
 {
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.Ebook;
+	import com.unboxds.ebook.EbookApi;
 	import flash.events.MouseEvent;
 	
 	public class CoverPage extends EbookPage
@@ -43,7 +43,7 @@
 				{
 					case startBtn: 
 						startBtn.setLocked(true);
-						Ebook.getInstance().getDataController().start();
+						EbookApi.getInstance().getEbookController().start();
 						break;
 					
 					default: 

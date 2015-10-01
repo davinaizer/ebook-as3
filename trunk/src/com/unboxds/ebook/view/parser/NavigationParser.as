@@ -3,7 +3,7 @@
  */
 package com.unboxds.ebook.view.parser
 {
-	import com.unboxds.ebook.Ebook;
+	import com.unboxds.ebook.EbookApi;
 
 	public class NavigationParser extends AbsParser
 	{
@@ -28,11 +28,11 @@ package com.unboxds.ebook.view.parser
 				switch (type)
 				{
 					case "onBeforeNextPage":
-						Ebook.getInstance().getNav().onBeforeNextPage = this.onBeforeNextPage;
+						EbookApi.getInstance().getNavController().onBeforeNextPage = this.onBeforeNextPage;
 						break;
 
 					case "onBeforeBackPage":
-						Ebook.getInstance().getNav().onBeforeBackPage = this.onBeforeBackPage;
+						EbookApi.getInstance().getNavController().onBeforeBackPage = this.onBeforeBackPage;
 						break;
 				}
 			}
@@ -41,12 +41,12 @@ package com.unboxds.ebook.view.parser
 		//-- NAVIGATION FUNCTIONS
 		private function onBeforeNextPage():void
 		{
-			Ebook.getInstance().getNav().navigateTo(navActions["onBeforeNextPage"]);
+			EbookApi.getInstance().getNavController().navigateTo(navActions["onBeforeNextPage"]);
 		}
 
 		private function onBeforeBackPage():void
 		{
-			Ebook.getInstance().getNav().navigateTo(navActions["onBeforeBackPage"]);
+			EbookApi.getInstance().getNavController().navigateTo(navActions["onBeforeBackPage"]);
 		}
 
 	}

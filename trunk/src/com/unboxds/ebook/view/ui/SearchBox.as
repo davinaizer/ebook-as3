@@ -6,7 +6,7 @@ package com.unboxds.ebook.view.ui
 	import com.greensock.TweenLite;
 	import com.greensock.easing.Quint;
 	import com.unboxds.button.ToggleButton;
-	import com.unboxds.ebook.model.events.SearchEvent;
+	import com.unboxds.ebook.events.SearchEvent;
 	import com.unboxds.utils.Logger;
 
 	import flash.display.DisplayObject;
