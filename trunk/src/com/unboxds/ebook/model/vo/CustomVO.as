@@ -7,20 +7,19 @@ package com.unboxds.ebook.model.vo
 	 * @author Davi Naizer
 	 * @version 0.1
 	 */
-		// TODO This class belongs to the user, not the framework.
-		// TODO this class should be an Abstraction. Abs or Interface
-	public class CustomData
+	public class CustomVO
 	{
 		private var _maxPoints:Array;
 		private var _userPoints:Array;
 		private var _lessonStatus:Array;
 		private var _bookmarks:Array;
 
-		public function CustomData()
+		public function CustomVO()
 		{
 			_maxPoints = [0];
 			_userPoints = [-1];
 			_lessonStatus = [0];
+			//TODO put bookmarks inside EbookVO
 			_bookmarks = [];
 		}
 
@@ -120,11 +119,13 @@ package com.unboxds.ebook.model.vo
 		}
 
 		/* ----------- REQUIRED ----------- */
-		public function parseData(dataStr:String):CustomData
+		public function parseData(data:String):CustomVO
 		{
-			var retObj:Object = com.serialization.json.JSON.deserialize(dataStr);
+			var retObj:Object = com.serialization.json.JSON.deserialize(data);
+
 			for (var i:String in retObj)
-				this[i] = retObj[i];
+				if (this.hasOwnProperty(i))
+					this[i] = retObj[i];
 
 			return this;
 		}

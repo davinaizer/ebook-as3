@@ -1,10 +1,10 @@
 package com.unboxds.ebook.services
 {
-	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
 
 	import flash.net.SharedObject;
+	import flash.utils.getQualifiedClassName;
 
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
@@ -26,95 +26,76 @@ package com.unboxds.ebook.services
 
 		public function SolDataService()
 		{
-			init();
-		}
+			Logger.log("SolDataService.SolDataService");
 
-		private function init():void
-		{
-			Logger.log("SolDataService.init");
-
-			sol = SharedObject.getLocal("EbookSolData");
+			sol = SharedObject.getLocal("UNBOX_eBookAS_V3");
 
 			_isAvailable = true;
-			_onLoad = new Signal(EbookData);
+			_onLoad = new Signal(EbookVO);
 			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
 		}
 
-		/* INTERFACE com.unboxds.ebook.model.IEbookDataService */
-
 		public function load():void
 		{
-			Logger.log("SolDataService.load");
+			var ebookVO:EbookVO = new EbookVO();
 
-			var ebookData:EbookData = new EbookData();
-
-			// check if first time creating data
-			if (getParam(ScormConstants.PARAM_SUSPEND_DATA) != null)
+			if (sol.data.ebookVO != null)
 			{
-				ebookData.lesson_mode = getParam(ScormConstants.PARAM_LESSON_MODE);
-				ebookData.lesson_status = getParam(ScormConstants.PARAM_LESSON_STATUS);
-				ebookData.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
-				ebookData.scoreMin = Number(getParam(ScormConstants.PARAM_SCORE_MIN));
-				ebookData.scoreRaw = Number(getParam(ScormConstants.PARAM_SCORE_RAW));
-				ebookData.student_id = getParam(ScormConstants.PARAM_STUDENT_ID);
-				ebookData.student_name = getParam(ScormConstants.PARAM_STUDENT_NAME);
-				ebookData.suspend_data = getParam(ScormConstants.PARAM_SUSPEND_DATA);
-				ebookData.total_time = getParam(ScormConstants.PARAM_TOTAL_TIME);
+				Logger.log("SolDataService.load >> Ebook Data found!");
+
+				var dataObj:Object = sol.data.ebookVO;
+				parseObject(dataObj, ebookVO);
+			}
+			else
+			{
+				Logger.log("SolDataService.load >> NO Data found! Creating New.");
 			}
 
-			_onLoad.dispatch(ebookData);
+			_onLoad.dispatch(ebookVO);
+		}
+
+		private function parseObject(obj:Object, targetObj:Object):void
+		{
+			for (var param:String in obj)
+			{
+				if (targetObj.hasOwnProperty(param))
+				{
+					var classType:String = getQualifiedClassName(obj[param]);
+					if (classType == "Object")
+					{
+						parseObject(obj[param], targetObj[param])
+					}
+					else
+					{
+						targetObj[param] = obj[param];
+						Logger.log("SolDataService.parseObject >> " + param + " : " + ( (targetObj[param])));
+					}
+				}
+			}
 		}
 
 		/**
-		 * Update and commit to the LMS the EbookData
+		 * Update and commit to the LMS the EbookVO
 		 */
-		public function save(data:EbookData):void
+		public function save(data:EbookVO):void
 		{
-			update(data);
+			Logger.log("SolDataService.save > data :" + data);
 
+			for (var i:String in data)
+				Logger.log("SolDataService.save >> " + i + " > value : " + data[i]);
+
+			sol.data.ebookVO = data;
 			sol.flush();
 			sol.close();
 
 			_onSave.dispatch();
 		}
 
-		/* INTERFACE com.unboxds.ebook.services.IEbookDataService */
-
 		public function get isAvailable():Boolean
 		{
 			return _isAvailable;
-		}
-
-		/**
-		 * Update without commiting to the LMS
-		 */
-		private function update(data:EbookData):void
-		{
-			setParam(ScormConstants.PARAM_EXIT, data.exit);
-			setParam(ScormConstants.PARAM_LESSON_STATUS, data.lesson_status);
-			setParam(ScormConstants.PARAM_SCORE_MAX, String(data.scoreMax));
-			setParam(ScormConstants.PARAM_SCORE_MIN, String(data.scoreMin));
-			setParam(ScormConstants.PARAM_SCORE_RAW, String(data.scoreRaw));
-			setParam(ScormConstants.PARAM_SESSION_TIME, data.session_time);
-			setParam(ScormConstants.PARAM_SUSPEND_DATA, data.suspend_data);
-		}
-
-		private function setParam(param:String, value:String):void
-		{
-			Logger.log("SolDataService.setParam > param : " + param + " > value : " + value);
-
-			sol.data[param] = value;
-		}
-
-		private function getParam(param:String):String
-		{
-			var ret:String = sol.data[param];
-
-			Logger.log("SolDataService.getParam > param: " + param + " > ret: " + ret);
-
-			return ret;
 		}
 
 		public function get onLoadError():ISignal

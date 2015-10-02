@@ -5,7 +5,7 @@ package com.unboxds.ebook.pages
 	import com.gaiaframework.api.IXml;
 	import com.gaiaframework.templates.AbstractPage;
 	import com.unboxds.ebook.EbookApi;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.view.utils.PageAnimator;
 	import com.unboxds.utils.TweenParser;
@@ -23,7 +23,7 @@ package com.unboxds.ebook.pages
 	{
 		private var _contentXML:XML;
 		private var _stylesheet:StyleSheet;
-		private var _data:PageData;
+		private var _data:PageVO;
 
 		public function EbookPage()
 		{
@@ -104,12 +104,12 @@ package com.unboxds.ebook.pages
 			_stylesheet = value;
 		}
 
-		public function get data():PageData
+		public function get data():PageVO
 		{
 			return _data;
 		}
 
-		public function set data(value:PageData):void
+		public function set data(value:PageVO):void
 		{
 			_data = value;
 		}

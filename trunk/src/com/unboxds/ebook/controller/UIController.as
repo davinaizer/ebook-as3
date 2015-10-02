@@ -8,7 +8,7 @@ package com.unboxds.ebook.controller
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.events.NavEvent;
 	import com.unboxds.ebook.events.SearchEvent;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.ebook.view.NavBarView;
 	import com.unboxds.ebook.view.components.AbsProgressMeter;
 	import com.unboxds.ebook.view.components.BarMeter;
@@ -47,7 +47,7 @@ package com.unboxds.ebook.controller
 		private var currentPanel:UIPanel;
 
 		private var currentBtn:ToggleButton;
-		private var currentPage:PageData;
+		private var currentPage:PageVO;
 
 		private var isNavigationAvailable:Boolean;
 		private var keyObj:KeyObject;
@@ -359,28 +359,28 @@ package com.unboxds.ebook.controller
 			Logger.log("UIController.bookmarkPage");
 
 			// -- SORT ARRAY
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, currentPage.index);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().customData.bookmarks, currentPage.index);
 			if (pageFound > -1)
 			{
 				dashboard.removeBookmark(currentPage);
 				navBar.bookmarkPage(false);
 
-				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, currentPage.index);
+				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().customData.bookmarks, currentPage.index);
 			}
 			else
 			{
 				dashboard.addBookmark(currentPage);
 				navBar.bookmarkPage(true);
 
-				EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks.push(currentPage.index);
-				EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks.sort(Array.NUMERIC);
+				EbookApi.getInstance().getEbookModel().customData.bookmarks.push(currentPage.index);
+				EbookApi.getInstance().getEbookModel().customData.bookmarks.sort(Array.NUMERIC);
 			}
 		}
 
 		private function checkBookmark():void
 		{
 			var pageUID:int = currentPage.index;
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks, pageUID);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().customData.bookmarks, pageUID);
 			if (pageFound > -1)
 				navBar.bookmarkPage(true);
 			else
@@ -445,7 +445,7 @@ package com.unboxds.ebook.controller
 			{
 				navBar.status("11111");
 
-				var lastUserPage:PageData = EbookApi.getInstance().getNavModel().getUserLastPage();
+				var lastUserPage:PageVO = EbookApi.getInstance().getNavModel().getUserLastPage();
 				if (EbookApi.getInstance().getEbookModel().isConsultMode || lastUserPage.index > currentPage.index)
 					navBar.enableNextButton(true);
 			}

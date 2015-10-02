@@ -2,7 +2,7 @@ package com.unboxds.ebook.services
 {
 	import com.pipwerks.SCORM;
 	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
 
 	import org.osflash.signals.ISignal;
@@ -41,7 +41,7 @@ package com.unboxds.ebook.services
 
 			Logger.log("ScormDataService.isAvailable: " + _isAvailable);
 
-			_onLoad = new Signal(EbookData);
+			_onLoad = new Signal(EbookVO);
 			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
@@ -58,18 +58,35 @@ package com.unboxds.ebook.services
 
 			if (_isConnected)
 			{
-				var ebookData:EbookData = new EbookData();
-				ebookData.lesson_mode = getParam(ScormConstants.PARAM_LESSON_MODE);
-				ebookData.lesson_status = getParam(ScormConstants.PARAM_LESSON_STATUS);
-				ebookData.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
-				ebookData.scoreMin = Number(getParam(ScormConstants.PARAM_SCORE_MIN));
-				ebookData.scoreRaw = Number(getParam(ScormConstants.PARAM_SCORE_RAW));
-				ebookData.student_id = getParam(ScormConstants.PARAM_STUDENT_ID);
-				ebookData.student_name = getParam(ScormConstants.PARAM_STUDENT_NAME);
-				ebookData.suspend_data = getParam(ScormConstants.PARAM_SUSPEND_DATA);
-				ebookData.total_time = getParam(ScormConstants.PARAM_TOTAL_TIME);
+				var data:EbookVO = new EbookVO();
+				data.lessonMode = getParam(ScormConstants.PARAM_LESSON_MODE);
+				data.lessonStatus = getParam(ScormConstants.PARAM_LESSON_STATUS);
+				data.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
+				data.scoreMin = Number(getParam(ScormConstants.PARAM_SCORE_MIN));
+				data.scoreRaw = Number(getParam(ScormConstants.PARAM_SCORE_RAW));
+				data.studentId = getParam(ScormConstants.PARAM_STUDENT_ID);
+				data.studentName = getParam(ScormConstants.PARAM_STUDENT_NAME);
+				data.totalTime = getParam(ScormConstants.PARAM_TOTAL_TIME);
 
-				_onLoad.dispatch(ebookData);
+				//-- store NAVVO, ebook DAta and Custom Data
+				var suspendData:String = getParam(ScormConstants.PARAM_SUSPEND_DATA);
+				suspendData = suspendData.replace(/'/g, "\"");
+
+				var jsonObj:Object = JSON.parse(suspendData);
+
+				for (var i:String in jsonObj)
+					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + jsonObj[i]);
+
+				/*
+				 var jsonEbookVO:Object = jsonObj["ebookVO"];
+				 var jsonNavVO:Object = jsonObj["navVO"];
+				 var jsonCustomVO:Object = jsonObj["customVO"];
+
+
+				 data.navVO =
+				 data.customData = jsonObj["customData"];
+				 */
+				_onLoad.dispatch(data);
 			}
 			else
 			{
@@ -78,9 +95,9 @@ package com.unboxds.ebook.services
 		}
 
 		/**
-		 * Update and commit to the LMS the EbookData
+		 * Update and commit to the LMS the EbookVO
 		 */
-		public function save(data:EbookData):void
+		public function save(data:EbookVO):void
 		{
 			update(data);
 
@@ -98,14 +115,21 @@ package com.unboxds.ebook.services
 		/**
 		 * Update without commiting to the LMS
 		 */
-		private function update(data:EbookData):void
+		private function update(data:EbookVO):void
 		{
-			setParam(ScormConstants.PARAM_LESSON_STATUS, data.lesson_status);
+			setParam(ScormConstants.PARAM_LESSON_STATUS, data.lessonStatus);
 			setParam(ScormConstants.PARAM_SCORE_MAX, String(data.scoreMax));
 			setParam(ScormConstants.PARAM_SCORE_MIN, String(data.scoreMin));
 			setParam(ScormConstants.PARAM_SCORE_RAW, String(data.scoreRaw));
-			setParam(ScormConstants.PARAM_SESSION_TIME, data.session_time);
-			setParam(ScormConstants.PARAM_SUSPEND_DATA, data.suspend_data);
+			setParam(ScormConstants.PARAM_SESSION_TIME, data.sessionTime);
+
+			// remove SCORM vars from Objects
+			var jsonStr:String = JSON.stringify(data);
+			Logger.log("ScormDataService.update >> " + jsonStr);
+
+			var suspendData:String = jsonStr;
+			suspendData = suspendData.replace(/"/g, "'");
+			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
 		}
 
 		private function setParam(param:String, value:String):Boolean

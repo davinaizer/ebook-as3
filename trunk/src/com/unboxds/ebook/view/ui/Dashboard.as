@@ -6,7 +6,7 @@ package com.unboxds.ebook.view.ui
 	import com.greensock.TweenMax;
 	import com.greensock.events.TweenEvent;
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.TweenParser;
 
@@ -223,12 +223,12 @@ package com.unboxds.ebook.view.ui
 			}
 		}
 		
-		public function addBookmark(page:PageData):void
+		public function addBookmark(page:PageVO):void
 		{
 			bookmarkPanel.insert(page);
 		}
 		
-		public function removeBookmark(page:PageData):void
+		public function removeBookmark(page:PageVO):void
 		{
 			bookmarkPanel.remove(page);
 		}

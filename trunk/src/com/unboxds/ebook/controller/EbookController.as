@@ -6,7 +6,8 @@
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.ebook.model.SessionTimer;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.model.vo.CustomVO;
+	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.SolDataService;
@@ -94,34 +95,32 @@
 			dataService.load();
 		}
 
-		private function onDataLoaded(data:EbookData):void
+		private function onDataLoaded(data:EbookVO):void
 		{
-			Logger.log("EbookController.onDataLoaded");
+			Logger.log("EbookController.onDataLoaded > " + data);
 
 			model.isDataServiceAvailable = true;
-			model.ebookData = data;
+			model.restore(data);
 
-			for (var i:String in model.ebookData)
-				Logger.log("	LOAD SCORM DATA >> " + i + ", value : " + model.ebookData[i]);
+			for (var i:String in data)
+				Logger.log("	LOADED EBOOK DATA >> " + i + " > value : " + data[i]);
 
 			//-- check browse mode
-			if (model.ebookData.lesson_mode == ScormConstants.MODE_BROWSE)
+			if (model.lessonMode == ScormConstants.MODE_BROWSE)
 			{
 				startBrowseMode();
 			}
 			else
 			{
-				if (model.ebookData.suspend_data == null || model.ebookData.suspend_data == "" || model.ebookData.lesson_status == ScormConstants.STATUS_NOT_ATTEMPTED)
+				if (model.status == EbookConstants.STATUS_NOT_INITIALIZED || model.lessonStatus == ScormConstants.STATUS_NOT_ATTEMPTED)
 				{
-					Logger.log("EbookController.initDataService >> SUSPEND_DATA null OR empty. New user!");
-
-					model.ebookData.lesson_status = ScormConstants.STATUS_INCOMPLETE;
+					Logger.log("EbookController.initDataService >> New user!");
 
 					model.status = EbookConstants.STATUS_INITIALIZED;
+					model.lessonStatus = ScormConstants.STATUS_INCOMPLETE;
 					sessionTimer.initSession();
 					navController.loadPage();
 
-					//-- save all data
 					save();
 				}
 				else
@@ -129,11 +128,10 @@
 					Logger.log("EbookController.initDataService >> SUSPEND_DATA read.");
 
 					//-- read saved data
-					model.ebookData.suspend_data = model.ebookData.suspend_data.replace(/'/g, "\"");
+					navModel.restore(data.navVO);
 
-					model.parseData(model.ebookData.suspend_data);
 					sessionTimer.initSession();
-					navController.loadPage(); // loads current page
+					navController.loadPage();
 				}
 			}
 		}
@@ -167,20 +165,18 @@
 		{
 			Logger.log("EbookController.save");
 
-			if (model.isDataServiceAvailable && !model.isConsultMode && model.ebookData.lesson_status == ScormConstants.STATUS_INCOMPLETE)
+			if (model.isDataServiceAvailable && !model.isConsultMode && model.lessonStatus == ScormConstants.STATUS_INCOMPLETE)
 			{
 				if (model.status == EbookConstants.STATUS_COMPLETED)
-					model.ebookData.lesson_status = ScormConstants.STATUS_COMPLETED;
+					model.lessonStatus = ScormConstants.STATUS_COMPLETED;
 
-				//-- SUSPEND_DATA - REPLACE DOUBLE QUOTES? - LMS compatibility check (BUG from some LMS vendors)
-				model.ebookData.suspend_data = (model.scormReplaceDoubleQuotes) ? model.toString().replace(/"/g, "'") : model.toString();
-				model.ebookData.session_time = sessionTimer.getCMISessionTime();
-
-				for (var i:String in model.ebookData)
-					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + model.ebookData[i]);
+				model.sessionTime = sessionTimer.getCMISessionTime();
 
 				//-- contact dataService to SAVE Data
-				dataService.save(model.ebookData);
+				var ebookVO:EbookVO = model.dump();
+				ebookVO.navVO = navModel.dump();
+
+				dataService.save(ebookVO);
 			}
 			else
 			{
@@ -238,18 +234,5 @@
 				default:
 			}
 		}
-
-		/********************* GETTERS and SETTERS *********************/
-		public function get ebookData():EbookData
-		{
-			return model.ebookData;
-		}
-
-		public function set ebookData(value:EbookData):void
-		{
-			model.ebookData = value;
-		}
-
 	}
-
 }

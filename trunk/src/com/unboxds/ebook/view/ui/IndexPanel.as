@@ -9,7 +9,7 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.events.NavEvent;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
@@ -245,13 +245,13 @@ package com.unboxds.ebook.view.ui
 		{
 			if (EbookApi.getInstance().getEbookModel().isConsultMode == false)
 			{
-				var lastUserPage:PageData = EbookApi.getInstance().getNavModel().getUserLastPage();
+				var lastUserPage:PageVO = EbookApi.getInstance().getNavModel().getUserLastPage();
 				var isLastModPage:Boolean = lastUserPage.counter[0] == lastUserPage.counter[1];
 				var isButtonEnabled:Boolean = false;
 				var isModuleCompleted:Boolean = false;
 				var hasTicker:Boolean = false;
-				var firstPage:PageData;
-				var lastPage:PageData;
+				var firstPage:PageVO;
+				var lastPage:PageVO;
 				var btn:SimpleButton;
 				var i:uint = 0;
 

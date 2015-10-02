@@ -1,8 +1,9 @@
 ﻿package com.unboxds.ebook.model
 {
 	import com.unboxds.ebook.constants.EbookConstants;
-	import com.unboxds.ebook.model.vo.CustomData;
-	import com.unboxds.ebook.model.vo.EbookData;
+	import com.unboxds.ebook.constants.ScormConstants;
+	import com.unboxds.ebook.model.vo.CustomVO;
+	import com.unboxds.ebook.model.vo.EbookVO;
 
 	import flash.external.ExternalInterface;
 
@@ -21,18 +22,26 @@
 		private var _enableAlerts:Boolean;
 		private var _enableDebugPanel:Boolean;
 
-		//-- State
-		private var _ebookVersion:String;
+		//-- Ebook State
+		private var _version:String;
 		private var _status:int;
 		private var _startDate:Date;
 		private var _endDate:Date;
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
+		private var _customData:CustomVO;
 
-		//-- Nav State
-		private var _ebookData:EbookData;
-		private var _lessonStatus:CustomData;
+		//-- EbookVO vars - Scorm Vars
+		private var _lessonMode:String;
+		private var _lessonStatus:String;
+		private var _scoreMax:int;
+		private var _scoreMin:int;
+		private var _scoreRaw:int;
+		private var _sessionTime:String;
+		private var _studentId:String;
+		private var _studentName:String;
+		private var _totalTime:String;
 
 		public function EbookModel()
 		{
@@ -44,7 +53,8 @@
 			_scormReplaceDoubleQuotes = false;
 			_enableDebugPanel = true;
 
-			_ebookVersion = "";
+			//-- STATE VARS
+			_version = "";
 			_status = EbookConstants.STATUS_NOT_INITIALIZED;
 			_quizTries = 0;
 			_quizScore = 0;
@@ -52,65 +62,60 @@
 			_startDate = new Date();
 			_endDate = new Date();
 
-			_ebookData = new EbookData();
-			_lessonStatus = new CustomData();
+			//-- Scorm
+			_lessonMode = ScormConstants.MODE_NORMAL;
+			_lessonStatus = ScormConstants.STATUS_NOT_ATTEMPTED;
+			_scoreMax = 100;
+			_scoreMin = 0;
+			//_scoreRaw = 0;
+			_sessionTime = "0000:00:00.00";
+			_studentId = "";
+			_studentName = "TREINANDO";
+			_totalTime = "0000:00:00.00";
+
+			_customData = new CustomVO();
 		}
 
-		public function parseData(values:String):void
+		public function dump():EbookVO
 		{
-			if (values != null)
-			{
-				if (values.length > 4096)
-					throw new Error("*** WARNING: Data overflow! ParseData string > 4096 chars ***");
+			var ebookVO:EbookVO = new EbookVO();
+			ebookVO.customData = _customData;
+			ebookVO.endDate = _endDate;
+			ebookVO.lessonMode = _lessonMode;
+			ebookVO.lessonStatus = _lessonStatus;
+			ebookVO.quizScore = _quizScore;
+			ebookVO.quizStatus = _quizStatus;
+			ebookVO.quizTries = _quizTries;
+			ebookVO.scoreMax = _scoreMax;
+			ebookVO.scoreMin = _scoreMin;
+			ebookVO.scoreRaw = _scoreRaw;
+			ebookVO.sessionTime = _sessionTime;
+			ebookVO.startDate = _startDate;
+			ebookVO.status = _status;
+			ebookVO.totalTime = _totalTime;
+			ebookVO.version = _version;
 
-				//-- Parse Data
-				var data:Array = values.split(EbookConstants.DELIMITER);
-
-				_ebookVersion = data[0];
-				_status = parseInt(data[1]);
-				_quizStatus = parseInt(data[2]);
-				_quizTries = parseInt(data[3]);
-				_quizScore = parseInt(data[4]);
-				_startDate = new Date(data[5]);
-				_endDate = new Date(data[6]);
-
-//				_ebookData = new EbookData(); // Todo pass string data to parse
-				_lessonStatus = new CustomData().parseData(String(data[7]));
-			}
+			return ebookVO;
 		}
 
-		public function toString():String
+		public function restore(value:EbookVO):void
 		{
-			var data:Array = [];
-
-			data.push(_ebookVersion);
-			data.push(_status);
-//			data.push(_maxPage);
-//			data.push(_maxModule);
-//			data.push(_currentPage);
-//			data.push(_currentModule);
-//			data.push(_currentLesson);
-			data.push(_quizStatus);
-			data.push(_quizTries);
-			data.push(_quizScore);
-			data.push(_startDate.toString());
-			data.push(_endDate.toString());
-//			data.push(_ebookData.toString());
-			data.push(_lessonStatus.toString());
-
-			return data.join(EbookConstants.DELIMITER);
+			if (value != null)
+				for (var i:String in value)
+					if (this.hasOwnProperty(i))
+						this[i] = value[i];
 		}
 
 		/*** GETTERS and SETTERS ***/
 
-		public function get ebookVersion():String
+		public function get version():String
 		{
-			return _ebookVersion;
+			return _version;
 		}
 
-		public function set ebookVersion(ebookVersion:String):void
+		public function set version(value:String):void
 		{
-			_ebookVersion = ebookVersion;
+			_version = value;
 		}
 
 		public function get quizTries():int
@@ -141,16 +146,6 @@
 		public function set quizStatus(quizStatus:int):void
 		{
 			_quizStatus = quizStatus;
-		}
-
-		public function get lessonStatus():CustomData
-		{
-			return _lessonStatus;
-		}
-
-		public function set lessonStatus(lessonStatus:CustomData):void
-		{
-			_lessonStatus = lessonStatus;
 		}
 
 		public function get status():int
@@ -253,14 +248,104 @@
 			_isDataServiceAvailable = value;
 		}
 
-		public function get ebookData():EbookData
+		public function get lessonMode():String
 		{
-			return _ebookData;
+			return _lessonMode;
 		}
 
-		public function set ebookData(value:EbookData):void
+		public function set lessonMode(value:String):void
 		{
-			_ebookData = value;
+			_lessonMode = value;
+		}
+
+		public function get lessonStatus():String
+		{
+			return _lessonStatus;
+		}
+
+		public function set lessonStatus(value:String):void
+		{
+			_lessonStatus = value;
+		}
+
+		public function get scoreMax():int
+		{
+			return _scoreMax;
+		}
+
+		public function set scoreMax(value:int):void
+		{
+			_scoreMax = value;
+		}
+
+		public function get scoreMin():int
+		{
+			return _scoreMin;
+		}
+
+		public function set scoreMin(value:int):void
+		{
+			_scoreMin = value;
+		}
+
+		public function get scoreRaw():int
+		{
+			return _scoreRaw;
+		}
+
+		public function set scoreRaw(value:int):void
+		{
+			_scoreRaw = value;
+		}
+
+		public function get sessionTime():String
+		{
+			return _sessionTime;
+		}
+
+		public function set sessionTime(value:String):void
+		{
+			_sessionTime = value;
+		}
+
+		public function get studentId():String
+		{
+			return _studentId;
+		}
+
+		public function set studentId(value:String):void
+		{
+			_studentId = value;
+		}
+
+		public function get studentName():String
+		{
+			return _studentName;
+		}
+
+		public function set studentName(value:String):void
+		{
+			_studentName = value;
+		}
+
+		public function get totalTime():String
+		{
+			return _totalTime;
+		}
+
+		public function set totalTime(value:String):void
+		{
+			_totalTime = value;
+		}
+
+		public function get customData():CustomVO
+		{
+			return _customData;
+		}
+
+		public function set customData(value:CustomVO):void
+		{
+			_customData = value;
 		}
 	}
 }

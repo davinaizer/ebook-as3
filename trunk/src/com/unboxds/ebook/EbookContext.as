@@ -5,7 +5,7 @@ package com.unboxds.ebook
 	import com.unboxds.ebook.controller.NavController;
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.ArrayUtils;
 	import com.unboxds.utils.DebugPanel;
 	import com.unboxds.utils.Logger;
@@ -59,10 +59,10 @@ package com.unboxds.ebook
 			model.dataServiceType = data.config.@dataServiceType;
 			model.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
 			model.enableDebugPanel = data.config.@enableDebugPanel == "true";
-			model.ebookVersion = data.config.@version;
-			model.lessonStatus.maxPoints = ArrayUtils.toNumber(data.config.customData.maxPoints.toString().split(","));
-			model.lessonStatus.lessonStatus = ArrayUtils.toNumber(data.config.customData.lessonStatus.toString().split(","));
-			model.lessonStatus.userPoints = ArrayUtils.fillArray(model.lessonStatus.maxPoints.length, -1);
+			model.version = data.config.@version;
+			model.customData.maxPoints = ArrayUtils.toNumber(data.config.customData.maxPoints.toString().split(","));
+			model.customData.lessonStatus = ArrayUtils.toNumber(data.config.customData.lessonStatus.toString().split(","));
+			model.customData.userPoints = ArrayUtils.fillArray(model.customData.maxPoints.length, -1);
 
 			//-- start navigation controller
 			navController.xmlData = data;
@@ -80,7 +80,7 @@ package com.unboxds.ebook
 			}
 		}
 
-		private function navHandler(page:PageData):void
+		private function navHandler(page:PageVO):void
 		{
 			Logger.log(page.toString());
 

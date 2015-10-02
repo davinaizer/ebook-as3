@@ -13,7 +13,7 @@
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.events.SearchEvent;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
@@ -53,7 +53,7 @@
 		private var statusTxt:TextField;
 		private var panelBg:Sprite;
 		private var iniTimer:int;
-		private var pages:Vector.<PageData>;
+		private var pages:Vector.<PageVO>;
 		private var contentBuffer:Vector.<String>;
 		private var pageCount:int;
 		private var summaryLength:int;
@@ -177,7 +177,7 @@
 			dispatchEvent(new SearchEvent(SearchEvent.SEARCH_COMPLETE));
 		}
 
-		public function insert(page:PageData):void
+		public function insert(page:PageVO):void
 		{
 			pageTitle = page.title;
 			pageModuleIndex = page.moduleIndex + 1;

@@ -25,9 +25,9 @@ package com.unboxds.ebook
 	 * <ul><li>consultMode:    if true, the ebook is set to Consult Mode only, thus not saving any data to the dataService.</li>
 	 * <li>enableAlerts:    if true, all comunication and startup erros dialogs are show.</li>
 	 * <li>dataServiceType:    Here you can specify the dataservice type to be used in the ebook. Allowed only: SCORM and SharedObject. If SCORM is set, the SCORM API is used and will require a SORM compatible LMS. For SharedObject dataservice all the users and ebook´s data will be written locally using ShareObject Class.</li>
-	 * <li>customData:    Sometimes its necessary to use persistent user´s data or store user´s progress and achievements. To help in this task CustomData Class was created and to setup the data format, you can define using the tags below.</li>
+	 * <li>customData:    Sometimes its necessary to use persistent user´s data or store user´s progress and achievements. To help in this task CustomVO Class was created and to setup the data format, you can define using the tags below.</li>
 	 * <ul><li>maxPoints:    An array specifying a test or interactions max points.</li>
-	 * <li>lessonStatus:    An array specifying a test or interactions status. Its best used using the CustomData status constants. See CustomData class.</li>
+	 * <li>customData:    An array specifying a test or interactions status. Its best used using the CustomVO status constants. See CustomVO class.</li>
 	 * </ul></ul>
 	 * </p>
 	 *

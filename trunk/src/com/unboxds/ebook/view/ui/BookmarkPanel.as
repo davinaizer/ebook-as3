@@ -6,7 +6,7 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.view.parser.ContentParser;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
@@ -163,11 +163,11 @@ package com.unboxds.ebook.view.ui
 		{
 			if (!hasInit)
 			{
-				var bookmarks:Array = EbookApi.getInstance().getEbookModel().lessonStatus.bookmarks;
+				var bookmarks:Array = EbookApi.getInstance().getEbookModel().customData.bookmarks;
 				var len:int = bookmarks.length;
 				for (var i:int = 0; i < len; i++)
 				{
-					var page:PageData = EbookApi.getInstance().getNavModel().getPageByIndex(bookmarks[i]);
+					var page:PageVO = EbookApi.getInstance().getNavModel().getPageByIndex(bookmarks[i]);
 					insert(page);
 				}
 				
@@ -177,7 +177,7 @@ package com.unboxds.ebook.view.ui
 			super.show();
 		}
 		
-		public function insert(page:PageData):void
+		public function insert(page:PageVO):void
 		{
 			pageTitle = page.title;
 			pageModuleIndex = page.moduleIndex + 1;
@@ -187,7 +187,7 @@ package com.unboxds.ebook.view.ui
 			list.update(page.index);
 		}
 		
-		public function remove(page:PageData):void
+		public function remove(page:PageVO):void
 		{
 			if (hasInit)
 			{

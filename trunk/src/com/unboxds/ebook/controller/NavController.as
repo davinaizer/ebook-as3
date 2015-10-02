@@ -2,7 +2,7 @@
 {
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.model.NavModel;
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.Logger;
 
 	import org.osflash.signals.Signal;
@@ -19,7 +19,7 @@
 		public function NavController()
 		{
 			Logger.log("NavController.NavController");
-			onChange = new Signal(PageData);
+			onChange = new Signal(PageVO);
 		}
 
 		public function init():void
@@ -91,7 +91,7 @@
 		 */
 		public function navigateTo(pg:String):void
 		{
-			var page:PageData = model.getPageByName(pg);
+			var page:PageVO = model.getPageByName(pg);
 			navigateToPageIndex(page.index);
 		}
 
@@ -126,7 +126,7 @@
 		public function navigateToPageIndex(index:int):void
 		{
 			if (model.pageQueue[index])
-				var page:PageData = model.pageQueue[index] as PageData;
+				var page:PageVO = model.pageQueue[index] as PageVO;
 			else
 				return;
 

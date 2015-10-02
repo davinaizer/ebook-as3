@@ -5,7 +5,7 @@ package com.unboxds.ebook.model.vo
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015
 	 */
-	public class PageData
+	public class PageVO
 	{
 		private var _index:int;
 		private var _moduleIndex:int;
@@ -23,7 +23,7 @@ package com.unboxds.ebook.model.vo
 		private var _navbarStatus:String;
 		private var _showProgress:Boolean;
 		
-		public function PageData()
+		public function PageVO()
 		{
 		}
 		

@@ -1,6 +1,7 @@
 package com.unboxds.ebook.model
 {
-	import com.unboxds.ebook.model.vo.PageData;
+	import com.unboxds.ebook.model.vo.NavVO;
+	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.Logger;
 
 	/**
@@ -9,12 +10,16 @@ package com.unboxds.ebook.model
 	 */
 	public class NavModel
 	{
-		private var _pages:Vector.<Vector.<PageData>>;
-		private var _pageQueue:Vector.<PageData>;
+		private var _pages:Vector.<Vector.<PageVO>>;
+		private var _pageQueue:Vector.<PageVO>;
+
+		//-- Persistent Vars
 		private var _maxPage:int;
 		private var _maxModule:int;
 		private var _currentPage:int;
 		private var _currentModule:int;
+
+		//--
 		private var _totalModules:uint;
 		private var _totalPages:uint;
 		private var _modPagesCount:Array;
@@ -24,8 +29,8 @@ package com.unboxds.ebook.model
 		{
 			Logger.log("NavModel.NavModel");
 
-			_pages = new Vector.<Vector.<PageData>>();
-			_pageQueue = new Vector.<PageData>();
+			_pages = new Vector.<Vector.<PageVO>>();
+			_pageQueue = new Vector.<PageVO>();
 			_totalModules = 0;
 			_totalPages = 0;
 			_modPagesCount = [];
@@ -48,7 +53,7 @@ package com.unboxds.ebook.model
 
 			for each (var nodeList:XML in modList)
 			{
-				_pages[modId] = new Vector.<PageData>();
+				_pages[modId] = new Vector.<PageVO>();
 
 				var pageIndex:int = 0;
 				var pageList:XMLList = nodeList.page;
@@ -57,7 +62,7 @@ package com.unboxds.ebook.model
 
 				for each (var node:XML in pageList)
 				{
-					var page:PageData = new PageData();
+					var page:PageVO = new PageVO();
 					page.index = pageCount++;
 					page.moduleIndex = modId;
 					page.localIndex = pageIndex++;
@@ -96,13 +101,32 @@ package com.unboxds.ebook.model
 			Logger.log("-------------------");
 		}
 
+		public function dump():NavVO
+		{
+			var navVO:NavVO = new NavVO();
+			navVO.currentModule = _currentModule;
+			navVO.currentPage = _currentPage;
+			navVO.maxModule = _maxModule;
+			navVO.maxPage = _maxPage;
 
-		public function get pages():Vector.<Vector.<PageData>>
+			return navVO;
+		}
+
+		public function restore(value:NavVO):void
+		{
+			if (value != null)
+				for (var i:String in value)
+					if (this.hasOwnProperty(i))
+						this[i] = value[i];
+		}
+
+
+		public function get pages():Vector.<Vector.<PageVO>>
 		{
 			return _pages;
 		}
 
-		public function get pageQueue():Vector.<PageData>
+		public function get pageQueue():Vector.<PageVO>
 		{
 			return _pageQueue;
 		}
@@ -190,41 +214,38 @@ package com.unboxds.ebook.model
 		/**
 		 * Returns last page user has accessed
 		 */
-		public function getUserLastPage():PageData
+		public function getUserLastPage():PageVO
 		{
-			var userLastPage:PageData = PageData(pages[maxModule][maxPage]);
+			var userLastPage:PageVO = PageVO(pages[maxModule][maxPage]);
 			return userLastPage;
 		}
 
-		public function getCurrentPage():PageData
+		public function getCurrentPage():PageVO
 		{
-			var page:PageData = pages[currentModule][currentPage];
+			var page:PageVO = pages[currentModule][currentPage];
 			return page;
 		}
 
-		public function getPages():Vector.<PageData>
+		public function getPages():Vector.<PageVO>
 		{
 			return pageQueue;
 		}
 
-		public function getPageByIndex(index:int):PageData
+		public function getPageByIndex(index:int):PageVO
 		{
-			var page:PageData = pageQueue[index];
+			var page:PageVO = pageQueue[index];
 			return page;
 		}
 
-		public function getPageByName(name:String):PageData
+		public function getPageByName(name:String):PageVO
 		{
 			for (var i:int = 0; i < pageQueue.length; i++)
 			{
-				var page:PageData = pageQueue[i] as PageData;
+				var page:PageVO = pageQueue[i] as PageVO;
 				if (page.branch == name)
 					return page;
 			}
-
 			return null;
 		}
-
 	}
-
 }
