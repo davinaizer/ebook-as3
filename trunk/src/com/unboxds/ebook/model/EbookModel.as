@@ -1,54 +1,59 @@
 ﻿package com.unboxds.ebook.model
 {
+	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.model.vo.CustomData;
+	import com.unboxds.ebook.model.vo.EbookData;
+
+	import flash.external.ExternalInterface;
 
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class EbookModel // MODEL OK. Can be optmized. Incorporate SCORM data maybe.
+	public class EbookModel
 	{
-		//-- STATUS CONSTANTS
-		public static const STATUS_NOT_INITIALIZED:int = 0;
-		public static const STATUS_INITIALIZED:int = 1;
-		public static const STATUS_COMPLETED:int = 2;
+		//-- Behaviour
+		private var _isExtIntAvailable:Boolean;
+		private var _isDataServiceAvailable:Boolean;
+		private var _dataServiceType:String;
+		private var _scormReplaceDoubleQuotes:Boolean;
+		private var _isConsultMode:Boolean;
+		private var _enableAlerts:Boolean;
+		private var _enableDebugPanel:Boolean;
 
-		private static const DELIMITER:String = "|";
-		private static const SUBDELIMITER:String = ",";
-
-		//-- ebook
+		//-- State
 		private var _ebookVersion:String;
 		private var _status:int;
-		private var _maxPage:int;
-		private var _maxModule:int;
-		private var _currentPage:int;
-		private var _currentModule:int;
-		private var _currentLesson:int;
 		private var _startDate:Date;
 		private var _endDate:Date;
-
-		//-- quiz data
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
 
+		//-- Nav State
+		private var _ebookData:EbookData;
 		private var _lessonStatus:CustomData;
 
 		public function EbookModel()
 		{
+			_isConsultMode = false;
+			_enableAlerts = true;
+			_dataServiceType = "SharedObject";
+			_isDataServiceAvailable = false;
+			_isExtIntAvailable = ExternalInterface.available;
+			_scormReplaceDoubleQuotes = false;
+			_enableDebugPanel = true;
+
 			_ebookVersion = "";
-			_status = EbookModel.STATUS_NOT_INITIALIZED;
-			_maxPage = 0;
-			_maxModule = 0;
-			_currentPage = 0;
-			_currentModule = 0;
-			_currentLesson = 0;
+			_status = EbookConstants.STATUS_NOT_INITIALIZED;
 			_quizTries = 0;
 			_quizScore = 0;
-			_quizStatus = EbookModel.STATUS_NOT_INITIALIZED;
-			_lessonStatus = new CustomData();
+			_quizStatus = EbookConstants.STATUS_NOT_INITIALIZED;
 			_startDate = new Date();
 			_endDate = new Date();
+
+			_ebookData = new EbookData();
+			_lessonStatus = new CustomData();
 		}
 
 		public function parseData(values:String):void
@@ -59,21 +64,18 @@
 					throw new Error("*** WARNING: Data overflow! ParseData string > 4096 chars ***");
 
 				//-- Parse Data
-				var data:Array = values.split(DELIMITER);
+				var data:Array = values.split(EbookConstants.DELIMITER);
 
 				_ebookVersion = data[0];
 				_status = parseInt(data[1]);
-				_maxPage = parseInt(data[2]);
-				_maxModule = parseInt(data[3]);
-				_currentPage = parseInt(data[4]);
-				_currentModule = parseInt(data[5]);
-				_currentLesson = parseInt(data[6]);
-				_quizStatus = parseInt(data[7]);
-				_quizTries = parseInt(data[8]);
-				_quizScore = parseInt(data[9]);
-				_startDate = new Date(data[10]);
-				_endDate = new Date(data[11]);
-				_lessonStatus = new CustomData(String(data[12]));
+				_quizStatus = parseInt(data[2]);
+				_quizTries = parseInt(data[3]);
+				_quizScore = parseInt(data[4]);
+				_startDate = new Date(data[5]);
+				_endDate = new Date(data[6]);
+
+//				_ebookData = new EbookData(); // Todo pass string data to parse
+				_lessonStatus = new CustomData().parseData(String(data[7]));
 			}
 		}
 
@@ -83,19 +85,20 @@
 
 			data.push(_ebookVersion);
 			data.push(_status);
-			data.push(_maxPage);
-			data.push(_maxModule);
-			data.push(_currentPage);
-			data.push(_currentModule);
-			data.push(_currentLesson);
+//			data.push(_maxPage);
+//			data.push(_maxModule);
+//			data.push(_currentPage);
+//			data.push(_currentModule);
+//			data.push(_currentLesson);
 			data.push(_quizStatus);
 			data.push(_quizTries);
 			data.push(_quizScore);
 			data.push(_startDate.toString());
 			data.push(_endDate.toString());
+//			data.push(_ebookData.toString());
 			data.push(_lessonStatus.toString());
 
-			return data.join(DELIMITER);
+			return data.join(EbookConstants.DELIMITER);
 		}
 
 		/*** GETTERS and SETTERS ***/
@@ -108,46 +111,6 @@
 		public function set ebookVersion(ebookVersion:String):void
 		{
 			_ebookVersion = ebookVersion;
-		}
-
-		public function get maxPage():int
-		{
-			return _maxPage;
-		}
-
-		public function set maxPage(maxPage:int):void
-		{
-			_maxPage = maxPage;
-		}
-
-		public function get currentPage():int
-		{
-			return _currentPage;
-		}
-
-		public function set currentPage(currentPage:int):void
-		{
-			_currentPage = currentPage;
-		}
-
-		public function get currentModule():int
-		{
-			return _currentModule;
-		}
-
-		public function set currentModule(currentModule:int):void
-		{
-			_currentModule = currentModule;
-		}
-
-		public function get currentLesson():int
-		{
-			return _currentLesson;
-		}
-
-		public function set currentLesson(currentLesson:int):void
-		{
-			_currentLesson = currentLesson;
 		}
 
 		public function get quizTries():int
@@ -200,16 +163,6 @@
 			_status = status;
 		}
 
-		public function get maxModule():int
-		{
-			return _maxModule;
-		}
-
-		public function set maxModule(value:int):void
-		{
-			_maxModule = value;
-		}
-
 		public function get startDate():Date
 		{
 			return _startDate;
@@ -230,5 +183,84 @@
 			_endDate = value;
 		}
 
+		public function get dataServiceType():String
+		{
+			return _dataServiceType;
+		}
+
+		public function set dataServiceType(value:String):void
+		{
+			_dataServiceType = value;
+		}
+
+		public function get scormReplaceDoubleQuotes():Boolean
+		{
+			return _scormReplaceDoubleQuotes;
+		}
+
+		public function set scormReplaceDoubleQuotes(value:Boolean):void
+		{
+			_scormReplaceDoubleQuotes = value;
+		}
+
+		public function get isConsultMode():Boolean
+		{
+			return _isConsultMode;
+		}
+
+		public function set isConsultMode(value:Boolean):void
+		{
+			_isConsultMode = value;
+		}
+
+		public function get enableAlerts():Boolean
+		{
+			return _enableAlerts;
+		}
+
+		public function set enableAlerts(value:Boolean):void
+		{
+			_enableAlerts = value;
+		}
+
+		public function get enableDebugPanel():Boolean
+		{
+			return _enableDebugPanel;
+		}
+
+		public function set enableDebugPanel(value:Boolean):void
+		{
+			_enableDebugPanel = value;
+		}
+
+		public function get isExtIntAvailable():Boolean
+		{
+			return _isExtIntAvailable;
+		}
+
+		public function set isExtIntAvailable(value:Boolean):void
+		{
+			_isExtIntAvailable = value;
+		}
+
+		public function get isDataServiceAvailable():Boolean
+		{
+			return _isDataServiceAvailable;
+		}
+
+		public function set isDataServiceAvailable(value:Boolean):void
+		{
+			_isDataServiceAvailable = value;
+		}
+
+		public function get ebookData():EbookData
+		{
+			return _ebookData;
+		}
+
+		public function set ebookData(value:EbookData):void
+		{
+			_ebookData = value;
+		}
 	}
 }

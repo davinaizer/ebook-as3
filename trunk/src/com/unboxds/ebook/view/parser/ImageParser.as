@@ -62,7 +62,7 @@ package com.unboxds.ebook.view.parser
 				}
 				else
 				{
-					Logger.log("ContentParser Error >> IMAGE ('" + imgURL + "'): ImgContainer '" + contentXML.content[i].@container + "' not found!");
+					Logger.log("ImageParser Error >> IMAGE ('" + imgURL + "'): ImgContainer '" + contentXML.content[i].@container + "' not found!");
 				}
 			}
 

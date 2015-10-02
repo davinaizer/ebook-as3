@@ -3,6 +3,7 @@ package com.unboxds.ebook
 	import com.unboxds.ebook.controller.EbookController;
 	import com.unboxds.ebook.controller.NavController;
 	import com.unboxds.ebook.model.EbookModel;
+	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.utils.DebugPanel;
 	import com.unboxds.utils.Logger;
 
@@ -20,7 +21,7 @@ package com.unboxds.ebook
 	 *
 	 * <p>To start building an application using UNBOXDS EbookApi Framework, we higly recommend reading the Gaia´s documentation first.</p>
 	 * <p>To create an ebook app, you have two main files to edit, xml/ebook_nav.xml and xml/ebook_ui.xml.</p>
-	 * <p>The file ebook_nav is used to config all the navigation and pages sequence of the material. You can config other propreties of the ebook, such as:
+	 * <p>The file ebook_nav is used to config all the navigation and pages sequence of the material. You can config other properties of the ebook, such as:
 	 * <ul><li>consultMode:    if true, the ebook is set to Consult Mode only, thus not saving any data to the dataService.</li>
 	 * <li>enableAlerts:    if true, all comunication and startup erros dialogs are show.</li>
 	 * <li>dataServiceType:    Here you can specify the dataservice type to be used in the ebook. Allowed only: SCORM and SharedObject. If SCORM is set, the SCORM API is used and will require a SORM compatible LMS. For SharedObject dataservice all the users and ebook´s data will be written locally using ShareObject Class.</li>
@@ -40,25 +41,18 @@ package com.unboxds.ebook
 	{
 		private static var instance:EbookApi = new EbookApi();
 
-		private var navController:NavController;
 		private var model:EbookModel;
 		private var controller:EbookController;
+		private var navModel:NavModel;
+		private var navController:NavController;
 
 		private var debugPanel:DebugPanel;
 
-		/**
-		 * Singleton function to get an EbookApi Instance
-		 * @return EbookApi unique instance
-		 */
 		public static function getInstance():EbookApi
 		{
 			return instance;
 		}
 
-		/**
-		 * Singleton Class Constructor.
-		 * Should not be used. Use getInstance() instead.
-		 */
 		public function EbookApi()
 		{
 			Logger.log("[EbookAS Framework]\n[UNBOX® 2009-2015 — http://www.unbox.com.br — All rights reserved.]");
@@ -67,11 +61,6 @@ package com.unboxds.ebook
 				throw new Error("EbookApi can only be accessed through EbookApi.getInstance()");
 		}
 
-		/**
-		 * Function to access EbookApi´s Nav Class instance.
-		 * Nav Class is responsible for EbookApi´s content navigation.
-		 * @return NavController Class instance
-		 */
 		public function getNavController():NavController
 		{
 			if (navController == null)
@@ -79,11 +68,13 @@ package com.unboxds.ebook
 			return navController;
 		}
 
-		/**
-		 * Function to access Ebook's Controller instance.
-		 * EbookController Class is responsible for storing, controlling and accessing data services. eg. ScormDataService, SharedObjectDataService.
-		 * @return EbookController Class instance
-		 */
+		public function getNavModel():NavModel
+		{
+			if (navModel == null)
+				navModel = new NavModel();
+			return navModel;
+		}
+
 		public function getEbookController():EbookController
 		{
 			if (controller == null)
@@ -91,11 +82,6 @@ package com.unboxds.ebook
 			return controller;
 		}
 
-		/**
-		 * Function to acess Ebook's Model Class instance.
-		 * EbookModel Class is responsible for all the tracking, navigation and user´s data.
-		 * @return
-		 */
 		public function getEbookModel():EbookModel
 		{
 			if (model == null)

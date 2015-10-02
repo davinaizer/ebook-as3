@@ -220,7 +220,7 @@
 
 		<component type="indexPanel" title="Índice //" x="0" y="0">
 
-			<component type="List" name="menuList" x="50" y="175" width="450" height="304" columns="1" rows="4" spacing="1"
+			<component type="List" name="menuList" x="50" y="175" width="460" height="304" columns="1" rows="4" spacing="1"
 					buildAnimStagger="0.05"/>
 			<component type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
 					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
@@ -231,6 +231,7 @@
 					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
 
 			<component type="menu">
+
 				<content pageID="index/nav/module_00/M_00_P_00" lastPageID="index/nav/module_00/M_00_P_04">
 					<title>
 						<![CDATA[<p class="dashboardButton">01. Introdução</p>]]>

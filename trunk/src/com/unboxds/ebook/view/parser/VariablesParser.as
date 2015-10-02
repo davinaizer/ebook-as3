@@ -32,7 +32,7 @@ package com.unboxds.ebook.view.parser
 				}
 				else
 				{
-					Logger.log("ContentParser Error >> Target '" + instanceName + "' not found!");
+					Logger.log("VariablesParser Error >> Target '" + instanceName + "' not found!");
 				}
 			}
 		}

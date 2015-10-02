@@ -5,7 +5,7 @@ package com.unboxds.ebook.view.parser
 {
 	import com.hybrid.ui.ToolTip;
 	import com.unboxds.components.FixedTooltip;
-	import com.unboxds.ebook.model.vo.ContentType;
+	import com.unboxds.ebook.constants.ContentType;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 	import com.unboxds.utils.StringUtils;
@@ -68,7 +68,7 @@ package com.unboxds.ebook.view.parser
 				}
 				else
 				{
-					Logger.log("ContentParser Error >> TOOLTIP '" + instanceName + "' not found!");
+					Logger.log("TooltipParser Error >> TOOLTIP '" + instanceName + "' not found!");
 				}
 			}
 		}

@@ -93,7 +93,7 @@ package com.unboxds.ebook.view.ui
 			scrollBar.barColorAlpha = parseFloat(scrollbarData[0].@scrollbarColorAlpha);
 			scrollBar.thumbColor = parseInt(scrollbarData[0].@thumbColor);
 			scrollBar.thumbColorAlpha = parseFloat(scrollbarData[0].@thumbColorAlpha);
-			scrollBar.autoHideThumb = scrollbarData[0].@autoHideThumb == "true" ? true : false;
+			scrollBar.autoHideThumb = scrollbarData[0].@autoHideThumb == "true";
 			
 			addChild(list);
 			addChild(scrollBar);
@@ -167,7 +167,7 @@ package com.unboxds.ebook.view.ui
 				var len:int = bookmarks.length;
 				for (var i:int = 0; i < len; i++)
 				{
-					var page:PageData = EbookApi.getInstance().getNavController().getPageByIndex(bookmarks[i]);
+					var page:PageData = EbookApi.getInstance().getNavModel().getPageByIndex(bookmarks[i]);
 					insert(page);
 				}
 				

@@ -1,9 +1,12 @@
 ﻿package com.unboxds.ebook.controller
 {
 	import com.unboxds.ebook.EbookApi;
+	import com.unboxds.ebook.constants.EbookConstants;
+	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.EbookModel;
+	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.ebook.model.SessionTimer;
-	import com.unboxds.ebook.model.vo.ScormData;
+	import com.unboxds.ebook.model.vo.EbookData;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.SolDataService;
@@ -16,40 +19,22 @@
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
 
-	//TODO Refactor Controller
+		//TODO Refactor Controller
 	public class EbookController
 	{
+		private var model:EbookModel;
 		private var controller:EbookController;
-		private var status:EbookModel;
-
-		private var nav:NavController;
-
-		private var ebookApi:EbookApi;
+		private var navModel:NavModel;
+		private var navController:NavController;
 
 		//TODO Services should be inside a Model.
 		private var dataService:IEbookDataService;
 
 		//TODO Move DATA to MODEL
 		private var sessionTimer:SessionTimer;
-		private var isExtIntAvaiable:Boolean;
-		private var isDataServiceAvaiable:Boolean;
-
-		private var _dataServiceType:String;
-		private var _scormReplaceDoubleQuotes:Boolean;
-		private var _ebookData:ScormData;
-		private var _isConsultMode:Boolean;
-		private var _enableAlerts:Boolean;
-		private var _hasAccessibility:Boolean;
-		private var _enableDebugPanel:Boolean;
 
 		public function EbookController()
 		{
-			_isConsultMode = false;
-			_enableAlerts = true;
-			_dataServiceType = "SharedObject";
-
-			isDataServiceAvaiable = false;
-			isExtIntAvaiable = ExternalInterface.available;
 		}
 
 		/********************* Start *********************/
@@ -57,16 +42,15 @@
 		{
 			Logger.log("EbookController.start");
 
-			_ebookData = new ScormData();
-
 			//-- get objects instances
-			ebookApi = EbookApi.getInstance();
-			status = ebookApi.getEbookModel(); // TODO Use StatusModel instead
-			nav = ebookApi.getNavController();
-			controller = ebookApi.getEbookController();
+			model = EbookApi.getInstance().getEbookModel();
+			controller = EbookApi.getInstance().getEbookController();
+			navModel = EbookApi.getInstance().getNavModel();
+			navController = EbookApi.getInstance().getNavController();
+
 			sessionTimer = new SessionTimer();
 
-			_isConsultMode ? startBrowseMode() : initDataService();
+			model.isConsultMode ? startBrowseMode() : initDataService();
 		}
 
 		public function startBrowseMode():void
@@ -74,34 +58,33 @@
 			Logger.log("EbookController.startBrowseMode");
 			Logger.log("*** RUNNING BROWSE MODE ***");
 
-			if (isExtIntAvaiable && _enableAlerts)
+			if (model.isExtIntAvailable && model.enableAlerts)
 				ExternalInterface.call("alert", "Iniciando o treinamento em modo CONSULTA.\n\nSeus dados não serão gravados.");
 
-			_isConsultMode = true;
+			model.isConsultMode = true;
 
-			status.maxModule = nav.totalModules - 1;
-			status.maxPage = nav.getPages()[nav.totalPages - 1].localIndex;
-			status.currentModule = 0;
-			status.currentPage = 0;
+			navModel.maxModule = navModel.totalModules - 1;
+			navModel.maxPage = navModel.getPages()[navModel.totalPages - 1].localIndex;
+			navModel.currentModule = 0;
+			navModel.currentPage = 0;
 
-			nav.loadPage();
+			navController.loadPage();
 		}
 
 		private function initDataService():void
 		{
-			Logger.log("EbookController.initDataService");
+			Logger.log("EbookController.initDataService > dataServiceType: " + model.dataServiceType);
 
-			if (_dataServiceType == "SCORM" && isExtIntAvaiable)
+			if (model.dataServiceType == "SCORM" && model.isExtIntAvailable)
 			{
 				dataService = new ScormDataService();
 			}
 			else
 			{
-				Logger.log("EbookController.initDataService >> DataService SCORM not available! Using SharedObject instead.");
 				dataService = new SolDataService();
 			}
 
-			if (isExtIntAvaiable)
+			if (model.isExtIntAvailable)
 				ExternalInterface.addCallback("jsCall", jsCall);
 
 			dataService.onLoad.add(onDataLoaded);
@@ -111,33 +94,32 @@
 			dataService.load();
 		}
 
-		private function onDataLoaded(data:ScormData):void
+		private function onDataLoaded(data:EbookData):void
 		{
 			Logger.log("EbookController.onDataLoaded");
 
-			isDataServiceAvaiable = true;
+			model.isDataServiceAvailable = true;
+			model.ebookData = data;
 
-			_ebookData = data;
-
-			for (var i:Object in _ebookData)
-				Logger.log("	LOAD SCORM DATA >> " + i + ", value : " + _ebookData[i]);
+			for (var i:String in model.ebookData)
+				Logger.log("	LOAD SCORM DATA >> " + i + ", value : " + model.ebookData[i]);
 
 			//-- check browse mode
-			if (_ebookData.lesson_mode == ScormData.MODE_BROWSE)
+			if (model.ebookData.lesson_mode == ScormConstants.MODE_BROWSE)
 			{
 				startBrowseMode();
 			}
 			else
 			{
-				if (_ebookData.suspend_data == null || _ebookData.suspend_data == "" || _ebookData.lesson_status == ScormData.STATUS_NOT_ATTEMPTED)
+				if (model.ebookData.suspend_data == null || model.ebookData.suspend_data == "" || model.ebookData.lesson_status == ScormConstants.STATUS_NOT_ATTEMPTED)
 				{
 					Logger.log("EbookController.initDataService >> SUSPEND_DATA null OR empty. New user!");
 
-					_ebookData.lesson_status = ScormData.STATUS_INCOMPLETE;
+					model.ebookData.lesson_status = ScormConstants.STATUS_INCOMPLETE;
 
-					status.status = EbookModel.STATUS_INITIALIZED;
+					model.status = EbookConstants.STATUS_INITIALIZED;
 					sessionTimer.initSession();
-					nav.navigateToIndex(0, 0);
+					navController.loadPage();
 
 					//-- save all data
 					save();
@@ -147,11 +129,11 @@
 					Logger.log("EbookController.initDataService >> SUSPEND_DATA read.");
 
 					//-- read saved data
-					_ebookData.suspend_data = _ebookData.suspend_data.replace(/'/g, "\"");
+					model.ebookData.suspend_data = model.ebookData.suspend_data.replace(/'/g, "\"");
 
-					status.parseData(_ebookData.suspend_data);
+					model.parseData(model.ebookData.suspend_data);
 					sessionTimer.initSession();
-					nav.navigateToIndex(status.currentModule, status.currentPage);
+					navController.loadPage(); // loads current page
 				}
 			}
 		}
@@ -165,10 +147,10 @@
 		{
 			Logger.log("EbookController.onDataLoadError >> " + msg);
 
-			if (isExtIntAvaiable && _enableAlerts)
-				ExternalInterface.call("alert", "Erro ao carregar dados do DATASERVICE (" + _dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
+			if (model.isExtIntAvailable && model.enableAlerts)
+				ExternalInterface.call("alert", "Erro ao carregar dados do DATASERVICE (" + model.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
 
-			isDataServiceAvaiable = false;
+			model.isDataServiceAvailable = false;
 			startBrowseMode();
 		}
 
@@ -176,8 +158,8 @@
 		{
 			Logger.log("EbookController.onDataSaveError >> " + msg);
 
-			if (isExtIntAvaiable && _enableAlerts)
-				ExternalInterface.call("alert", "Erro ao salvar dados no DATASERVICE (" + _dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
+			if (model.isExtIntAvailable && model.enableAlerts)
+				ExternalInterface.call("alert", "Erro ao salvar dados no DATASERVICE (" + model.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
 		}
 
 		/********************* SAVE *********************/
@@ -185,20 +167,20 @@
 		{
 			Logger.log("EbookController.save");
 
-			if (isDataServiceAvaiable && !_isConsultMode && _ebookData.lesson_status == ScormData.STATUS_INCOMPLETE)
+			if (model.isDataServiceAvailable && !model.isConsultMode && model.ebookData.lesson_status == ScormConstants.STATUS_INCOMPLETE)
 			{
-				if (status.status == EbookModel.STATUS_COMPLETED)
-					_ebookData.lesson_status = ScormData.STATUS_COMPLETED;
+				if (model.status == EbookConstants.STATUS_COMPLETED)
+					model.ebookData.lesson_status = ScormConstants.STATUS_COMPLETED;
 
-				//-- SUSPEND_DATA - REPLACE DOUBLE QUOTES? - LMS campatibility check (BUG from some LMS vendors)
-				_ebookData.suspend_data = (_scormReplaceDoubleQuotes) ? status.toString().replace(/"/g, "'") : status.toString();
-				_ebookData.session_time = sessionTimer.getCMISessionTime();
+				//-- SUSPEND_DATA - REPLACE DOUBLE QUOTES? - LMS compatibility check (BUG from some LMS vendors)
+				model.ebookData.suspend_data = (model.scormReplaceDoubleQuotes) ? model.toString().replace(/"/g, "'") : model.toString();
+				model.ebookData.session_time = sessionTimer.getCMISessionTime();
 
-				for (var i:String in _ebookData)
-					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + _ebookData[i]);
+				for (var i:String in model.ebookData)
+					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + model.ebookData[i]);
 
 				//-- contact dataService to SAVE Data
-				dataService.save(_ebookData);
+				dataService.save(model.ebookData);
 			}
 			else
 			{
@@ -210,11 +192,10 @@
 		{
 			Logger.log("EbookController.finishEbook");
 
-			if (!_isConsultMode && status.status == EbookModel.STATUS_INITIALIZED)
+			if (!model.isConsultMode && model.status == EbookConstants.STATUS_INITIALIZED)
 			{
-				status.endDate = new Date();
-				status.status = EbookModel.STATUS_COMPLETED;
-				_ebookData.exit = ScormData.EXIT_LOGOUT;
+				model.endDate = new Date();
+				model.status = EbookConstants.STATUS_COMPLETED;
 
 				save();
 			}
@@ -228,10 +209,9 @@
 		{
 			Logger.log("EbookController.closeBrowser");
 
-			if (isExtIntAvaiable)
+			if (model.isExtIntAvailable)
 			{
 				ExternalInterface.call("scorm.save");
-				ExternalInterface.call("API_Extended.SetNavCommand('exit')"); // SUNTOTAL API
 				ExternalInterface.call("scorm.quit");
 				ExternalInterface.call("exit");
 			}
@@ -260,77 +240,16 @@
 		}
 
 		/********************* GETTERS and SETTERS *********************/
-
-		public function get isConsultMode():Boolean
+		public function get ebookData():EbookData
 		{
-			return _isConsultMode;
+			return model.ebookData;
 		}
 
-		public function set isConsultMode(value:Boolean):void
+		public function set ebookData(value:EbookData):void
 		{
-			_isConsultMode = value;
+			model.ebookData = value;
 		}
 
-		public function get ebookData():ScormData
-		{
-			return _ebookData;
-		}
-
-		public function set ebookData(value:ScormData):void
-		{
-
-			_ebookData = value;
-		}
-
-		public function get dataServiceType():String
-		{
-			return _dataServiceType;
-		}
-
-		public function set dataServiceType(value:String):void
-		{
-			_dataServiceType = value;
-		}
-
-		public function get enableAlerts():Boolean
-		{
-			return _enableAlerts;
-		}
-
-		public function set enableAlerts(value:Boolean):void
-		{
-			_enableAlerts = value;
-		}
-
-		public function get hasAccessibility():Boolean
-		{
-			return _hasAccessibility;
-		}
-
-		public function set hasAccessibility(value:Boolean):void
-		{
-			_hasAccessibility = value;
-		}
-
-		public function get enableDebugPanel():Boolean
-		{
-			return _enableDebugPanel;
-		}
-
-		public function set enableDebugPanel(value:Boolean):void
-		{
-			_enableDebugPanel = value;
-		}
-
-		public function get scormReplaceDoubleQuotes():Boolean
-		{
-			return _scormReplaceDoubleQuotes;
-		}
-
-		public function set scormReplaceDoubleQuotes(value:Boolean):void
-		{
-			_scormReplaceDoubleQuotes = value;
-		}
 	}
 
 }

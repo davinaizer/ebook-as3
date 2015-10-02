@@ -105,7 +105,7 @@ package com.unboxds.ebook.view
 			var tweenData:XMLList = contentXML.tween.tween.(@id == "nextBtn");
 			tweenNextBtn = TweenParser.getTweenFromXML(target, tweenData[0]);
 
-			isKeyboardAvailable = (contentXML.@isKeyboardAvailable == "true") ? true : false;
+			isKeyboardAvailable = (contentXML.@isKeyboardAvailable == "true");
 
 			Logger.log("NavBarView.isKeyboardAvailable: " + isKeyboardAvailable);
 		}

@@ -7,10 +7,18 @@ package com.unboxds.ebook.model
 	 * ...
 	 * @author UNBOX
 	 */
-	public class NavModel // MODEL OK. Can Store more data
+	public class NavModel
 	{
 		private var _pages:Vector.<Vector.<PageData>>;
 		private var _pageQueue:Vector.<PageData>;
+		private var _maxPage:int;
+		private var _maxModule:int;
+		private var _currentPage:int;
+		private var _currentModule:int;
+		private var _totalModules:uint;
+		private var _totalPages:uint;
+		private var _modPagesCount:Array;
+		private var _navDirection:int;
 
 		public function NavModel()
 		{
@@ -18,10 +26,22 @@ package com.unboxds.ebook.model
 
 			_pages = new Vector.<Vector.<PageData>>();
 			_pageQueue = new Vector.<PageData>();
+			_totalModules = 0;
+			_totalPages = 0;
+			_modPagesCount = [];
+			_navDirection = 1;
+
+			// PERSIST
+			_maxPage = 0;
+			_maxModule = 0;
+			_currentPage = 0;
+			_currentModule = 0;
 		}
 
-		public function parsePages(xml:XML):void
+		public function parseData(xml:XML):void
 		{
+			Logger.log("NavModel.parseData");
+
 			var modList:XMLList = xml.page.page.(@id == "nav").page.(@id.indexOf("module") >= 0);
 			var modId:int = 0;
 			var pageCount:int = 0;
@@ -48,7 +68,7 @@ package com.unboxds.ebook.model
 					page.modTitle = moduleName;
 					page.contentURL = node.asset.(@id == "contentXML").@src;
 					page.navbarStatus = node.@navbarStatus.toString().length == 0 ? null : node.@navbarStatus;
-					page.showProgress = node.@showProgress.toString().length == 0 || node.@showProgress.toString() == "true" ? true : false;
+					page.showProgress = node.@showProgress.toString().length == 0 || node.@showProgress.toString() == "true";
 					page.pageTransitionIn = node.@pageTransitionIn.toString().length == 0 ? null : node.@pageTransitionIn;
 					page.pageTransitionOut = node.@pageTransitionOut.toString().length == 0 ? null : node.@pageTransitionOut;
 					page.contentTransitionIn = node.@contentTransitionIn.toString().length == 0 ? null : node.@contentTransitionIn;
@@ -60,7 +80,22 @@ package com.unboxds.ebook.model
 
 				modId++;
 			}
+
+			_totalModules = pages.length;
+			_totalPages = pageQueue.length;
+			_navDirection = 1;
+			_modPagesCount = [];
+
+			for (var i:int = 0; i < pages.length; i++)
+				_modPagesCount.push(pages[i].length);
+
+			Logger.log(">>>> NavModel Statistics <<<<");
+			Logger.log("	• Total Modules: " + _totalModules);
+			Logger.log("	• Total Pages in each module: " + _modPagesCount.join(" | "));
+			Logger.log("	• Total Pages: " + _totalPages);
+			Logger.log("-------------------");
 		}
+
 
 		public function get pages():Vector.<Vector.<PageData>>
 		{
@@ -70,6 +105,124 @@ package com.unboxds.ebook.model
 		public function get pageQueue():Vector.<PageData>
 		{
 			return _pageQueue;
+		}
+
+		public function get maxPage():int
+		{
+			return _maxPage;
+		}
+
+		public function set maxPage(value:int):void
+		{
+			_maxPage = value;
+		}
+
+		public function get maxModule():int
+		{
+			return _maxModule;
+		}
+
+		public function set maxModule(value:int):void
+		{
+			_maxModule = value;
+		}
+
+		public function get currentPage():int
+		{
+			return _currentPage;
+		}
+
+		public function set currentPage(value:int):void
+		{
+			_currentPage = value;
+		}
+
+		public function get currentModule():int
+		{
+			return _currentModule;
+		}
+
+		public function set currentModule(value:int):void
+		{
+			_currentModule = value;
+		}
+
+		public function get totalModules():uint
+		{
+			return _totalModules;
+		}
+
+		public function set totalModules(value:uint):void
+		{
+			_totalModules = value;
+		}
+
+		public function get totalPages():uint
+		{
+			return _totalPages;
+		}
+
+		public function set totalPages(value:uint):void
+		{
+			_totalPages = value;
+		}
+
+		public function get modPagesCount():Array
+		{
+			return _modPagesCount;
+		}
+
+		public function set modPagesCount(value:Array):void
+		{
+			_modPagesCount = value;
+		}
+
+		public function get navDirection():int
+		{
+			return _navDirection;
+		}
+
+		public function set navDirection(value:int):void
+		{
+			_navDirection = value;
+		}
+
+		/**
+		 * Returns last page user has accessed
+		 */
+		public function getUserLastPage():PageData
+		{
+			var userLastPage:PageData = PageData(pages[maxModule][maxPage]);
+			return userLastPage;
+		}
+
+		public function getCurrentPage():PageData
+		{
+			var page:PageData = pages[currentModule][currentPage];
+			return page;
+		}
+
+		public function getPages():Vector.<PageData>
+		{
+			return pageQueue;
+		}
+
+		public function getPageByIndex(index:int):PageData
+		{
+			var page:PageData = pageQueue[index];
+			return page;
+		}
+
+		public function getPageByName(name:String):PageData
+		{
+			for (var i:int = 0; i < pageQueue.length; i++)
+			{
+				var page:PageData = pageQueue[i] as PageData;
+				if (page.branch == name)
+					return page;
+			}
+
+			return null;
 		}
 
 	}

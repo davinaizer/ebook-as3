@@ -14,15 +14,11 @@
 
 package com.unboxds.ebook.pages
 {
-	
+
 	public class Pages
 	{
 		public static const INDEX:String = "index";
 		public static const NAV:String = "index/nav";
 		public static const COVER:String = "index/nav/cover";
-		
-		public static const MODULE_00:String = "index/nav/module_00";
-		public static const M_00_P_00:String = "index/nav/module_00/M_00_P_00";
-	
 	}
 }

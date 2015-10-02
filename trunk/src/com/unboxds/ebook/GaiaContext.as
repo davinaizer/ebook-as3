@@ -9,7 +9,7 @@ package com.unboxds.ebook
 	import org.osflash.signals.Signal;
 
 	/**
-	 * Wrapper for Gaia Framework initization.
+	 * Wrapper for Gaia Framework initialization.
 	 *
 	 * When Gaia Framework has complete loading, onComplete Signal is dispatched.
 	 *

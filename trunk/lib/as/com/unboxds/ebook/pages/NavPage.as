@@ -23,6 +23,7 @@
 		private var navPanel:UIController;
 		private var clickSound:ClickSound;
 
+		//TODO This class should be a Context Class to link View, Controller and Model
 		public function NavPage()
 		{
 			super();
@@ -69,6 +70,7 @@
 			navPanel.show();
 		}
 
+		//TODO EXTERNAL METHODS used by other Classes - REFACTOR
 		public function enableNextButton(value:Boolean = true):void
 		{
 			navPanel.enableNextButton(value);

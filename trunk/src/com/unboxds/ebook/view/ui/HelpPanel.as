@@ -20,8 +20,6 @@ package com.unboxds.ebook.view.ui
 		private var view:HelpPanelSymbol;
 		private var openTween:TweenMax;
 		
-		private var _closeOnClick:Boolean;
-		
 		public function HelpPanel(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
 			Logger.log("HelpPanel.HelpPanel");
@@ -58,11 +56,6 @@ package com.unboxds.ebook.view.ui
 			parseContent();
 			
 			super.show();
-		}
-		
-		private function clickHandler(e:MouseEvent):void
-		{
-			close();
 		}
 		
 		override public function show():void

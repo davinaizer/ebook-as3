@@ -4,7 +4,7 @@
 package com.unboxds.ebook.view.parser
 {
 	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.model.vo.ContentType;
+	import com.unboxds.ebook.constants.ContentType;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 
@@ -38,7 +38,7 @@ package com.unboxds.ebook.view.parser
 				}
 				else
 				{
-					Logger.log("ContentParser Error >> SIMPLEBUTTON '" + instanceName + "' not found!");
+					Logger.log("SimpleButtonParser Error >> SIMPLEBUTTON '" + instanceName + "' not found!");
 				}
 			}
 		}

@@ -3,7 +3,7 @@
  */
 package com.unboxds.ebook.view.parser
 {
-	import com.unboxds.ebook.model.vo.ContentType;
+	import com.unboxds.ebook.constants.ContentType;
 
 	public class ParserFactory
 	{

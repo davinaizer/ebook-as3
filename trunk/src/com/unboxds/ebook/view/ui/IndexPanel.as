@@ -8,12 +8,12 @@ package com.unboxds.ebook.view.ui
 	import com.unboxds.button.IButton;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.EbookApi;
-	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.ebook.events.NavEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.components.List;
 	import com.unboxds.ebook.view.components.ListBuilder;
 	import com.unboxds.ebook.view.components.StepperBar;
+	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.utils.Logger;
 
 	import flash.display.DisplayObject;
@@ -28,48 +28,45 @@ package com.unboxds.ebook.view.ui
 	 */
 	public class IndexPanel extends ContentObject
 	{
-		static public const SCROLLBAR_COLOR:Number = 0x5D5D5D;
-		static public const SCROLLBAR_THUMB_COLOR:Number = 0x999999;
-		
 		private var design:IndexPanelSymbol;
+
 		private var list:List;
 		private var subList:List;
 		private var menuList:XMLList;
-		
 		private var scrollBar:StepperBar;
 		private var scrollBar2:StepperBar;
 		private var selectedBtn:IButton;
-		
+
 		public function IndexPanel(contentXML:XML = null, stylesheet:StyleSheet = null)
 		{
 			super(contentXML, stylesheet);
-			
+
 			Logger.log("IndexPanel.IndexPanel");
 			addEventListener(Event.ADDED_TO_STAGE, onAdded);
 		}
-		
+
 		private function onAdded(e:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
 			init();
 			initEvents();
 		}
-		
+
 		//TODO Function is too long. Refactor
 		public function init():void
 		{
 			Logger.log("IndexPanel.init");
-			
+
 			this.x = parseFloat(contentXML.@x);
 			this.y = parseFloat(contentXML.@y);
-			
+
 			design = new IndexPanelSymbol();
 			design.cacheAsBitmap = true;
 			design.baseBox_Placeholder.alpha = 0;
 			addChild(design);
-			
+
 			var listData:XMLList = contentXML.component.(@type == "List");
-			
+
 			//-- list panel 
 			list = new ListBuilder().fromXML(listData[0]).build();
 			list.buttonClass = btMenuItem;
@@ -77,7 +74,7 @@ package com.unboxds.ebook.view.ui
 			list.stylesheet = stylesheet;
 			list.onClick.add(onListClick);
 			list.onChange.add(onListChange);
-			
+
 			//-- sublist panel
 			subList = new ListBuilder().fromXML(listData[1]).build();
 			subList.buttonClass = btSubmenuItem;
@@ -85,7 +82,7 @@ package com.unboxds.ebook.view.ui
 			subList.stylesheet = stylesheet;
 			subList.onClick.add(onListClick);
 			subList.onChange.add(onListChange);
-			
+
 			//-- create SCROLLBARS
 			var scrollbarData:XMLList = contentXML.component.(@type == "Scrollbar");
 			scrollBar = new StepperBar();
@@ -98,7 +95,7 @@ package com.unboxds.ebook.view.ui
 			scrollBar.thumbColor = parseInt(scrollbarData[0].@thumbColor);
 			scrollBar.thumbColorAlpha = parseFloat(scrollbarData[0].@thumbColorAlpha);
 			scrollBar.autoHideThumb = scrollbarData[0].@autoHideThumb == "true";
-			
+
 			scrollBar2 = new StepperBar();
 			scrollBar2.x = parseFloat(scrollbarData[1].@x);
 			scrollBar2.y = parseFloat(scrollbarData[1].@y);
@@ -109,31 +106,31 @@ package com.unboxds.ebook.view.ui
 			scrollBar2.thumbColor = parseInt(scrollbarData[1].@thumbColor);
 			scrollBar2.thumbColorAlpha = parseFloat(scrollbarData[1].@thumbColorAlpha);
 			scrollBar2.autoHideThumb = scrollbarData[1].@autoHideThumb == "true";
-			
+
 			addChild(subList);
 			addChild(list);
-			
+
 			addChild(scrollBar2);
 			addChild(scrollBar);
-			
-			menuList = contentXML.content.(@type == "menu");
+
+			menuList = contentXML.component.(@type == "menu");
 			populateList(XML(menuList.toXMLString()), list);
-			
+
 			new ContentParser(design, contentXML, stylesheet).parse();
 		}
-		
+
 		private function initEvents():void
 		{
 			this.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel, false, 0, true);
 			design.addEventListener(MouseEvent.CLICK, navHandler, false, 0, true);
 		}
-		
+
 		private function onMouseWheel(e:MouseEvent):void
 		{
 			var listP:List = e.stageX > stage.stageWidth / 2 ? subList : list;
 			e.delta > 0 ? listP.backPage() : listP.nextPage();
 		}
-		
+
 		private function navHandler(e:MouseEvent):void
 		{
 			var src:DisplayObject = e.target as DisplayObject;
@@ -154,20 +151,20 @@ package com.unboxds.ebook.view.ui
 				subList.backPage();
 			}
 		}
-		
+
 		//TODO Refactor this function
 		private function onListChange(listP:List):void
 		{
 			var isNextEnabled:Boolean = listP.totalItems > 0 && !(listP.currentPage == listP.totalPages - 1);
 			var isBackEnabled:Boolean = listP.totalItems > 0 && listP.currentPage != 0;
-			
+
 			if (listP == list && scrollBar)
 			{
 				scrollBar.steps = listP.totalPages;
 				scrollBar.current = listP.currentPage + 1;
 				design.btnNext.setEnabled(isNextEnabled);
 				design.btnBack.setEnabled(isBackEnabled);
-				
+
 			}
 			else if (listP == subList && scrollBar2)
 			{
@@ -177,7 +174,7 @@ package com.unboxds.ebook.view.ui
 				design.btnBack2.setEnabled(isBackEnabled);
 			}
 		}
-		
+
 		private function onListClick(e:MouseEvent):void
 		{
 			if (e.target is SimpleButton)
@@ -185,19 +182,19 @@ package com.unboxds.ebook.view.ui
 				var btn:SimpleButton = e.target as SimpleButton;
 				var srcName:String = btn.name;
 				var evt:NavEvent = new NavEvent(NavEvent.GOTO_PAGE, true);
-				
+
 				if (srcName.indexOf("btMenuItem") > -1)
 				{
 					if (selectedBtn)
 						selectedBtn.setSelected(false);
 					selectedBtn = btn;
-					
+
 					var submenuList:XML = XML(XMLList(menuList.content[btn.index]).toXMLString());
 					if (submenuList.content.length() > 0)
 					{
 						btn.setSelected(true);
 						design.listPanel2_Bg.alpha = 1;
-						
+
 						populateList(submenuList, subList);
 						invalidateList(submenuList, subList);
 					}
@@ -216,13 +213,13 @@ package com.unboxds.ebook.view.ui
 				}
 			}
 		}
-		
+
 		private function populateList(data:XML, list:List):void
 		{
 			if (list != null)
 			{
 				list.destroy();
-				
+
 				if (data.content.length() > 0)
 				{
 					for (var i:int = 0; i < data.content.length(); i++)
@@ -231,24 +228,24 @@ package com.unboxds.ebook.view.ui
 				}
 			}
 		}
-		
+
 		override public function show():void
 		{
 			super.show();
-			
+
 			invalidateList(XML(menuList.toXMLString()), list);
 			subList.destroy();
 			design.listPanel2_Bg.alpha = 0;
-			
+
 			if (selectedBtn)
 				selectedBtn.setSelected(false);
 		}
-		
+
 		private function invalidateList(data:XML, listP:List):void
 		{
-			if (EbookApi.getInstance().getEbookController().isConsultMode == false)
+			if (EbookApi.getInstance().getEbookModel().isConsultMode == false)
 			{
-				var lastUserPage:PageData = EbookApi.getInstance().getNavController().getUserLastPage();
+				var lastUserPage:PageData = EbookApi.getInstance().getNavModel().getUserLastPage();
 				var isLastModPage:Boolean = lastUserPage.counter[0] == lastUserPage.counter[1];
 				var isButtonEnabled:Boolean = false;
 				var isModuleCompleted:Boolean = false;
@@ -257,21 +254,21 @@ package com.unboxds.ebook.view.ui
 				var lastPage:PageData;
 				var btn:SimpleButton;
 				var i:uint = 0;
-				
+
 				for (i = 0; i < listP.totalItems; i++)
 				{
-					firstPage = EbookApi.getInstance().getNavController().getPageByName(data.content[i].@pageID);
-					lastPage = "@lastPageID" in data.content[i] ? EbookApi.getInstance().getNavController().getPageByName(data.content[i].@lastPageID) : firstPage;
-					
+					firstPage = EbookApi.getInstance().getNavModel().getPageByName(data.content[i].@pageID);
+					lastPage = "@lastPageID" in data.content[i] ? EbookApi.getInstance().getNavModel().getPageByName(data.content[i].@lastPageID) : firstPage;
+
 					btn = listP.getButtonByIndex(i);
-					
+
 					isButtonEnabled = lastUserPage.index >= firstPage.index;
 					if (!btn.isSelected)
 						btn.setEnabled(isButtonEnabled);
-					
+
 					isModuleCompleted = lastUserPage.index > lastPage.index;
 					hasTicker = btn.getChildByName("tickerIcon") != null;
-					
+
 					if (!hasTicker && isModuleCompleted)
 					{
 						var ticker:Sprite = new TickerSymbol();

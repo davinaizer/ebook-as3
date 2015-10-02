@@ -10,8 +10,14 @@ package com.unboxds.ebook.controller
 	import com.unboxds.ebook.events.SearchEvent;
 	import com.unboxds.ebook.model.vo.PageData;
 	import com.unboxds.ebook.view.NavBarView;
-	import com.unboxds.ebook.view.components.*;
-	import com.unboxds.ebook.view.ui.*;
+	import com.unboxds.ebook.view.components.AbsProgressMeter;
+	import com.unboxds.ebook.view.components.BarMeter;
+	import com.unboxds.ebook.view.components.InteractiveBarMeter;
+	import com.unboxds.ebook.view.ui.ContentObject;
+	import com.unboxds.ebook.view.ui.Dashboard;
+	import com.unboxds.ebook.view.ui.HelpPanel;
+	import com.unboxds.ebook.view.ui.SearchPanel;
+	import com.unboxds.ebook.view.ui.UIPanel;
 	import com.unboxds.utils.ArrayUtils;
 	import com.unboxds.utils.KeyObject;
 	import com.unboxds.utils.Logger;
@@ -95,7 +101,7 @@ package com.unboxds.ebook.controller
 			var pmData:XML = XML(XMLList(contentXML.component.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
 			progressMeter = new PmClass(pmData, stylesheet) as AbsProgressMeter;
-			progressMeter.setMax(EbookApi.getInstance().getNavController().totalPages);
+			progressMeter.setMax(EbookApi.getInstance().getNavModel().totalPages);
 
 			//-- HELP PANEL
 			var helpPanelData:XML = XML(XMLList(contentXML.component.(@type == "HelpPanel")).toXMLString());
@@ -141,7 +147,7 @@ package com.unboxds.ebook.controller
 			//check for clicks outside UI
 			stage.addEventListener(MouseEvent.CLICK, stageHandler);
 
-			if (EbookApi.getInstance().getEbookController().enableDebugPanel == true)
+			if (EbookApi.getInstance().getEbookModel().enableDebugPanel == true)
 			{
 				keyObj = new KeyObject(this.stage);
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
@@ -256,8 +262,6 @@ package com.unboxds.ebook.controller
 
 		private function searchHandler(e:Event):void
 		{
-			Logger.log("UIController.searchHandler > e.type: " + e.type);
-
 			switch (e.type)
 			{
 				case SearchEvent.INDEX_COMPLETE:
@@ -385,7 +389,7 @@ package com.unboxds.ebook.controller
 
 		private function onGotoPage(e:NavEvent):void
 		{
-			var index:int = EbookApi.getInstance().getNavController().getPageByName(e.pageID).index;
+			var index:int = EbookApi.getInstance().getNavModel().getPageByName(e.pageID).index;
 			gotoPage(index);
 		}
 
@@ -403,7 +407,7 @@ package com.unboxds.ebook.controller
 
 		private function onBeforeGoto(e:GaiaEvent):void
 		{
-			currentPage = EbookApi.getInstance().getNavController().getCurrentPage();
+			currentPage = EbookApi.getInstance().getNavModel().getCurrentPage();
 
 			closePanels();
 
@@ -423,7 +427,7 @@ package com.unboxds.ebook.controller
 			contentTween = TweenParser.getTweenFromXML(Gaia.api.getPage(Gaia.api.getCurrentBranch()).content, contentXML.tween.tween.(@id == "contentTween")[0]);
 
 			progressMeter.setProgress(currentPage.index + 1);
-			progressMeter.setSecondaryProgress(EbookApi.getInstance().getNavController().getUserLastPage().index + 1);
+			progressMeter.setSecondaryProgress(EbookApi.getInstance().getNavModel().getUserLastPage().index + 1);
 		}
 
 		private function onAfterTransitionIn(e:GaiaEvent):void
@@ -441,8 +445,8 @@ package com.unboxds.ebook.controller
 			{
 				navBar.status("11111");
 
-				var lastUserPage:PageData = EbookApi.getInstance().getNavController().getUserLastPage();
-				if (EbookApi.getInstance().getEbookController().isConsultMode || lastUserPage.index > currentPage.index)
+				var lastUserPage:PageData = EbookApi.getInstance().getNavModel().getUserLastPage();
+				if (EbookApi.getInstance().getEbookModel().isConsultMode || lastUserPage.index > currentPage.index)
 					navBar.enableNextButton(true);
 			}
 

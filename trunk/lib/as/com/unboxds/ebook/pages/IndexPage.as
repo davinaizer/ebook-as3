@@ -1,12 +1,13 @@
 ﻿package com.unboxds.ebook.pages
 {
 	import assets.CourseBgSymbol;
+
 	import com.gaiaframework.api.Gaia;
 	import com.gaiaframework.templates.AbstractPage;
 	import com.greensock.TweenLite;
 	import com.unboxds.utils.Align;
 	import com.unboxds.utils.Logger;
-	
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
