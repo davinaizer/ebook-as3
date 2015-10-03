@@ -163,7 +163,7 @@ package com.unboxds.ebook.view.ui
 		{
 			if (!hasInit)
 			{
-				var bookmarks:Array = EbookApi.getInstance().getEbookModel().customData.bookmarks;
+				var bookmarks:Array = EbookApi.getInstance().getEbookModel().bookmarks;
 				var len:int = bookmarks.length;
 				for (var i:int = 0; i < len; i++)
 				{

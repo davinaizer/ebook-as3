@@ -3,6 +3,7 @@ package com.unboxds.ebook.model
 	import com.unboxds.ebook.model.vo.NavVO;
 	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.Logger;
+	import com.unboxds.utils.ObjectUtil;
 
 	/**
 	 * ...
@@ -103,6 +104,8 @@ package com.unboxds.ebook.model
 
 		public function dump():NavVO
 		{
+			Logger.log("NavModel.dump");
+
 			var navVO:NavVO = new NavVO();
 			navVO.currentModule = _currentModule;
 			navVO.currentPage = _currentPage;
@@ -114,12 +117,11 @@ package com.unboxds.ebook.model
 
 		public function restore(value:NavVO):void
 		{
-			if (value != null)
-				for (var i:String in value)
-					if (this.hasOwnProperty(i))
-						this[i] = value[i];
-		}
+			Logger.log("NavModel.restore > " + value);
 
+			if (value != null)
+				ObjectUtil.parse(value, this);
+		}
 
 		public function get pages():Vector.<Vector.<PageVO>>
 		{

@@ -2,9 +2,10 @@ package com.unboxds.ebook.services
 {
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
+	import com.unboxds.utils.ObjectUtil;
 
 	import flash.net.SharedObject;
-	import flash.utils.getQualifiedClassName;
+	import flash.utils.describeType;
 
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
@@ -45,35 +46,24 @@ package com.unboxds.ebook.services
 			{
 				Logger.log("SolDataService.load >> Ebook Data found!");
 
-				var dataObj:Object = sol.data.ebookVO;
-				parseObject(dataObj, ebookVO);
+				ObjectUtil.parse(sol.data.ebookVO, ebookVO);
 			}
 			else
 			{
 				Logger.log("SolDataService.load >> NO Data found! Creating New.");
 			}
 
+			Logger.log(ObjectUtil.toString(sol.data.ebookVO));
+
+			//--
 			_onLoad.dispatch(ebookVO);
 		}
 
-		private function parseObject(obj:Object, targetObj:Object):void
+		private function parseObject(obj:Object):void
 		{
-			for (var param:String in obj)
-			{
-				if (targetObj.hasOwnProperty(param))
-				{
-					var classType:String = getQualifiedClassName(obj[param]);
-					if (classType == "Object")
-					{
-						parseObject(obj[param], targetObj[param])
-					}
-					else
-					{
-						targetObj[param] = obj[param];
-						Logger.log("SolDataService.parseObject >> " + param + " : " + ( (targetObj[param])));
-					}
-				}
-			}
+			var description:XML = describeType(obj);
+			for each (var a:XML in description.accessor)
+				Logger.log(a.@name + " : " + a.@type);
 		}
 
 		/**
@@ -81,7 +71,7 @@ package com.unboxds.ebook.services
 		 */
 		public function save(data:EbookVO):void
 		{
-			Logger.log("SolDataService.save > data :" + data);
+			Logger.log("SolDataService.save > data : " + data);
 
 			for (var i:String in data)
 				Logger.log("SolDataService.save >> " + i + " > value : " + data[i]);

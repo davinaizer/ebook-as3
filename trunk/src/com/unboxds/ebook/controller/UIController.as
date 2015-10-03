@@ -359,28 +359,28 @@ package com.unboxds.ebook.controller
 			Logger.log("UIController.bookmarkPage");
 
 			// -- SORT ARRAY
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().customData.bookmarks, currentPage.index);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().bookmarks, currentPage.index);
 			if (pageFound > -1)
 			{
 				dashboard.removeBookmark(currentPage);
 				navBar.bookmarkPage(false);
 
-				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().customData.bookmarks, currentPage.index);
+				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().bookmarks, currentPage.index);
 			}
 			else
 			{
 				dashboard.addBookmark(currentPage);
 				navBar.bookmarkPage(true);
 
-				EbookApi.getInstance().getEbookModel().customData.bookmarks.push(currentPage.index);
-				EbookApi.getInstance().getEbookModel().customData.bookmarks.sort(Array.NUMERIC);
+				EbookApi.getInstance().getEbookModel().bookmarks.push(currentPage.index);
+				EbookApi.getInstance().getEbookModel().bookmarks.sort(Array.NUMERIC);
 			}
 		}
 
 		private function checkBookmark():void
 		{
 			var pageUID:int = currentPage.index;
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().customData.bookmarks, pageUID);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().bookmarks, pageUID);
 			if (pageFound > -1)
 				navBar.bookmarkPage(true);
 			else

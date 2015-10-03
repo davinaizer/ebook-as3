@@ -19,8 +19,6 @@
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-
-		//TODO Refactor Controller
 	public class EbookController
 	{
 		private var model:EbookModel;
@@ -28,11 +26,8 @@
 		private var navModel:NavModel;
 		private var navController:NavController;
 
-		//TODO Services should be inside a Model.
-		private var dataService:IEbookDataService;
-
-		//TODO Move DATA to MODEL
 		private var sessionTimer:SessionTimer;
+		private var dataService:IEbookDataService;
 
 		public function EbookController()
 		{
@@ -102,9 +97,6 @@
 			model.isDataServiceAvailable = true;
 			model.restore(data);
 
-			for (var i:String in data)
-				Logger.log("	LOADED EBOOK DATA >> " + i + " > value : " + data[i]);
-
 			//-- check browse mode
 			if (model.lessonMode == ScormConstants.MODE_BROWSE)
 			{
@@ -125,7 +117,7 @@
 				}
 				else
 				{
-					Logger.log("EbookController.initDataService >> SUSPEND_DATA read.");
+					Logger.log("EbookController.initDataService >> Ebook data read from server.");
 
 					//-- read saved data
 					navModel.restore(data.navVO);
@@ -172,9 +164,9 @@
 
 				model.sessionTime = sessionTimer.getCMISessionTime();
 
-				//-- contact dataService to SAVE Data
 				var ebookVO:EbookVO = model.dump();
 				ebookVO.navVO = navModel.dump();
+//				ebookVO.customData =
 
 				dataService.save(ebookVO);
 			}

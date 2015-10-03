@@ -12,72 +12,15 @@ package com.unboxds.ebook.model.vo
 		private var _maxPoints:Array;
 		private var _userPoints:Array;
 		private var _lessonStatus:Array;
-		private var _bookmarks:Array;
 
 		public function CustomVO()
 		{
 			_maxPoints = [0];
 			_userPoints = [-1];
 			_lessonStatus = [0];
-			//TODO put bookmarks inside EbookVO
-			_bookmarks = [];
 		}
 
 		/* ----------- GETTERS SETTERS ----------- */
-		public function setLessonStatus(lessonId:int, status:int):void
-		{
-			_lessonStatus[lessonId] = status;
-		}
-
-		public function getLessonStatus(lessonId:int):int
-		{
-			return parseInt(_lessonStatus[lessonId]);
-		}
-
-		public function setPoints(value:int, index:int):void
-		{
-			userPoints[index] = value;
-		}
-
-		public function getPoints(index:int):int
-		{
-			return userPoints[index];
-		}
-
-		public function getTotalPoints():int
-		{
-			var total:int = 0;
-			for (var i:int = 0; i < userPoints.length; i++)
-			{
-				if (userPoints[i] > 0)
-					total += userPoints[i];
-			}
-			return total;
-		}
-
-		public function getTotalMaxPoints():int
-		{
-			var total:int = 0;
-			for (var i:int = 0; i < maxPoints.length; i++)
-			{
-				total += maxPoints[i];
-			}
-			return total;
-		}
-
-		public function getGrade():int
-		{
-			var grade:int = 100 * getTotalPoints() / getTotalMaxPoints();
-			// grade = AvalUtils.roundGrade(grade);
-
-			return grade;
-		}
-
-		public function isTestDone(index:int):Boolean
-		{
-			return userPoints[index] > -1;
-		}
-
 		public function get maxPoints():Array
 		{
 			return _maxPoints;
@@ -108,28 +51,62 @@ package com.unboxds.ebook.model.vo
 			_lessonStatus = value;
 		}
 
-		public function get bookmarks():Array
+		//--
+
+		public function setLessonStatus(lessonId:int, status:int):void
 		{
-			return _bookmarks;
+			_lessonStatus[lessonId] = status;
 		}
 
-		public function set bookmarks(value:Array):void
+		public function getLessonStatus(lessonId:int):int
 		{
-			_bookmarks = value;
+			return parseInt(_lessonStatus[lessonId]);
+		}
+
+		public function setPoints(value:int, index:int):void
+		{
+			_userPoints[index] = value;
+		}
+
+		public function getPoints(index:int):int
+		{
+			return _userPoints[index];
+		}
+
+		public function getTotalPoints():int
+		{
+			var total:int = 0;
+			for (var i:int = 0; i < _userPoints.length; i++)
+			{
+				if (_userPoints[i] > 0)
+					total += _userPoints[i];
+			}
+			return total;
+		}
+
+		public function getTotalMaxPoints():int
+		{
+			var total:int = 0;
+			for (var i:int = 0; i < _maxPoints.length; i++)
+			{
+				total += _maxPoints[i];
+			}
+			return total;
+		}
+
+		public function getGrade():int
+		{
+			var grade:int = 100 * getTotalPoints() / getTotalMaxPoints();
+			// grade = AvalUtils.roundGrade(grade);
+			return grade;
+		}
+
+		public function isTestDone(index:int):Boolean
+		{
+			return _userPoints[index] > -1;
 		}
 
 		/* ----------- REQUIRED ----------- */
-		public function parseData(data:String):CustomVO
-		{
-			var retObj:Object = com.serialization.json.JSON.deserialize(data);
-
-			for (var i:String in retObj)
-				if (this.hasOwnProperty(i))
-					this[i] = retObj[i];
-
-			return this;
-		}
-
 		public function toString():String
 		{
 			var ret:String = com.serialization.json.JSON.serialize(this);

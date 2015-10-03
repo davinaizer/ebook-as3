@@ -12,7 +12,7 @@ package com.unboxds.ebook.model.vo
 		private var _scoreMax:int;
 		private var _scoreMin:int;
 		private var _scoreRaw:int;
-		private var _session_time:String;
+		private var _sessionTime:String;
 		private var _totalTime:String;
 		private var _studentId:String;
 		private var _studentName:String;
@@ -25,7 +25,7 @@ package com.unboxds.ebook.model.vo
 			_scoreMax = 100;
 			_scoreMin = 0;
 			//_scoreRaw = 0;
-			_session_time = "0000:00:00.00";
+			_sessionTime = "0000:00:00.00";
 			_totalTime = "0000:00:00.00";
 			_studentId = "";
 			_studentName = "TREINANDO";
@@ -84,12 +84,12 @@ package com.unboxds.ebook.model.vo
 
 		public function get sessionTime():String
 		{
-			return _session_time;
+			return _sessionTime;
 		}
 
 		public function set sessionTime(value:String):void
 		{
-			_session_time = value;
+			_sessionTime = value;
 		}
 
 		public function get totalTime():String

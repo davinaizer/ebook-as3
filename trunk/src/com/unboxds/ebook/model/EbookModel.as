@@ -1,9 +1,12 @@
 ﻿package com.unboxds.ebook.model
 {
+	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.CustomVO;
 	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.utils.Logger;
+	import com.unboxds.utils.ObjectUtil;
 
 	import flash.external.ExternalInterface;
 
@@ -30,6 +33,7 @@
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
+		private var _bookmarks:Array;
 		private var _customData:CustomVO;
 
 		//-- EbookVO vars - Scorm Vars
@@ -61,6 +65,7 @@
 			_quizStatus = EbookConstants.STATUS_NOT_INITIALIZED;
 			_startDate = new Date();
 			_endDate = new Date();
+			_bookmarks = [];
 
 			//-- Scorm
 			_lessonMode = ScormConstants.MODE_NORMAL;
@@ -78,32 +83,35 @@
 
 		public function dump():EbookVO
 		{
+			Logger.log("EbookModel.dump");
+
 			var ebookVO:EbookVO = new EbookVO();
+			ebookVO.bookmarks = _bookmarks;
 			ebookVO.customData = _customData;
 			ebookVO.endDate = _endDate;
-			ebookVO.lessonMode = _lessonMode;
-			ebookVO.lessonStatus = _lessonStatus;
 			ebookVO.quizScore = _quizScore;
 			ebookVO.quizStatus = _quizStatus;
 			ebookVO.quizTries = _quizTries;
+			ebookVO.startDate = _startDate;
+			ebookVO.status = _status;
+			ebookVO.version = _version;
 			ebookVO.scoreMax = _scoreMax;
 			ebookVO.scoreMin = _scoreMin;
 			ebookVO.scoreRaw = _scoreRaw;
 			ebookVO.sessionTime = _sessionTime;
-			ebookVO.startDate = _startDate;
-			ebookVO.status = _status;
+			ebookVO.lessonMode = _lessonMode;
+			ebookVO.lessonStatus = _lessonStatus;
 			ebookVO.totalTime = _totalTime;
-			ebookVO.version = _version;
 
 			return ebookVO;
 		}
 
 		public function restore(value:EbookVO):void
 		{
+			Logger.log("EbookModel.restore > " + value);
+
 			if (value != null)
-				for (var i:String in value)
-					if (this.hasOwnProperty(i))
-						this[i] = value[i];
+				ObjectUtil.parse(value, this);
 		}
 
 		/*** GETTERS and SETTERS ***/
@@ -346,6 +354,22 @@
 		public function set customData(value:CustomVO):void
 		{
 			_customData = value;
+		}
+
+		public function get bookmarks():Array
+		{
+			return _bookmarks;
+		}
+
+		public function set bookmarks(value:Array):void
+		{
+			_bookmarks = value;
+		}
+
+		public function toString():String
+		{
+			var ret:String = com.serialization.json.JSON.serialize(this);
+			return ret;
 		}
 	}
 }

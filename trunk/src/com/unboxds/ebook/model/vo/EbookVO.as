@@ -1,5 +1,6 @@
 package com.unboxds.ebook.model.vo
 {
+	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
 
 	/**
@@ -16,6 +17,7 @@ package com.unboxds.ebook.model.vo
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
+		private var _bookmarks:Array;
 
 		private var _navVO:NavVO;
 		private var _scormVO:ScormVO;
@@ -31,6 +33,7 @@ package com.unboxds.ebook.model.vo
 			_quizStatus = EbookConstants.STATUS_NOT_INITIALIZED;
 			_startDate = new Date();
 			_endDate = new Date();
+			_bookmarks = [];
 
 			//- sub classes containing info
 			_navVO = new NavVO();
@@ -38,104 +41,6 @@ package com.unboxds.ebook.model.vo
 			_customData = new CustomVO();
 		}
 
-		public function get lessonMode():String
-		{
-			return _scormVO.lessonMode;
-		}
-
-		public function set lessonMode(value:String):void
-		{
-			if (value != null)
-				_scormVO.lessonMode = value;
-		}
-
-		public function get lessonStatus():String
-		{
-			return _scormVO.lessonStatus;
-		}
-
-		public function set lessonStatus(value:String):void
-		{
-			if (value != null)
-				_scormVO.lessonStatus = value;
-		}
-
-		public function get scoreMax():int
-		{
-			return _scormVO.scoreMax;
-		}
-
-		public function set scoreMax(value:int):void
-		{
-			if (!isNaN(value))
-				_scormVO.scoreMax = value;
-		}
-
-		public function get scoreMin():int
-		{
-			return _scormVO.scoreMin;
-		}
-
-		public function set scoreMin(value:int):void
-		{
-			if (!isNaN(value))
-				_scormVO.scoreMin = value;
-		}
-
-		public function get scoreRaw():int
-		{
-			return _scormVO.scoreRaw;
-		}
-
-		public function set scoreRaw(value:int):void
-		{
-			if (!isNaN(value))
-				_scormVO.scoreRaw = value;
-		}
-
-		public function get sessionTime():String
-		{
-			return _scormVO.sessionTime;
-		}
-
-		public function set sessionTime(value:String):void
-		{
-			if (value != null)
-				_scormVO.sessionTime = value;
-		}
-
-		public function get studentId():String
-		{
-			return _scormVO.studentId;
-		}
-
-		public function set studentId(value:String):void
-		{
-			if (value != null)
-				_scormVO.studentId = value;
-		}
-
-		public function get studentName():String
-		{
-			return _scormVO.studentName;
-		}
-
-		public function set studentName(value:String):void
-		{
-			if (value != null)
-				_scormVO.studentName = value;
-		}
-
-		public function get totalTime():String
-		{
-			return _scormVO.totalTime;
-		}
-
-		public function set totalTime(value:String):void
-		{
-			if (value != null)
-				_scormVO.totalTime = value;
-		}
 
 		public function get version():String
 		{
@@ -144,8 +49,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set version(value:String):void
 		{
-			if (value != null)
-				_version = value;
+			_version = value;
 		}
 
 		public function get status():int
@@ -155,8 +59,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set status(value:int):void
 		{
-			if (!isNaN(value))
-				_status = value;
+			_status = value;
 		}
 
 		public function get startDate():Date
@@ -166,8 +69,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set startDate(value:Date):void
 		{
-			if (value != null)
-				_startDate = value;
+			_startDate = value;
 		}
 
 		public function get endDate():Date
@@ -177,8 +79,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set endDate(value:Date):void
 		{
-			if (value != null)
-				_endDate = value;
+			_endDate = value;
 		}
 
 		public function get quizTries():int
@@ -188,8 +89,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set quizTries(value:int):void
 		{
-			if (!isNaN(value))
-				_quizTries = value;
+			_quizTries = value;
 		}
 
 		public function get quizScore():int
@@ -199,8 +99,7 @@ package com.unboxds.ebook.model.vo
 
 		public function set quizScore(value:int):void
 		{
-			if (!isNaN(value))
-				_quizScore = value;
+			_quizScore = value;
 		}
 
 		public function get quizStatus():int
@@ -210,8 +109,17 @@ package com.unboxds.ebook.model.vo
 
 		public function set quizStatus(value:int):void
 		{
-			if (!isNaN(value))
-				_quizStatus = value;
+			_quizStatus = value;
+		}
+
+		public function get bookmarks():Array
+		{
+			return _bookmarks;
+		}
+
+		public function set bookmarks(value:Array):void
+		{
+			_bookmarks = value;
 		}
 
 		public function get navVO():NavVO
@@ -222,6 +130,106 @@ package com.unboxds.ebook.model.vo
 		public function set navVO(value:NavVO):void
 		{
 			_navVO = value;
+		}
+
+		public function get lessonMode():String
+		{
+			return _scormVO.lessonMode;
+		}
+
+		public function set lessonMode(value:String):void
+		{
+			_scormVO.lessonMode = value;
+		}
+
+		public function get lessonStatus():String
+		{
+			return _scormVO.lessonStatus;
+		}
+
+		public function set lessonStatus(value:String):void
+		{
+			_scormVO.lessonStatus = value;
+		}
+
+		public function get scoreMax():int
+		{
+			return _scormVO.scoreMax;
+		}
+
+		public function set scoreMax(value:int):void
+		{
+			_scormVO.scoreMax = value;
+		}
+
+		public function get scoreMin():int
+		{
+			return _scormVO.scoreMin;
+		}
+
+		public function set scoreMin(value:int):void
+		{
+			_scormVO.scoreMin = value;
+		}
+
+		public function get scoreRaw():int
+		{
+			return _scormVO.scoreRaw;
+		}
+
+		public function set scoreRaw(value:int):void
+		{
+			_scormVO.scoreRaw = value;
+		}
+
+		public function get sessionTime():String
+		{
+			return _scormVO.sessionTime;
+		}
+
+		public function set sessionTime(value:String):void
+		{
+			_scormVO.sessionTime = value;
+		}
+
+		public function get totalTime():String
+		{
+			return _scormVO.totalTime;
+		}
+
+		public function set totalTime(value:String):void
+		{
+			_scormVO.totalTime = value;
+		}
+
+		public function get studentId():String
+		{
+			return _scormVO.studentId;
+		}
+
+		public function set studentId(value:String):void
+		{
+			_scormVO.studentId = value;
+		}
+
+		public function get studentName():String
+		{
+			return _scormVO.studentName;
+		}
+
+		public function set studentName(value:String):void
+		{
+			_scormVO.studentName = value;
+		}
+
+		public function get suspendData():String
+		{
+			return _scormVO.suspendData;
+		}
+
+		public function set suspendData(value:String):void
+		{
+			_scormVO.suspendData = value;
 		}
 
 		public function get customData():CustomVO
@@ -236,10 +244,8 @@ package com.unboxds.ebook.model.vo
 
 		public function toString():String
 		{
-			var str:String = "";
-			for (var i:String in this)
-				str += "	- key : " + i + ", value : " + this[i] + "/n";
-			return str;
+			var ret:String = com.serialization.json.JSON.serialize(this);
+			return ret;
 		}
 	}
 }
