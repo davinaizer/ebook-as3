@@ -30,6 +30,37 @@ package com.unboxds.utils
 			}
 		}
 
+		static public function parseJSON(jsonObj:Object, targetObj:Object):void
+		{
+			for (var param:String in jsonObj)
+			{
+				if (targetObj.hasOwnProperty(param))
+				{
+					if (typeof (jsonObj[param]) == "object")
+					{
+						parseJSON(jsonObj[param], targetObj);
+					} else
+					{
+						targetObj[param] = jsonObj[param];
+					}
+				}
+			}
+
+			var description:XML = describeType(targetObj);
+			for each (var a:XML in description.accessor)
+			{
+				var param:String = a.@name;
+				if (jsonObj.hasOwnProperty(param))
+				{
+					var classType:String = getQualifiedClassName(jsonObj[param]);
+					if (classType == "Object")
+						parse(obj[param], targetObj[param]);
+					else
+						targetObj[param] = jsonObj[param];
+				}
+			}
+		}
+
 		/**
 		 * Return and instance of the object specified by name:String
 		 * @param obj The class name

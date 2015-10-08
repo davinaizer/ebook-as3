@@ -4,6 +4,7 @@ package com.unboxds.ebook.services
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
+	import com.unboxds.utils.ObjectUtil;
 
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
@@ -59,6 +60,34 @@ package com.unboxds.ebook.services
 			if (_isConnected)
 			{
 				var data:EbookVO = new EbookVO();
+
+				//-- store NAVVO, ebook DAta and Custom Data
+				var suspendData:String = getParam(ScormConstants.PARAM_SUSPEND_DATA);
+				var jsonObj:Object = JSON.parse(suspendData);
+				suspendData = suspendData.replace(/'/g, "\"");
+
+				for (var i:String in jsonObj)
+					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + jsonObj[i]);
+
+				ObjectUtil.parse(jsonObj, data);
+
+				Logger.log("ScormDataService.load >> " + data.toString());
+				Logger.log(data.toString());
+
+				//-- Ebook BO
+				/*
+				 data.customData
+				 data.bookmarks
+				 data.endDate
+				 data.navVO
+				 data.quizScore
+				 data.quizStatus
+				 data.quizTries
+				 data.startDate
+				 data.status
+				 data.version
+				 */
+				//-- SCORM
 				data.lessonMode = getParam(ScormConstants.PARAM_LESSON_MODE);
 				data.lessonStatus = getParam(ScormConstants.PARAM_LESSON_STATUS);
 				data.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
@@ -68,24 +97,6 @@ package com.unboxds.ebook.services
 				data.studentName = getParam(ScormConstants.PARAM_STUDENT_NAME);
 				data.totalTime = getParam(ScormConstants.PARAM_TOTAL_TIME);
 
-				//-- store NAVVO, ebook DAta and Custom Data
-				var suspendData:String = getParam(ScormConstants.PARAM_SUSPEND_DATA);
-				suspendData = suspendData.replace(/'/g, "\"");
-
-				var jsonObj:Object = JSON.parse(suspendData);
-
-				for (var i:String in jsonObj)
-					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + jsonObj[i]);
-
-				/*
-				 var jsonEbookVO:Object = jsonObj["ebookVO"];
-				 var jsonNavVO:Object = jsonObj["navVO"];
-				 var jsonCustomVO:Object = jsonObj["customVO"];
-
-
-				 data.navVO =
-				 data.customData = jsonObj["customData"];
-				 */
 				_onLoad.dispatch(data);
 			}
 			else
