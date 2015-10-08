@@ -1,6 +1,5 @@
 ﻿package com.unboxds.ebook.model
 {
-	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.CustomVO;
@@ -108,7 +107,7 @@
 
 		public function restore(value:EbookVO):void
 		{
-			Logger.log("EbookModel.restore > " + value);
+			Logger.log("EbookModel.restore");
 
 			if (value != null)
 				ObjectUtil.parse(value, this);
@@ -368,7 +367,7 @@
 
 		public function toString():String
 		{
-			var ret:String = com.serialization.json.JSON.serialize(this);
+			var ret:String = ObjectUtil.toString(this);
 			return ret;
 		}
 	}

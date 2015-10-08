@@ -2,6 +2,7 @@ package com.unboxds.ebook.model.vo
 {
 	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
+	import com.unboxds.utils.ObjectUtil;
 
 	/**
 	 * ...
@@ -244,7 +245,7 @@ package com.unboxds.ebook.model.vo
 
 		public function toString():String
 		{
-			var ret:String = com.serialization.json.JSON.serialize(this);
+			var ret:String = ObjectUtil.toString(this);
 			return ret;
 		}
 	}

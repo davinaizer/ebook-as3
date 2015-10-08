@@ -5,7 +5,6 @@ package com.unboxds.ebook.services
 	import com.unboxds.utils.ObjectUtil;
 
 	import flash.net.SharedObject;
-	import flash.utils.describeType;
 
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
@@ -53,28 +52,12 @@ package com.unboxds.ebook.services
 				Logger.log("SolDataService.load >> NO Data found! Creating New.");
 			}
 
-			Logger.log(ObjectUtil.toString(sol.data.ebookVO));
-
-			//--
 			_onLoad.dispatch(ebookVO);
 		}
 
-		private function parseObject(obj:Object):void
-		{
-			var description:XML = describeType(obj);
-			for each (var a:XML in description.accessor)
-				Logger.log(a.@name + " : " + a.@type);
-		}
-
-		/**
-		 * Update and commit to the LMS the EbookVO
-		 */
 		public function save(data:EbookVO):void
 		{
-			Logger.log("SolDataService.save > data : " + data);
-
-			for (var i:String in data)
-				Logger.log("SolDataService.save >> " + i + " > value : " + data[i]);
+			Logger.log("SolDataService.save");
 
 			sol.data.ebookVO = data;
 			sol.flush();

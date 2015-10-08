@@ -4,6 +4,7 @@
 package com.unboxds.utils
 {
 	import flash.utils.describeType;
+	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 
 	public class ObjectUtil
@@ -15,7 +16,6 @@ package com.unboxds.utils
 		static public function parse(obj:Object, targetObj:Object):void
 		{
 			var description:XML = describeType(targetObj);
-
 			for each (var a:XML in description.accessor)
 			{
 				var param:String = a.@name;
@@ -23,35 +23,40 @@ package com.unboxds.utils
 				{
 					var classType:String = getQualifiedClassName(obj[param]);
 					if (classType == "Object")
-					{
-						parse(obj[param], targetObj[param])
-					}
+						parse(obj[param], targetObj[param]);
 					else
-					{
 						targetObj[param] = obj[param];
-
-						Logger.log("ObjectUtil.parse > " + param + " : " + ( (targetObj[param])));
-					}
 				}
 			}
+		}
+
+		/**
+		 * Return and instance of the object specified by name:String
+		 * @param obj The class name
+		 * @return An instance of the Class
+		 */
+
+		static public function getClassObj(className:String):*
+		{
+			var objClass:Class = Class(getDefinitionByName(className));
+			return new objClass();
 		}
 
 		static public function toString(obj:Object):String
 		{
 			var ret:String = "";
-			for (var param:String in obj)
-			{
-				var classType:String = getQualifiedClassName(obj[param]);
-				if (classType == "Object")
-				{
-					ret += toString(obj[param]);
-				}
-				else
-				{
-					ret += "ObjectUtil.toString > " + obj + " :: " + param + " : " + ( (obj[param])) + "\n";
-				}
-			}
+			var description:XML = describeType(obj);
+			var objName:String = description.@name.split("::")[1];
 
+			for each (var a:XML in description.accessor)
+			{
+				var param:String = a.@name;
+				var classType:String = a.@type;
+				if (classType.indexOf("::") > -1)
+					ret += toString(obj[param]);
+				else
+					ret += " > " + objName + "." + param + " = " + ( (obj[param])) + "\n";
+			}
 			return ret;
 		}
 	}

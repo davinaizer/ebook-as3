@@ -12,6 +12,7 @@
 	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.SolDataService;
 	import com.unboxds.utils.Logger;
+	import com.unboxds.utils.ObjectUtil;
 
 	import flash.external.ExternalInterface;
 
@@ -92,7 +93,8 @@
 
 		private function onDataLoaded(data:EbookVO):void
 		{
-			Logger.log("EbookController.onDataLoaded > " + data);
+			Logger.log("EbookController.onDataLoaded");
+			Logger.log(data.toString());
 
 			model.isDataServiceAvailable = true;
 			model.restore(data);
@@ -168,6 +170,7 @@
 				ebookVO.navVO = navModel.dump();
 //				ebookVO.customData =
 
+				Logger.log(ebookVO.toString());
 				dataService.save(ebookVO);
 			}
 			else
