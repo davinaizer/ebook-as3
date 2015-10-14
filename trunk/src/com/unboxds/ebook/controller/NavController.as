@@ -26,7 +26,7 @@
 		{
 			Logger.log("NavController.init");
 
-			model = EbookApi.getInstance().getNavModel();
+			model = EbookApi.getNavModel();
 			model.parseData(_xmlData);
 		}
 
@@ -84,6 +84,32 @@
 		}
 
 		/**
+		 * Metodo que deve ser chamado para carregar a pagina que esta indicado
+		 * pelo model.currentPage.
+		 */
+		public function loadPage():void
+		{
+			if (EbookApi.getEbookModel().isConsultMode == false)
+			{
+				if (model.currentModule > model.maxModule)
+				{
+					model.maxModule = model.currentModule;
+
+					if (model.currentPage != model.maxPage)
+						model.maxPage = (model.currentPage >= model.pages[model.maxModule].length) ? model.pages[model.maxModule].length - 1 : model.currentPage;
+				}
+
+				if (model.currentModule == model.maxModule && model.currentPage > model.maxPage)
+					model.maxPage = model.currentPage;
+			}
+
+			_onBeforeNextPage = null;
+			_onBeforeBackPage = null;
+
+			onChange.dispatch(model.getCurrentPage());
+		}
+
+		/**
 		 * Sempre que for ter algum evento de navegacao, chamar esse metodo, que
 		 * alem de navegar para a pagina desejada, também atualiza o index para
 		 * correção da navegacao linear.
@@ -96,7 +122,7 @@
 		}
 
 		/**
-		 * Navega para uma página em especifico, determinada por modulo e pagina.
+		 * Navega para uma página em especifica, determinada por modulo e pagina.
 		 * @param    module - numero do modulo a ser navegado.
 		 * @param    page - numero da pagina a ser navegada.
 		 */
@@ -145,32 +171,6 @@
 			model.currentModule = page.moduleIndex;
 
 			loadPage();
-		}
-
-		/**
-		 * Metodo que deve ser chamado para carregar a pagina que esta indicado
-		 * pelo model.currentPage.
-		 */
-		public function loadPage():void
-		{
-			if (EbookApi.getInstance().getEbookModel().isConsultMode == false)
-			{
-				if (model.currentModule > model.maxModule)
-				{
-					model.maxModule = model.currentModule;
-
-					if (model.currentPage != model.maxPage)
-						model.maxPage = (model.currentPage >= model.pages[model.maxModule].length) ? model.pages[model.maxModule].length - 1 : model.currentPage;
-				}
-
-				if (model.currentModule == model.maxModule && model.currentPage > model.maxPage)
-					model.maxPage = model.currentPage;
-			}
-
-			_onBeforeNextPage = null;
-			_onBeforeBackPage = null;
-
-			onChange.dispatch(model.getCurrentPage());
 		}
 
 		public function get onBeforeNextPage():Function
