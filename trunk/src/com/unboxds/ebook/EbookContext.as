@@ -11,7 +11,6 @@ package com.unboxds.ebook
 	import com.unboxds.utils.Logger;
 
 	import flash.display.DisplayObjectContainer;
-	import flash.external.ExternalInterface;
 
 	/**
 	 * Wrapper class to basic EbookApi Class initialization.
@@ -36,14 +35,15 @@ package com.unboxds.ebook
 			this.contextView = contextView;
 		}
 
-		public function startup():void
+		public function bootstrap():void
 		{
+			Logger.log("[EbookAS Framework]\n[UNBOX® 2009-2015 — http://www.unbox.com.br — All rights reserved.]");
 			Logger.log("EbookContext.startup");
 
-			model = EbookApi.getInstance().getEbookModel();
-			controller = EbookApi.getInstance().getEbookController();
-			navModel = EbookApi.getInstance().getNavModel();
-			navController = EbookApi.getInstance().getNavController();
+			model = EbookApi.getEbookModel();
+			controller = EbookApi.getEbookController();
+			navModel = EbookApi.getNavModel();
+			navController = EbookApi.getNavController();
 
 			config();
 		}
@@ -52,17 +52,17 @@ package com.unboxds.ebook
 		{
 			Logger.log("EbookContext.config");
 
-			//-- start ebook params
-			// TODO The logic for parse config data should be inside the MODEL
 			model.enableAlerts = data.config.@enableAlerts == "true";
 			model.isConsultMode = data.config.@consultMode == "true";
 			model.dataServiceType = data.config.@dataServiceType;
 			model.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
 			model.enableDebugPanel = data.config.@enableDebugPanel == "true";
 			model.version = data.config.@version;
-			model.customData.maxPoints = ArrayUtils.toNumber(data.config.customData.maxPoints.toString().split(","));
-			model.customData.lessonStatus = ArrayUtils.toNumber(data.config.customData.lessonStatus.toString().split(","));
-			model.customData.userPoints = ArrayUtils.fillArray(model.customData.maxPoints.length, -1);
+
+			model.activitiesMaxScore = ArrayUtils.toNumber(data.config.activities.maxScore.toString().split(","));
+			model.activitiesStatus = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
+			Logger.log("EbookContext.config >> model.activitiesMaxScore : " + model.activitiesMaxScore);
+			model.activitiesUserScore = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
 
 			//-- start navigation controller
 			navController.xmlData = data;
@@ -76,17 +76,16 @@ package com.unboxds.ebook
 				debugPanel.setCallbacks(navController.backPage, navController.nextPage, navController.navigateToPageIndex);
 
 				Logger.callback = debugPanel.logToPanel;
-				EbookApi.getInstance().setDebugPanel(debugPanel);
+				EbookApi.setDebugPanel(debugPanel);
 			}
 		}
 
 		private function navHandler(page:PageVO):void
 		{
 			Logger.log(page.toString());
-
 			Gaia.api.goto(page.branch);
 
-			if (!ExternalInterface.available)
+			if (model.isExtIntAvailable)
 				controller.save();
 		}
 

@@ -243,9 +243,9 @@ package com.unboxds.ebook.view.ui
 
 		private function invalidateList(data:XML, listP:List):void
 		{
-			if (EbookApi.getInstance().getEbookModel().isConsultMode == false)
+			if (EbookApi.getEbookModel().isConsultMode == false)
 			{
-				var lastUserPage:PageVO = EbookApi.getInstance().getNavModel().getUserLastPage();
+				var lastUserPage:PageVO = EbookApi.getNavModel().getUserLastPage();
 				var isLastModPage:Boolean = lastUserPage.counter[0] == lastUserPage.counter[1];
 				var isButtonEnabled:Boolean = false;
 				var isModuleCompleted:Boolean = false;
@@ -257,8 +257,8 @@ package com.unboxds.ebook.view.ui
 
 				for (i = 0; i < listP.totalItems; i++)
 				{
-					firstPage = EbookApi.getInstance().getNavModel().getPageByName(data.content[i].@pageID);
-					lastPage = "@lastPageID" in data.content[i] ? EbookApi.getInstance().getNavModel().getPageByName(data.content[i].@lastPageID) : firstPage;
+					firstPage = EbookApi.getNavModel().getPageByName(data.content[i].@pageID);
+					lastPage = "@lastPageID" in data.content[i] ? EbookApi.getNavModel().getPageByName(data.content[i].@lastPageID) : firstPage;
 
 					btn = listP.getButtonByIndex(i);
 

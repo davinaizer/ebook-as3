@@ -101,7 +101,7 @@ package com.unboxds.ebook.controller
 			var pmData:XML = XML(XMLList(contentXML.component.(@type == "ProgressMeter")).toXMLString());
 			var PmClass:Class = getDefinitionByName(pmData.@className) as Class;
 			progressMeter = new PmClass(pmData, stylesheet) as AbsProgressMeter;
-			progressMeter.setMax(EbookApi.getInstance().getNavModel().totalPages);
+			progressMeter.setMax(EbookApi.getNavModel().totalPages);
 
 			//-- HELP PANEL
 			var helpPanelData:XML = XML(XMLList(contentXML.component.(@type == "HelpPanel")).toXMLString());
@@ -147,7 +147,7 @@ package com.unboxds.ebook.controller
 			//check for clicks outside UI
 			stage.addEventListener(MouseEvent.CLICK, stageHandler);
 
-			if (EbookApi.getInstance().getEbookModel().enableDebugPanel == true)
+			if (EbookApi.getEbookModel().enableDebugPanel == true)
 			{
 				keyObj = new KeyObject(this.stage);
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
@@ -172,10 +172,10 @@ package com.unboxds.ebook.controller
 			// check keys combination to Debug Panel
 			if (keyObj.isDown(Keyboard.CONTROL) && keyObj.isDown(Keyboard.SHIFT) && keyObj.isDown(Keyboard.NUMBER_1))
 			{
-				if (EbookApi.getInstance().getDebugPanel().view.visible)
-					EbookApi.getInstance().getDebugPanel().hide();
+				if (EbookApi.getDebugPanel().view.visible)
+					EbookApi.getDebugPanel().hide();
 				else
-					EbookApi.getInstance().getDebugPanel().show();
+					EbookApi.getDebugPanel().show();
 			}
 
 			if (keyObj.isDown(Keyboard.ESCAPE))
@@ -193,7 +193,7 @@ package com.unboxds.ebook.controller
 						if (navBar.getNextButtonStatus())
 						{
 							isNavigationAvailable = false;
-							EbookApi.getInstance().getNavController().nextPage();
+							EbookApi.getNavController().nextPage();
 						}
 						break;
 
@@ -201,7 +201,7 @@ package com.unboxds.ebook.controller
 						if (navBar.getBackButtonStatus())
 						{
 							isNavigationAvailable = false;
-							EbookApi.getInstance().getNavController().backPage();
+							EbookApi.getNavController().backPage();
 						}
 						break;
 				}
@@ -233,11 +233,11 @@ package com.unboxds.ebook.controller
 			switch (sourceName)
 			{
 				case "nextBtn":
-					EbookApi.getInstance().getNavController().nextPage();
+					EbookApi.getNavController().nextPage();
 					break;
 
 				case "backBtn":
-					EbookApi.getInstance().getNavController().backPage();
+					EbookApi.getNavController().backPage();
 					break;
 
 				case "bookmarkRemoveBtn":
@@ -359,28 +359,28 @@ package com.unboxds.ebook.controller
 			Logger.log("UIController.bookmarkPage");
 
 			// -- SORT ARRAY
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().bookmarks, currentPage.index);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getEbookModel().bookmarks, currentPage.index);
 			if (pageFound > -1)
 			{
 				dashboard.removeBookmark(currentPage);
 				navBar.bookmarkPage(false);
 
-				ArrayUtil.removeValueFromArray(EbookApi.getInstance().getEbookModel().bookmarks, currentPage.index);
+				ArrayUtil.removeValueFromArray(EbookApi.getEbookModel().bookmarks, currentPage.index);
 			}
 			else
 			{
 				dashboard.addBookmark(currentPage);
 				navBar.bookmarkPage(true);
 
-				EbookApi.getInstance().getEbookModel().bookmarks.push(currentPage.index);
-				EbookApi.getInstance().getEbookModel().bookmarks.sort(Array.NUMERIC);
+				EbookApi.getEbookModel().bookmarks.push(currentPage.index);
+				EbookApi.getEbookModel().bookmarks.sort(Array.NUMERIC);
 			}
 		}
 
 		private function checkBookmark():void
 		{
 			var pageUID:int = currentPage.index;
-			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getInstance().getEbookModel().bookmarks, pageUID);
+			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getEbookModel().bookmarks, pageUID);
 			if (pageFound > -1)
 				navBar.bookmarkPage(true);
 			else
@@ -389,7 +389,7 @@ package com.unboxds.ebook.controller
 
 		private function onGotoPage(e:NavEvent):void
 		{
-			var index:int = EbookApi.getInstance().getNavModel().getPageByName(e.pageID).index;
+			var index:int = EbookApi.getNavModel().getPageByName(e.pageID).index;
 			gotoPage(index);
 		}
 
@@ -397,7 +397,7 @@ package com.unboxds.ebook.controller
 		{
 			if (currentPage.index != index)
 			{
-				EbookApi.getInstance().getNavController().navigateToPageIndex(index);
+				EbookApi.getNavController().navigateToPageIndex(index);
 			}
 			else
 			{
@@ -407,7 +407,7 @@ package com.unboxds.ebook.controller
 
 		private function onBeforeGoto(e:GaiaEvent):void
 		{
-			currentPage = EbookApi.getInstance().getNavModel().getCurrentPage();
+			currentPage = EbookApi.getNavModel().getCurrentPage();
 
 			closePanels();
 
@@ -427,7 +427,7 @@ package com.unboxds.ebook.controller
 			contentTween = TweenParser.getTweenFromXML(Gaia.api.getPage(Gaia.api.getCurrentBranch()).content, contentXML.tween.tween.(@id == "contentTween")[0]);
 
 			progressMeter.setProgress(currentPage.index + 1);
-			progressMeter.setSecondaryProgress(EbookApi.getInstance().getNavModel().getUserLastPage().index + 1);
+			progressMeter.setSecondaryProgress(EbookApi.getNavModel().getUserLastPage().index + 1);
 		}
 
 		private function onAfterTransitionIn(e:GaiaEvent):void
@@ -445,8 +445,8 @@ package com.unboxds.ebook.controller
 			{
 				navBar.status("11111");
 
-				var lastUserPage:PageVO = EbookApi.getInstance().getNavModel().getUserLastPage();
-				if (EbookApi.getInstance().getEbookModel().isConsultMode || lastUserPage.index > currentPage.index)
+				var lastUserPage:PageVO = EbookApi.getNavModel().getUserLastPage();
+				if (EbookApi.getEbookModel().isConsultMode || lastUserPage.index > currentPage.index)
 					navBar.enableNextButton(true);
 			}
 

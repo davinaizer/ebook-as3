@@ -2,8 +2,9 @@
 {
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.ebook.EbookApi;
+
 	import flash.events.MouseEvent;
-	
+
 	public class CoverPage extends EbookPage
 	{
 		public var startBtn:SimpleButton;
@@ -41,18 +42,18 @@
 			{
 				switch (e.target)
 				{
-					case startBtn: 
+					case startBtn:
 						startBtn.setLocked(true);
-						EbookApi.getInstance().getEbookController().start();
+						EbookApi.getEbookController().start();
 						break;
 					
-					default: 
+					default:
 						break;
 				}
 			}
 			
 			e.stopPropagation();
 		}
-	
+
 	}
 }

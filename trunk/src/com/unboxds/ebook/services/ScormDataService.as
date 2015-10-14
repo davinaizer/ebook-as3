@@ -42,15 +42,10 @@ package com.unboxds.ebook.services
 
 			Logger.log("ScormDataService.isAvailable: " + _isAvailable);
 
-			_onLoad = new Signal(EbookVO);
+			_onLoad = new Signal(Object);
 			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
-		}
-
-		public function get isAvailable():Boolean
-		{
-			return _isAvailable;
 		}
 
 		public function load():void
@@ -59,34 +54,25 @@ package com.unboxds.ebook.services
 
 			if (_isConnected)
 			{
-				var data:EbookVO = new EbookVO();
+				var data:Object = {};
 
 				//-- store NAVVO, ebook DAta and Custom Data
 				var suspendData:String = getParam(ScormConstants.PARAM_SUSPEND_DATA);
-				var jsonObj:Object = JSON.parse(suspendData);
-				suspendData = suspendData.replace(/'/g, "\"");
+				if (suspendData.length > 0)
+				{
+					Logger.log("ScormDataService.load > Ebook data found, parsing...");
 
-				for (var i:String in jsonObj)
-					Logger.log("	SAVE EBOOK DATA >> " + i + ", value : " + jsonObj[i]);
+					// replace single quote
+					suspendData = suspendData.replace(/'/g, "\"");
 
-				ObjectUtil.parse(jsonObj, data);
+					var jsonObj:Object = JSON.parse(suspendData);
 
-				Logger.log("ScormDataService.load >> " + data.toString());
-				Logger.log(data.toString());
+					ObjectUtil.copyProps(jsonObj, data);
+				} else
+				{
+					Logger.log("ScormDataService.load > Ebook data not found. First access.");
+				}
 
-				//-- Ebook BO
-				/*
-				 data.customData
-				 data.bookmarks
-				 data.endDate
-				 data.navVO
-				 data.quizScore
-				 data.quizStatus
-				 data.quizTries
-				 data.startDate
-				 data.status
-				 data.version
-				 */
 				//-- SCORM
 				data.lessonMode = getParam(ScormConstants.PARAM_LESSON_MODE);
 				data.lessonStatus = getParam(ScormConstants.PARAM_LESSON_STATUS);
@@ -110,7 +96,17 @@ package com.unboxds.ebook.services
 		 */
 		public function save(data:EbookVO):void
 		{
-			update(data);
+//			var ebookData:Object = {};
+
+			var suspendData:String = data.toJSON();
+			suspendData = suspendData.replace(/"/g, "'");
+
+			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
+			setParam(ScormConstants.PARAM_LESSON_STATUS, data.scormVO.lessonStatus);
+			setParam(ScormConstants.PARAM_SCORE_MAX, String(data.scormVO.scoreMax));
+			setParam(ScormConstants.PARAM_SCORE_MIN, String(data.scormVO.scoreMin));
+			setParam(ScormConstants.PARAM_SCORE_RAW, String(data.scormVO.scoreRaw));
+			setParam(ScormConstants.PARAM_SESSION_TIME, data.scormVO.sessionTime);
 
 			var success:Boolean = scormAPI.save();
 			if (_isConnected && success)
@@ -123,31 +119,11 @@ package com.unboxds.ebook.services
 			}
 		}
 
-		/**
-		 * Update without commiting to the LMS
-		 */
-		private function update(data:EbookVO):void
-		{
-			setParam(ScormConstants.PARAM_LESSON_STATUS, data.lessonStatus);
-			setParam(ScormConstants.PARAM_SCORE_MAX, String(data.scoreMax));
-			setParam(ScormConstants.PARAM_SCORE_MIN, String(data.scoreMin));
-			setParam(ScormConstants.PARAM_SCORE_RAW, String(data.scoreRaw));
-			setParam(ScormConstants.PARAM_SESSION_TIME, data.sessionTime);
-
-			// remove SCORM vars from Objects
-			var jsonStr:String = JSON.stringify(data);
-			Logger.log("ScormDataService.update >> " + jsonStr);
-
-			var suspendData:String = jsonStr;
-			suspendData = suspendData.replace(/"/g, "'");
-			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
-		}
-
 		private function setParam(param:String, value:String):Boolean
 		{
 			var ret:Boolean = scormAPI.set(param, value);
 
-			Logger.log("ScormDataService.setParam> param: " + param + " value: " + value + " saved: " + ret);
+			Logger.log("ScormDataService.setParam > param: " + param + " value: " + value + " saved: " + ret);
 
 			return ret;
 		}
@@ -180,6 +156,12 @@ package com.unboxds.ebook.services
 		{
 			return _onSave;
 		}
+
+		public function get isAvailable():Boolean
+		{
+			return _isAvailable;
+		}
+
 
 	}
 

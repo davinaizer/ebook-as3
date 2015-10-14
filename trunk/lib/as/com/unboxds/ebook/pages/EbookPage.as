@@ -36,16 +36,16 @@ package com.unboxds.ebook.pages
 		{
 			init();
 
-			_data = EbookApi.getInstance().getNavModel().getCurrentPage();
+			_data = EbookApi.getNavModel().getCurrentPage();
 
 			super.transitionIn();
 			try
 			{
-				PageAnimator[_data.pageTransitionIn](this, .5, EbookApi.getInstance().getNavModel().navDirection, transitionInComplete);
+				PageAnimator[_data.pageTransitionIn](this, .5, EbookApi.getNavModel().navDirection, transitionInComplete);
 			}
 			catch (err:Error)
 			{
-				PageAnimator.fadeIn(this, .5, EbookApi.getInstance().getNavModel().navDirection, transitionInComplete);
+				PageAnimator.fadeIn(this, .5, EbookApi.getNavModel().navDirection, transitionInComplete);
 			}
 
 			if (_data.contentTransitionIn != "none")
@@ -57,11 +57,11 @@ package com.unboxds.ebook.pages
 			super.transitionOut();
 			try
 			{
-				PageAnimator[_data.pageTransitionOut](this, .5, EbookApi.getInstance().getNavModel().navDirection, transitionOutComplete);
+				PageAnimator[_data.pageTransitionOut](this, .5, EbookApi.getNavModel().navDirection, transitionOutComplete);
 			}
 			catch (err:Error)
 			{
-				PageAnimator.fadeOut(this, .5, EbookApi.getInstance().getNavModel().navDirection, transitionOutComplete);
+				PageAnimator.fadeOut(this, .5, EbookApi.getNavModel().navDirection, transitionOutComplete);
 			}
 		}
 

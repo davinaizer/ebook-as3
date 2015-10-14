@@ -5,8 +5,6 @@
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
-	import com.unboxds.ebook.model.SessionTimer;
-	import com.unboxds.ebook.model.vo.CustomVO;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
@@ -27,7 +25,6 @@
 		private var navModel:NavModel;
 		private var navController:NavController;
 
-		private var sessionTimer:SessionTimer;
 		private var dataService:IEbookDataService;
 
 		public function EbookController()
@@ -39,13 +36,10 @@
 		{
 			Logger.log("EbookController.start");
 
-			//-- get objects instances
-			model = EbookApi.getInstance().getEbookModel();
-			controller = EbookApi.getInstance().getEbookController();
-			navModel = EbookApi.getInstance().getNavModel();
-			navController = EbookApi.getInstance().getNavController();
-
-			sessionTimer = new SessionTimer();
+			model = EbookApi.getEbookModel();
+			controller = EbookApi.getEbookController();
+			navModel = EbookApi.getNavModel();
+			navController = EbookApi.getNavController();
 
 			model.isConsultMode ? startBrowseMode() : initDataService();
 		}
@@ -73,13 +67,9 @@
 			Logger.log("EbookController.initDataService > dataServiceType: " + model.dataServiceType);
 
 			if (model.dataServiceType == "SCORM" && model.isExtIntAvailable)
-			{
 				dataService = new ScormDataService();
-			}
 			else
-			{
 				dataService = new SolDataService();
-			}
 
 			if (model.isExtIntAvailable)
 				ExternalInterface.addCallback("jsCall", jsCall);
@@ -94,7 +84,7 @@
 		private function onDataLoaded(data:EbookVO):void
 		{
 			Logger.log("EbookController.onDataLoaded");
-			Logger.log(data.toString());
+//			Logger.log(ObjectUtil.toString(data));
 
 			model.isDataServiceAvailable = true;
 			model.restore(data);
@@ -112,23 +102,21 @@
 
 					model.status = EbookConstants.STATUS_INITIALIZED;
 					model.lessonStatus = ScormConstants.STATUS_INCOMPLETE;
-					sessionTimer.initSession();
-					navController.loadPage();
 
 					save();
 				}
 				else
 				{
 					Logger.log("EbookController.initDataService >> Ebook data read from server.");
-
-					//-- read saved data
 					navModel.restore(data.navVO);
-
-					sessionTimer.initSession();
-					navController.loadPage();
 				}
+
+				model.startTimer();
+				navController.loadPage();
 			}
 		}
+
+		//** EVENTS HANDLER
 
 		private function onDataSaved():void
 		{
@@ -164,14 +152,11 @@
 				if (model.status == EbookConstants.STATUS_COMPLETED)
 					model.lessonStatus = ScormConstants.STATUS_COMPLETED;
 
-				model.sessionTime = sessionTimer.getCMISessionTime();
+				var data:EbookVO = model.dump();
+				data.navVO = navModel.dump();
 
-				var ebookVO:EbookVO = model.dump();
-				ebookVO.navVO = navModel.dump();
-//				ebookVO.customData =
-
-				Logger.log(ebookVO.toString());
-				dataService.save(ebookVO);
+				Logger.log(ObjectUtil.toString(data));
+				dataService.save(data);
 			}
 			else
 			{

@@ -2,7 +2,6 @@
 {
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.ebook.model.vo.CustomVO;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtil;
@@ -32,8 +31,12 @@
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
+
+		// -- USER DATA -> SuspendData
 		private var _bookmarks:Array;
-		private var _customData:CustomVO;
+		private var _activitiesStatus:Array;
+		private var _activitiesMaxScore:Array;
+		private var _activitiesUserScore:Array;
 
 		//-- EbookVO vars - Scorm Vars
 		private var _lessonMode:String;
@@ -46,6 +49,9 @@
 		private var _studentName:String;
 		private var _totalTime:String;
 
+		//-- helpers
+		private var sessionTimer:SessionTimer;
+
 		public function EbookModel()
 		{
 			_isConsultMode = false;
@@ -57,7 +63,7 @@
 			_enableDebugPanel = true;
 
 			//-- STATE VARS
-			_version = "";
+			_version = "EBOOK_AS";
 			_status = EbookConstants.STATUS_NOT_INITIALIZED;
 			_quizTries = 0;
 			_quizScore = 0;
@@ -65,6 +71,9 @@
 			_startDate = new Date();
 			_endDate = new Date();
 			_bookmarks = [];
+			_activitiesMaxScore = [];
+			_activitiesStatus = [];
+			_activitiesUserScore = [];
 
 			//-- Scorm
 			_lessonMode = ScormConstants.MODE_NORMAL;
@@ -77,7 +86,13 @@
 			_studentName = "TREINANDO";
 			_totalTime = "0000:00:00.00";
 
-			_customData = new CustomVO();
+			//TODO If in SharedObject mode, sums the session Time on each access
+			sessionTimer = new SessionTimer();
+		}
+
+		public function startTimer():void
+		{
+			sessionTimer.initSession();
 		}
 
 		public function dump():EbookVO
@@ -85,8 +100,9 @@
 			Logger.log("EbookModel.dump");
 
 			var ebookVO:EbookVO = new EbookVO();
+			ebookVO.activitiesStatus = _activitiesStatus;
+			ebookVO.activitiesUserScore = _activitiesUserScore;
 			ebookVO.bookmarks = _bookmarks;
-			ebookVO.customData = _customData;
 			ebookVO.endDate = _endDate;
 			ebookVO.quizScore = _quizScore;
 			ebookVO.quizStatus = _quizStatus;
@@ -94,13 +110,13 @@
 			ebookVO.startDate = _startDate;
 			ebookVO.status = _status;
 			ebookVO.version = _version;
-			ebookVO.scoreMax = _scoreMax;
-			ebookVO.scoreMin = _scoreMin;
-			ebookVO.scoreRaw = _scoreRaw;
-			ebookVO.sessionTime = _sessionTime;
-			ebookVO.lessonMode = _lessonMode;
-			ebookVO.lessonStatus = _lessonStatus;
-			ebookVO.totalTime = _totalTime;
+			ebookVO.scormVO.scoreMax = _scoreMax;
+			ebookVO.scormVO.scoreMin = _scoreMin;
+			ebookVO.scormVO.scoreRaw = _scoreRaw;
+			ebookVO.scormVO.sessionTime = sessionTimer.getCMISessionTime();
+			ebookVO.scormVO.lessonMode = _lessonMode;
+			ebookVO.scormVO.lessonStatus = _lessonStatus;
+			ebookVO.scormVO.totalTime = _totalTime;
 
 			return ebookVO;
 		}
@@ -110,7 +126,7 @@
 			Logger.log("EbookModel.restore");
 
 			if (value != null)
-				ObjectUtil.parse(value, this);
+				ObjectUtil.copyProps(value, this);
 		}
 
 		/*** GETTERS and SETTERS ***/
@@ -122,7 +138,8 @@
 
 		public function set version(value:String):void
 		{
-			_version = value;
+			if (value)
+				_version = value;
 		}
 
 		public function get quizTries():int
@@ -130,9 +147,10 @@
 			return _quizTries;
 		}
 
-		public function set quizTries(quizCount:int):void
+		public function set quizTries(value:int):void
 		{
-			_quizTries = quizCount;
+			if (!isNaN(value))
+				_quizTries = value;
 		}
 
 		public function get quizScore():int
@@ -140,9 +158,10 @@
 			return _quizScore;
 		}
 
-		public function set quizScore(quizScore:int):void
+		public function set quizScore(value:int):void
 		{
-			_quizScore = quizScore;
+			if (!isNaN(value))
+				_quizScore = value;
 		}
 
 		public function get quizStatus():int
@@ -150,9 +169,10 @@
 			return _quizStatus;
 		}
 
-		public function set quizStatus(quizStatus:int):void
+		public function set quizStatus(value:int):void
 		{
-			_quizStatus = quizStatus;
+			if (!isNaN(value))
+				_quizStatus = value;
 		}
 
 		public function get status():int
@@ -160,9 +180,10 @@
 			return _status;
 		}
 
-		public function set status(status:int):void
+		public function set status(value:int):void
 		{
-			_status = status;
+			if (!isNaN(value))
+				_status = value;
 		}
 
 		public function get startDate():Date
@@ -172,7 +193,8 @@
 
 		public function set startDate(value:Date):void
 		{
-			_startDate = value;
+			if (value)
+				_startDate = value;
 		}
 
 		public function get endDate():Date
@@ -182,7 +204,8 @@
 
 		public function set endDate(value:Date):void
 		{
-			_endDate = value;
+			if (value)
+				_endDate = value;
 		}
 
 		public function get dataServiceType():String
@@ -192,7 +215,8 @@
 
 		public function set dataServiceType(value:String):void
 		{
-			_dataServiceType = value;
+			if (value != null)
+				_dataServiceType = value;
 		}
 
 		public function get scormReplaceDoubleQuotes():Boolean
@@ -262,7 +286,8 @@
 
 		public function set lessonMode(value:String):void
 		{
-			_lessonMode = value;
+			if (value != null)
+				_lessonMode = value;
 		}
 
 		public function get lessonStatus():String
@@ -272,7 +297,8 @@
 
 		public function set lessonStatus(value:String):void
 		{
-			_lessonStatus = value;
+			if (value != null)
+				_lessonStatus = value;
 		}
 
 		public function get scoreMax():int
@@ -282,7 +308,8 @@
 
 		public function set scoreMax(value:int):void
 		{
-			_scoreMax = value;
+			if (!isNaN(value))
+				_scoreMax = value;
 		}
 
 		public function get scoreMin():int
@@ -292,7 +319,8 @@
 
 		public function set scoreMin(value:int):void
 		{
-			_scoreMin = value;
+			if (!isNaN(value))
+				_scoreMin = value;
 		}
 
 		public function get scoreRaw():int
@@ -302,17 +330,19 @@
 
 		public function set scoreRaw(value:int):void
 		{
-			_scoreRaw = value;
+			if (!isNaN(value))
+				_scoreRaw = value;
 		}
 
 		public function get sessionTime():String
 		{
-			return _sessionTime;
+			return sessionTimer.getCMISessionTime();
 		}
 
 		public function set sessionTime(value:String):void
 		{
-			_sessionTime = value;
+			if (value != null)
+				_sessionTime = value;
 		}
 
 		public function get studentId():String
@@ -322,7 +352,8 @@
 
 		public function set studentId(value:String):void
 		{
-			_studentId = value;
+			if (value != null)
+				_studentId = value;
 		}
 
 		public function get studentName():String
@@ -332,7 +363,8 @@
 
 		public function set studentName(value:String):void
 		{
-			_studentName = value;
+			if (value != null)
+				_studentName = value;
 		}
 
 		public function get totalTime():String
@@ -342,17 +374,8 @@
 
 		public function set totalTime(value:String):void
 		{
-			_totalTime = value;
-		}
-
-		public function get customData():CustomVO
-		{
-			return _customData;
-		}
-
-		public function set customData(value:CustomVO):void
-		{
-			_customData = value;
+			if (value != null)
+				_totalTime = value;
 		}
 
 		public function get bookmarks():Array
@@ -362,13 +385,46 @@
 
 		public function set bookmarks(value:Array):void
 		{
-			_bookmarks = value;
+			if (value != null)
+				_bookmarks = value;
+		}
+
+		public function get activitiesStatus():Array
+		{
+			return _activitiesStatus;
+		}
+
+		public function set activitiesStatus(value:Array):void
+		{
+			if (value != null)
+				_activitiesStatus = value;
+		}
+
+		public function get activitiesMaxScore():Array
+		{
+			return _activitiesMaxScore;
+		}
+
+		public function set activitiesMaxScore(value:Array):void
+		{
+			if (value != null)
+				_activitiesMaxScore = value;
+		}
+
+		public function get activitiesUserScore():Array
+		{
+			return _activitiesUserScore;
+		}
+
+		public function set activitiesUserScore(value:Array):void
+		{
+			if (value != null)
+				_activitiesUserScore = value;
 		}
 
 		public function toString():String
 		{
-			var ret:String = ObjectUtil.toString(this);
-			return ret;
+			return ObjectUtil.toString(this);
 		}
 	}
 }

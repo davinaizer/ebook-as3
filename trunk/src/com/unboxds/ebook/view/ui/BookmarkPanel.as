@@ -163,11 +163,11 @@ package com.unboxds.ebook.view.ui
 		{
 			if (!hasInit)
 			{
-				var bookmarks:Array = EbookApi.getInstance().getEbookModel().bookmarks;
+				var bookmarks:Array = EbookApi.getEbookModel().bookmarks;
 				var len:int = bookmarks.length;
 				for (var i:int = 0; i < len; i++)
 				{
-					var page:PageVO = EbookApi.getInstance().getNavModel().getPageByIndex(bookmarks[i]);
+					var page:PageVO = EbookApi.getNavModel().getPageByIndex(bookmarks[i]);
 					insert(page);
 				}
 				

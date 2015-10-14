@@ -120,7 +120,7 @@ package com.unboxds.ebook.model
 			Logger.log("NavModel.restore > " + value);
 
 			if (value != null)
-				ObjectUtil.parse(value, this);
+				ObjectUtil.copyComplexProps(value, this);
 		}
 
 		public function get pages():Vector.<Vector.<PageVO>>

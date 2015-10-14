@@ -5,7 +5,6 @@ package com.unboxds.ebook
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.utils.DebugPanel;
-	import com.unboxds.utils.Logger;
 
 	/**
 	 * Ebook Framework API class.
@@ -39,64 +38,53 @@ package com.unboxds.ebook
 	 */
 	public class EbookApi
 	{
-		private static var instance:EbookApi = new EbookApi();
-
-		private var model:EbookModel;
-		private var controller:EbookController;
-		private var navModel:NavModel;
-		private var navController:NavController;
-
-		private var debugPanel:DebugPanel;
-
-		public static function getInstance():EbookApi
-		{
-			return instance;
-		}
+		private static var model:EbookModel;
+		private static var controller:EbookController;
+		private static var navModel:NavModel;
+		private static var navController:NavController;
+		private static var debugPanel:DebugPanel;
 
 		public function EbookApi()
 		{
-			Logger.log("[EbookAS Framework]\n[UNBOX® 2009-2015 — http://www.unbox.com.br — All rights reserved.]");
-
-			if (instance)
-				throw new Error("EbookApi can only be accessed through EbookApi.getInstance()");
+			throw new Error("EbookApi cant be instantiated.");
 		}
 
-		public function getNavController():NavController
+		static public function getNavController():NavController
 		{
-			if (navController == null)
-				navController = new NavController();
-			return navController;
+			if (EbookApi.navController == null)
+				EbookApi.navController = new NavController();
+			return EbookApi.navController;
 		}
 
-		public function getNavModel():NavModel
+		static public function getNavModel():NavModel
 		{
-			if (navModel == null)
-				navModel = new NavModel();
-			return navModel;
+			if (EbookApi.navModel == null)
+				EbookApi.navModel = new NavModel();
+			return EbookApi.navModel;
 		}
 
-		public function getEbookController():EbookController
+		static public function getEbookController():EbookController
 		{
-			if (controller == null)
-				controller = new EbookController();
-			return controller;
+			if (EbookApi.controller == null)
+				EbookApi.controller = new EbookController();
+			return EbookApi.controller;
 		}
 
-		public function getEbookModel():EbookModel
+		static public function getEbookModel():EbookModel
 		{
-			if (model == null)
-				model = new EbookModel();
-			return model;
+			if (EbookApi.model == null)
+				EbookApi.model = new EbookModel();
+			return EbookApi.model;
 		}
 
-		public function getDebugPanel():DebugPanel
+		static public function getDebugPanel():DebugPanel
 		{
-			return debugPanel;
+			return EbookApi.debugPanel;
 		}
 
-		public function setDebugPanel(debugPanel:DebugPanel):void
+		static public function setDebugPanel(debugPanel:DebugPanel):void
 		{
-			this.debugPanel = debugPanel;
+			EbookApi.debugPanel = debugPanel;
 		}
 	}
 }

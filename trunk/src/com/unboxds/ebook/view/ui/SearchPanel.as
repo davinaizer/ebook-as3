@@ -123,7 +123,7 @@
 			iniTimer = getTimer();
 			summaryLength = parseInt(contentXML.@summaryLength);
 			contentBuffer = new Vector.<String>();
-			pages = EbookApi.getInstance().getNavModel().getPages();
+			pages = EbookApi.getNavModel().getPages();
 			pageCount = pages.length;
 
 			//-- get Open Tweeen
@@ -227,9 +227,9 @@
 		private function invalidate():void
 		{
 			//TODO Remove EbookFramework dependecy
-			if (EbookApi.getInstance().getEbookModel().isConsultMode == false)
+			if (EbookApi.getEbookModel().isConsultMode == false)
 			{
-				var maxPageIndex:int = EbookApi.getInstance().getNavModel().getUserLastPage().index;
+				var maxPageIndex:int = EbookApi.getNavModel().getUserLastPage().index;
 				for (var i:int = 0; i < list.totalItems; i++)
 				{
 					var btn:SimpleButton = list.getButtonByIndex(i);

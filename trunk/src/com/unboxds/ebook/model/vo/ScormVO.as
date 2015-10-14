@@ -3,9 +3,10 @@
  */
 package com.unboxds.ebook.model.vo
 {
-	import com.unboxds.ebook.constants.ScormConstants;
+	import com.serialization.json.JSON;
+	import com.unboxds.utils.ObjectUtil;
 
-	public class ScormVO
+	public class ScormVO implements ISerializable
 	{
 		private var _lessonMode:String;
 		private var _lessonStatus:String;
@@ -20,16 +21,6 @@ package com.unboxds.ebook.model.vo
 
 		public function ScormVO()
 		{
-			_lessonMode = ScormConstants.MODE_NORMAL;
-			_lessonStatus = ScormConstants.STATUS_NOT_ATTEMPTED;
-			_scoreMax = 100;
-			_scoreMin = 0;
-			//_scoreRaw = 0;
-			_sessionTime = "0000:00:00.00";
-			_totalTime = "0000:00:00.00";
-			_studentId = "";
-			_studentName = "TREINANDO";
-			_suspendData = "";
 		}
 
 		public function get lessonMode():String
@@ -130,6 +121,16 @@ package com.unboxds.ebook.model.vo
 		public function set suspendData(value:String):void
 		{
 			_suspendData = value;
+		}
+
+		public function toJSON():String
+		{
+			return com.serialization.json.JSON.serialize(this);
+		}
+
+		public function parse(obj:Object):void
+		{
+			ObjectUtil.copyProps(obj, this);
 		}
 	}
 }

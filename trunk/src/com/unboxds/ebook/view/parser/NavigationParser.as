@@ -28,11 +28,11 @@ package com.unboxds.ebook.view.parser
 				switch (type)
 				{
 					case "onBeforeNextPage":
-						EbookApi.getInstance().getNavController().onBeforeNextPage = this.onBeforeNextPage;
+						EbookApi.getNavController().onBeforeNextPage = this.onBeforeNextPage;
 						break;
 
 					case "onBeforeBackPage":
-						EbookApi.getInstance().getNavController().onBeforeBackPage = this.onBeforeBackPage;
+						EbookApi.getNavController().onBeforeBackPage = this.onBeforeBackPage;
 						break;
 				}
 			}
@@ -41,12 +41,12 @@ package com.unboxds.ebook.view.parser
 		//-- NAVIGATION FUNCTIONS
 		private function onBeforeNextPage():void
 		{
-			EbookApi.getInstance().getNavController().navigateTo(navActions["onBeforeNextPage"]);
+			EbookApi.getNavController().navigateTo(navActions["onBeforeNextPage"]);
 		}
 
 		private function onBeforeBackPage():void
 		{
-			EbookApi.getInstance().getNavController().navigateTo(navActions["onBeforeBackPage"]);
+			EbookApi.getNavController().navigateTo(navActions["onBeforeBackPage"]);
 		}
 
 	}

@@ -13,7 +13,12 @@ package com.unboxds.utils
 		{
 		}
 
-		static public function parse(obj:Object, targetObj:Object):void
+		/**
+		 * Copy properties from Custom Class Objects to target Object using describeType() to check for accessors.
+		 * @param obj    The Custom Class object to copy properties from
+		 * @param targetObj The Object
+		 */
+		static public function copyComplexProps(obj:Object, targetObj:Object):void
 		{
 			var description:XML = describeType(targetObj);
 			for each (var a:XML in description.accessor)
@@ -23,40 +28,28 @@ package com.unboxds.utils
 				{
 					var classType:String = getQualifiedClassName(obj[param]);
 					if (classType == "Object")
-						parse(obj[param], targetObj[param]);
+						copyComplexProps(obj[param], targetObj[param]);
 					else
 						targetObj[param] = obj[param];
 				}
 			}
 		}
 
-		static public function parseJSON(jsonObj:Object, targetObj:Object):void
+		/**
+		 * Copy properties from Simple Object to another Object
+		 * @param obj    Source Object to copy properties from
+		 * @param targetObj Target object
+		 */
+		static public function copyProps(obj:Object, targetObj:Object):void
 		{
-			for (var param:String in jsonObj)
+			for (var param:String in obj)
 			{
-				if (targetObj.hasOwnProperty(param))
+				if (typeof (obj[param]) == "object")
 				{
-					if (typeof (jsonObj[param]) == "object")
-					{
-						parseJSON(jsonObj[param], targetObj);
-					} else
-					{
-						targetObj[param] = jsonObj[param];
-					}
-				}
-			}
-
-			var description:XML = describeType(targetObj);
-			for each (var a:XML in description.accessor)
-			{
-				var param:String = a.@name;
-				if (jsonObj.hasOwnProperty(param))
+					copyProps(obj[param], targetObj[param]);
+				} else
 				{
-					var classType:String = getQualifiedClassName(jsonObj[param]);
-					if (classType == "Object")
-						parse(obj[param], targetObj[param]);
-					else
-						targetObj[param] = jsonObj[param];
+					targetObj[param] = obj[param];
 				}
 			}
 		}

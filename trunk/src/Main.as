@@ -19,12 +19,12 @@
 
 		public function Main()
 		{
-			startup();
+			init();
 		}
 
-		private function startup():void
+		private function init():void
 		{
-			Logger.log("Main.startup");
+			Logger.log("Main.init");
 
 			// Register domains
 			Security.allowDomain("file://");
@@ -45,7 +45,7 @@
 		{
 			Logger.log("Main.onGaiaComplete");
 
-			new EbookContext(this, gaiaContext.data).startup();
+			new EbookContext(this, gaiaContext.data).bootstrap();
 		}
 	}
 }

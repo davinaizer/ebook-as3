@@ -1,6 +1,7 @@
 package com.unboxds.ebook.model.vo
 {
-	
+	import com.unboxds.utils.ObjectUtil;
+
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved. © 2009-2015
@@ -167,38 +168,22 @@ package com.unboxds.ebook.model.vo
 			_counter = value;
 		}
 		
-		public function get modTitle():String 
+		public function get modTitle():String
 		{
 			return _modTitle;
 		}
 		
-		public function set modTitle(value:String):void 
+		public function set modTitle(value:String):void
 		{
 			_modTitle = value;
 		}
 		
 		public function toString():String
 		{
-			var ret:String = ">>>> Page Data <<<<";
-			ret += "\n	• index: " + _index;
-			ret += "\n	• moduleIndex: " + _moduleIndex;
-			ret += "\n	• localIndex: " + _localIndex;
-			ret += "\n	• counter: " + _counter;
-			ret += "\n	• branch: " + _branch;
-			ret += "\n	• src: " + _src;
-			ret += "\n	• title: " + _title;
-			ret += "\n	• contentURL: " + _contentURL;
-			ret += "\n	• navbarStatus: " + _navbarStatus;
-			ret += "\n	• showProgress: " + _showProgress;
-			ret += "\n	• pageTransitionIn: " + _pageTransitionIn;
-			ret += "\n	• pageTransitionOut: " + _pageTransitionOut;
-			ret += "\n	• contentTransitionIn: " + _contentTransitionIn;
-			ret += "\n	• contentTransitionOut: " + _contentTransitionOut;
-			ret += "\n-------------------";
-			
+			var ret:String = ObjectUtil.toString(this);
 			return ret;
 		}
-	
+
 	}
 
 }

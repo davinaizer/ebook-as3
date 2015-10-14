@@ -45,7 +45,7 @@ package com.unboxds.ebook.services
 			{
 				Logger.log("SolDataService.load >> Ebook Data found!");
 
-				ObjectUtil.parse(sol.data.ebookVO, ebookVO);
+//				ObjectUtil.parse(sol.data.ebookVO, ebookVO);
 			}
 			else
 			{
@@ -59,7 +59,7 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("SolDataService.save");
 
-			sol.data.ebookVO = data;
+			sol.data.ebookVO = data.toJSON();
 			sol.flush();
 			sol.close();
 

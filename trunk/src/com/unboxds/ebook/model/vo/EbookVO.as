@@ -1,16 +1,14 @@
 package com.unboxds.ebook.model.vo
 {
 	import com.serialization.json.JSON;
-	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.utils.ObjectUtil;
 
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class EbookVO
+	public class EbookVO implements ISerializable
 	{
-		//-- Ebook State -- Store inside SuspendData
 		private var _version:String;
 		private var _status:int;
 		private var _startDate:Date;
@@ -19,29 +17,17 @@ package com.unboxds.ebook.model.vo
 		private var _quizScore:int;
 		private var _quizStatus:int;
 		private var _bookmarks:Array;
+		private var _activitiesStatus:Array;
+		private var _activitiesUserScore:Array;
 
 		private var _navVO:NavVO;
 		private var _scormVO:ScormVO;
-		private var _customData:CustomVO;
 
 		public function EbookVO()
 		{
-			//-- STATE VARS
-			_version = "";
-			_status = EbookConstants.STATUS_NOT_INITIALIZED;
-			_quizTries = 0;
-			_quizScore = 0;
-			_quizStatus = EbookConstants.STATUS_NOT_INITIALIZED;
-			_startDate = new Date();
-			_endDate = new Date();
-			_bookmarks = [];
-
-			//- sub classes containing info
 			_navVO = new NavVO();
 			_scormVO = new ScormVO();
-			_customData = new CustomVO();
 		}
-
 
 		public function get version():String
 		{
@@ -123,6 +109,26 @@ package com.unboxds.ebook.model.vo
 			_bookmarks = value;
 		}
 
+		public function get activitiesStatus():Array
+		{
+			return _activitiesStatus;
+		}
+
+		public function set activitiesStatus(value:Array):void
+		{
+			_activitiesStatus = value;
+		}
+
+		public function get activitiesUserScore():Array
+		{
+			return _activitiesUserScore;
+		}
+
+		public function set activitiesUserScore(value:Array):void
+		{
+			_activitiesUserScore = value;
+		}
+
 		public function get navVO():NavVO
 		{
 			return _navVO;
@@ -133,120 +139,25 @@ package com.unboxds.ebook.model.vo
 			_navVO = value;
 		}
 
-		public function get lessonMode():String
+		public function get scormVO():ScormVO
 		{
-			return _scormVO.lessonMode;
+			return _scormVO;
 		}
 
-		public function set lessonMode(value:String):void
+		public function set scormVO(value:ScormVO):void
 		{
-			_scormVO.lessonMode = value;
+			_scormVO = value;
 		}
 
-		public function get lessonStatus():String
+		// -- SERIALIZABLE
+		public function toJSON():String
 		{
-			return _scormVO.lessonStatus;
+			return com.serialization.json.JSON.serialize(this);
 		}
 
-		public function set lessonStatus(value:String):void
+		public function parse(obj:Object):void
 		{
-			_scormVO.lessonStatus = value;
-		}
-
-		public function get scoreMax():int
-		{
-			return _scormVO.scoreMax;
-		}
-
-		public function set scoreMax(value:int):void
-		{
-			_scormVO.scoreMax = value;
-		}
-
-		public function get scoreMin():int
-		{
-			return _scormVO.scoreMin;
-		}
-
-		public function set scoreMin(value:int):void
-		{
-			_scormVO.scoreMin = value;
-		}
-
-		public function get scoreRaw():int
-		{
-			return _scormVO.scoreRaw;
-		}
-
-		public function set scoreRaw(value:int):void
-		{
-			_scormVO.scoreRaw = value;
-		}
-
-		public function get sessionTime():String
-		{
-			return _scormVO.sessionTime;
-		}
-
-		public function set sessionTime(value:String):void
-		{
-			_scormVO.sessionTime = value;
-		}
-
-		public function get totalTime():String
-		{
-			return _scormVO.totalTime;
-		}
-
-		public function set totalTime(value:String):void
-		{
-			_scormVO.totalTime = value;
-		}
-
-		public function get studentId():String
-		{
-			return _scormVO.studentId;
-		}
-
-		public function set studentId(value:String):void
-		{
-			_scormVO.studentId = value;
-		}
-
-		public function get studentName():String
-		{
-			return _scormVO.studentName;
-		}
-
-		public function set studentName(value:String):void
-		{
-			_scormVO.studentName = value;
-		}
-
-		public function get suspendData():String
-		{
-			return _scormVO.suspendData;
-		}
-
-		public function set suspendData(value:String):void
-		{
-			_scormVO.suspendData = value;
-		}
-
-		public function get customData():CustomVO
-		{
-			return _customData;
-		}
-
-		public function set customData(value:CustomVO):void
-		{
-			_customData = value;
-		}
-
-		public function toString():String
-		{
-			var ret:String = ObjectUtil.toString(this);
-			return ret;
+			ObjectUtil.copyProps(obj, this);
 		}
 	}
 }
