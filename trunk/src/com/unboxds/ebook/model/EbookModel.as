@@ -126,7 +126,21 @@
 			Logger.log("EbookModel.restore");
 
 			if (value != null)
-				ObjectUtil.copyProps(value, this);
+				copyProps(value, this);
+		}
+
+		private function copyProps(obj:Object, targetObj:Object):void
+		{
+			for (var param:String in obj)
+			{
+				if (typeof (obj[param]) == "object")
+				{
+					copyProps(obj[param], targetObj);
+				} else
+				{
+					targetObj[param] = obj[param];
+				}
+			}
 		}
 
 		/*** GETTERS and SETTERS ***/

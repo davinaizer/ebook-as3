@@ -12,13 +12,13 @@
 		private var model:NavModel;
 
 		private var _onChange:Signal;
-		private var _xmlData:XML;
 		private var _onBeforeNextPage:Function;
 		private var _onBeforeBackPage:Function;
 
 		public function NavController()
 		{
 			Logger.log("NavController.NavController");
+
 			onChange = new Signal(PageVO);
 		}
 
@@ -27,7 +27,6 @@
 			Logger.log("NavController.init");
 
 			model = EbookApi.getNavModel();
-			model.parseData(_xmlData);
 		}
 
 		public function nextPage():void
@@ -191,16 +190,6 @@
 		public function set onBeforeBackPage(value:Function):void
 		{
 			_onBeforeBackPage = value;
-		}
-
-		public function get xmlData():XML
-		{
-			return _xmlData;
-		}
-
-		public function set xmlData(value:XML):void
-		{
-			_xmlData = value;
 		}
 
 		public function get onChange():Signal

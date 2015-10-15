@@ -1,6 +1,7 @@
 package com.unboxds.ebook
 {
 	import com.gaiaframework.api.Gaia;
+	import com.unboxds.ebook.constants.ServiceConstants;
 	import com.unboxds.ebook.controller.EbookController;
 	import com.unboxds.ebook.controller.NavController;
 	import com.unboxds.ebook.model.EbookModel;
@@ -61,11 +62,11 @@ package com.unboxds.ebook
 
 			model.activitiesMaxScore = ArrayUtils.toNumber(data.config.activities.maxScore.toString().split(","));
 			model.activitiesStatus = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
-			Logger.log("EbookContext.config >> model.activitiesMaxScore : " + model.activitiesMaxScore);
 			model.activitiesUserScore = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
 
-			//-- start navigation controller
-			navController.xmlData = data;
+			//-- start navigation
+			navModel.xmlData = data;
+			navModel.init();
 			navController.onChange.add(navHandler);
 			navController.init();
 
@@ -85,7 +86,7 @@ package com.unboxds.ebook
 			Logger.log(page.toString());
 			Gaia.api.goto(page.branch);
 
-			if (model.isExtIntAvailable)
+			if (model.dataServiceType == ServiceConstants.LOCAL_STORAGE && navModel.getCurrentPage().branch != page.branch)
 				controller.save();
 		}
 

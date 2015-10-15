@@ -3,12 +3,13 @@
 	import com.unboxds.ebook.EbookApi;
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
+	import com.unboxds.ebook.constants.ServiceConstants;
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.ScormDataService;
-	import com.unboxds.ebook.services.SolDataService;
+	import com.unboxds.ebook.services.LocalStorageService;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtil;
 
@@ -66,10 +67,16 @@
 		{
 			Logger.log("EbookController.initDataService > dataServiceType: " + model.dataServiceType);
 
-			if (model.dataServiceType == "SCORM" && model.isExtIntAvailable)
-				dataService = new ScormDataService();
-			else
-				dataService = new SolDataService();
+			switch (model.dataServiceType)
+			{
+				case ServiceConstants.SCORM_SERVER:
+					dataService = new ScormDataService();
+					break;
+
+				case ServiceConstants.LOCAL_STORAGE:
+					dataService = new LocalStorageService();
+					break;
+			}
 
 			if (model.isExtIntAvailable)
 				ExternalInterface.addCallback("jsCall", jsCall);
@@ -84,10 +91,15 @@
 		private function onDataLoaded(data:EbookVO):void
 		{
 			Logger.log("EbookController.onDataLoaded");
-//			Logger.log(ObjectUtil.toString(data));
+
+			Logger.log("EbookController >>>>>>>>>> CHECK DATA LOADED <<<<<<<< ");
+			Logger.log(ObjectUtil.toString(data));
 
 			model.isDataServiceAvailable = true;
 			model.restore(data);
+
+			Logger.log("EbookController >>>>>>>>>> CHECK MODEL DATA <<<<<<<< ");
+			Logger.log(ObjectUtil.toString(model));
 
 			//-- check browse mode
 			if (model.lessonMode == ScormConstants.MODE_BROWSE)
@@ -156,6 +168,7 @@
 				data.navVO = navModel.dump();
 
 				Logger.log(ObjectUtil.toString(data));
+
 				dataService.save(data);
 			}
 			else
@@ -168,7 +181,7 @@
 		{
 			Logger.log("EbookController.finishEbook");
 
-			if (!model.isConsultMode && model.status == EbookConstants.STATUS_INITIALIZED)
+			if (model.isConsultMode == false && model.status == EbookConstants.STATUS_INITIALIZED)
 			{
 				model.endDate = new Date();
 				model.status = EbookConstants.STATUS_COMPLETED;

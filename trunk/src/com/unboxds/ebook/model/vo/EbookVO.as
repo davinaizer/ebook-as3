@@ -1,6 +1,8 @@
 package com.unboxds.ebook.model.vo
 {
 	import com.serialization.json.JSON;
+	import com.unboxds.ebook.constants.EbookConstants;
+	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.utils.ObjectUtil;
 
 	/**
@@ -27,6 +29,9 @@ package com.unboxds.ebook.model.vo
 		{
 			_navVO = new NavVO();
 			_scormVO = new ScormVO();
+
+			_status = EbookConstants.STATUS_NOT_INITIALIZED;
+			_scormVO.lessonStatus = ScormConstants.STATUS_NOT_ATTEMPTED;
 		}
 
 		public function get version():String

@@ -6,6 +6,8 @@ package com.unboxds.ebook.services
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtil;
 
+	import flash.external.ExternalInterface;
+
 	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
 
@@ -37,15 +39,22 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("ScormDataService.init");
 
-			scormAPI = new SCORM();
-			_isAvailable = _isConnected = scormAPI.connect();
-
-			Logger.log("ScormDataService.isAvailable: " + _isAvailable);
-
 			_onLoad = new Signal(Object);
 			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
+
+			if (ExternalInterface.available)
+			{
+				scormAPI = new SCORM();
+				_isAvailable = _isConnected = scormAPI.connect();
+
+				Logger.log("ScormDataService.isAvailable: " + _isAvailable);
+			}
+			else
+			{
+				_onLoadError.dispatch("ScormDataService Load Error. ExternalInterface.available: " + ExternalInterface.available);
+			}
 		}
 
 		public function load():void

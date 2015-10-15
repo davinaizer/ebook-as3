@@ -13,7 +13,7 @@ package com.unboxds.ebook.services
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class SolDataService implements IEbookDataService
+	public class LocalStorageService implements IEbookDataService
 	{
 		private var sol:SharedObject;
 
@@ -24,9 +24,9 @@ package com.unboxds.ebook.services
 		private var _onLoadError:Signal;
 		private var _onSaveError:Signal;
 
-		public function SolDataService()
+		public function LocalStorageService()
 		{
-			Logger.log("SolDataService.SolDataService");
+			Logger.log("LocalStorageService.LocalStorageService");
 
 			sol = SharedObject.getLocal("UNBOX_eBookAS_V3");
 
@@ -43,13 +43,13 @@ package com.unboxds.ebook.services
 
 			if (sol.data.ebookVO != null)
 			{
-				Logger.log("SolDataService.load >> Ebook Data found!");
+				Logger.log("LocalStorageService.load >> Ebook Data found!");
 
-//				ObjectUtil.parse(sol.data.ebookVO, ebookVO);
+				ObjectUtil.copyProps(sol.data.ebookVO, ebookVO);
 			}
 			else
 			{
-				Logger.log("SolDataService.load >> NO Data found! Creating New.");
+				Logger.log("LocalStorageService.load >> NO Data found! Creating New.");
 			}
 
 			_onLoad.dispatch(ebookVO);
@@ -57,7 +57,7 @@ package com.unboxds.ebook.services
 
 		public function save(data:EbookVO):void
 		{
-			Logger.log("SolDataService.save");
+			Logger.log("LocalStorageService.save");
 
 			sol.data.ebookVO = data.toJSON();
 			sol.flush();

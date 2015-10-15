@@ -336,7 +336,8 @@ package com.unboxds.ebook.controller
 
 		private function closePanels():void
 		{
-			Logger.log("UIController.closePanels > currentPanel : " + currentPanel);
+			if(currentPanel)
+				Logger.log("UIController.closePanels > currentPanel : " + currentPanel);
 
 			if (currentPanel && currentPanel.isOpen)
 				currentPanel.close();

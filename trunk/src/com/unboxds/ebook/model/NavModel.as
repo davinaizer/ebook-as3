@@ -11,6 +11,8 @@ package com.unboxds.ebook.model
 	 */
 	public class NavModel
 	{
+		private var _xmlData:XML;
+
 		private var _pages:Vector.<Vector.<PageVO>>;
 		private var _pageQueue:Vector.<PageVO>;
 
@@ -44,11 +46,11 @@ package com.unboxds.ebook.model
 			_currentModule = 0;
 		}
 
-		public function parseData(xml:XML):void
+		public function init():void
 		{
 			Logger.log("NavModel.parseData");
 
-			var modList:XMLList = xml.page.page.(@id == "nav").page.(@id.indexOf("module") >= 0);
+			var modList:XMLList = _xmlData.page.page.(@id == "nav").page.(@id.indexOf("module") >= 0);
 			var modId:int = 0;
 			var pageCount:int = 0;
 
@@ -248,6 +250,16 @@ package com.unboxds.ebook.model
 					return page;
 			}
 			return null;
+		}
+
+		public function get xmlData():XML
+		{
+			return _xmlData;
+		}
+
+		public function set xmlData(value:XML):void
+		{
+			_xmlData = value;
 		}
 	}
 }
