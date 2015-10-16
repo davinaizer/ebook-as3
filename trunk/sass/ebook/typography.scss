@@ -1,238 +1,71 @@
+// BODY TEXT
+p {
+  font-family: $font-family-base;
+  font-size:   $font-size-base;
+  color:       $text-color;
+}
+
+.p {
+  &-small {
+	font-size: $font-size-small;
+
+	&-inverse {
+	  font-size: $font-size-small;
+	  color:     $text-color-inverse;
+	}
+  }
+
+  &-large {
+	font-size: $font-size-large;
+
+	&-inverse {
+	  font-size: $font-size-large;
+	  color:     $text-color-inverse;
+	}
+  }
+
+  &-inverse {
+	color: $text-color-inverse;
+  }
+}
+
+// HEADINGS
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  color:       $brand-primary;
+}
+
 h1 {
+  font-size: $font-size-h1;
 }
 
 h2 {
+  font-size: $font-size-h2;
 }
 
 h3 {
+  font-size: $font-size-h3;
 }
 
 h4 {
+  font-size: $font-size-h4;
 }
 
 h5 {
+  font-size: $font-size-h5;
 }
 
 h6 {
-}
-
-p {
-  font-family:    "Frutiger BT";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      12px;
-  color:          #666666;
-  letter-spacing: 0px;
-  leading:        0px;
-}
-
-.pBold {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      14px;
-  color:          #333333;
-  letter-spacing: -0.1px;
-  leading:        -2px;
-}
-
-.pBold2 {
-  font-family:    "TradeGothicNo.2-Bold";
-  font-size:      14px;
-  color:          #333333;
-  letter-spacing: -0.1px;
-  leading:        -2px;
-}
-
-/* Titulo de modulo de conteudo */
-.pageModTitle {
-  font-family:    "Frutiger BT";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      10px;
-  color:          #999999;
-  letter-spacing: 0px;
-  leading:        -5px;
-}
-
-/* Título da Página */
-.pageTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      33px;
-  color:          #006AB7;
-  letter-spacing: -0.5px;
-  leading:        -6px;
-}
-
-/* Complemento do título da página */
-.pageTitleComp {
-  font-family:    "Minion LT Regular";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      22px;
-  color:          #006AB7;
-  letter-spacing: -0.3px;
-  leading:        0px;
-}
-
-/* Subtítulo da Pagina */
-.pageSubTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      20px;
-  color:          #006AB7;
-  letter-spacing: -0.5px;
-  leading:        -4px;
-}
-
-.pageSubTitle2 {
-  font-family:    "TradeGothicNo.2-Bold";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      20px;
-  color:          #006AB7;
-  letter-spacing: -0.5px;
-  leading:        -4px;
-}
-
-/* Titulo de Capa */
-.coverTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      33px;
-  color:          #FFFFFF;
-  letter-spacing: -0.5px;
-  leading:        -6px;
-}
-
-/* Titulo de Capa */
-.coverTitle2 {
-  font-family:    "Minion LT Regular";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      22px;
-  color:          #FFFFFF;
-  letter-spacing: -0.3px;
-  leading:        0px;
-}
-
-/* Sub-Titulo do modulo de capa */
-.modSubtitle {
-  font-family:    "Minion LT Regular";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      22px;
-  color:          #FFFFFF;
-  letter-spacing: -0.3px;
-  leading:        0px;
-}
-
-/* Titulo de módulo de capa */
-.modTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-style:     normal;
-  font-size:      33px;
-  color:          #FFFFFF;
-  letter-spacing: -0.5px;
-  leading:        -6px;
-}
-
-/* Titulo em vermelho */
-.redTitle {
-  font-family:    "Rockwell";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      33px;
-  color:          #D51A43;
-  letter-spacing: 0px;
-  leading:        -8px;
-}
-
-/* Dashboard Styles */
-.dashboardTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-size:      20px;
-  color:          #6FAEDD;
-  letter-spacing: -0.5px;
-  leading:        -4px;
-}
-
-/* Assessment */
-.instructionTitle {
-  font-family:    "Rockwell";
-  font-size:      33px;
-  color:          #D51A43;
-  letter-spacing: 0px;
-  leading:        -8px;
-}
-
-.pageModTitle {
-  font-family:    "Frutiger BT";
-  font-size:      10px;
-  color:          #999999;
-  letter-spacing: 0px;
-  leading:        -5px;
-}
-
-.quizTitle {
-  font-family:    "Frutiger Bold BT";
-  font-weight:    bold;
-  font-size:      20px;
-  color:          #006AB7;
-  letter-spacing: -0.5px;
-  leading:        -4px;
-}
-
-.aboutItemTitle {
-  font-family:    "Frutiger BT";
-  font-size:      12px;
-  color:          #6FAEDD;
-  letter-spacing: 0px;
-  leading:        4px;
-}
-
-.helpTitle {
-  font-family:    "Frutiger BT";
-  font-size:      14px;
-  color:          #FFFFFF;
-  letter-spacing: 0px;
-  leading:        0px;
-}
-
-.resultTitle {
-  font-family:    "Rockwell";
-  font-size:      33px;
-  color:          #D51A43;
-  letter-spacing: 0px;
-  leading:        -8px;
-}
-
-.scoreTitle {
-  font-family:    "Rockwell";
-  font-size:      33px;
-  color:          #FFFFFF;
-  letter-spacing: 0px;
-  leading:        -8px;
-}
-
-.blockquote {
-  font-family:    "Rockwell";
-  font-weight:    normal;
-  font-style:     normal;
-  font-size:      13px;
-  color:          #333333FC;
-  letter-spacing: 0px;
-  leading:        0px;
+  font-size: $font-size-h6;
 }
 
 /* ------------------------ */
+.copyright {
+  font-size: $font-size-small;
+  color: $brand-info;
+}
 
+/* ------------------------ */
 .text-center {
   text-align: center;
 }

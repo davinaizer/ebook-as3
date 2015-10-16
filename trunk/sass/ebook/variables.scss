@@ -1,99 +1,65 @@
 //== Colors
 //## Gray and brand colors for use across Bootstrap.
 
-$gray-base:             #000 !default;
-$gray-darker:           lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:             lighten($gray-base, 20%) !default;   // #333
-$gray:                  lighten($gray-base, 33.5%) !default; // #555
-$gray-light:            lighten($gray-base, 60%) !default;   // #999
-$gray-lighter:          lighten($gray-base, 93.5%) !default; // #eee
-$white:					lighten($gray-base, 100%);
+$gray-base:             #000;
+$gray-darker:           lighten($gray-base, 13.5%); // #222
+$gray-dark:             lighten($gray-base, 20%);   // #333
+$gray:                  lighten($gray-base, 33.5%); // #555
+$gray-light:            lighten($gray-base, 60%);   // #999
+$gray-lighter:          lighten($gray-base, 93.5%); // #eee
+$white:					#FFFFFF;
 
-$brand-primary:         #0A5693 !default;
-$brand-success:         #009E77 !default;
-$brand-info:            #16BBEA !default;
-$brand-warning:         #ECB02E !default;
-$brand-danger:          #CC0038 !default;
+$brand-primary:         #0A5693;
+$brand-success:         #009E77;
+$brand-info:            #16BBEA;
+$brand-warning:         #ECB02E;
+$brand-danger:          #CC0038;
 
 
-//== Scaffolding
 //## Settings for some of the most global styles.
 
-//** Global text color on `<body>`.
-$text-color:            $gray !default;
-$text-color-inverse:	$white !default;
+$text-color:            $gray;
+$text-color-inverse:	$white;
 
-//** Global textual link color.
-$link-color:            $brand-primary !default;
-//** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%) !default;
-//** Link hover decoration.
-$link-hover-decoration: underline !default;
+$link-color:            $brand-primary;
+$link-hover-color:      darken($link-color, 15%);
+$link-hover-decoration: underline;
 
 
 //== Typography
-//## Font, line-height, and color for body text, headings, and more.
+$font-family-base:        "Roboto";
+$font-size-base:          13px;
+$font-size-large:         floor(($font-size-base * 1.15)); // ~18px
+$font-size-small:         floor(($font-size-base * 0.85)); // ~12px
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
-$font-family-base:        $font-family-sans-serif !default;
-
-$font-size-base:          14px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-family-heading:    "Roboto Light";
+$font-size-h1:            floor(($font-size-base * 3.25)); // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)); // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.428571429 !default; // 20/14
+$line-height-base:        	1.428571429; // 20/14
+$letter-spacing-base: 		0px;
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    $font-family-base !default;
-$headings-font-weight:    500 !default;
-$headings-line-height:    1.1 !default;
-$headings-color:          #317EAC !default;
-
-
-
-
+$headings-font-family:    $font-family-base;
+$headings-font-weight:    500;
+$headings-line-height:    1.1;
+$headings-color:          #317EAC;
 
 //== Buttons
-//
-//## For each of Bootstrap's buttons, define text, background and border color.
+$btn-font-weight:                normal;
 
-$btn-font-weight:                normal !default;
+$btn-default-color:              $text-color;
+$btn-primary-color:              $white;
+$btn-success-color:              $white;
+$btn-info-color:                 $white;
+$btn-warning-color:              $white;
+$btn-danger-color:               $white;
 
-$btn-default-color:              $text-color !default;
-$btn-default-bg:                 $white !default;
-$btn-default-border:             rgba(0, 0, 0, 0.1) !default;
-
-$btn-primary-color:              $white !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             $btn-primary-bg !default;
-
-$btn-success-color:              $white !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-border:             $btn-success-bg !default;
-
-$btn-info-color:                 $white !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                $btn-info-bg !default;
-
-$btn-warning-color:              $white !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             $btn-warning-bg !default;
-
-$btn-danger-color:               $white !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              $btn-danger-bg !default;
-
-$btn-link-disabled-color:        $gray-light !default;
+$btn-link-disabled-color:        $gray-light;

@@ -1,328 +1,61 @@
-@charset "UTF-8";
 /* MAIN EBOOK STYLESHEET */
-/* Botao Iniciar da capa */
-.btInit {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 33px;
-  color: #FFFFFF;
-  letter-spacing: -1px;
-  leading: 0px;
-}
-
-.dashboardButton {
-  font-family: "Frutiger BT";
-  font-size: 12px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.dashboardButtonOver {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 12px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.buttonTitle {
-  font-family: "Frutiger BT";
-  font-size: 12px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.buttonTitleOver {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 12px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.bButton {
-  font-family: "Frutiger BT";
-  font-size: 10px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.bButtonOver {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 10px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.button {
-  font-family: "Univers";
-  font-size: 10px;
-  color: #333333;
-  letter-spacing: -0.2px;
-  leading: 0px;
-}
-
-.buttonOver {
-  font-family: "Univers Bold";
-  font-weight: bold;
-  font-size: 10px;
-  color: #FFFFFF;
-  letter-spacing: -0.2px;
-  leading: 0px;
-}
-
-btCheck {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 14px;
-  color: #FFFFFF;
-  letter-spacing: -0.1px;
-  leading: -2px;
-}
-
-/* Texto de Tooltip */
-.tipText {
-  font-family: "Frutiger BT";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 10px;
-  color: #FFFFFF;
-  letter-spacing: 0.5px;
-  leading: 0px;
-}
-
-/* Texto em caixa */
-.whiteBoxText {
-  font-family: "Frutiger BT";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 12px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
 p {
-  font-family: "Frutiger BT";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 12px;
-  color: #666666;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.pBold {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 14px;
-  color: #333333;
-  letter-spacing: -0.1px;
-  leading: -2px;
-}
-
-.pBold2 {
-  font-family: "TradeGothicNo.2-Bold";
-  font-size: 14px;
-  color: #333333;
-  letter-spacing: -0.1px;
-  leading: -2px;
-}
-
-/* Titulo de modulo de conteudo */
-.pageModTitle {
-  font-family: "Frutiger BT";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 10px;
-  color: #999999;
-  letter-spacing: 0px;
-  leading: -5px;
-}
-
-/* TÝtulo da Pßgina */
-.pageTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 33px;
-  color: #006AB7;
-  letter-spacing: -0.5px;
-  leading: -6px;
-}
-
-/* Complemento do tÝtulo da pßgina */
-.pageTitleComp {
-  font-family: "Minion LT Regular";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;
-  color: #006AB7;
-  letter-spacing: -0.3px;
-  leading: 0px;
-}
-
-/* SubtÝtulo da Pagina */
-.pageSubTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 20px;
-  color: #006AB7;
-  letter-spacing: -0.5px;
-  leading: -4px;
-}
-
-.pageSubTitle2 {
-  font-family: "TradeGothicNo.2-Bold";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 20px;
-  color: #006AB7;
-  letter-spacing: -0.5px;
-  leading: -4px;
-}
-
-/* Titulo de Capa */
-.coverTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 33px;
-  color: #FFFFFF;
-  letter-spacing: -0.5px;
-  leading: -6px;
-}
-
-/* Titulo de Capa */
-.coverTitle2 {
-  font-family: "Minion LT Regular";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;
-  color: #FFFFFF;
-  letter-spacing: -0.3px;
-  leading: 0px;
-}
-
-/* Sub-Titulo do modulo de capa */
-.modSubtitle {
-  font-family: "Minion LT Regular";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;
-  color: #FFFFFF;
-  letter-spacing: -0.3px;
-  leading: 0px;
-}
-
-/* Titulo de m¾dulo de capa */
-.modTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-style: normal;
-  font-size: 33px;
-  color: #FFFFFF;
-  letter-spacing: -0.5px;
-  leading: -6px;
-}
-
-/* Titulo em vermelho */
-.redTitle {
-  font-family: "Rockwell";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 33px;
-  color: #D51A43;
-  letter-spacing: 0px;
-  leading: -8px;
-}
-
-/* Dashboard Styles */
-.dashboardTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 20px;
-  color: #6FAEDD;
-  letter-spacing: -0.5px;
-  leading: -4px;
-}
-
-/* Assessment */
-.instructionTitle {
-  font-family: "Rockwell";
-  font-size: 33px;
-  color: #D51A43;
-  letter-spacing: 0px;
-  leading: -8px;
-}
-
-.pageModTitle {
-  font-family: "Frutiger BT";
-  font-size: 10px;
-  color: #999999;
-  letter-spacing: 0px;
-  leading: -5px;
-}
-
-.quizTitle {
-  font-family: "Frutiger Bold BT";
-  font-weight: bold;
-  font-size: 20px;
-  color: #006AB7;
-  letter-spacing: -0.5px;
-  leading: -4px;
-}
-
-.aboutItemTitle {
-  font-family: "Frutiger BT";
-  font-size: 12px;
-  color: #6FAEDD;
-  letter-spacing: 0px;
-  leading: 4px;
-}
-
-.helpTitle {
-  font-family: "Frutiger BT";
-  font-size: 14px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: 0px;
-}
-
-.resultTitle {
-  font-family: "Rockwell";
-  font-size: 33px;
-  color: #D51A43;
-  letter-spacing: 0px;
-  leading: -8px;
-}
-
-.scoreTitle {
-  font-family: "Rockwell";
-  font-size: 33px;
-  color: #FFFFFF;
-  letter-spacing: 0px;
-  leading: -8px;
-}
-
-.blockquote {
-  font-family: "Rockwell";
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Roboto";
   font-size: 13px;
-  color: #333333FC;
-  letter-spacing: 0px;
-  leading: 0px;
+  color: #555555;
+}
+
+.p-small {
+  font-size: 11px;
+}
+.p-small-inverse {
+  font-size: 11px;
+  color: #FFFFFF;
+}
+.p-large {
+  font-size: 14px;
+}
+.p-large-inverse {
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.p-inverse {
+  color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Light";
+  color: #0A5693;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 27px;
+}
+
+h3 {
+  font-size: 23px;
+}
+
+h4 {
+  font-size: 17px;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+/* ------------------------ */
+.copyright {
+  font-size: 11px;
+  color: #16BBEA;
 }
 
 /* ------------------------ */
@@ -336,4 +69,28 @@ p {
 
 .text-right {
   text-align: right;
+}
+
+.btn-default {
+  color: #555555;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+}
+
+.btn-success {
+  color: #FFFFFF;
+}
+
+.btn-info {
+  color: #FFFFFF;
+}
+
+.btn-warning {
+  color: #FFFFFF;
+}
+
+.btn-danger {
+  color: #FFFFFF;
 }

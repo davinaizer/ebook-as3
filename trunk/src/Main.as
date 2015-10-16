@@ -4,6 +4,7 @@
 	 * [UNBOX® 2009-2013 — http://www.unbox.com.br — All rights reserved.]
 	 * */
 
+	import com.unboxds.components.FontManager;
 	import com.unboxds.ebook.EbookContext;
 	import com.unboxds.ebook.GaiaContext;
 	import com.unboxds.utils.Logger;
@@ -44,6 +45,8 @@
 		private function onGaiaComplete():void
 		{
 			Logger.log("Main.onGaiaComplete");
+
+			FontManager.embedFonts();
 
 			new EbookContext(this, gaiaContext.data).bootstrap();
 		}

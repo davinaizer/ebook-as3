@@ -2,7 +2,6 @@
 {
 	import assets.CourseBgSymbol;
 
-	import com.gaiaframework.api.Gaia;
 	import com.gaiaframework.templates.AbstractPage;
 	import com.greensock.TweenLite;
 	import com.unboxds.utils.Align;
@@ -27,8 +26,6 @@
 		
 		private function init():void
 		{
-			Logger.log("IndexPage.init >> Gaia.api.getAvailableFonts(): " + Gaia.api.getAvailableFonts());
-			
 			courseBg = new CourseBgSymbol();
 			addChild(courseBg);
 			Align.to(courseBg, stage, {align: Align.TOP_RIGHT});
@@ -49,6 +46,6 @@
 			transitionOutComplete();
 			TweenLite.to(this, .25, {alpha: 0});
 		}
-	
+
 	}
 }
