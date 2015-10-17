@@ -1,64 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <data>
 	<content type="text">
-		<content instanceName="text_0">
-			<vars>
-				<x>48</x>
-				<y>113</y>
-				<width>442</width>
-				<height>54</height>
-				<autoSize>left</autoSize>
-			</vars>
-			<body>
-				<![CDATA[<p><span class="pageTitle">Título da Página</span></p>]]>
-			</body>
-		</content>
-		<content instanceName="text_1">
-			<vars>
-				<x>48</x>
-				<y>158</y>
-				<width>441</width>
-				<height>38</height>
-			</vars>
-			<body>
-				<![CDATA[<p><span class="pageTitleComp">Complemento do título da página</p>]]>
-			</body>
-		</content>
-		<content instanceName="text_2">
-			<vars>
-				<x>48</x>
-				<y>232</y>
-				<width>441</width>
-				<height>39</height>
-			</vars>
-			<body>
-				<![CDATA[<p><span class="pageSubtitle">Subtítulo Lorem Ipsum Dolor</p>]]>
-			</body>
-		</content>
-		<content instanceName="text_3">
-			<vars>
-				<x>49</x>
-				<y>272</y>
-				<width>441</width>
-				<height>61</height>
-				<autoSize>left</autoSize>
-			</vars>
-			<body>
-				<![CDATA[<p class="pBold">Texto em destaque lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>]]>
-			</body>
-		</content>
-		<content instanceName="text_4">
-			<vars>
-				<x>569</x>
-				<y>274</y>
-				<width>343</width>
-				<height>86</height>
-				<autoSize>left</autoSize>
-			</vars>
-			<body>
-				<![CDATA[<p class="whiteBoxText">Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>]]>
-			</body>
-		</content>
+
 	</content>
 	
 	<content type="tooltip"

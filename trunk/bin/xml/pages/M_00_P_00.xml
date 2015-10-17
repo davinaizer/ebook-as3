@@ -1,44 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <data>
+
 	<content type="text">
 		<content instanceName="text_0">
 			<vars>
-				<x>48</x>
-				<y>113</y>
-				<width>379</width>
-				<height>54</height>
+				<x>400</x>
+				<y>200</y>
+				<width>200</width>
+				<height>125</height>
+				<autoSize>center</autoSize>
 			</vars>
-			<body>
-				<![CDATA[<p class="modTitle">Título do Capítulo</p>]]>
-			</body>
+			<body><![CDATA[<h1><span class="cover-big-title">03</span></h1>]]></body>
 		</content>
+
 		<content instanceName="text_1">
 			<vars>
-				<x>48</x>
-				<y>158</y>
-				<width>282</width>
-				<height>38</height>
+				<x>150</x>
+				<y>306</y>
+				<width>700</width>
+				<height>120</height>
+				<autoSize>center</autoSize>
 			</vars>
-			<body>
-				<![CDATA[<p class="modSubtitle">Lorem ipsum dolor sit amet</p>]]>
-			</body>
+			<body><![CDATA[<h1><span class="text-inverse">Política Azul de Atendimento<span></h1>]]></body>
 		</content>
 	</content>
-	
-	<tween>
-		<tween type="from"
-			   target="img0"
-			   duration="1"
-			   ease="Strong.easeOut"
-			   stagger="0.1">
-			<vars>
-				<delay>0.2</delay>
-				<align>
-					<align>T</align>
-					<mode>OUTSIDE</mode>
-				</align>
-			</vars>
-		</tween>
-	</tween>
 
 </data>

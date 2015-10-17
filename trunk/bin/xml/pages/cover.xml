@@ -27,8 +27,8 @@
 	</content>
 
 
-	<content type="text" target="startBtn">
-		<content instanceName="labelTxt">
+	<content type="simplebutton">
+		<content instanceName="startBtn">
 			<body>
 				<![CDATA[<p class="btn-primary">Iniciar</p>]]>
 			</body>
@@ -36,12 +36,7 @@
 	</content>
 
 	<tween>
-		<tween
-				id="startBtn"
-				type="to"
-				target="startBtn.bg"
-				duration="1"
-				ease="Linear.easeNone">
+		<tween id="startBtn" type="to" target="startBtn.bg" duration="1" ease="Linear.easeNone">
 			<vars>
 				<tint>0x16BBEA</tint>
 				<yoyo>true</yoyo>
@@ -49,11 +44,7 @@
 			</vars>
 		</tween>
 
-
-		<tween type="from"
-			   target="startBtn"
-			   duration=".5"
-			   ease="Back.easeOut">
+		<tween type="from" target="startBtn" duration=".5" ease="Back.easeOut">
 			<vars>
 				<delay>0.25</delay>
 				<transformAroundCenter>
