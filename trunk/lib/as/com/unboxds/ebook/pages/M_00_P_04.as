@@ -1,8 +1,5 @@
 package com.unboxds.ebook.pages
 {
-	import com.gaiaframework.api.Gaia;
-	import com.unboxds.ebook.pages.EbookPage;
-
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
@@ -31,5 +28,6 @@ package com.unboxds.ebook.pages
 			super.transitionInComplete();
 			//Gaia.api.getPage(Pages.NAV).content.enableNextButton();
 		}
+
 	}
 }

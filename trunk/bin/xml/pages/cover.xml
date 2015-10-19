@@ -26,7 +26,6 @@
 		</content>
 	</content>
 
-
 	<content type="simplebutton">
 		<content instanceName="startBtn">
 			<body>
@@ -53,7 +52,6 @@
 				<alpha>0</alpha>
 			</vars>
 		</tween>
-
 	</tween>
 
 </data>
