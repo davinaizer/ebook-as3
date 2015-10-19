@@ -3,6 +3,7 @@
  */
 package com.unboxds.ebook.view.parser
 {
+	import com.greensock.TweenMax;
 	import com.hybrid.ui.ToolTip;
 	import com.unboxds.button.SimpleButton;
 	import com.unboxds.components.FixedTooltip;
@@ -86,8 +87,11 @@ package com.unboxds.ebook.view.parser
 			if (bodyTxt.indexOf("{$") > -1)
 				bodyTxt = StringUtils.parseTextVars(bodyTxt, src.parent);
 
-			if(e.target is SimpleButton)
+			if (e.target is SimpleButton)
+			{
 				SimpleButton(e.target).setVisited(true);
+				TweenMax.killChildTweensOf(src, true);
+			}
 
 			_tooltip.show(src, titleTxt, bodyTxt);
 		}
