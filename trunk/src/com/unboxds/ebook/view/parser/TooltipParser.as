@@ -4,6 +4,7 @@
 package com.unboxds.ebook.view.parser
 {
 	import com.hybrid.ui.ToolTip;
+	import com.unboxds.button.SimpleButton;
 	import com.unboxds.components.FixedTooltip;
 	import com.unboxds.ebook.constants.ContentType;
 	import com.unboxds.utils.Logger;
@@ -57,7 +58,7 @@ package com.unboxds.ebook.view.parser
 					tt.buttonMode = true;
 					tt.mouseChildren = false;
 
-					if (contentXML.@clickToOpen == "true")
+					if (contentXML.@clickToOpen == "true" || contentXML.content[i].@clickToOpen == "true")
 					{
 						tt.addEventListener(MouseEvent.CLICK, tooltipHandler);
 					}
@@ -84,6 +85,9 @@ package com.unboxds.ebook.view.parser
 				titleTxt = StringUtils.parseTextVars(titleTxt, src.parent);
 			if (bodyTxt.indexOf("{$") > -1)
 				bodyTxt = StringUtils.parseTextVars(bodyTxt, src.parent);
+
+			if(e.target is SimpleButton)
+				SimpleButton(e.target).setVisited(true);
 
 			_tooltip.show(src, titleTxt, bodyTxt);
 		}
