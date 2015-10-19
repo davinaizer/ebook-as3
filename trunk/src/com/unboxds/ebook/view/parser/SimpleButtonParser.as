@@ -27,6 +27,7 @@ package com.unboxds.ebook.view.parser
 
 				if (btn != null)
 				{
+					btn.stylesheet = stylesheet;
 					btn.label = contentXML.content[i].title.toString() + contentXML.content[i].body.toString();
 
 					//-- check for custom config
