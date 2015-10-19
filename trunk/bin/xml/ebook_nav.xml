@@ -48,7 +48,7 @@
 					<asset id="contentXML" src="xml/pages/M_00_P_03.xml" />
 				</page>
 
-				<page id="M_00_P_04" src="content/pages/M_00_P_04.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
+				<page id="M_00_P_04" src="content/pages/M_00_P_04.swf" title="Introdução" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
 					<asset id="contentXML" src="xml/pages/M_00_P_04.xml" />
 				</page>
 

@@ -30,7 +30,7 @@
 				<height>43</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<h3>Subtítulo Lorem Ipsum Dolor</h3>]]></body>
+			<body><![CDATA[<h3><b>Subtítulo Lorem Ipsum Dolor</b></h3>]]></body>
 		</content>
 		<content instanceName="text_3">
 			<vars>

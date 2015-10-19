@@ -37,9 +37,9 @@
 				 padding="10">
 
 			<content instanceName="progressCursor">
-				<title><![CDATA[<p class="tipText">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
+				<title><![CDATA[<p class="text-inverse">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
 				<body>
-					<![CDATA[<p class="tipText">Você já percorreu <b>{$progressPercent}%</b> da sua jornada</p>]]>
+					<![CDATA[<p class="text-inverse">Você já percorreu <b>{$progressPercent}%</b> da sua jornada</p>]]>
 				</body>
 			</content>
 		</content>
@@ -76,37 +76,37 @@
 
 			<content instanceName="helpBtn">
 				<body>
-					<![CDATA[<p class="tipText">Precisa de ajuda?</p>]]>
+					<![CDATA[<p class="text-inverse">Precisa de ajuda?</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="dashboardBtn">
 				<body>
-					<![CDATA[<p class="tipText">Menu</p>]]>
+					<![CDATA[<p class="text-inverse">Menu</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="backBtn">
 				<body>
-					<![CDATA[<p class="tipText">Voltar</p>]]>
+					<![CDATA[<p class="text-inverse">Voltar</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarkAddBtn">
 				<body>
-					<![CDATA[<p class="tipText">Adicionar aos Favoritos</p>]]>
+					<![CDATA[<p class="text-inverse">Adicionar aos Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarkRemoveBtn">
 				<body>
-					<![CDATA[<p class="tipText">Remover dos Favoritos</p>]]>
+					<![CDATA[<p class="text-inverse">Remover dos Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="nextBtn">
 				<body>
-					<![CDATA[<p class="tipText">Avançar</p>]]>
+					<![CDATA[<p class="text-inverse">Avançar</p>]]>
 				</body>
 			</content>
 
@@ -179,7 +179,7 @@
 
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<p class="dashboardTitle">Informações</p>]]>
+						<![CDATA[<h3><span class="text-inverse">Informações</span></h3>]]>
 					</title>
 				</content>
 			</content>
@@ -198,7 +198,7 @@
 			<content type="text">
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<p class="dashboardTitle">Favoritos</p>]]>
+						<![CDATA[<h3><span class="text-inverse">Favoritos</span></h3>]]>
 					</title>
 				</content>
 
@@ -266,7 +266,7 @@
 			<content type="text">
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<p class="dashboardTitle">Índice</p>]]>
+						<![CDATA[<h3><span class="text-inverse">Índice</span></h3>]]>
 					</title>
 				</content>
 			</content>
@@ -288,19 +288,19 @@
 				 padding="10">
 			<content instanceName="indexBtn">
 				<body>
-					<![CDATA[<p class="tipText">Índice</p>]]>
+					<![CDATA[<p class="text-inverse">Índice</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarksBtn">
 				<body>
-					<![CDATA[<p class="tipText">Favoritos</p>]]>
+					<![CDATA[<p class="text-inverse">Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="aboutBtn">
 				<body>
-					<![CDATA[<p class="tipText">Informações</p>]]>
+					<![CDATA[<p class="text-inverse">Informações</p>]]>
 				</body>
 			</content>
 		</content>
@@ -327,7 +327,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="dashboardTitle"><span class="left">Dúvidas de Interface</span></p>]]>
+					<![CDATA[<h3><span class="text-inverse">Dúvidas de Interface</span></h3>]]>
 				</body>
 			</content>
 
@@ -497,7 +497,7 @@
 		<content type="text">
 			<content instanceName="titleTxt">
 				<title>
-					<![CDATA[<p class="dashboardTitle">Resultados de Busca</p>]]>
+					<![CDATA[<h3><span class="text-inverse">Resultados de Busca</span></h3>]]>
 				</title>
 			</content>
 

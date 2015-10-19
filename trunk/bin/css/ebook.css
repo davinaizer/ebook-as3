@@ -2,111 +2,133 @@
 p {
   font-family: "Roboto";
   font-size: 13px;
-  color: #555555; }
+  color: #555555;
+}
 
 .p-small {
-  font-size: 11px; }
-  .p-small-inverse {
-    font-size: 11px;
-    color: #FFFFFF; }
+  font-size: 11px;
+}
+.p-small-inverse {
+  font-size: 11px;
+  color: #FFFFFF;
+}
 .p-large {
-  font-size: 14px; }
-  .p-large-inverse {
-    font-size: 14px;
-    color: #FFFFFF; }
+  font-size: 14px;
+}
+.p-large-inverse {
+  font-size: 14px;
+  color: #FFFFFF;
+}
 
 h1 {
   font-family: "Roboto Light";
   font-size: 42px;
   color: #0A5693;
-  letter-spacing: -3px; }
+  letter-spacing: -3px;
+}
 
 .h1-large {
-  font-size: 55px; }
-  .h1-large-inverse {
-    font-size: 55px;
-    color: #FFFFFF; }
+  font-size: 55px;
+}
+.h1-large-inverse {
+  font-size: 55px;
+  color: #FFFFFF;
+}
 .h1-inverse {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 h2 {
   font-size: 27px;
   font-family: "Roboto";
-  font-weight: bold;
   color: #0A5693;
-  letter-spacing: -3px; }
+  letter-spacing: -3px;
+}
 
 h3 {
   font-size: 23px;
   font-family: "Roboto";
-  font-weight: bold;
   color: #0A5693;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+}
 
 h4 {
   font-size: 17px;
   font-family: "Roboto";
-  font-weight: bold;
   color: #0A5693;
-  letter-spacing: -3px; }
+  letter-spacing: -3px;
+}
 
 h5 {
   font-size: 13px;
   font-family: "Roboto";
-  font-weight: bold;
   color: #0A5693;
-  letter-spacing: 0px; }
+  letter-spacing: 0px;
+}
 
 h6 {
   font-size: 12px;
   font-family: "Roboto";
-  font-weight: bold;
   color: #0A5693;
-  letter-spacing: 0px; }
+  letter-spacing: 0px;
+}
 
 /* ------------------------ */
 .cover-big-title {
   font-family: "Roboto";
   font-weight: bold;
   font-size: 90px;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .copyright {
   font-size: 11px;
-  color: #16BBEA; }
+  color: #16BBEA;
+}
 
 /* ------------------------ */
 .text-inverse {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .text-center {
-  text-align: center; }
+  text-align: center;
+}
 
 .text-left {
-  text-align: left; }
+  text-align: left;
+}
 
 .text-right {
-  text-align: right; }
+  text-align: right;
+}
 
 .btn-default {
-  color: #555555; }
+  color: #555555;
+}
 
 .btn-primary {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .btn-success {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .btn-info {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .btn-warning {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .btn-danger {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .breadcrumb {
   color: #0A5693;
   font-size: 11px;
-  font-weight: bold; }
+  font-weight: bold;
+}
