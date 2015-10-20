@@ -32,7 +32,7 @@
 				<height>43</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<h3><span class="text-inverse">Subtítulo Lorem Ipsum Dolor</span></h3>]]></body>
+			<body><![CDATA[<h3><span class="text-color-inverse">Subtítulo Lorem Ipsum Dolor</span></h3>]]></body>
 		</content>
 
 		<content instanceName="text_3">
@@ -56,7 +56,7 @@
 				<autoSize>left</autoSize>
 			</vars>
 			<body>
-				<![CDATA[<p class="text-inverse">Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>]]></body>
+				<![CDATA[<p class="text-color-inverse">Corpo de texto duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>]]></body>
 		</content>
 
 	</content>

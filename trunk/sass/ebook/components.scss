@@ -1,31 +1,39 @@
-//== BUTTONS
-.btn-default {
-  color: $btn-default-color;
+/* -------- COMPONENTS -------- */
+.btn {
+  &-default {
+    color:       $btn-default-color;
+    font-weight: $btn-font-weight;
+  }
+
+  &-primary {
+    color:       $btn-primary-color;
+    font-weight: $btn-font-weight;
+  }
+
+  &-success {
+    color:       $btn-success-color;
+    font-weight: $btn-font-weight;
+  }
+
+  &-info {
+    color:       $btn-info-color;
+    font-weight: $btn-font-weight;
+  }
+
+  &-warning {
+    color:       $btn-warning-color;
+    font-weight: $btn-font-weight;
+  }
+
+  &-danger {
+    color:       $btn-danger-color;
+    font-weight: $btn-font-weight;
+  }
 }
 
-.btn-primary {
-  color: $btn-primary-color;
-}
-
-.btn-success {
-  color: $btn-success-color;
-}
-
-.btn-info {
-  color: $btn-info-color;
-}
-
-.btn-warning {
-  color: $btn-warning-color;
-}
-
-.btn-danger {
-  color: $btn-danger-color;
-}
-
-//== BREADCRUMB
 .breadcrumb {
-  color: $brand-primary;
-  font-size: $font-size-small;
+  color:       $brand-primary;
+  font-size:   $font-size-small;
   font-weight: bold;
 }
+/* -------------- */

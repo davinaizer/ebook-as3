@@ -7,39 +7,35 @@
 			depth="3"
 			className="com.unboxds.ebook.view.components::InteractiveBarMeter"
 			instanceName="progressMeter"
-
 			x="50"
 			y="596"
 			width="900"
 			height="4"
-
 			bgColor="0xFFFFFF"
 			bgColorAlpha=".75"
-
 			barColor="0x008E00"
 			barColorAlpha=".75"
-
 			secondaryBarColor="0x00A900"
 			secondaryBarColorAlpha=".75">
 
 		<content type="tooltip"
-				 hook="true"
-				 hookSize="20"
-				 autoSize="true"
-				 followCursor="true"
-				 align="center"
-				 cornerRadius="10"
-				 showDelay="100"
-				 hideDelay="0"
-				 bgAlpha="1"
-				 width="200"
-				 colors="0x353535,0x353535"
-				 padding="10">
+				hook="true"
+				hookSize="20"
+				autoSize="true"
+				followCursor="true"
+				align="center"
+				cornerRadius="10"
+				showDelay="100"
+				hideDelay="0"
+				bgAlpha="1"
+				width="200"
+				colors="0x353535,0x353535"
+				padding="10">
 
 			<content instanceName="progressCursor">
-				<title><![CDATA[<p class="text-inverse">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
+				<title><![CDATA[<p class="text-color-inverse">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
 				<body>
-					<![CDATA[<p class="text-inverse">Você já percorreu <b>{$progressPercent}%</b> da sua jornada</p>]]>
+					<![CDATA[<p class="text-color-inverse">Você já percorreu <b>{$progressPercent}%</b> da sua jornada</p>]]>
 				</body>
 			</content>
 		</content>
@@ -48,10 +44,21 @@
 
 	<!----------------------- NavBar ----------------------->
 
-	<component type="NavBar" depth="4" instanceName="navBar" x="0" y="0" openX="0" openY="0" isKeyboardAvailable="true">
+	<component type="NavBar"
+			depth="4"
+			instanceName="navBar"
+			x="0"
+			y="0"
+			openX="0"
+			openY="0"
+			isKeyboardAvailable="true">
 
 		<tween>
-			<tween id="nextBtn" type="to" target="nextBtn.btNextOver" duration="1" ease="Quint.easeIn">
+			<tween id="nextBtn"
+					type="to"
+					target="nextBtn.btNextOver"
+					duration="1"
+					ease="Quint.easeIn">
 				<vars>
 					<alpha>1</alpha>
 					<yoyo>true</yoyo>
@@ -61,67 +68,82 @@
 		</tween>
 
 		<content type="tooltip"
-				 hook="true"
-				 hookSize="20"
-				 autoSize="true"
-				 followCursor="true"
-				 align="center"
-				 cornerRadius="10"
-				 showDelay="100"
-				 hideDelay="0"
-				 bgAlpha="1"
-				 width="350"
-				 colors="0x353535,0x353535"
-				 padding="10">
+				hook="true"
+				hookSize="20"
+				autoSize="true"
+				followCursor="true"
+				align="center"
+				cornerRadius="10"
+				showDelay="100"
+				hideDelay="0"
+				bgAlpha="1"
+				width="350"
+				colors="0x353535,0x353535"
+				padding="10">
 
 			<content instanceName="helpBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Precisa de ajuda?</p>]]>
+					<![CDATA[<p class="text-color-inverse">Precisa de ajuda?</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="dashboardBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Menu</p>]]>
+					<![CDATA[<p class="text-color-inverse">Menu</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="backBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Voltar</p>]]>
+					<![CDATA[<p class="text-color-inverse">Voltar</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarkAddBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Adicionar aos Favoritos</p>]]>
+					<![CDATA[<p class="text-color-inverse">Adicionar aos Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarkRemoveBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Remover dos Favoritos</p>]]>
+					<![CDATA[<p class="text-color-inverse">Remover dos Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="nextBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Avançar</p>]]>
+					<![CDATA[<p class="text-color-inverse">Avançar</p>]]>
 				</body>
 			</content>
 
 		</content>
 
-		<component type="searchBox" x="210" y="0" title="" loadingMsg="" minChars="3"/>
+		<component type="searchBox"
+				x="210"
+				y="0"
+				title=""
+				loadingMsg=""
+				minChars="3" />
 
 	</component>
 
 	<!----------------------- Dashboard ----------------------->
 
-	<component type="Dashboard" depth="0" instanceName="dashboard" x="0" y="-480" openX="0" openY="0">
+	<component type="Dashboard"
+			depth="0"
+			instanceName="dashboard"
+			x="0"
+			y="-480"
+			openX="0"
+			openY="0">
 
 		<tween>
-			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
+			<tween id="openTween"
+					type="to"
+					target=""
+					duration=".5"
+					ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -132,54 +154,57 @@
 
 		<!----------------------- aboutPanel ----------------------->
 
-		<component type="aboutPanel" title="Créditos //" x="0" y="0">
+		<component type="aboutPanel"
+				title="Créditos //"
+				x="0"
+				y="0">
 
 			<content type="text">
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">COORDENAÇÃO</span><br><span class="aboutItem">Davi Olcha Naizer<br>Kiko Fontoura</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>COORDENAÇÃO</b></span></h4><p class="text-color-inverse">Davi Olcha Naizer<br>Kiko Fontoura</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">DESIGN INSTRUCIONAL</span><br><span class="aboutItem">Tássia Vidal Vieira</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>DESIGN INSTRUCIONAL</b></span></h4><p class="text-color-inverse">Pamella Stadler</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">PROJETO TÉCNICO E PROGRAMAÇÃO</span><br><span class="aboutItem">Davi Olcha Naizer<br>Gustavo Soares</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>PROJETO TÉCNICO E PROGRAMAÇÃO</b></span></h4><p class="text-color-inverse">Davi Olcha Naizer</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">PROJETO GRÁFICO</span><br><span class="aboutItem">Leonardo Spolador</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>PROJETO GRÁFICO</b></span></h4><p class="text-color-inverse">Leonardo Spolador</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">PRODUÇÃO E DIAGRAMAÇÃO</span><br><span class="aboutItem">Kiko Fontoura<br>Leonardo Spolador</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>PRODUÇÃO E DIAGRAMAÇÃO</b></span></h4><p class="text-color-inverse">Kiko Fontoura<br>Leonardo Spolador</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">ILUSTRAÇÃO E ANIMAÇÕES</span><br><span class="aboutItem">Shutterstock, Inc.<br>Paulo Gomes</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>ILUSTRAÇÃO E ANIMAÇÕES</b></span></h4><p class="text-color-inverse">Paulo Gomes<br>Shutterstock, Inc.</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<p><span class="left"><span class="aboutItemTitle">REVISÃO</span><br><span class="aboutItem">Juliana Melendres</span></span></p>]]>
+						<![CDATA[<h4><span class="text-color-inverse"><b>REVISÃO</b></span></h4><p class="text-color-inverse">Juliana Melendres</p>]]>
 					</body>
 				</content>
 
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<h3><span class="text-inverse">Informações</span></h3>]]>
+						<![CDATA[<h3><span class="text-color-inverse">Informações</span></h3>]]>
 					</title>
 				</content>
 			</content>
@@ -188,29 +213,48 @@
 
 		<!----------------------- bookmarkPanel ----------------------->
 
-		<component type="bookmarkPanel" title="Favoritos //" x="0" y="0">
+		<component type="bookmarkPanel"
+				title="Favoritos //"
+				x="0"
+				y="0">
 
-			<component type="List" name="bookmarkList" x="50" y="175" width="900" height="304" columns="2" rows="4"
-					spacing="1" buildAnimStagger="0.05"/>
-			<component type="Scrollbar" x="950" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0" thumbColor="0x333333" thumbColorAlpha="1" autoHideThumb="true"/>
+			<component type="List"
+					name="bookmarkList"
+					x="50"
+					y="175"
+					width="900"
+					height="304"
+					columns="2"
+					rows="4"
+					spacing="1"
+					buildAnimStagger="0.05" />
+			<component type="Scrollbar"
+					x="950"
+					y="175"
+					width="2"
+					height="304"
+					scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0"
+					thumbColor="0x333333"
+					thumbColorAlpha="1"
+					autoHideThumb="true" />
 
 			<content type="text">
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<h3><span class="text-inverse">Favoritos</span></h3>]]>
+						<![CDATA[<h3><span class="text-color-inverse">Favoritos</span></h3>]]>
 					</title>
 				</content>
 
 				<content instanceName="statusTxt">
 					<title>
-						<![CDATA[<p class='dashboardStatus'>Favoritos: {$firstItem} - {$lastItem} de {$totalItems}</p>]]>
+						<![CDATA[<p class='text-color-inverse'>{$firstItem} até {$lastItem} de {$totalItems}</p>]]>
 					</title>
 				</content>
 
 				<content instanceName="itemLabel">
 					<title>
-						<![CDATA[<p><span class="buttonTitle">{$pageTitle}</span><br><span class="bButton">Módulo {$pageModuleIndex} - Página {$pageLocalIndex}</span></p>]]>
+						<![CDATA[<p class="btn-primary">{$pageTitle}<br><span class="p-small">Módulo {$pageModuleIndex} - Página {$pageLocalIndex}</span></p>]]>
 					</title>
 				</content>
 			</content>
@@ -218,55 +262,183 @@
 
 		<!----------------------- indexPanel ----------------------->
 
-		<component type="indexPanel" title="Índice //" x="0" y="0">
+		<component type="indexPanel"
+				title="Índice //"
+				x="0"
+				y="0">
 
-			<component type="List" name="menuList" x="50" y="175" width="460" height="304" columns="1" rows="4" spacing="1"
-					buildAnimStagger="0.05"/>
-			<component type="Scrollbar" x="47" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
+			<component type="List"
+					name="menuList"
+					x="50"
+					y="175"
+					width="460"
+					height="304"
+					columns="1"
+					rows="4"
+					spacing="1"
+					buildAnimStagger="0.05" />
+			<component type="Scrollbar"
+					x="47"
+					y="175"
+					width="2"
+					height="304"
+					scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0"
+					thumbColor="0xFFFFFF"
+					thumbColorAlpha="1"
+					autoHideThumb="true" />
 
-			<component type="List" name="submenuList" x="500" y="175" width="450" height="304" columns="1" rows="4"
-					spacing="1" buildAnimStagger="0.05"/>
-			<component type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
+			<component type="List"
+					name="submenuList"
+					x="500"
+					y="175"
+					width="450"
+					height="304"
+					columns="1"
+					rows="4"
+					spacing="1"
+					buildAnimStagger="0.05" />
+			<component type="Scrollbar"
+					x="951"
+					y="175"
+					width="2"
+					height="304"
+					scrollbarColor="0xFFFFFF"
+					scrollbarColorAlpha="0"
+					thumbColor="0xFFFFFF"
+					thumbColorAlpha="1"
+					autoHideThumb="true" />
 
 			<component type="menu">
 
-				<content pageID="index/nav/module_00/M_00_P_00" lastPageID="index/nav/module_00/M_00_P_04">
+				<!-- MODULE 0 -->
+				<content pageID="index/nav/module_00/M_00_P_00"
+						lastPageID="index/nav/module_00/M_00_P_04">
 					<title>
-						<![CDATA[<p class="dashboardButton">01. Introdução</p>]]>
+						<![CDATA[<p class="btn-primary">01. Tipografia</p>]]>
 					</title>
 
-					<content pageID="index/nav/module_00/M_00_P_01" lastPageID="index/nav/module_00/M_00_P_01">
+					<content pageID="index/nav/module_00/M_00_P_01"
+							lastPageID="index/nav/module_00/M_00_P_01">
 						<title>
-							<![CDATA[<p class="dashboardButton">01. Página 1</p>]]>
+							<![CDATA[<p class="btn-primary">01. Diagramação 1</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_00/M_00_P_02" lastPageID="index/nav/module_00/M_00_P_02">
+					<content pageID="index/nav/module_00/M_00_P_02"
+							lastPageID="index/nav/module_00/M_00_P_02">
 						<title>
-							<![CDATA[<p class="dashboardButton">02. Página 2</p>]]>
+							<![CDATA[<p class="btn-primary">02. Diagramação 2</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_00/M_00_P_03" lastPageID="index/nav/module_00/M_00_P_03">
+					<content pageID="index/nav/module_00/M_00_P_03"
+							lastPageID="index/nav/module_00/M_00_P_03">
 						<title>
-							<![CDATA[<p class="dashboardButton">03. Página 3</p>]]>
+							<![CDATA[<p class="btn-primary">03. Diagramação 3</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_00/M_00_P_04" lastPageID="index/nav/module_00/M_00_P_04">
+					<content pageID="index/nav/module_00/M_00_P_04"
+							lastPageID="index/nav/module_00/M_00_P_04">
 						<title>
-							<![CDATA[<p class="dashboardButton">04. Página 4</p>]]>
+							<![CDATA[<p class="btn-primary">04. Diagramação 4</p>]]>
 						</title>
 					</content>
 				</content>
+
+				<!-- MODULE 1 -->
+				<content pageID="index/nav/module_01/M_01_P_00"
+						lastPageID="index/nav/module_01/M_01_P_07">
+					<title>
+						<![CDATA[<p class="btn-primary">02. Components de Interface</p>]]>
+					</title>
+
+					<content pageID="index/nav/module_01/M_01_P_00"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">01. Imagens</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_01"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">02. Links</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_02"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">03. Navegação</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_03"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">04. Botões</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_04"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">04. Texto</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_05"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">04. Tooltips</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_06"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">04. Variáveis</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_01/M_01_P_06"
+							lastPageID="index/nav/module_01/M_01_P_07">
+						<title>
+							<![CDATA[<p class="btn-primary">04. Tween - Animações</p>]]>
+						</title>
+					</content>
+				</content>
+
+				<!-- MODULE 2 -->
+				<content pageID="index/nav/module_02/M_02_P_00"
+						lastPageID="index/nav/module_02/M_02_P_00">
+					<title>
+						<![CDATA[<p class="btn-primary">03. Animações / Tweens</p>]]>
+					</title>
+
+					<content pageID="index/nav/module_02/M_02_P_00"
+							lastPageID="index/nav/module_02/M_02_P_00">
+						<title>
+							<![CDATA[<p class="btn-primary">01. Movimento</p>]]>
+						</title>
+					</content>
+
+					<content pageID="index/nav/module_02/M_02_P_00"
+							lastPageID="index/nav/module_02/M_02_P_00">
+						<title>
+							<![CDATA[<p class="btn-primary">02. Transformação</p>]]>
+						</title>
+					</content>
+				</content>
+
 			</component>
 
 			<content type="text">
 				<content instanceName="titleTxt">
 					<title>
-						<![CDATA[<h3><span class="text-inverse">Índice</span></h3>]]>
+						<![CDATA[<h3><span class="text-color-inverse">Índice</span></h3>]]>
 					</title>
 				</content>
 			</content>
@@ -274,33 +446,33 @@
 		</component>
 
 		<content type="tooltip"
-				 hook="true"
-				 hookSize="20"
-				 autoSize="true"
-				 followCursor="true"
-				 align="center"
-				 cornerRadius="10"
-				 showDelay="100"
-				 hideDelay="0"
-				 bgAlpha="1"
-				 width="350"
-				 colors="0x333333,0x333333"
-				 padding="10">
+				hook="true"
+				hookSize="20"
+				autoSize="true"
+				followCursor="true"
+				align="center"
+				corcornerRadius="10"
+				showDelay="100"
+				hideDelay="0"
+				bgAlpha="1"
+				width="350"
+				colors="0x333333,0x333333"
+				padding="10">
 			<content instanceName="indexBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Índice</p>]]>
+					<![CDATA[<p class="text-color-inverse">Índice</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="bookmarksBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Favoritos</p>]]>
+					<![CDATA[<p class="text-color-inverse">Favoritos</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="aboutBtn">
 				<body>
-					<![CDATA[<p class="text-inverse">Informações</p>]]>
+					<![CDATA[<p class="text-color-inverse">Informações</p>]]>
 				</body>
 			</content>
 		</content>
@@ -309,10 +481,18 @@
 
 	<!----------------------- HelpPanel ----------------------->
 
-	<component type="HelpPanel" depth="1" instanceName="helpPanel" x="0" y="-480">
+	<component type="HelpPanel"
+			depth="1"
+			instanceName="helpPanel"
+			x="0"
+			y="-480">
 
 		<tween>
-			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
+			<tween id="openTween"
+					type="to"
+					target=""
+					duration=".5"
+					ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -327,7 +507,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<h3><span class="text-inverse">Dúvidas de Interface</span></h3>]]>
+					<![CDATA[<h3><span class="text-color-inverse">Dúvidas de Interface</span></h3>]]>
 				</body>
 			</content>
 
@@ -336,7 +516,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpTitle"><span class="left">Barra de Navegação</span></p>]]>
+					<![CDATA[<h4><span class="text-color-inverse">Barra de Navegação</span></h4>]]>
 				</body>
 			</content>
 
@@ -345,7 +525,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpTitle"><span class="left">Painel de Menu</span></p>]]>
+					<![CDATA[<h4><span class="text-color-inverse">Painel de Menu</span></h4>]]>
 				</body>
 			</content>
 
@@ -354,7 +534,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpTitle"><span class="left">Conteúdo</span></p>]]>
+					<![CDATA[<h4><span class="text-color-inverse">Conteúdo</span></h4>]]>
 				</body>
 			</content>
 
@@ -363,7 +543,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Abra ou feche essa tela de ajuda.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Abra ou feche essa tela de ajuda.</span></p>]]>
 				</body>
 			</content>
 
@@ -372,7 +552,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Barra de Progresso.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Barra de Progresso.</span></p>]]>
 				</body>
 			</content>
 
@@ -381,7 +561,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Use a barra de rolagem para navegar na lista.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Use a barra de rolagem para navegar na lista.</span></p>]]>
 				</body>
 			</content>
 
@@ -390,7 +570,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Abra ou feche o menu.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Abra ou feche o menu.</span></p>]]>
 				</body>
 			</content>
 
@@ -399,7 +579,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Índice com todos os módulos do treinamento.</p>]]>
+					<![CDATA[<p class="text-color-inverse">Índice com todos os módulos do treinamento.</p>]]>
 				</body>
 			</content>
 
@@ -408,7 +588,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Busque por assuntos específicos.</p>]]>
+					<![CDATA[<p class="text-color-inverse">Busque por assuntos específicos.</p>]]>
 				</body>
 			</content>
 
@@ -417,7 +597,7 @@
 					<autoSize>left</autoSize>
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Sua lista de conteúdos favoritos.</p>]]>
+					<![CDATA[<p class="text-color-inverse">Sua lista de conteúdos favoritos.</p>]]>
 				</body>
 			</content>
 
@@ -426,13 +606,13 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Marque seus conteúdos favoritos. E desmarque se mudar de ideia.</p>]]>
+					<![CDATA[<p class="text-color-inverse">Marque seus conteúdos favoritos. E desmarque se mudar de ideia.</p>]]>
 				</body>
 			</content>
 
 			<content instanceName="text_Info">
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Informações sobre os responsáveis pelo treinamento.</p>]]>
+					<![CDATA[<p class="text-color-inverse">Informações sobre os responsáveis pelo treinamento.</p>]]>
 				</body>
 			</content>
 
@@ -441,7 +621,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Use as setas para navegar.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Use as setas para navegar.</span></p>]]>
 				</body>
 			</content>
 
@@ -450,7 +630,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Alertas para informações complementares.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Alertas para informações complementares.</span></p>]]>
 				</body>
 			</content>
 
@@ -459,7 +639,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left"><span class="helpTextItalic">Play</span> e <span class="helpTextItalic">Pause</span> em <span class="helpTextItalic">players</span> de vídeo.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse"><span class="helpTextItalic">Play</span> e <span class="helpTextItalic">Pause</span> em <span class="helpTextItalic">players</span> de vídeo.</span></p>]]>
 				</body>
 			</content>
 
@@ -468,7 +648,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<p class="helpText"><span class="left">Ligue ou desligue o áudio de locução de cada tela.</span></p>]]>
+					<![CDATA[<p class="text-color-inverse">Ligue ou desligue o áudio de locução de cada tela.</span></p>]]>
 				</body>
 			</content>
 
@@ -477,10 +657,20 @@
 
 	<!----------------------- SearchPanel ----------------------->
 
-	<component type="SearchPanel" depth="2" instanceName="searchPanel" x="0" y="-480" title="Busca //" summaryLength="50">
+	<component type="SearchPanel"
+			depth="2"
+			instanceName="searchPanel"
+			x="0"
+			y="-480"
+			title="Busca //"
+			summaryLength="50">
 
 		<tween>
-			<tween id="openTween" type="to" target="" duration=".5" ease="Expo.easeInOut">
+			<tween id="openTween"
+					type="to"
+					target=""
+					duration=".5"
+					ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -489,33 +679,49 @@
 			</tween>
 		</tween>
 
-		<component type="List" name="searchList" x="50" y="175" width="900" height="304" columns="2" rows="4" spacing="1"
-				buildAnimStagger="0.05"/>
-		<component type="Scrollbar" x="951" y="175" width="2" height="304" scrollbarColor="0xFFFFFF"
-				scrollbarColorAlpha="0" thumbColor="0xFFFFFF" thumbColorAlpha="1" autoHideThumb="true"/>
+		<component type="List"
+				name="searchList"
+				x="50"
+				y="175"
+				width="900"
+				height="304"
+				columns="2"
+				rows="4"
+				spacing="1"
+				buildAnimStagger="0.05" />
+		<component type="Scrollbar"
+				x="951"
+				y="175"
+				width="2"
+				height="304"
+				scrollbarColor="0xFFFFFF"
+				scrollbarColorAlpha="0"
+				thumbColor="0xFFFFFF"
+				thumbColorAlpha="1"
+				autoHideThumb="true" />
 
 		<content type="text">
 			<content instanceName="titleTxt">
 				<title>
-					<![CDATA[<h3><span class="text-inverse">Resultados de Busca</span></h3>]]>
+					<![CDATA[<h3><span class="text-color-inverse">Resultados da Busca</span></h3>]]>
 				</title>
 			</content>
 
 			<content instanceName="statusTxt">
 				<title>
-					<![CDATA[<p class='dashboardStatus'>Resultados: {$firstItem} - {$lastItem} de {$totalItems}</p>]]>
+					<![CDATA[<p class='text-color-inverse'>Resultados {$firstItem} até {$lastItem} de {$totalItems}</p>]]>
 				</title>
 			</content>
 
 			<content instanceName="statusNotFound">
 				<title>
-					<![CDATA[<p><span class="dashboardStatus">Nenhum resultado encontrado!</span></p>]]>
+					<![CDATA[<p><span class="text-color-inverse">Nenhum resultado encontrado!</span></p>]]>
 				</title>
 			</content>
 
 			<content instanceName="itemLabel">
 				<title>
-					<![CDATA[<p><span class="buttonTitle">{$totalItems}. {$summary}</span><br><span class="button">{$pageModuleIndex} / {$pageLocalIndex}</span></p>]]>
+					<![CDATA[<p class="btn-primary">{$totalItems}. {$summary}<br><span class="p-small">Módulo {$pageModuleIndex} - Página {$pageLocalIndex}</span></p>]]>
 				</title>
 			</content>
 		</content>
@@ -523,7 +729,11 @@
 	</component>
 
 	<tween>
-		<tween id="contentTween" type="to" target="" duration=".5" ease="Linear.easeNone">
+		<tween id="contentTween"
+				type="to"
+				target=""
+				duration=".5"
+				ease="Linear.easeNone">
 			<vars>
 				<blurFilter>
 					<blurX>8</blurX>

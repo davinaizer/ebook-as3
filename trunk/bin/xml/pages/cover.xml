@@ -43,11 +43,11 @@
 			</vars>
 		</tween>
 
-		<tween type="from" target="startBtn" duration=".5" ease="Back.easeOut">
+		<tween type="from" target="startBtn" duration=".5" ease="Strong.easeOut">
 			<vars>
 				<delay>0.25</delay>
 				<transformAroundCenter>
-					<scale>0</scale>
+					<scale>.5</scale>
 				</transformAroundCenter>
 				<alpha>0</alpha>
 			</vars>

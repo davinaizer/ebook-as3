@@ -7,9 +7,9 @@ package com.unboxds.ebook.pages
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
 
-	public class M_00_P_04 extends EbookPage
+	public class M_02_P_00 extends EbookPage
 	{
-		public function M_00_P_04()
+		public function M_02_P_00()
 		{
 			super();
 			alpha = 0;

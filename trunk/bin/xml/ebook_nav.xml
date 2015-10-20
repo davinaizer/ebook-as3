@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data title="UNBOX Learning Experience" history="false" indexFirst="true" flow="cross" menu="false" preloader="Preloader.swf">
+<data title="UNBOX Learning Experience"
+		history="false"
+		indexFirst="true"
+		flow="cross"
+		menu="false"
+		preloader="Preloader.swf">
 
 	<!--
 		 DATACONFIG OPTIONS
@@ -10,48 +15,256 @@
 		 scormReplaceDoubleQuotes: true | false // for compatibility among LMSs. Some accept only double quotes, other single.
 	-->
 
-	<config consultMode="true" enableAlerts="false" dataServiceType="LocalStorage" scormReplaceDoubleQuotes="false" enableDebugPanel="true" version="eBookAS_V3">
+	<config consultMode="true"
+			enableAlerts="false"
+			dataServiceType="LocalStorage"
+			scormReplaceDoubleQuotes="false"
+			enableDebugPanel="true"
+			version="eBookAS_V3">
 		<activities>
 			<maxScore>1,1,1,1</maxScore>
 		</activities>
 	</config>
 
 	<!-- ** SYSTEM UI PAGES **  -->
-	<page id="index" src="content/pages/IndexPage.swf" depth="bottom">
-		<asset id="styles" src="css/ebook.css" preload="true" />
+	<page id="index"
+			src="content/pages/IndexPage.swf"
+			depth="bottom">
+		<asset id="styles"
+				src="css/ebook.css"
+				preload="true" />
 
 		<!-- ** NAVBAR **  -->
-		<page id="nav" src="content/pages/NavPage.swf" depth="top">
-			<asset id="contentXML" src="xml/ebook_ui.xml" />
+		<page id="nav"
+				src="content/pages/NavPage.swf"
+				depth="top">
+			<asset id="contentXML"
+					src="xml/ebook_ui.xml" />
 
 			<!-- ** COVER PAGE **  -->
-			<page id="cover" title="Capa" src="content/pages/CoverPage.swf" navbarStatus="00000" showProgress="false" pageTransitionIn="slideXIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-				<asset id="contentXML" src="xml/pages/cover.xml" />
+			<page id="cover"
+					title="Capa"
+					src="content/pages/CoverPage.swf"
+					navbarStatus="00000"
+					showProgress="false"
+					pageTransitionIn="slideXIn"
+					pageTransitionOut="fadeOut"
+					contentTransitionIn="fadeIn"
+					contentTransitionOut="none">
+				<asset id="contentXML"
+						src="xml/pages/cover.xml" />
 			</page>
 
 			<!-- ** EBOOK CONTENT - NORMAL PAGES - EDIT BELOW THIS **  -->
 
-			<page id="module_00" src="content/pages/ModulePage.swf" depth="top">
-				<page id="M_00_P_00" src="content/pages/M_00_P_00.swf" title="Introdução" navbarStatus="11011" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_00_P_00.xml" />
+			<!-- ** MOD 0 **  -->
+			<page id="module_00"
+					src="content/pages/ModulePage.swf"
+					depth="top">
+				<page id="M_00_P_00"
+						src="content/pages/M_00_P_00.swf"
+						title="Introdução"
+						navbarStatus="11011"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_00_P_00.xml" />
 				</page>
 
-				<page id="M_00_P_01" src="content/pages/M_00_P_01.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_00_P_01.xml" />
+				<page id="M_00_P_01"
+						src="content/pages/M_00_P_01.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_00_P_01.xml" />
 				</page>
 
-				<page id="M_00_P_02" src="content/pages/M_00_P_02.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_00_P_02.xml" />
+				<page id="M_00_P_02"
+						src="content/pages/M_00_P_02.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_00_P_02.xml" />
 				</page>
 
-				<page id="M_00_P_03" src="content/pages/M_00_P_03.swf" title="Introdução" navbarStatus="" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_00_P_03.xml" />
+				<page id="M_00_P_03"
+						src="content/pages/M_00_P_03.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_00_P_03.xml" />
 				</page>
 
-				<page id="M_00_P_04" src="content/pages/M_00_P_04.swf" title="Introdução" navbarStatus="11111" showProgress="true" pageTransitionIn="fadeIn" pageTransitionOut="fadeOut" contentTransitionIn="fadeIn" contentTransitionOut="none">
-					<asset id="contentXML" src="xml/pages/M_00_P_04.xml" />
+				<page id="M_00_P_04"
+						src="content/pages/M_00_P_04.swf"
+						title="Introdução"
+						navbarStatus="11111"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_00_P_04.xml" />
+				</page>
+			</page>
+
+			<!-- ** MOD 1 **  -->
+			<page id="module_01"
+					src="content/pages/ModulePage.swf"
+					depth="top">
+				<page id="M_01_P_00"
+						src="content/pages/M_01_P_00.swf"
+						title="Introdução"
+						navbarStatus="11011"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_00.xml" />
 				</page>
 
+				<page id="M_01_P_01"
+						src="content/pages/M_01_P_01.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_01.xml" />
+				</page>
+
+				<page id="M_01_P_02"
+						src="content/pages/M_01_P_02.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_02.xml" />
+				</page>
+
+				<page id="M_01_P_03"
+						src="content/pages/M_01_P_03.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_03.xml" />
+				</page>
+
+				<page id="M_01_P_04"
+						src="content/pages/M_01_P_04.swf"
+						title="Introdução"
+						navbarStatus="11111"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_04.xml" />
+				</page>
+
+				<page id="M_01_P_05"
+						src="content/pages/M_01_P_05.swf"
+						title="Introdução"
+						navbarStatus="11111"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_05.xml" />
+				</page>
+
+				<page id="M_01_P_06"
+						src="content/pages/M_01_P_06.swf"
+						title="Introdução"
+						navbarStatus="11111"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_06.xml" />
+				</page>
+
+				<page id="M_01_P_07"
+						src="content/pages/M_01_P_07.swf"
+						title="Introdução"
+						navbarStatus="11111"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_01_P_07.xml" />
+				</page>
+			</page>
+
+			<!-- ** MOD 2 **  -->
+			<page id="module_02"
+					src="content/pages/ModulePage.swf"
+					depth="top">
+				<page id="M_02_P_00"
+						src="content/pages/M_02_P_00.swf"
+						title="Introdução"
+						navbarStatus="11011"
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_02_P_00.xml" />
+				</page>
+
+				<page id="M_02_P_01"
+						src="content/pages/M_02_P_01.swf"
+						title="Introdução"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
+					<asset id="contentXML"
+							src="xml/pages/M_02_P_01.xml" />
+				</page>
 			</page>
 
 		</page>

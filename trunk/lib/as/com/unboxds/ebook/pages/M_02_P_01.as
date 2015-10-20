@@ -1,15 +1,13 @@
 package com.unboxds.ebook.pages
 {
-	import com.gaiaframework.api.Gaia;
-
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
 
-	public class M_00_P_04 extends EbookPage
+	public class M_02_P_01 extends EbookPage
 	{
-		public function M_00_P_04()
+		public function M_02_P_01()
 		{
 			super();
 			alpha = 0;
@@ -28,7 +26,7 @@ package com.unboxds.ebook.pages
 		override public function transitionInComplete():void
 		{
 			super.transitionInComplete();
-			Gaia.api.getPage(Pages.NAV).content.enableNextButton();
+			//Gaia.api.getPage(Pages.NAV).content.enableNextButton();
 		}
 
 	}

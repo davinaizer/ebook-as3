@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+
+	<content type="text">
+		<content instanceName="text_0">
+			<vars>
+				<x>48</x>
+				<y>96</y>
+				<width>259</width>
+				<height>26</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p class="breadcrumb">00. NOME DO CAPÍTULO</p>]]></body>
+		</content>
+		<content instanceName="text_1">
+			<vars>
+				<x>48</x>
+				<y>115</y>
+				<width>319</width>
+				<height>67</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<h1>Título da Página</h1>]]></body>
+		</content>
+	</content>
+
+	<content type="tooltip"
+			hook="true"
+			hookSize="20"
+			autoSize="false"
+			followCursor="false"
+			cornerRadius="10"
+			showDelay="0"
+			hideDelay="0"
+			bgAlpha="1"
+			width="350"
+			colors="0xECB02E,0xECB02E"
+			padding="10"
+			clickToOpen="false">
+
+		<content instanceName="tooltip_0">
+			<title>
+				<![CDATA[<p class="text-color-inverse"><b>EXEMPLO DE TOOLTIP CLICÁVEL<br></b></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="text-color-inverse">Nam elementum congue turpis. Praesent eu nunc pellentesque, facilisis nisi non, vestibulum arcu. Nunc non erat est. Maecenas eu lobortis mi. Duis quis ipsum leo. Sed tincidunt pellentesque libero ut pharetra. Ut semper commodo vehicula.</p>]]>
+			</body>
+		</content>
+
+		<content instanceName="tooltip_1">
+			<title>
+				<![CDATA[<p class="text-color-inverse"><b>EXEMPLO DE TOOLTIP CLICÁVEL<br></b></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="text-color-inverse">Nam elementum congue turpis. Praesent eu nunc pellentesque, facilisis nisi non, vestibulum arcu. Nunc non erat est. Maecenas eu lobortis mi. Duis quis ipsum leo. Sed tincidunt pellentesque libero ut pharetra. Ut semper commodo vehicula.</p>]]>
+			</body>
+		</content>
+
+		<content instanceName="tooltip_2">
+			<title>
+				<![CDATA[<p class="text-color-inverse"><b>EXEMPLO DE TOOLTIP CLICÁVEL<br></b></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="text-color-inverse">Nam elementum congue turpis. Praesent eu nunc pellentesque, facilisis nisi non, vestibulum arcu. Nunc non erat est. Maecenas eu lobortis mi. Duis quis ipsum leo. Sed tincidunt pellentesque libero ut pharetra. Ut semper commodo vehicula.</p>]]>
+			</body>
+		</content>
+	</content>
+
+	<content type="tooltip"
+			hook="true"
+			hookSize="20"
+			autoSize="false"
+			followCursor="false"
+			cornerRadius="10"
+			showDelay="0"
+			hideDelay="0"
+			bgAlpha="1"
+			width="350"
+			colors="0xCC0038,0xCC0038"
+			padding="10"
+			clickToOpen="true">
+
+		<content instanceName="tooltip_3">
+			<title>
+				<![CDATA[<p class="text-color-inverse"><b>EXEMPLO DE TOOLTIP<br></b></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="text-color-inverse">Nam elementum congue turpis. Praesent eu nunc pellentesque, facilisis nisi non, vestibulum arcu. Nunc non erat est. Maecenas eu lobortis mi. Duis quis ipsum leo. Sed tincidunt pellentesque libero ut pharetra. Ut semper commodo vehicula.</p>]]>
+			</body>
+		</content>
+
+		<content instanceName="tooltip_4">
+			<title>
+				<![CDATA[<p class="text-color-inverse"><b>EXEMPLO DE TOOLTIP<br></b></p>]]>
+			</title>
+			<body>
+				<![CDATA[<p class="text-color-inverse">Nam elementum congue turpis. Praesent eu nunc pellentesque, facilisis nisi non, vestibulum arcu. Nunc non erat est. Maecenas eu lobortis mi. Duis quis ipsum leo. Sed tincidunt pellentesque libero ut pharetra. Ut semper commodo vehicula.</p>]]>
+			</body>
+		</content>
+	</content>
+
+	<tween>
+		<tween type="to"
+				target="tooltip_0.bg,tooltip_1.bg,tooltip_2.bg"
+				duration="1.5"
+				ease="Linear.easeNone">
+			<vars>
+				<glowFilter>
+					<color>0xCD9928</color>
+					<alpha>1</alpha>
+					<blurX>8</blurX>
+					<blurY>8</blurY>
+					<strength>3</strength>
+				</glowFilter>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+		<tween type="to"
+				target="tooltip_3.bg,tooltip_4.bg"
+				duration="1.5"
+				ease="Linear.easeNone">
+			<vars>
+				<glowFilter>
+					<color>0xB60032</color>
+					<alpha>1</alpha>
+					<blurX>8</blurX>
+					<blurY>8</blurY>
+					<strength>3</strength>
+				</glowFilter>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+	</tween>
+
+</data>

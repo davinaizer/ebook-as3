@@ -21,7 +21,7 @@
 				<height>120</height>
 				<autoSize>center</autoSize>
 			</vars>
-			<body><![CDATA[<h1><span class="text-inverse">Política Azul de Atendimento<span></h1>]]></body>
+			<body><![CDATA[<h1><span class="text-color-inverse">Política Azul de Atendimento<span></h1>]]></body>
 		</content>
 	</content>
 
