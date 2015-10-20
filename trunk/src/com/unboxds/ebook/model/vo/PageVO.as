@@ -1,6 +1,6 @@
 package com.unboxds.ebook.model.vo
 {
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	/**
 	 * ...
@@ -180,7 +180,7 @@ package com.unboxds.ebook.model.vo
 		
 		public function toString():String
 		{
-			var ret:String = ObjectUtil.toString(this);
+			var ret:String = ObjectUtils.toString(this);
 			return ret;
 		}
 

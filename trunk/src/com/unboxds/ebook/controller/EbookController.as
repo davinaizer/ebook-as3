@@ -8,10 +8,10 @@
 	import com.unboxds.ebook.model.NavModel;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.ebook.services.IEbookDataService;
-	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.ebook.services.LocalStorageService;
+	import com.unboxds.ebook.services.ScormDataService;
 	import com.unboxds.utils.Logger;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	import flash.external.ExternalInterface;
 
@@ -93,13 +93,13 @@
 			Logger.log("EbookController.onDataLoaded");
 
 			Logger.log("EbookController >>>>>>>>>> CHECK DATA LOADED <<<<<<<< ");
-			Logger.log(ObjectUtil.toString(data));
+			Logger.log(ObjectUtils.toString(data));
 
 			model.isDataServiceAvailable = true;
 			model.restore(data);
 
 			Logger.log("EbookController >>>>>>>>>> CHECK MODEL DATA <<<<<<<< ");
-			Logger.log(ObjectUtil.toString(model));
+			Logger.log(ObjectUtils.toString(model));
 
 			//-- check browse mode
 			if (model.lessonMode == ScormConstants.MODE_BROWSE)
@@ -167,7 +167,7 @@
 				var data:EbookVO = model.dump();
 				data.navVO = navModel.dump();
 
-				Logger.log(ObjectUtil.toString(data));
+				Logger.log(ObjectUtils.toString(data));
 
 				dataService.save(data);
 			}

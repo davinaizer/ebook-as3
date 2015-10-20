@@ -7,21 +7,30 @@ p {
 
 .p {
   &-small {
-    font-size: $font-size-small;
+	font-size: $font-size-small;
 
-    &-inverse {
-      font-size: $font-size-small;
-      color:     $text-color-inverse;
-    }
+	&-inverse {
+	  font-size: $font-size-small;
+	  color:     $text-color-inverse;
+	}
   }
 
   &-large {
-    font-size: $font-size-large;
+	font-size: $font-size-large;
 
-    &-inverse {
-      font-size: $font-size-large;
-      color:     $text-color-inverse;
-    }
+	&-inverse {
+	  font-size: $font-size-large;
+	  color:     $text-color-inverse;
+	}
+  }
+
+  &-lead {
+	font-size: $font-size-h2;
+
+	&-inverse {
+	  font-size: $font-size-h2;
+	  color:     $text-color-inverse;
+	}
   }
 }
 
@@ -88,12 +97,27 @@ h6 {
 
 .text-center {
   text-align: center;
+
+  &-inverse {
+	text-align: center;
+	color:      $text-color-inverse;
+  }
 }
 
 .text-left {
   text-align: left;
+
+  &-inverse {
+	text-align: left;
+	color:      $text-color-inverse;
+  }
 }
 
 .text-right {
   text-align: right;
+
+  &-inverse {
+	text-align: right;
+	color:      $text-color-inverse;
+  }
 }

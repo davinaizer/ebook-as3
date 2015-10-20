@@ -3,7 +3,7 @@ package com.unboxds.ebook.model.vo
 	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	/**
 	 * ...
@@ -162,7 +162,7 @@ package com.unboxds.ebook.model.vo
 
 		public function parse(obj:Object):void
 		{
-			ObjectUtil.copyProps(obj, this);
+			ObjectUtils.copyProps(obj, this);
 		}
 	}
 }

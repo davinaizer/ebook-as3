@@ -8,6 +8,7 @@ package com.unboxds.ebook.view.parser
 	import com.greensock.loading.ImageLoader;
 	import com.greensock.loading.LoaderMax;
 	import com.greensock.loading.display.ContentDisplay;
+	import com.unboxds.ebook.constants.ContentType;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 
@@ -24,11 +25,10 @@ package com.unboxds.ebook.view.parser
 
 		override public function parse():void
 		{
-			var container:DisplayObjectContainer = target.getChildByName(contentXML.@target) as DisplayObjectContainer;
-			if (container == null)
-				container = target;
+			var containerName:String = "@target" in contentXML ? contentXML.@target + "." : "";
 
 			var itemCount:int = contentXML.content.length();
+
 			imgLoader = new LoaderMax({
 				name: target.name + "_imageLoader",
 				onComplete: onLoadImage,
@@ -39,15 +39,17 @@ package com.unboxds.ebook.view.parser
 			for (var i:int = 0; i < itemCount; i++)
 			{
 				var imgURL:String = contentXML.content[i].@src;
-				var containerName:String = "@container" in contentXML.content[i] ? contentXML.content[i].@container : "";
-				var imgContainer:DisplayObjectContainer = containerName == "" ? target : container.getChildByName(contentXML.content[i].@container) as DisplayObjectContainer;
+				var targetName:String = "@target" in contentXML.content[i] ? contentXML.content[i].@target : ContentType.IMAGE + "_" + i;
+				targetName = containerName + targetName;
+
+				var targetObj:DisplayObjectContainer = ObjectUtils.getChildByPath(target, targetName) as DisplayObjectContainer;
 				var pos:Point = new Point(parseFloat(contentXML.content[i].@x), parseFloat(contentXML.content[i].@y));
 
-				if (container != null)
+				if (targetObj != null)
 				{
 					imgLoader.append(new ImageLoader(imgURL, {
 						name: "image_" + i,
-						container: imgContainer,
+						container: targetObj,
 						x: pos.x,
 						y: pos.y,
 						alpha: 0
@@ -57,7 +59,7 @@ package com.unboxds.ebook.view.parser
 					if ("vars" in contentXML.content[i])
 					{
 						var varsXML:Object = ObjectUtils.xmlVarsToObject(XML(XMLList(contentXML.content[i].vars).toXMLString()));
-						ObjectUtils.applyVars(container, varsXML);
+						ObjectUtils.applyVars(targetObj, varsXML);
 					}
 				}
 				else
@@ -71,6 +73,8 @@ package com.unboxds.ebook.view.parser
 
 		private function onLoadImage(e:LoaderEvent):void
 		{
+			Logger.log("ImageParser.onLoadImage");
+
 			var itemCount:int = LoaderMax(e.target).vars.itemCount;
 			for (var i:int = 0; i < itemCount; i++)
 			{

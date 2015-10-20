@@ -4,7 +4,7 @@
 package com.unboxds.ebook.model.vo
 {
 	import com.serialization.json.JSON;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	public class NavVO implements ISerializable
 	{
@@ -64,7 +64,7 @@ package com.unboxds.ebook.model.vo
 
 		public function parse(obj:Object):void
 		{
-			ObjectUtil.copyProps(obj, this);
+			ObjectUtils.copyProps(obj, this);
 		}
 
 	}

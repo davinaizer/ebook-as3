@@ -11,8 +11,6 @@ package com.unboxds.ebook.view.parser
 	import com.unboxds.utils.TextFieldUtils;
 
 	import flash.events.TextEvent;
-	import flash.net.URLRequest;
-	import flash.net.navigateToURL;
 	import flash.text.TextField;
 	import flash.utils.getQualifiedClassName;
 
@@ -41,7 +39,7 @@ package com.unboxds.ebook.view.parser
 					if (cText.indexOf("{$") > -1)
 						cText = StringUtils.parseTextVars(cText, target);
 
-					txt.htmlText = cText;
+					txt.htmlText = StringUtils.removeTabsAndNewLines(cText);
 
 					if (cText.indexOf("<a href=") > -1)
 					{
@@ -80,8 +78,8 @@ package com.unboxds.ebook.view.parser
 			{
 				LinkUtils.openLink(eValue);
 			}
+
+
 		}
-
-
 	}
 }

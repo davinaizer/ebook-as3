@@ -133,7 +133,7 @@
 					depth="top">
 				<page id="M_01_P_00"
 						src="content/pages/M_01_P_00.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus="11011"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -146,7 +146,7 @@
 
 				<page id="M_01_P_01"
 						src="content/pages/M_01_P_01.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -159,7 +159,7 @@
 
 				<page id="M_01_P_02"
 						src="content/pages/M_01_P_02.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -172,7 +172,7 @@
 
 				<page id="M_01_P_03"
 						src="content/pages/M_01_P_03.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -185,7 +185,7 @@
 
 				<page id="M_01_P_04"
 						src="content/pages/M_01_P_04.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -198,7 +198,7 @@
 
 				<page id="M_01_P_05"
 						src="content/pages/M_01_P_05.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -211,7 +211,7 @@
 
 				<page id="M_01_P_06"
 						src="content/pages/M_01_P_06.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -224,7 +224,7 @@
 
 				<page id="M_01_P_07"
 						src="content/pages/M_01_P_07.swf"
-						title="Introdução"
+						title="Components de Interface"
 						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
@@ -234,6 +234,20 @@
 					<asset id="contentXML"
 							src="xml/pages/M_01_P_07.xml" />
 				</page>
+
+				<page id="M_01_P_08"
+					  src="content/pages/M_01_P_08.swf"
+					  title="Components de Interface"
+					  navbarStatus="11111"
+					  showProgress="true"
+					  pageTransitionIn="fadeIn"
+					  pageTransitionOut="fadeOut"
+					  contentTransitionIn="fadeIn"
+					  contentTransitionOut="none">
+					<asset id="contentXML"
+						   src="xml/pages/M_01_P_08.xml" />
+				</page>
+
 			</page>
 
 			<!-- ** MOD 2 **  -->

@@ -4,23 +4,28 @@
 	<content type="text">
 		<content instanceName="text_0">
 			<vars>
-				<x>48</x>
-				<y>96</y>
-				<width>259</width>
-				<height>26</height>
-				<autoSize>left</autoSize>
+				<x>400</x>
+				<y>200</y>
+				<width>200</width>
+				<height>125</height>
+				<autoSize>center</autoSize>
 			</vars>
-			<body><![CDATA[<p class="breadcrumb">00. NOME DO CAPÍTULO</p>]]></body>
+			<body><![CDATA[
+			<h1><span class="cover-big-title">02</span></h1>
+			]]></body>
 		</content>
+
 		<content instanceName="text_1">
 			<vars>
-				<x>48</x>
-				<y>115</y>
-				<width>319</width>
-				<height>67</height>
-				<autoSize>left</autoSize>
+				<x>150</x>
+				<y>306</y>
+				<width>700</width>
+				<height>120</height>
+				<autoSize>center</autoSize>
 			</vars>
-			<body><![CDATA[<h1>Título da Página</h1>]]></body>
+			<body><![CDATA[
+				<h1><span class="text-color-inverse">Componentes de Interface<span></h1>
+			]]></body>
 		</content>
 	</content>
 

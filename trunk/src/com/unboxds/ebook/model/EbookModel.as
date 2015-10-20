@@ -4,7 +4,7 @@
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	import flash.external.ExternalInterface;
 
@@ -438,7 +438,7 @@
 
 		public function toString():String
 		{
-			return ObjectUtil.toString(this);
+			return ObjectUtils.toString(this);
 		}
 	}
 }

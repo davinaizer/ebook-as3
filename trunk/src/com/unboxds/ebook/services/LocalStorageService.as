@@ -2,7 +2,7 @@ package com.unboxds.ebook.services
 {
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	import flash.net.SharedObject;
 
@@ -45,7 +45,7 @@ package com.unboxds.ebook.services
 			{
 				Logger.log("LocalStorageService.load >> Ebook Data found!");
 
-				ObjectUtil.copyProps(sol.data.ebookVO, ebookVO);
+				ObjectUtils.copyProps(sol.data.ebookVO, ebookVO);
 			}
 			else
 			{

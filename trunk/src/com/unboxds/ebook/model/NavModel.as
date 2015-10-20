@@ -3,7 +3,7 @@ package com.unboxds.ebook.model
 	import com.unboxds.ebook.model.vo.NavVO;
 	import com.unboxds.ebook.model.vo.PageVO;
 	import com.unboxds.utils.Logger;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	/**
 	 * ...
@@ -122,7 +122,7 @@ package com.unboxds.ebook.model
 			Logger.log("NavModel.restore > " + value);
 
 			if (value != null)
-				ObjectUtil.copyComplexProps(value, this);
+				ObjectUtils.copyComplexProps(value, this);
 		}
 
 		public function get pages():Vector.<Vector.<PageVO>>

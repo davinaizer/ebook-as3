@@ -4,7 +4,7 @@ package com.unboxds.ebook.services
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.EbookVO;
 	import com.unboxds.utils.Logger;
-	import com.unboxds.utils.ObjectUtil;
+	import com.unboxds.utils.ObjectUtils;
 
 	import flash.external.ExternalInterface;
 
@@ -76,7 +76,7 @@ package com.unboxds.ebook.services
 
 					var jsonObj:Object = JSON.parse(suspendData);
 
-					ObjectUtil.copyProps(jsonObj, data);
+					ObjectUtils.copyProps(jsonObj, data);
 				} else
 				{
 					Logger.log("ScormDataService.load > Ebook data not found. First access.");

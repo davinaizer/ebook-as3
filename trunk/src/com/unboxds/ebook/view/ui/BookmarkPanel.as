@@ -1,4 +1,4 @@
-package com.unboxds.ebook.view.ui
+﻿package com.unboxds.ebook.view.ui
 {
 	import assets.BookmarkPanelSymbol;
 	import assets.buttons.btBookmarkItem;

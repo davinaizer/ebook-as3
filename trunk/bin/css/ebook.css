@@ -6,103 +6,146 @@
 p {
   font-family: "Roboto";
   font-size: 13px;
-  color: #555555; }
+  color: #555555;
+}
 
 .p-small {
-  font-size: 11px; }
-  .p-small-inverse {
-    font-size: 11px;
-    color: #FFFFFF; }
+  font-size: 11px;
+}
+.p-small-inverse {
+  font-size: 11px;
+  color: #FFFFFF;
+}
 .p-large {
-  font-size: 14px; }
-  .p-large-inverse {
-    font-size: 14px;
-    color: #FFFFFF; }
+  font-size: 14px;
+}
+.p-large-inverse {
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.p-lead {
+  font-size: 27px;
+}
+.p-lead-inverse {
+  font-size: 27px;
+  color: #FFFFFF;
+}
 
 /* -------- HEADINGS -------- */
 h1 {
   font-family: "Roboto Light";
   font-size: 42px;
   color: #0A5693;
-  letter-spacing: -3px; }
+  letter-spacing: -3px;
+}
 
 h2 {
   font-size: 27px;
   font-family: "Roboto";
   color: #0A5693;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+}
 
 h3 {
   font-size: 23px;
   font-family: "Roboto";
   color: #0A5693;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+}
 
 h4 {
   font-size: 17px;
   font-family: "Roboto";
   color: #0A5693;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+}
 
 h5 {
   font-size: 13px;
   font-family: "Roboto";
   color: #0A5693;
-  letter-spacing: 0px; }
+  letter-spacing: 0px;
+}
 
 h6 {
   font-size: 12px;
   font-family: "Roboto";
   color: #0A5693;
-  letter-spacing: 0px; }
+  letter-spacing: 0px;
+}
 
 /* -------- CUSTOM -------- */
 .cover-big-title {
   font-size: 90px;
   font-family: "Roboto";
   font-weight: bold;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .copyright {
   font-size: 11px;
-  color: #16BBEA; }
+  color: #16BBEA;
+}
 
 /* -------- TEXT MODIFIERS -------- */
 .text-color-inverse {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+}
 
 .text-center {
-  text-align: center; }
+  text-align: center;
+}
+.text-center-inverse {
+  text-align: center;
+  color: #FFFFFF;
+}
 
 .text-left {
-  text-align: left; }
+  text-align: left;
+}
+.text-left-inverse {
+  text-align: left;
+  color: #FFFFFF;
+}
 
 .text-right {
-  text-align: right; }
+  text-align: right;
+}
+.text-right-inverse {
+  text-align: right;
+  color: #FFFFFF;
+}
 
 /* -------- COMPONENTS -------- */
 .btn-default {
   color: #555555;
-  font-weight: normal; }
+  font-weight: normal;
+}
 .btn-primary {
   color: #FFFFFF;
-  font-weight: normal; }
+  font-weight: normal;
+}
 .btn-success {
   color: #FFFFFF;
-  font-weight: normal; }
+  font-weight: normal;
+}
 .btn-info {
   color: #FFFFFF;
-  font-weight: normal; }
+  font-weight: normal;
+}
 .btn-warning {
   color: #FFFFFF;
-  font-weight: normal; }
+  font-weight: normal;
+}
 .btn-danger {
   color: #FFFFFF;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 .breadcrumb {
   color: #0A5693;
   font-size: 11px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /* -------------- */

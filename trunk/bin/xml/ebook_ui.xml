@@ -2,35 +2,34 @@
 <data>
 
 	<!-- --------------------- ProgressMeter ----------------------->
-
 	<component type="ProgressMeter"
-			depth="3"
-			className="com.unboxds.ebook.view.components::InteractiveBarMeter"
-			instanceName="progressMeter"
-			x="50"
-			y="596"
-			width="900"
-			height="4"
-			bgColor="0xFFFFFF"
-			bgColorAlpha=".75"
-			barColor="0x008E00"
-			barColorAlpha=".75"
-			secondaryBarColor="0x00A900"
-			secondaryBarColorAlpha=".75">
+			   depth="3"
+			   className="com.unboxds.ebook.view.components::InteractiveBarMeter"
+			   instanceName="progressMeter"
+			   x="50"
+			   y="596"
+			   width="900"
+			   height="4"
+			   bgColor="0xFFFFFF"
+			   bgColorAlpha=".75"
+			   barColor="0x008E00"
+			   barColorAlpha=".75"
+			   secondaryBarColor="0x00A900"
+			   secondaryBarColorAlpha=".75">
 
 		<content type="tooltip"
-				hook="true"
-				hookSize="20"
-				autoSize="true"
-				followCursor="true"
-				align="center"
-				cornerRadius="10"
-				showDelay="100"
-				hideDelay="0"
-				bgAlpha="1"
-				width="200"
-				colors="0x353535,0x353535"
-				padding="10">
+				 hook="true"
+				 hookSize="20"
+				 autoSize="true"
+				 followCursor="true"
+				 align="center"
+				 cornerRadius="10"
+				 showDelay="100"
+				 hideDelay="0"
+				 bgAlpha="1"
+				 width="200"
+				 colors="0x353535,0x353535"
+				 padding="10">
 
 			<content instanceName="progressCursor">
 				<title><![CDATA[<p class="text-color-inverse">Você está na página <b>{$progress} de {$max}</b></p>]]></title>
@@ -43,22 +42,21 @@
 	</component>
 
 	<!----------------------- NavBar ----------------------->
-
 	<component type="NavBar"
-			depth="4"
-			instanceName="navBar"
-			x="0"
-			y="0"
-			openX="0"
-			openY="0"
-			isKeyboardAvailable="true">
+			   depth="4"
+			   instanceName="navBar"
+			   x="0"
+			   y="0"
+			   openX="0"
+			   openY="0"
+			   isKeyboardAvailable="true">
 
 		<tween>
 			<tween id="nextBtn"
-					type="to"
-					target="nextBtn.btNextOver"
-					duration="1"
-					ease="Quint.easeIn">
+				   type="to"
+				   target="nextBtn.btNextOver"
+				   duration="1"
+				   ease="Quint.easeIn">
 				<vars>
 					<alpha>1</alpha>
 					<yoyo>true</yoyo>
@@ -68,18 +66,18 @@
 		</tween>
 
 		<content type="tooltip"
-				hook="true"
-				hookSize="20"
-				autoSize="true"
-				followCursor="true"
-				align="center"
-				cornerRadius="10"
-				showDelay="100"
-				hideDelay="0"
-				bgAlpha="1"
-				width="350"
-				colors="0x353535,0x353535"
-				padding="10">
+				 hook="true"
+				 hookSize="20"
+				 autoSize="true"
+				 followCursor="true"
+				 align="center"
+				 cornerRadius="10"
+				 showDelay="100"
+				 hideDelay="0"
+				 bgAlpha="1"
+				 width="350"
+				 colors="0x353535,0x353535"
+				 padding="10">
 
 			<content instanceName="helpBtn">
 				<body>
@@ -120,30 +118,29 @@
 		</content>
 
 		<component type="searchBox"
-				x="210"
-				y="0"
-				title=""
-				loadingMsg=""
-				minChars="3" />
+				   x="210"
+				   y="0"
+				   title=""
+				   loadingMsg=""
+				   minChars="3"/>
 
 	</component>
 
 	<!----------------------- Dashboard ----------------------->
-
 	<component type="Dashboard"
-			depth="0"
-			instanceName="dashboard"
-			x="0"
-			y="-480"
-			openX="0"
-			openY="0">
+			   depth="0"
+			   instanceName="dashboard"
+			   x="0"
+			   y="-480"
+			   openX="0"
+			   openY="0">
 
 		<tween>
 			<tween id="openTween"
-					type="to"
-					target=""
-					duration=".5"
-					ease="Expo.easeInOut">
+				   type="to"
+				   target=""
+				   duration=".5"
+				   ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -153,52 +150,51 @@
 		</tween>
 
 		<!----------------------- aboutPanel ----------------------->
-
 		<component type="aboutPanel"
-				title="Créditos //"
-				x="0"
-				y="0">
+				   title="Créditos //"
+				   x="0"
+				   y="0">
 
 			<content type="text">
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>COORDENAÇÃO</b></span></h4><p class="text-color-inverse">Davi Olcha Naizer<br>Kiko Fontoura</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>COORDENAÇÃO</b></span></h5><p class="text-color-inverse">Davi Olcha Naizer<br>Kiko Fontoura</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>DESIGN INSTRUCIONAL</b></span></h4><p class="text-color-inverse">Pamella Stadler</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>DESIGN INSTRUCIONAL</b></span></h5><p class="text-color-inverse">Pamella Stadler</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>PROJETO TÉCNICO E PROGRAMAÇÃO</b></span></h4><p class="text-color-inverse">Davi Olcha Naizer</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>PROJ. TÉCNICO E PROGRAMAÇÃO</b></span></h5><p class="text-color-inverse">Davi Olcha Naizer</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>PROJETO GRÁFICO</b></span></h4><p class="text-color-inverse">Leonardo Spolador</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>PROJETO GRÁFICO</b></span></h5><p class="text-color-inverse">Leonardo Spolador</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>PRODUÇÃO E DIAGRAMAÇÃO</b></span></h4><p class="text-color-inverse">Kiko Fontoura<br>Leonardo Spolador</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>PRODUÇÃO E DIAGRAMAÇÃO</b></span></h5><p class="text-color-inverse">Kiko Fontoura<br>Leonardo Spolador</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>ILUSTRAÇÃO E ANIMAÇÕES</b></span></h4><p class="text-color-inverse">Paulo Gomes<br>Shutterstock, Inc.</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>ILUSTRAÇÃO E ANIMAÇÕES</b></span></h5><p class="text-color-inverse">Paulo Gomes<br>Shutterstock, Inc.</p>]]>
 					</body>
 				</content>
 
 				<content>
 					<body>
-						<![CDATA[<h4><span class="text-color-inverse"><b>REVISÃO</b></span></h4><p class="text-color-inverse">Juliana Melendres</p>]]>
+						<![CDATA[<h5><span class="text-color-inverse"><b>REVISÃO</b></span></h5><p class="text-color-inverse">Pamella Stadler</p>]]>
 					</body>
 				</content>
 
@@ -214,30 +210,30 @@
 		<!----------------------- bookmarkPanel ----------------------->
 
 		<component type="bookmarkPanel"
-				title="Favoritos //"
-				x="0"
-				y="0">
+				   title="Favoritos //"
+				   x="0"
+				   y="0">
 
 			<component type="List"
-					name="bookmarkList"
-					x="50"
-					y="175"
-					width="900"
-					height="304"
-					columns="2"
-					rows="4"
-					spacing="1"
-					buildAnimStagger="0.05" />
+					   name="bookmarkList"
+					   x="50"
+					   y="175"
+					   width="900"
+					   height="304"
+					   columns="2"
+					   rows="4"
+					   spacing="1"
+					   buildAnimStagger="0.05"/>
 			<component type="Scrollbar"
-					x="950"
-					y="175"
-					width="2"
-					height="304"
-					scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0"
-					thumbColor="0x333333"
-					thumbColorAlpha="1"
-					autoHideThumb="true" />
+					   x="950"
+					   y="175"
+					   width="2"
+					   height="304"
+					   scrollbarColor="0xFFFFFF"
+					   scrollbarColorAlpha="0"
+					   thumbColor="0x333333"
+					   thumbColorAlpha="1"
+					   autoHideThumb="true"/>
 
 			<content type="text">
 				<content instanceName="titleTxt">
@@ -263,148 +259,148 @@
 		<!----------------------- indexPanel ----------------------->
 
 		<component type="indexPanel"
-				title="Índice //"
-				x="0"
-				y="0">
+				   title="Índice //"
+				   x="0"
+				   y="0">
 
 			<component type="List"
-					name="menuList"
-					x="50"
-					y="175"
-					width="460"
-					height="304"
-					columns="1"
-					rows="4"
-					spacing="1"
-					buildAnimStagger="0.05" />
+					   name="menuList"
+					   x="50"
+					   y="175"
+					   width="460"
+					   height="304"
+					   columns="1"
+					   rows="4"
+					   spacing="1"
+					   buildAnimStagger="0.05"/>
 			<component type="Scrollbar"
-					x="47"
-					y="175"
-					width="2"
-					height="304"
-					scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0"
-					thumbColor="0xFFFFFF"
-					thumbColorAlpha="1"
-					autoHideThumb="true" />
+					   x="47"
+					   y="175"
+					   width="2"
+					   height="304"
+					   scrollbarColor="0xFFFFFF"
+					   scrollbarColorAlpha="0"
+					   thumbColor="0xFFFFFF"
+					   thumbColorAlpha="1"
+					   autoHideThumb="true"/>
 
 			<component type="List"
-					name="submenuList"
-					x="500"
-					y="175"
-					width="450"
-					height="304"
-					columns="1"
-					rows="4"
-					spacing="1"
-					buildAnimStagger="0.05" />
+					   name="submenuList"
+					   x="500"
+					   y="175"
+					   width="450"
+					   height="304"
+					   columns="1"
+					   rows="4"
+					   spacing="1"
+					   buildAnimStagger="0.05"/>
 			<component type="Scrollbar"
-					x="951"
-					y="175"
-					width="2"
-					height="304"
-					scrollbarColor="0xFFFFFF"
-					scrollbarColorAlpha="0"
-					thumbColor="0xFFFFFF"
-					thumbColorAlpha="1"
-					autoHideThumb="true" />
+					   x="951"
+					   y="175"
+					   width="2"
+					   height="304"
+					   scrollbarColor="0xFFFFFF"
+					   scrollbarColorAlpha="0"
+					   thumbColor="0xFFFFFF"
+					   thumbColorAlpha="1"
+					   autoHideThumb="true"/>
 
 			<component type="menu">
 
 				<!-- MODULE 0 -->
 				<content pageID="index/nav/module_00/M_00_P_00"
-						lastPageID="index/nav/module_00/M_00_P_04">
+						 lastPageID="index/nav/module_00/M_00_P_04">
 					<title>
 						<![CDATA[<p class="btn-primary">01. Tipografia</p>]]>
 					</title>
 
 					<content pageID="index/nav/module_00/M_00_P_01"
-							lastPageID="index/nav/module_00/M_00_P_01">
+							 lastPageID="index/nav/module_00/M_00_P_01">
 						<title>
-							<![CDATA[<p class="btn-primary">01. Diagramação 1</p>]]>
+							<![CDATA[<p class="btn-primary">01. Títulos</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_00/M_00_P_02"
-							lastPageID="index/nav/module_00/M_00_P_02">
+							 lastPageID="index/nav/module_00/M_00_P_02">
 						<title>
-							<![CDATA[<p class="btn-primary">02. Diagramação 2</p>]]>
+							<![CDATA[<p class="btn-primary">02. Parágrafos</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_00/M_00_P_03"
-							lastPageID="index/nav/module_00/M_00_P_03">
+							 lastPageID="index/nav/module_00/M_00_P_03">
 						<title>
-							<![CDATA[<p class="btn-primary">03. Diagramação 3</p>]]>
+							<![CDATA[<p class="btn-primary">03. Alinhamentos</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_00/M_00_P_04"
-							lastPageID="index/nav/module_00/M_00_P_04">
+							 lastPageID="index/nav/module_00/M_00_P_04">
 						<title>
-							<![CDATA[<p class="btn-primary">04. Diagramação 4</p>]]>
+							<![CDATA[<p class="btn-primary">04. Listas</p>]]>
 						</title>
 					</content>
 				</content>
 
 				<!-- MODULE 1 -->
 				<content pageID="index/nav/module_01/M_01_P_00"
-						lastPageID="index/nav/module_01/M_01_P_07">
+						 lastPageID="index/nav/module_01/M_01_P_08">
 					<title>
 						<![CDATA[<p class="btn-primary">02. Components de Interface</p>]]>
 					</title>
 
-					<content pageID="index/nav/module_01/M_01_P_00"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_01"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">01. Imagens</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_01"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_02"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">02. Links</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_02"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_03"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">03. Navegação</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_03"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_04"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Botões</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_04"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_05"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Texto</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_05"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_06"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Tooltips</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_06"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_07"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Variáveis</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_06"
-							lastPageID="index/nav/module_01/M_01_P_07">
+					<content pageID="index/nav/module_01/M_01_P_08"
+							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Tween - Animações</p>]]>
 						</title>
@@ -413,20 +409,20 @@
 
 				<!-- MODULE 2 -->
 				<content pageID="index/nav/module_02/M_02_P_00"
-						lastPageID="index/nav/module_02/M_02_P_00">
+						 lastPageID="index/nav/module_02/M_02_P_00">
 					<title>
 						<![CDATA[<p class="btn-primary">03. Animações / Tweens</p>]]>
 					</title>
 
 					<content pageID="index/nav/module_02/M_02_P_00"
-							lastPageID="index/nav/module_02/M_02_P_00">
+							 lastPageID="index/nav/module_02/M_02_P_00">
 						<title>
 							<![CDATA[<p class="btn-primary">01. Movimento</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_02/M_02_P_00"
-							lastPageID="index/nav/module_02/M_02_P_00">
+							 lastPageID="index/nav/module_02/M_02_P_00">
 						<title>
 							<![CDATA[<p class="btn-primary">02. Transformação</p>]]>
 						</title>
@@ -446,18 +442,18 @@
 		</component>
 
 		<content type="tooltip"
-				hook="true"
-				hookSize="20"
-				autoSize="true"
-				followCursor="true"
-				align="center"
-				corcornerRadius="10"
-				showDelay="100"
-				hideDelay="0"
-				bgAlpha="1"
-				width="350"
-				colors="0x333333,0x333333"
-				padding="10">
+				 hook="true"
+				 hookSize="20"
+				 autoSize="true"
+				 followCursor="true"
+				 align="center"
+				 corcornerRadius="10"
+				 showDelay="100"
+				 hideDelay="0"
+				 bgAlpha="1"
+				 width="350"
+				 colors="0x333333,0x333333"
+				 padding="10">
 			<content instanceName="indexBtn">
 				<body>
 					<![CDATA[<p class="text-color-inverse">Índice</p>]]>
@@ -482,17 +478,17 @@
 	<!----------------------- HelpPanel ----------------------->
 
 	<component type="HelpPanel"
-			depth="1"
-			instanceName="helpPanel"
-			x="0"
-			y="-480">
+			   depth="1"
+			   instanceName="helpPanel"
+			   x="0"
+			   y="-480">
 
 		<tween>
 			<tween id="openTween"
-					type="to"
-					target=""
-					duration=".5"
-					ease="Expo.easeInOut">
+				   type="to"
+				   target=""
+				   duration=".5"
+				   ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -516,7 +512,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<h4><span class="text-color-inverse">Barra de Navegação</span></h4>]]>
+					<![CDATA[<h5><span class="text-color-inverse">BARRA DE NAVEGAÇÃO</span></h5>]]>
 				</body>
 			</content>
 
@@ -525,7 +521,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<h4><span class="text-color-inverse">Painel de Menu</span></h4>]]>
+					<![CDATA[<h5><span class="text-color-inverse">PAINEL DE MENU</span></h5>]]>
 				</body>
 			</content>
 
@@ -534,7 +530,7 @@
 
 				</vars>
 				<body>
-					<![CDATA[<h4><span class="text-color-inverse">Conteúdo</span></h4>]]>
+					<![CDATA[<h5><span class="text-color-inverse">CONTEÚDO</span></h5>]]>
 				</body>
 			</content>
 
@@ -658,19 +654,19 @@
 	<!----------------------- SearchPanel ----------------------->
 
 	<component type="SearchPanel"
-			depth="2"
-			instanceName="searchPanel"
-			x="0"
-			y="-480"
-			title="Busca //"
-			summaryLength="50">
+			   depth="2"
+			   instanceName="searchPanel"
+			   x="0"
+			   y="-480"
+			   title="Busca //"
+			   summaryLength="50">
 
 		<tween>
 			<tween id="openTween"
-					type="to"
-					target=""
-					duration=".5"
-					ease="Expo.easeInOut">
+				   type="to"
+				   target=""
+				   duration=".5"
+				   ease="Expo.easeInOut">
 				<vars>
 					<x>0</x>
 					<y>0</y>
@@ -680,25 +676,25 @@
 		</tween>
 
 		<component type="List"
-				name="searchList"
-				x="50"
-				y="175"
-				width="900"
-				height="304"
-				columns="2"
-				rows="4"
-				spacing="1"
-				buildAnimStagger="0.05" />
+				   name="searchList"
+				   x="50"
+				   y="175"
+				   width="900"
+				   height="304"
+				   columns="2"
+				   rows="4"
+				   spacing="1"
+				   buildAnimStagger="0.05"/>
 		<component type="Scrollbar"
-				x="951"
-				y="175"
-				width="2"
-				height="304"
-				scrollbarColor="0xFFFFFF"
-				scrollbarColorAlpha="0"
-				thumbColor="0xFFFFFF"
-				thumbColorAlpha="1"
-				autoHideThumb="true" />
+				   x="951"
+				   y="175"
+				   width="2"
+				   height="304"
+				   scrollbarColor="0xFFFFFF"
+				   scrollbarColorAlpha="0"
+				   thumbColor="0xFFFFFF"
+				   thumbColorAlpha="1"
+				   autoHideThumb="true"/>
 
 		<content type="text">
 			<content instanceName="titleTxt">
@@ -730,10 +726,10 @@
 
 	<tween>
 		<tween id="contentTween"
-				type="to"
-				target=""
-				duration=".5"
-				ease="Linear.easeNone">
+			   type="to"
+			   target=""
+			   duration=".5"
+			   ease="Linear.easeNone">
 			<vars>
 				<blurFilter>
 					<blurX>8</blurX>
