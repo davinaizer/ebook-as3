@@ -83,7 +83,9 @@ package com.unboxds.ebook
 
 		private function navHandler(page:PageVO):void
 		{
+			Logger.log("----------------- PAGE LOADED -----------------");
 			Logger.log(page.toString());
+
 			Gaia.api.goto(page.branch);
 
 			if (model.dataServiceType == ServiceConstants.LOCAL_STORAGE && navModel.getCurrentPage().branch != page.branch)

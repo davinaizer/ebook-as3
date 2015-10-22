@@ -347,13 +347,13 @@
 				<content pageID="index/nav/module_01/M_01_P_00"
 						 lastPageID="index/nav/module_01/M_01_P_08">
 					<title>
-						<![CDATA[<p class="btn-primary">02. Components de Interface</p>]]>
+						<![CDATA[<p class="btn-primary">02. Componentes de Conteúdo</p>]]>
 					</title>
 
 					<content pageID="index/nav/module_01/M_01_P_01"
 							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
-							<![CDATA[<p class="btn-primary">01. Imagens</p>]]>
+							<![CDATA[<p class="btn-primary">01. Imagens externas</p>]]>
 						</title>
 					</content>
 

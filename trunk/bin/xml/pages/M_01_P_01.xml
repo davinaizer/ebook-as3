@@ -10,7 +10,7 @@
 				<height>26</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<p class="breadcrumb">00. NOME DO CAPÍTULO</p>]]></body>
+			<body><![CDATA[<p class="breadcrumb">02. COMPONENTES DE CONTEÚDO</p>]]></body>
 		</content>
 
 		<content instanceName="text_1">
@@ -21,38 +21,66 @@
 				<height>67</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<h1>Título da Página</h1>]]></body>
+			<body><![CDATA[<h1>Imagens via XML</h1>]]></body>
 		</content>
 
 		<content instanceName="text_2">
 			<vars>
 				<x>50</x>
-				<y>200</y>
+				<y>180</y>
 				<width>430</width>
 				<height>160</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[
-			<p>Exemplo de imagem carregada via XML<br><br>
-			&lt;content type="image"&gt;<br>
-				&lt;content src="imgs/plane_takeoff.jpg" target="image_0" x="0" y="0"/&gt;<br>
-				&lt;content src="imgs/aeromoca.png" target="image_0" x="700" y="-250"/&gt;<br>
+			<body><![CDATA[<p>
+			&lt;content type="image" target=""&gt;<br>
+				&lt;content src="imgs/plane_takeoff.jpg" target="image_0.bg" x="0" y="0"/&gt;<br>
+				&lt;content src="imgs/aeromoca.png" target="" x="700" y="250"/&gt;<br>
 			&lt;/content&gt;
+			<br><br>
+			- O posicionamento da imagem é relativo ao objeto onde ela está contida.<br>
+			- Se nenhum <b>target</b> for especificado, <b>stage</b> é usado.<br>
+			- É possível especificar <b>target</b> principal na a tag pai. Nesse caso o <b>target</b> é aplicado como raiz para os outros <b>targets</b>.<br>
+			- Para objetos aninhados use <i>dot nation</i>, ex: target="root.img_0.bg"
+			</p>]]></body>
+		</content>
+
+		<content instanceName="text_3">
+			<vars>
+				<x>520</x>
+				<y>180</y>
+				<width>430</width>
+				<height>160</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p>
+			- As imagens aceitam a tag VARS para modificar suas propriedades.<br>
+			- Utilize a tag blendMode em VARS para fazer filtros tipo: multiply, screen, overlay, etc.
 			</p>]]></body>
 		</content>
 
 	</content>
 
-	<content type="image">
+	<content type="image"
+			 target="image_0">
+
 		<content src="imgs/plane_takeoff.jpg"
-				 target="image_0"
+				 target="bg"
 				 x="0"
-				 y="0"/>
+				 y="0">
+			<vars>
+				<alpha>.75</alpha>
+			</vars>
+		</content>
 
 		<content src="imgs/aeromoca.png"
-				 target="image_0"
+				 target=""
 				 x="700"
-				 y="-250"/>
+				 y="-50">
+			<vars>
+				<blendMode>invert</blendMode>
+			</vars>
+		</content>
 	</content>
 
 </data>
