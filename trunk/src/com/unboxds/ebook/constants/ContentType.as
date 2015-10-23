@@ -12,15 +12,16 @@ package com.unboxds.ebook.constants
 		public static const NAVMENU:String = "navmenu";
 		public static const NAVIGATION:String = "navigation";
 		public static const SIMPLEBUTTON:String = "simplebutton";
+		public static const BUTTON:String = "button";
 		public static const TEXTFIELD:String = "text";
 		public static const TOOLTIP:String = "tooltip";
 		public static const VARIABLES:String = "vars";
 		
 		public function ContentType()
 		{
-		
+
 		}
-	
+
 	}
 
 }

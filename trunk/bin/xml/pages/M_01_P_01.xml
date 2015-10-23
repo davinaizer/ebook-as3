@@ -4,7 +4,7 @@
 	<content type="text">
 		<content instanceName="text_0">
 			<vars>
-				<x>48</x>
+				<x>50</x>
 				<y>96</y>
 				<width>259</width>
 				<height>26</height>
@@ -15,7 +15,7 @@
 
 		<content instanceName="text_1">
 			<vars>
-				<x>48</x>
+				<x>50</x>
 				<y>115</y>
 				<width>319</width>
 				<height>67</height>
@@ -78,7 +78,7 @@
 				 x="700"
 				 y="-50">
 			<vars>
-				<blendMode>invert</blendMode>
+				<blendMode>multiply</blendMode>
 			</vars>
 		</content>
 	</content>

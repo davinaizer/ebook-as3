@@ -48,9 +48,9 @@ package com.unboxds.ebook.view.parser
 			var src:DisplayObject = e.target as DisplayObject;
 			var srcName:String = src.name;
 			var index:int = parseInt(srcName.split("_")[1]);
-			var links:XMLList = contentXML.content.(@type == ContentType.LINK);
-
-			LinkUtils.openLink(links.content[index].body.toString());
+			var linkData:String = contentXML.content[index].body.toString();
+			
+			LinkUtils.openLink(linkData);
 		}
 	}
 }

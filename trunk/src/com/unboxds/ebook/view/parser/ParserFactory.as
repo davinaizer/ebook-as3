@@ -27,6 +27,7 @@ package com.unboxds.ebook.view.parser
 					return new TooltipParser();
 					break;
 
+				case ContentType.BUTTON:
 				case ContentType.SIMPLEBUTTON:
 					return new SimpleButtonParser();
 					break;
