@@ -70,6 +70,16 @@
 			addEventListener(Event.ADDED_TO_STAGE, onAdded);
 		}
 
+		private function onAdded(e:Event):void
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
+
+			init();
+			initEvents();
+			parseContent();
+			cacheData();
+		}
+
 		public function init():void
 		{
 			Logger.log("SearchPanel.init");
@@ -131,7 +141,16 @@
 			openTween = TweenParser.getTweenFromXML(view, tweenData[0]);
 			openTween.addEventListener(TweenEvent.COMPLETE, onCompleteShow);
 			openTween.addEventListener(TweenEvent.REVERSE_COMPLETE, onCompleteHide);
+		}
 
+		private function initEvents():void
+		{
+			this.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel, false, 0, true);
+			view.addEventListener(MouseEvent.CLICK, navHandler, false, 0, true);
+		}
+
+		private function cacheData():void
+		{
 			//-- load XML and INDEX XML files
 			var queue:LoaderMax = new LoaderMax({
 				name: "mainQueue",
@@ -146,6 +165,41 @@
 			queue.load();
 		}
 
+		private function completeHandler(event:LoaderEvent):void
+		{
+			Logger.log("SearchPanel.completeHandler!");
+
+			for (var i:int = 0; i < pages.length; ++i)
+			{
+				var xml:XML = LoaderMax.getContent("contentXML_" + i);
+				if (xml != null)
+				{
+					//-- remove non-content nodes
+					delete xml..tween.*;
+					delete xml..vars.*;
+					delete xml..action.*;
+					delete xml..config.*;
+
+					var str:String = xml.toString();
+					str = StringUtils.stripTags(str);
+					str = StringUtils.remove(str, "]]>");
+					str = StringUtils.removeExtraWhitespace(str);
+
+					contentBuffer.push(str);
+				}
+			}
+			Logger.log("SearchPanel >> TIME TO LOAD AND PROCESS " + pages.length + " FILES: " + (getTimer() - iniTimer) + "ms");
+			Logger.log("------------------------------------------------------------------------------");
+
+			dispatchEvent(new SearchEvent(SearchEvent.INDEX_COMPLETE));
+		}
+
+		private function errorHandler(event:LoaderEvent):void
+		{
+			Logger.log("error occured with " + event.target + ": " + event.text);
+		}
+
+		//------------------------
 		public function search(keyword:String):void
 		{
 			Logger.log("SearchPanel.search > keyword : " + keyword);
@@ -186,12 +240,6 @@
 
 			list.insert(page.index, com.unboxds.utils.StringUtils.parseTextVars(itemLabel, this));
 			list.update(page.index);
-		}
-
-		private function initEvents():void
-		{
-			this.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel, false, 0, true);
-			view.addEventListener(MouseEvent.CLICK, navHandler, false, 0, true);
 		}
 
 		private function onListChange(listP:List):void
@@ -306,15 +354,6 @@
 			return tmpStr;
 		}
 
-		private function onAdded(e:Event):void
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
-
-			init();
-			initEvents();
-			parseContent();
-		}
-
 		private function onMouseWheel(e:MouseEvent):void
 		{
 			e.delta > 0 ? list.backPage() : list.nextPage();
@@ -331,39 +370,6 @@
 			{
 				list.backPage();
 			}
-		}
-
-		private function completeHandler(event:LoaderEvent):void
-		{
-			Logger.log("SearchPanel.completeHandler!");
-
-			for (var i:int = 0; i < pages.length; ++i)
-			{
-				var xml:XML = LoaderMax.getContent("contentXML_" + i);
-				if (xml != null)
-				{
-					//-- remove non-content nodes
-					delete xml..tween.*;
-					delete xml..vars.*;
-					delete xml..action.*;
-					delete xml..config.*;
-
-					var str:String = xml.toString();
-					str = StringUtils.stripTags(str);
-					str = StringUtils.removeExtraWhitespace(str);
-
-					contentBuffer.push(str);
-				}
-			}
-
-			Logger.log("SearchPanel >> TIME TO LOAD AND PROCESS " + pages.length + " FILES: " + (getTimer() - iniTimer) + "ms");
-
-			dispatchEvent(new SearchEvent(SearchEvent.INDEX_COMPLETE));
-		}
-
-		private function errorHandler(event:LoaderEvent):void
-		{
-			Logger.log("error occured with " + event.target + ": " + event.text);
 		}
 
 		public override function show():void
