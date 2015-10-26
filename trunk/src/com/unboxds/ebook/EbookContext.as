@@ -59,7 +59,7 @@ package com.unboxds.ebook
 			model.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
 			model.enableDebugPanel = data.config.@enableDebugPanel == "true";
 			model.version = data.config.@version;
-
+			model.outputXMLContent = data.config.@outputXMLContent== "true";
 			model.activitiesMaxScore = ArrayUtils.toNumber(data.config.activities.maxScore.toString().split(","));
 			model.activitiesStatus = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
 			model.activitiesUserScore = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);

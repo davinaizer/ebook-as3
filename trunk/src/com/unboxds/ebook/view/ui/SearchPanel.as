@@ -160,7 +160,7 @@
 			for (var i:int = 0; i < pageCount; ++i)
 			{
 				if (pages[i].contentURL != null && pages[i].contentURL != "")
-					queue.append(new XMLLoader(pages[i].contentURL, {name: "contentXML_" + i, maxConnections: 3}));
+					queue.append(new XMLLoader(pages[i].contentURL, {name: "contentXML_" + i, maxConnections: 1}));
 			}
 			queue.load();
 		}
@@ -181,6 +181,15 @@
 					delete xml..config.*;
 
 					var str:String = xml.toString();
+
+					// Check if should export all content XML to Console. Useful to export the content to PDF or DOC.
+					if (EbookApi.getEbookModel().outputXMLContent){
+						var xmlContent:String = StringUtils.remove(str, "<![CDATA[");
+						xmlContent = StringUtils.remove(xmlContent, "]]>");
+						Logger.log("<hr>" + pages[i].branch + " :: Página " + (i + 1) + " de " + pages.length + "<br><br>" + xmlContent);
+					}
+
+
 					str = StringUtils.stripTags(str);
 					str = StringUtils.remove(str, "]]>");
 					str = StringUtils.removeExtraWhitespace(str);

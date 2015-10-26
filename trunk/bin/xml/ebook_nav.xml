@@ -12,6 +12,7 @@
 		 enableAlerts: true | false
 		 consultMode: true | false
 		 dataServiceType: LocalStorage | ScormServer
+		 outputXMLContent :true | false // Only use this option for outputting content. This should not be used in Final Version. It slows down the ebook loading.
 		 scormReplaceDoubleQuotes: true | false // for compatibility among LMSs. Some accept only double quotes, other single.
 	-->
 
@@ -20,6 +21,7 @@
 			dataServiceType="LocalStorage"
 			scormReplaceDoubleQuotes="false"
 			enableDebugPanel="true"
+			outputXMLContent = "true"
 			version="eBookAS_V3">
 		<activities>
 			<maxScore>1,1,1,1</maxScore>

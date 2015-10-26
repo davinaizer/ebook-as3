@@ -22,6 +22,7 @@
 		private var _isConsultMode:Boolean;
 		private var _enableAlerts:Boolean;
 		private var _enableDebugPanel:Boolean;
+		private var _outputXMLContent:Boolean
 
 		//-- Ebook State
 		private var _version:String;
@@ -439,6 +440,16 @@
 		public function toString():String
 		{
 			return ObjectUtils.toString(this);
+		}
+
+		public function get outputXMLContent():Boolean
+		{
+			return _outputXMLContent;
+		}
+
+		public function set outputXMLContent(value:Boolean):void
+		{
+			_outputXMLContent = value;
 		}
 	}
 }
