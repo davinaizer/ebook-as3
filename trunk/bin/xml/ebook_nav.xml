@@ -21,7 +21,7 @@
 			dataServiceType="LocalStorage"
 			scormReplaceDoubleQuotes="false"
 			enableDebugPanel="true"
-			outputXMLContent = "true"
+			outputXMLContent = "false"
 			version="eBookAS_V3">
 		<activities>
 			<maxScore>1,1,1,1</maxScore>

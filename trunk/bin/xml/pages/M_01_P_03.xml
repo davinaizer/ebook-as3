@@ -10,18 +10,74 @@
 				<height>26</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<p class="breadcrumb">00. NOME DO CAPÍTULO</p>]]></body>
+			<body><![CDATA[<p class="breadcrumb">02. COMPONENTES DE CONTEÚDO</p>]]></body>
 		</content>
+
 		<content instanceName="text_1">
 			<vars>
 				<x>50</x>
 				<y>115</y>
-				<width>319</width>
+				<width>500</width>
 				<height>67</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<h1>Título da Página</h1>]]></body>
+			<body><![CDATA[<h1>Controle da Navegação</h1>]]></body>
 		</content>
+
+		<content instanceName="text_2">
+			<vars>
+				<x>50</x>
+				<y>180</y>
+				<width>430</width>
+				<height>160</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p>
+			O <i>framework</i> é capaz de interpretar modifição do corpotamento de navagação por meio do seguinte bloco de XML:
+			<br>
+			<br>
+			&lt;content type="navigation"&gt;<br>
+			&#09;&lt;action type="nextPage"&gt;<br>
+				&#09;&#09;&lt;value&gt;index/nav/module_01/M_01_P_04&lt;/value&gt;<br>
+			&#09;&lt;/action&gt;<br>
+			<br>
+			&#09;&lt;action type="backPage"&gt;<br>
+				&#09;&#09;&lt;value&gt;index/nav/module_01/M_01_P_02&lt;/value&gt;<br>
+			&#09;&lt;/action&gt;<br>
+		&lt;/content&gt;
+			</p>]]></body>
+		</content>
+
+		<content instanceName="text_3">
+			<vars>
+				<x>520</x>
+				<y>180</y>
+				<width>430</width>
+				<height>160</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p>
+			Os comandos podem ser usados independetemente.<br>
+			<b>onBeforeBackPage</b>: Navega para página especificada na tag VALUE quando clicado o botao de <b>VOLTAR</b> do treinamento.<br>
+			<br>
+			<b>onBeforeNextPage</b>: Navega para página especificada na tag VALUE quando clicado o botao de <b>AVANÇAR</b> do treinamento.<br>
+			<br>
+			Para fins didáticos, o bloco de navegaçao para esta  página foi comentado.
+			</p>]]></body>
+		</content>
+
 	</content>
+
+	<!--
+	<content type="navigation">
+		<action type="nextPage">
+			<value>index/nav/module_01/M_01_P_04</value>
+		</action>
+
+		<action type="backPage">
+			<value>index/nav/module_01/M_01_P_02</value>
+		</action>
+	</content>
+	-->
 
 </data>

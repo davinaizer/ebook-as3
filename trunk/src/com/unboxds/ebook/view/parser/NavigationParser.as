@@ -27,11 +27,11 @@ package com.unboxds.ebook.view.parser
 
 				switch (type)
 				{
-					case "onBeforeNextPage":
+					case "nextPage":
 						EbookApi.getNavController().onBeforeNextPage = this.onBeforeNextPage;
 						break;
 
-					case "onBeforeBackPage":
+					case "backPage":
 						EbookApi.getNavController().onBeforeBackPage = this.onBeforeBackPage;
 						break;
 				}
