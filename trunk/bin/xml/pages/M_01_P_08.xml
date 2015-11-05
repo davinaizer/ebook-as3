@@ -2,6 +2,7 @@
 <data>
 
 	<content type="text">
+
 		<content instanceName="text_0">
 			<vars>
 				<x>50</x>
@@ -10,18 +11,122 @@
 				<height>26</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<p class="breadcrumb">00. NOME DO CAPÍTULO</p>]]></body>
+			<body><![CDATA[<p class="breadcrumb">02. COMPONENTES DE CONTEÚDO</p>]]></body>
 		</content>
+
 		<content instanceName="text_1">
 			<vars>
 				<x>50</x>
 				<y>115</y>
-				<width>319</width>
+				<width>500</width>
 				<height>67</height>
 				<autoSize>left</autoSize>
 			</vars>
-			<body><![CDATA[<h1>Título da Página</h1>]]></body>
+			<body><![CDATA[<h1>Tweens - Animações</h1>]]></body>
 		</content>
+
+		<content instanceName="text_2">
+			<vars>
+				<x>50</x>
+				<y>180</y>
+				<width>430</width>
+				<height>160</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p>
+			Para movimentar objetos, basta alterar a propriedade X e Y. Porém a classe TweenParser aceita posicionamento relativo do stage por meio da classe ALIGN.<br>
+			<br>
+			<b>align</b>: T (Top), TC (Top Center), TR (Top Right), TL (Top Left), C (Center), B (Bottom), BL (Bottom Left), BC (Bottom Center), BR (Bottom Right), LC (Left Center), RC (Right Center), CH (Center Horizontally), CV (Center Vertically).<br>
+			<br>
+			<b>mode</b>: INSIDE, OUTSIDE
+			</p>]]></body>
+		</content>
+
+		<content instanceName="text_3">
+			<vars>
+				<x>520</x>
+				<y>180</y>
+				<width>430</width>
+				<height>160</height>
+				<autoSize>left</autoSize>
+			</vars>
+			<body><![CDATA[<p>
+			</p>]]></body>
+		</content>
+
 	</content>
+
+	<tween>
+		<tween type="from"
+				target="shape_0"
+				duration="2"
+				ease="Strong.easeInOut">
+			<vars>
+				<align>
+					<align>L</align>
+					<mode>OUTSIDE</mode>
+				</align>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+		<tween type="from"
+				target="shape_1"
+				duration="2"
+				ease="Strong.easeInOut">
+			<vars>
+				<align>
+					<align>R</align>
+					<mode>OUTSIDE</mode>
+				</align>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+		<tween type="from"
+				target="shape_2"
+				duration="2"
+				ease="Strong.easeInOut">
+			<vars>
+				<align>
+					<align>T</align>
+					<mode>OUTSIDE</mode>
+				</align>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+		<tween type="from"
+				target="shape_3"
+				duration="2"
+				ease="Strong.easeInOut">
+			<vars>
+				<align>
+					<align>B</align>
+					<mode>OUTSIDE</mode>
+				</align>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+		<tween type="from"
+				target="shape_4"
+				duration="2"
+				ease="Strong.easeInOut">
+			<vars>
+				<align>
+					<align>C</align>
+					<mode>INSIDE</mode>
+				</align>
+				<yoyo>true</yoyo>
+				<repeat>-1</repeat>
+			</vars>
+		</tween>
+
+	</tween>
 
 </data>
