@@ -351,58 +351,58 @@
 					</title>
 
 					<content pageID="index/nav/module_01/M_01_P_01"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_01">
 						<title>
 							<![CDATA[<p class="btn-primary">01. Imagens externas</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_02"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_02">
 						<title>
 							<![CDATA[<p class="btn-primary">02. Links</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_03"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_03">
 						<title>
 							<![CDATA[<p class="btn-primary">03. Navegação</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_04"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_04">
 						<title>
 							<![CDATA[<p class="btn-primary">04. Botões</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_05"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_05">
 						<title>
-							<![CDATA[<p class="btn-primary">04. Texto</p>]]>
+							<![CDATA[<p class="btn-primary">05. Tooltips</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_06"
-							 lastPageID="index/nav/module_01/M_01_P_08">
+							 lastPageID="index/nav/module_01/M_01_P_06">
 						<title>
-							<![CDATA[<p class="btn-primary">04. Tooltips</p>]]>
+							<![CDATA[<p class="btn-primary">06. Variáveis</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_07"
 							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
-							<![CDATA[<p class="btn-primary">04. Variáveis</p>]]>
+							<![CDATA[<p class="btn-primary">07. Tween - Animações 1</p>]]>
 						</title>
 					</content>
 
 					<content pageID="index/nav/module_01/M_01_P_08"
 							 lastPageID="index/nav/module_01/M_01_P_08">
 						<title>
-							<![CDATA[<p class="btn-primary">04. Tween - Animações</p>]]>
+							<![CDATA[<p class="btn-primary">08. Tween - Animações 2</p>]]>
 						</title>
 					</content>
 				</content>

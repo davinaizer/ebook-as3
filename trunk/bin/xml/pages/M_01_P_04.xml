@@ -33,6 +33,16 @@
 				<autoSize>left</autoSize>
 			</vars>
 			<body><![CDATA[<p>
+			O mesmo padrao utilizado no Bootstrap se aplica aos botões do eBook Framework:<br>
+			<ul>
+				<li>btn-default</li>
+				<li>btn-primary</li>
+				<li>btn-success</li>
+				<li>btn-info</li>
+				<li>btn-warning</li>
+				<li>btn-danger</li>
+			</ul>
+			No momento, somente a cor do texto pode ser alterado via CSS.
 			</p>]]></body>
 		</content>
 

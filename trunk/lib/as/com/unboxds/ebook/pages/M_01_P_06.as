@@ -1,6 +1,7 @@
 package com.unboxds.ebook.pages
 {
 	import com.gaiaframework.api.Gaia;
+	import com.unboxds.ebook.EbookApi;
 
 	/**
 	 * ...
@@ -9,10 +10,15 @@ package com.unboxds.ebook.pages
 
 	public class M_01_P_06 extends EbookPage
 	{
+		public var userName:String;
+		public var today:Date;
+
 		public function M_01_P_06()
 		{
 			super();
 			alpha = 0;
+			userName = EbookApi.getEbookModel().studentName;
+			today = new Date();
 		}
 
 		override public function transitionIn():void
