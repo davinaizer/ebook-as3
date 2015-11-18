@@ -23,3 +23,9 @@
 	- remove Gaia dependency
 	- Log Levels
 	- Criar navegador estilo PLAYBOOK GOOGLE
+
+- Fix ScormDataService
+- Implement new animation system. When TweenParser runs, store all Tweens created to be used inside EbookPage.as
+- Reduce pages filesize.
+- Eliminate textfield inside FLA. Create from ContentParser.
+- Create Dynamic CssButton. Create Interace for base button.

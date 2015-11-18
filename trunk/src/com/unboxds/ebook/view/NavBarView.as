@@ -1,4 +1,4 @@
-package com.unboxds.ebook.view
+﻿package com.unboxds.ebook.view
 {
 	import assets.NavbarSymbol;
 
@@ -112,7 +112,7 @@ package com.unboxds.ebook.view
 
 		public function enableNextButton(value:Boolean = true):void
 		{
-			tweenNextBtn.currentTime = 0;
+			tweenNextBtn.seek(0);
 			tweenNextBtn.pause();
 
 			if (value)

@@ -1,11 +1,0 @@
-Compile Log...
-
--------------------- LOG RESULTS --------------------
-file:///USERS_HD/Projects/UNBOX/eBookAS/trunk/lib/fla/content/pages/M_02_P_00.fla
-
-	Processing file: file:///USERS_HD/Projects/UNBOX/eBookAS/trunk/lib/fla/content/pages/M_02_P_00.fla0 Error(s), 0 Warning(s)
-
--------------------- LOG RESULTS --------------------
-file:///USERS_HD/Projects/UNBOX/eBookAS/trunk/lib/fla/content/pages/M_02_P_01.fla
-
-	Processing file: file:///USERS_HD/Projects/UNBOX/eBookAS/trunk/lib/fla/content/pages/M_02_P_00.flaProcessing file: file:///USERS_HD/Projects/UNBOX/eBookAS/trunk/lib/fla/content/pages/M_02_P_01.fla0 Error(s), 0 Warning(s)

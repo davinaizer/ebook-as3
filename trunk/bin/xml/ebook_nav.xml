@@ -21,7 +21,7 @@
 			dataServiceType="LocalStorage"
 			scormReplaceDoubleQuotes="false"
 			enableDebugPanel="true"
-			outputXMLContent = "false"
+			outputXMLContent="false"
 			version="eBookAS_V3">
 		<activities>
 			<maxScore>1,1,1,1</maxScore>
@@ -238,16 +238,16 @@
 				</page>
 
 				<page id="M_01_P_08"
-					  src="content/pages/M_01_P_08.swf"
-					  title="Components de Interface"
-					  navbarStatus=""
-					  showProgress="true"
-					  pageTransitionIn="fadeIn"
-					  pageTransitionOut="fadeOut"
-					  contentTransitionIn="fadeIn"
-					  contentTransitionOut="none">
+						src="content/pages/M_01_P_08.swf"
+						title="Components de Interface"
+						navbarStatus=""
+						showProgress="true"
+						pageTransitionIn="fadeIn"
+						pageTransitionOut="fadeOut"
+						contentTransitionIn="fadeIn"
+						contentTransitionOut="none">
 					<asset id="contentXML"
-						   src="xml/pages/M_01_P_08.xml" />
+							src="xml/pages/M_01_P_08.xml" />
 				</page>
 
 			</page>

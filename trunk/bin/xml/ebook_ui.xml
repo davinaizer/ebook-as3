@@ -56,7 +56,7 @@
 				   type="to"
 				   target="nextBtn.btNextOver"
 				   duration="1"
-				   ease="Quint.easeIn">
+				   ease="Strong.easeIn">
 				<vars>
 					<alpha>1</alpha>
 					<yoyo>true</yoyo>
