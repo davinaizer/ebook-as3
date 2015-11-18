@@ -347,7 +347,7 @@
 
 				<!-- MODULE 1 -->
 				<content pageID="index/nav/module_01/M_01_P_00"
-						 lastPageID="index/nav/module_01/M_01_P_08">
+						 lastPageID="index/nav/module_01/M_01_P_06">
 					<title>
 						<![CDATA[<p class="btn-primary">02. Componentes de Conteúdo</p>]]>
 					</title>
@@ -394,24 +394,11 @@
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_01/M_01_P_07"
-							 lastPageID="index/nav/module_01/M_01_P_08">
-						<title>
-							<![CDATA[<p class="btn-primary">07. Tween - Animações 1</p>]]>
-						</title>
-					</content>
-
-					<content pageID="index/nav/module_01/M_01_P_08"
-							 lastPageID="index/nav/module_01/M_01_P_08">
-						<title>
-							<![CDATA[<p class="btn-primary">08. Tween - Animações 2</p>]]>
-						</title>
-					</content>
 				</content>
 
 				<!-- MODULE 2 -->
 				<content pageID="index/nav/module_02/M_02_P_00"
-						 lastPageID="index/nav/module_02/M_02_P_00">
+						 lastPageID="index/nav/module_02/M_02_P_01">
 					<title>
 						<![CDATA[<p class="btn-primary">03. Animações / Tweens</p>]]>
 					</title>
@@ -419,14 +406,14 @@
 					<content pageID="index/nav/module_02/M_02_P_00"
 							 lastPageID="index/nav/module_02/M_02_P_00">
 						<title>
-							<![CDATA[<p class="btn-primary">01. Movimento</p>]]>
+							<![CDATA[<p class="btn-primary">01. Transformação</p>]]>
 						</title>
 					</content>
 
-					<content pageID="index/nav/module_02/M_02_P_00"
-							 lastPageID="index/nav/module_02/M_02_P_00">
+					<content pageID="index/nav/module_02/M_02_P_01"
+							 lastPageID="index/nav/module_02/M_02_P_01">
 						<title>
-							<![CDATA[<p class="btn-primary">02. Transformação</p>]]>
+							<![CDATA[<p class="btn-primary">02. Movimento</p>]]>
 						</title>
 					</content>
 				</content>

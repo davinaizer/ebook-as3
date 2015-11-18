@@ -29,3 +29,4 @@
 - Reduce pages filesize.
 - Eliminate textfield inside FLA. Create from ContentParser.
 - Create Dynamic CssButton. Create Interace for base button.
+- Incluir Copyright , Legal Disclaimer nos arquivos.
