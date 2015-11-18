@@ -24,13 +24,6 @@
 			alpha = 0;
 		}
 		
-		private function init():void
-		{
-			courseBg = new CourseBgSymbol();
-			addChild(courseBg);
-			Align.to(courseBg, stage, {align: Align.TOP_RIGHT});
-		}
-		
 		override public function transitionIn():void
 		{
 			super.transitionIn();
@@ -45,6 +38,13 @@
 			super.transitionOut();
 			transitionOutComplete();
 			TweenLite.to(this, .25, {alpha: 0});
+		}
+
+		private function init():void
+		{
+			courseBg = new CourseBgSymbol();
+			addChild(courseBg);
+			Align.to(courseBg, stage, {align: Align.TOP_RIGHT});
 		}
 
 	}

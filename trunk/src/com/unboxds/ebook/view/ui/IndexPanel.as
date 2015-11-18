@@ -185,26 +185,7 @@ package com.unboxds.ebook.view.ui
 
 				if (srcName.indexOf("btMenuItem") > -1)
 				{
-					if (selectedBtn)
-						selectedBtn.setSelected(false);
-					selectedBtn = btn;
-
-					var submenuList:XML = XML(XMLList(menuList.content[btn.index]).toXMLString());
-					if (submenuList.content.length() > 0)
-					{
-						btn.setSelected(true);
-						design.listPanel2_Bg.alpha = 1;
-
-						populateList(submenuList, subList);
-						invalidateList(submenuList, subList);
-					}
-					else
-					{
-						evt.pageID = menuList.content[btn.index].@pageID;
-						subList.destroy();
-						design.listPanel2_Bg.alpha = 0;
-						dispatchEvent(evt);
-					}
+					selectMenuItem(btn.index);
 				}
 				else if (srcName.indexOf("btSubmenuItem") > -1)
 				{
@@ -227,18 +208,6 @@ package com.unboxds.ebook.view.ui
 					list.update();
 				}
 			}
-		}
-
-		override public function show():void
-		{
-			super.show();
-
-			invalidateList(XML(menuList.toXMLString()), list);
-			subList.destroy();
-			design.listPanel2_Bg.alpha = 0;
-
-			if (selectedBtn)
-				selectedBtn.setSelected(false);
 		}
 
 		private function invalidateList(data:XML, listP:List):void
@@ -278,6 +247,36 @@ package com.unboxds.ebook.view.ui
 					}
 				}
 			}
+		}
+
+		public function selectMenuItem(index:int):void
+		{
+			var btn:SimpleButton = list.getButtonByIndex(index) as SimpleButton;
+
+			var submenuList:XML = XML(XMLList(menuList.content[index]).toXMLString());
+			if (submenuList.content.length() > 0)
+			{
+				if (selectedBtn)
+					selectedBtn.setSelected(false);
+				selectedBtn = btn;
+
+				btn.setSelected(true);
+				design.listPanel2_Bg.alpha = 1;
+
+				populateList(submenuList, subList);
+				invalidateList(submenuList, subList);
+			}
+		}
+
+		override public function show():void
+		{
+			super.show();
+
+			invalidateList(XML(menuList.toXMLString()), list);
+			subList.destroy();
+			design.listPanel2_Bg.alpha = 0;
+
+			selectMenuItem(EbookApi.getNavModel().currentModule);
 		}
 
 	}
