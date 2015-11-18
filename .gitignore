@@ -1,3 +1,4 @@
 # intellij IDEA files
 #.idea/
 #*.iml
+.idea/workspace.xml
