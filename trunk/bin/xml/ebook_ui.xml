@@ -58,6 +58,7 @@
 				   duration="1"
 				   ease="Strong.easeIn">
 				<vars>
+					<paused>true</paused>
 					<alpha>1</alpha>
 					<yoyo>true</yoyo>
 					<repeat>-1</repeat>
@@ -142,6 +143,7 @@
 				   duration=".5"
 				   ease="Expo.easeInOut">
 				<vars>
+					<paused>true</paused>
 					<x>0</x>
 					<y>0</y>
 					<autoAlpha>1</autoAlpha>
@@ -490,6 +492,7 @@
 				   duration=".5"
 				   ease="Expo.easeInOut">
 				<vars>
+					<paused>true</paused>
 					<x>0</x>
 					<y>0</y>
 					<autoAlpha>1</autoAlpha>
@@ -668,6 +671,7 @@
 				   duration=".5"
 				   ease="Expo.easeInOut">
 				<vars>
+					<paused>true</paused>
 					<x>0</x>
 					<y>0</y>
 					<autoAlpha>1</autoAlpha>
@@ -731,6 +735,7 @@
 			   duration=".5"
 			   ease="Linear.easeNone">
 			<vars>
+				<paused>true</paused>
 				<blurFilter>
 					<blurX>8</blurX>
 					<blurY>8</blurY>

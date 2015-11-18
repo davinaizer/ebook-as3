@@ -219,12 +219,10 @@ package com.unboxds.utils
 			var stagger:Number = isNaN(parseFloat(data.@stagger)) ? 0 : parseFloat(data.@stagger);
 			var varsXML:XML = XML(XMLList(data.vars).toXMLString());
 
-			var dispObj:DisplayObject = (data.@target == "" || data.@target == "this") ? target as DisplayObject : ObjectUtils.getChildByPath(target, data.@target);
-
 			var vars:Object = ObjectUtils.xmlVarsToObject(varsXML);
 			vars["ease"] = getEaseFromName(String(data.@ease));
-			vars["paused"] = true;
 
+			var dispObj:DisplayObject = (data.@target == "" || data.@target == "this") ? target as DisplayObject : ObjectUtils.getChildByPath(target, data.@target);
 			if (tweenType == TWEEN_FROM)
 				return TweenMax.from(dispObj, duration, vars);
 			else
