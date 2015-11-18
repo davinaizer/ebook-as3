@@ -12,18 +12,15 @@
 03/06/2013 16:07 - Read from EBOOK_NAV ContentTransition - its not working right now.
 18/11/2015 18:52 - PRIOR - onOpen IndexPanel, select current Module
 
+- Fix ScormDataService
 - TOP PRIOR. - Fix onBeforeNextPage enable page frame navigation on Keyboard (navigationAvailable)
+
 - Criar componente ANOTACOES -> Gravar em SharedObject.
-- Aceitar tag XML VARS para qualquer objeto em ContentParser
-- Criar SpriteBUtton - Usar imagens ou SpriteSheets ao inves de frames 
-- REMOVE TRACE from STYLEBUTTON
 - VERSION 3.0 - TODO
 	- create textfields from XML
 	- remove Gaia dependency
 	- Log Levels
 	- Criar navegador estilo PLAYBOOK GOOGLE
-
-- Fix ScormDataService
 - Implement new animation system. When TweenParser runs, store all Tweens created to be used inside EbookPage.as
 - Reduce pages filesize.
 - Eliminate textfield inside FLA. Create from ContentParser.
