@@ -14,7 +14,7 @@
 	 */
 	public class EbookModel
 	{
-		//-- Behaviour
+		//-- Config / Settings
 		private var _isExtIntAvailable:Boolean;
 		private var _isDataServiceAvailable:Boolean;
 		private var _dataServiceType:String;
@@ -24,7 +24,7 @@
 		private var _enableDebugPanel:Boolean;
 		private var _outputXMLContent:Boolean
 
-		//-- Ebook State
+		//-- App State
 		private var _version:String;
 		private var _status:int;
 		private var _startDate:Date;
@@ -33,13 +33,13 @@
 		private var _quizScore:int;
 		private var _quizStatus:int;
 
-		// -- USER DATA -> SuspendData
+		//-- User Data
 		private var _bookmarks:Array;
 		private var _activitiesStatus:Array;
 		private var _activitiesMaxScore:Array;
 		private var _activitiesUserScore:Array;
 
-		//-- EbookVO vars - Scorm Vars
+		//-- Scorm Data
 		private var _lessonMode:String;
 		private var _lessonStatus:String;
 		private var _scoreMax:int;
@@ -63,7 +63,7 @@
 			_scormReplaceDoubleQuotes = false;
 			_enableDebugPanel = true;
 
-			//-- STATE VARS
+			//-- State VARS
 			_version = "EBOOK_AS";
 			_status = EbookConstants.STATUS_NOT_INITIALIZED;
 			_quizTries = 0;
@@ -76,7 +76,7 @@
 			_activitiesStatus = [];
 			_activitiesUserScore = [];
 
-			//-- Scorm
+			//-- Scorm Data
 			_lessonMode = ScormConstants.MODE_NORMAL;
 			_lessonStatus = ScormConstants.STATUS_NOT_ATTEMPTED;
 			_scoreMax = 100;
@@ -87,7 +87,7 @@
 			_studentName = "TREINANDO";
 			_totalTime = "0000:00:00.00";
 
-			//TODO If in SharedObject mode, sums the session Time on each access
+			//TODO If in SharedObject mode, add up the session Time on each access
 			sessionTimer = new SessionTimer();
 		}
 
@@ -127,25 +127,10 @@
 			Logger.log("EbookModel.restore");
 
 			if (value != null)
-				copyProps(value, this);
-		}
-
-		private function copyProps(obj:Object, targetObj:Object):void
-		{
-			for (var param:String in obj)
-			{
-				if (typeof (obj[param]) == "object")
-				{
-					copyProps(obj[param], targetObj);
-				} else
-				{
-					targetObj[param] = obj[param];
-				}
-			}
+				ObjectUtils.copyProps(value, this);
 		}
 
 		/*** GETTERS and SETTERS ***/
-
 		public function get version():String
 		{
 			return _version;

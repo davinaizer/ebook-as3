@@ -14,6 +14,7 @@
 
 - Fix ScormDataService
 - TOP PRIOR. - Fix onBeforeNextPage enable page frame navigation on Keyboard (navigationAvailable)
+- Create New progressBar. Use modules size to divide bar.
 
 - Criar componente ANOTACOES -> Gravar em SharedObject.
 - VERSION 3.0 - TODO

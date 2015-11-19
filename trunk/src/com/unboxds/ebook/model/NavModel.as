@@ -12,17 +12,16 @@ package com.unboxds.ebook.model
 	public class NavModel
 	{
 		private var _xmlData:XML;
-
 		private var _pages:Vector.<Vector.<PageVO>>;
 		private var _pageQueue:Vector.<PageVO>;
 
-		//-- Persistent Vars
+		//-- Persistent Data
 		private var _maxPage:int;
 		private var _maxModule:int;
 		private var _currentPage:int;
 		private var _currentModule:int;
 
-		//--
+		//-- Static Data
 		private var _totalModules:uint;
 		private var _totalPages:uint;
 		private var _modPagesCount:Array;
@@ -39,7 +38,7 @@ package com.unboxds.ebook.model
 			_modPagesCount = [];
 			_navDirection = 1;
 
-			// PERSIST
+			//-- Persistant Data
 			_maxPage = 0;
 			_maxModule = 0;
 			_currentPage = 0;

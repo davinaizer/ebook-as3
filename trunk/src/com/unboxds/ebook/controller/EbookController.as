@@ -92,14 +92,11 @@
 		{
 			Logger.log("EbookController.onDataLoaded");
 
-			Logger.log("EbookController >>>>>>>>>> CHECK DATA LOADED <<<<<<<< ");
+			Logger.log("EbookController >>>>>>>>>> CHECKING DATA LOADED <<<<<<<< ");
 			Logger.log(ObjectUtils.toString(data));
 
 			model.isDataServiceAvailable = true;
 			model.restore(data);
-
-			Logger.log("EbookController >>>>>>>>>> CHECK MODEL DATA <<<<<<<< ");
-			Logger.log(ObjectUtils.toString(model));
 
 			//-- check browse mode
 			if (model.lessonMode == ScormConstants.MODE_BROWSE)
