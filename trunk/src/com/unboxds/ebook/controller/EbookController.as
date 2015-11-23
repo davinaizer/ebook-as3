@@ -22,7 +22,6 @@
 	public class EbookController
 	{
 		private var model:EbookModel;
-		private var controller:EbookController;
 		private var navModel:NavModel;
 		private var navController:NavController;
 
@@ -38,7 +37,6 @@
 			Logger.log("EbookController.start");
 
 			model = EbookApi.getEbookModel();
-			controller = EbookApi.getEbookController();
 			navModel = EbookApi.getNavModel();
 			navController = EbookApi.getNavController();
 
