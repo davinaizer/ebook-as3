@@ -3,7 +3,7 @@ package com.unboxds.ebook.view.components
 	import com.unboxds.ebook.view.parser.ContentParser;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.NumberUtils;
-	import com.unboxds.utils.StringUtil;
+	import com.unboxds.utils.StringUtils;
 
 	import flash.events.Event;
 	import flash.text.StyleSheet;
@@ -71,7 +71,7 @@ package com.unboxds.ebook.view.components
 		
 		public function setCurrentIndex(index:int):void
 		{
-			statusTxt.htmlText = StringUtil.parseTextVars(statusStr, this);
+			statusTxt.htmlText = StringUtils.parseTextVars(statusStr, this);
 			progress = index;
 		}
 	}
