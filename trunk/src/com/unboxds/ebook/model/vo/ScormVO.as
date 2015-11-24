@@ -4,6 +4,7 @@
 package com.unboxds.ebook.model.vo
 {
 	import com.serialization.json.JSON;
+	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.utils.ObjectUtils;
 
 	public class ScormVO implements ISerializable
@@ -21,6 +22,7 @@ package com.unboxds.ebook.model.vo
 
 		public function ScormVO()
 		{
+			_lessonStatus = ScormConstants.STATUS_NOT_ATTEMPTED;
 		}
 
 		public function get lessonMode():String

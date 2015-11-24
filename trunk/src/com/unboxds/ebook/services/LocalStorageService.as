@@ -45,7 +45,9 @@ package com.unboxds.ebook.services
 			{
 				Logger.log("LocalStorageService.load >> Ebook Data found!");
 
-				ObjectUtils.copyProps(sol.data.ebookVO, ebookVO);
+				ObjectUtils.copyProps(sol.data.navVO, ebookVO.navVO);
+				ObjectUtils.copyProps(sol.data.scormVO, ebookVO.scormVO);
+				ObjectUtils.copyProps(sol.data.statusVO, ebookVO.statusVO);
 			}
 			else
 			{
@@ -59,7 +61,10 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("LocalStorageService.save");
 
-			sol.data.ebookVO = data.toJSON();
+			sol.data.navVO = data.navVO.toJSON();
+			sol.data.scormVO = data.scormVO.toJSON();
+			sol.data.statusVO = data.statusVO.toJSON();
+
 			sol.flush();
 			sol.close();
 

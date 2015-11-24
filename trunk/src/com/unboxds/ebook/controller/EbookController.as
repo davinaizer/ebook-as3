@@ -21,7 +21,7 @@
 	 */
 	public class EbookController
 	{
-		private var model:EbookModel;
+		private var ebookModel:EbookModel;
 		private var navModel:NavModel;
 		private var navController:NavController;
 
@@ -36,11 +36,12 @@
 		{
 			Logger.log("EbookController.start");
 
-			model = EbookApi.getEbookModel();
 			navModel = EbookApi.getNavModel();
 			navController = EbookApi.getNavController();
 
-			model.isConsultMode ? startBrowseMode() : initDataService();
+			ebookModel = EbookApi.getEbookModel();
+			ebookModel.isConsultMode ? startBrowseMode() : initDataService();
+
 		}
 
 		public function startBrowseMode():void
@@ -48,10 +49,10 @@
 			Logger.log("EbookController.startBrowseMode");
 			Logger.log("*** RUNNING BROWSE MODE ***");
 
-			if (model.isExtIntAvailable && model.enableAlerts)
+			if (ebookModel.isExtIntAvailable && ebookModel.enableAlerts)
 				ExternalInterface.call("alert", "Iniciando o treinamento em modo CONSULTA.\n\nSeus dados não serão gravados.");
 
-			model.isConsultMode = true;
+			ebookModel.isConsultMode = true;
 
 			navModel.maxModule = navModel.totalModules - 1;
 			navModel.maxPage = navModel.getPages()[navModel.totalPages - 1].localIndex;
@@ -63,9 +64,9 @@
 
 		private function initDataService():void
 		{
-			Logger.log("EbookController.initDataService > dataServiceType: " + model.dataServiceType);
+			Logger.log("EbookController.initDataService > dataServiceType: " + ebookModel.dataServiceType);
 
-			switch (model.dataServiceType)
+			switch (ebookModel.dataServiceType)
 			{
 				case ServiceConstants.SCORM_SERVER:
 					dataService = new ScormDataService();
@@ -76,7 +77,7 @@
 					break;
 			}
 
-			if (model.isExtIntAvailable)
+			if (ebookModel.isExtIntAvailable)
 				ExternalInterface.addCallback("jsCall", jsCall);
 
 			dataService.onLoad.add(onDataLoaded);
@@ -89,26 +90,25 @@
 		private function onDataLoaded(data:EbookVO):void
 		{
 			Logger.log("EbookController.onDataLoaded");
-
 			Logger.log("EbookController >>>>>>>>>> CHECKING DATA LOADED <<<<<<<< ");
 			Logger.log(ObjectUtils.toString(data));
 
-			model.isDataServiceAvailable = true;
-			model.restore(data);
+			ebookModel.isDataServiceAvailable = true;
+			ebookModel.restore(data);
 
 			//-- check browse mode
-			if (model.lessonMode == ScormConstants.MODE_BROWSE)
+			if (ebookModel.lessonMode == ScormConstants.MODE_BROWSE)
 			{
 				startBrowseMode();
 			}
 			else
 			{
-				if (model.status == EbookConstants.STATUS_NOT_INITIALIZED || model.lessonStatus == ScormConstants.STATUS_NOT_ATTEMPTED)
+				if (ebookModel.status == EbookConstants.STATUS_NOT_INITIALIZED || ebookModel.lessonStatus == ScormConstants.STATUS_NOT_ATTEMPTED)
 				{
 					Logger.log("EbookController.initDataService >> New user!");
 
-					model.status = EbookConstants.STATUS_INITIALIZED;
-					model.lessonStatus = ScormConstants.STATUS_INCOMPLETE;
+					ebookModel.status = EbookConstants.STATUS_INITIALIZED;
+					ebookModel.lessonStatus = ScormConstants.STATUS_INCOMPLETE;
 
 					save();
 				}
@@ -118,7 +118,7 @@
 					navModel.restore(data.navVO);
 				}
 
-				model.startTimer();
+				ebookModel.startTimer();
 				navController.loadPage();
 			}
 		}
@@ -134,10 +134,10 @@
 		{
 			Logger.log("EbookController.onDataLoadError >> " + msg);
 
-			if (model.isExtIntAvailable && model.enableAlerts)
-				ExternalInterface.call("alert", "Erro ao carregar dados do DATASERVICE (" + model.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
+			if (ebookModel.isExtIntAvailable && ebookModel.enableAlerts)
+				ExternalInterface.call("alert", "Erro ao carregar dados do DATASERVICE (" + ebookModel.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
 
-			model.isDataServiceAvailable = false;
+			ebookModel.isDataServiceAvailable = false;
 			startBrowseMode();
 		}
 
@@ -145,8 +145,8 @@
 		{
 			Logger.log("EbookController.onDataSaveError >> " + msg);
 
-			if (model.isExtIntAvailable && model.enableAlerts)
-				ExternalInterface.call("alert", "Erro ao salvar dados no DATASERVICE (" + model.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
+			if (ebookModel.isExtIntAvailable && ebookModel.enableAlerts)
+				ExternalInterface.call("alert", "Erro ao salvar dados no DATASERVICE (" + ebookModel.dataServiceType + ").\n\nContate o administrador do sistema.\n\n" + msg);
 		}
 
 		/********************* SAVE *********************/
@@ -154,12 +154,12 @@
 		{
 			Logger.log("EbookController.save");
 
-			if (model.isDataServiceAvailable && !model.isConsultMode && model.lessonStatus == ScormConstants.STATUS_INCOMPLETE)
+			if (ebookModel.isDataServiceAvailable && !ebookModel.isConsultMode && ebookModel.lessonStatus == ScormConstants.STATUS_INCOMPLETE)
 			{
-				if (model.status == EbookConstants.STATUS_COMPLETED)
-					model.lessonStatus = ScormConstants.STATUS_COMPLETED;
+				if (ebookModel.status == EbookConstants.STATUS_COMPLETED)
+					ebookModel.lessonStatus = ScormConstants.STATUS_COMPLETED;
 
-				var data:EbookVO = model.dump();
+				var data:EbookVO = ebookModel.dump();
 				data.navVO = navModel.dump();
 
 				Logger.log(ObjectUtils.toString(data));
@@ -176,10 +176,10 @@
 		{
 			Logger.log("EbookController.finishEbook");
 
-			if (model.isConsultMode == false && model.status == EbookConstants.STATUS_INITIALIZED)
+			if (ebookModel.isConsultMode == false && ebookModel.status == EbookConstants.STATUS_INITIALIZED)
 			{
-				model.endDate = new Date();
-				model.status = EbookConstants.STATUS_COMPLETED;
+				ebookModel.endDate = new Date();
+				ebookModel.status = EbookConstants.STATUS_COMPLETED;
 
 				save();
 			}
@@ -193,7 +193,7 @@
 		{
 			Logger.log("EbookController.closeBrowser");
 
-			if (model.isExtIntAvailable)
+			if (ebookModel.isExtIntAvailable)
 			{
 				ExternalInterface.call("scorm.save");
 				ExternalInterface.call("scorm.quit");

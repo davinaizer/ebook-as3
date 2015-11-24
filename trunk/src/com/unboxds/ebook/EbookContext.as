@@ -67,6 +67,7 @@ package com.unboxds.ebook
 			//-- start navigation
 			navModel.xmlData = data;
 			navModel.init();
+
 			navController.onChange.add(navHandler);
 			navController.init();
 

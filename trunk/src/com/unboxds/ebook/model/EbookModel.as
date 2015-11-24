@@ -101,16 +101,20 @@
 			Logger.log("EbookModel.dump");
 
 			var ebookVO:EbookVO = new EbookVO();
-			ebookVO.activitiesStatus = _activitiesStatus;
-			ebookVO.activitiesUserScore = _activitiesUserScore;
-			ebookVO.bookmarks = _bookmarks;
-			ebookVO.endDate = _endDate;
-			ebookVO.quizScore = _quizScore;
-			ebookVO.quizStatus = _quizStatus;
-			ebookVO.quizTries = _quizTries;
-			ebookVO.startDate = _startDate;
-			ebookVO.status = _status;
-			ebookVO.version = _version;
+
+			//-- Ebook Status Data
+			ebookVO.statusVO.activitiesStatus = _activitiesStatus;
+			ebookVO.statusVO.activitiesUserScore = _activitiesUserScore;
+			ebookVO.statusVO.bookmarks = _bookmarks;
+			ebookVO.statusVO.endDate = _endDate;
+			ebookVO.statusVO.quizScore = _quizScore;
+			ebookVO.statusVO.quizStatus = _quizStatus;
+			ebookVO.statusVO.quizTries = _quizTries;
+			ebookVO.statusVO.startDate = _startDate;
+			ebookVO.statusVO.status = _status;
+			ebookVO.statusVO.version = _version;
+
+			//-- SCORM Data
 			ebookVO.scormVO.scoreMax = _scoreMax;
 			ebookVO.scormVO.scoreMin = _scoreMin;
 			ebookVO.scormVO.scoreRaw = _scoreRaw;
@@ -127,7 +131,10 @@
 			Logger.log("EbookModel.restore");
 
 			if (value != null)
-				ObjectUtils.copyProps(value, this);
+			{
+				ObjectUtils.copyProps(value.statusVO, this);
+				ObjectUtils.copyProps(value.scormVO, this);
+			}
 		}
 
 		/*** GETTERS and SETTERS ***/

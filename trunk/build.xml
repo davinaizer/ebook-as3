@@ -30,7 +30,7 @@
 			<arg line="-external-library-path+=lib/swc/as3corelib.swc" />
 			<arg line="-external-library-path+=lib/swc/gaiaframework.swc" />
 			<arg line="-external-library-path+=lib/swc/as3-signals-v0.8.swc" />
-			<arg line="-external-library-path+=lib/swc/as3_unboxdslib_V1.3.18.swc" />
+			<arg line="-external-library-path+=lib/swc/as3_unboxdslib_V1.3.19.swc" />
 
 			<!-- Compile for Flash Player 10.0.0 and higher -->
 			<arg line="-target-player=12.0" />
