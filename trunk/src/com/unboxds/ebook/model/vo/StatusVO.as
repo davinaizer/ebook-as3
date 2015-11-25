@@ -3,16 +3,14 @@
  */
 package com.unboxds.ebook.model.vo
 {
-	import com.serialization.json.JSON;
 	import com.unboxds.ebook.constants.EbookConstants;
-	import com.unboxds.utils.ObjectUtils;
 
-	public class StatusVO implements ISerializable
+	public class StatusVO
 	{
 		private var _version:String;
 		private var _status:int;
-		private var _startDate:Date;
-		private var _endDate:Date;
+		private var _startDate:String;
+		private var _endDate:String;
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
@@ -22,7 +20,6 @@ package com.unboxds.ebook.model.vo
 
 		public function StatusVO()
 		{
-			_status = EbookConstants.STATUS_NOT_INITIALIZED;
 		}
 
 		public function get version():String
@@ -45,22 +42,22 @@ package com.unboxds.ebook.model.vo
 			_status = value;
 		}
 
-		public function get startDate():Date
+		public function get startDate():String
 		{
 			return _startDate;
 		}
 
-		public function set startDate(value:Date):void
+		public function set startDate(value:String):void
 		{
 			_startDate = value;
 		}
 
-		public function get endDate():Date
+		public function get endDate():String
 		{
 			return _endDate;
 		}
 
-		public function set endDate(value:Date):void
+		public function set endDate(value:String):void
 		{
 			_endDate = value;
 		}
@@ -124,16 +121,5 @@ package com.unboxds.ebook.model.vo
 		{
 			_activitiesUserScore = value;
 		}
-
-		public function toJSON():String
-		{
-			return com.serialization.json.JSON.serialize(this);
-		}
-
-		public function parse(obj:Object):void
-		{
-			ObjectUtils.copyProps(obj, this);
-		}
-
 	}
 }

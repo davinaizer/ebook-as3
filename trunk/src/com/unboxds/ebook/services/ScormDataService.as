@@ -2,7 +2,7 @@ package com.unboxds.ebook.services
 {
 	import com.pipwerks.SCORM;
 	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.ebook.model.vo.EbookDTO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 
@@ -101,13 +101,13 @@ package com.unboxds.ebook.services
 		}
 
 		/**
-		 * Update and commit to the LMS the EbookVO
+		 * Update and commit to the LMS the EbookDTO
 		 */
-		public function save(data:EbookVO):void
+		public function save(data:EbookDTO):void
 		{
-//			var ebookData:Object = {};
+			//var ebookData:Object = {};
 
-			var suspendData:String = data.toJSON();
+			var suspendData:String = "";
 			suspendData = suspendData.replace(/"/g, "'");
 
 			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);

@@ -1,6 +1,6 @@
 package com.unboxds.ebook.services
 {
-	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.ebook.model.vo.EbookDTO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 
@@ -31,7 +31,7 @@ package com.unboxds.ebook.services
 			sol = SharedObject.getLocal("UNBOX_eBookAS_V3");
 
 			_isAvailable = true;
-			_onLoad = new Signal(EbookVO);
+			_onLoad = new Signal(EbookDTO);
 			_onSave = new Signal();
 			_onLoadError = new Signal(String);
 			_onSaveError = new Signal(String);
@@ -39,32 +39,33 @@ package com.unboxds.ebook.services
 
 		public function load():void
 		{
-			var ebookVO:EbookVO = new EbookVO();
+			var ebookDTO:EbookDTO = new EbookDTO();
 
-			if (sol.data.ebookVO != null)
+			if (sol.data.ebookDTO != null)
 			{
 				Logger.log("LocalStorageService.load >> Ebook Data found!");
 
-				ObjectUtils.copyProps(sol.data.navVO, ebookVO.navVO);
-				ObjectUtils.copyProps(sol.data.scormVO, ebookVO.scormVO);
-				ObjectUtils.copyProps(sol.data.statusVO, ebookVO.statusVO);
+				var jsonObj:Object = JSON.parse(sol.data.ebookDTO);
+
+				ObjectUtils.toString(jsonObj);
+
+				ObjectUtils.copyProps(jsonObj.navVO, ebookDTO.navVO);
+				ObjectUtils.copyProps(jsonObj.scormVO, ebookDTO.scormVO);
+				ObjectUtils.copyProps(jsonObj.statusVO, ebookDTO.statusVO);
 			}
 			else
 			{
 				Logger.log("LocalStorageService.load >> NO Data found! Creating New.");
 			}
 
-			_onLoad.dispatch(ebookVO);
+			_onLoad.dispatch(ebookDTO);
 		}
 
-		public function save(data:EbookVO):void
+		public function save(data:EbookDTO):void
 		{
 			Logger.log("LocalStorageService.save");
 
-			sol.data.navVO = data.navVO.toJSON();
-			sol.data.scormVO = data.scormVO.toJSON();
-			sol.data.statusVO = data.statusVO.toJSON();
-
+			sol.data.ebookDTO = JSON.stringify(data);
 			sol.flush();
 			sol.close();
 

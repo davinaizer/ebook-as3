@@ -3,10 +3,7 @@
  */
 package com.unboxds.ebook.model.vo
 {
-	import com.serialization.json.JSON;
-	import com.unboxds.utils.ObjectUtils;
-
-	public class NavVO implements ISerializable
+	public class NavVO
 	{
 		private var _maxPage:int;
 		private var _maxModule:int;
@@ -56,16 +53,5 @@ package com.unboxds.ebook.model.vo
 		{
 			_currentModule = value;
 		}
-
-		public function toJSON():String
-		{
-			return com.serialization.json.JSON.serialize(this);
-		}
-
-		public function parse(obj:Object):void
-		{
-			ObjectUtils.copyProps(obj, this);
-		}
-
 	}
 }

@@ -118,8 +118,6 @@ package com.unboxds.ebook.model
 
 		public function restore(value:NavVO):void
 		{
-			Logger.log("NavModel.restore > " + value);
-
 			if (value != null)
 				ObjectUtils.copyComplexProps(value, this);
 		}

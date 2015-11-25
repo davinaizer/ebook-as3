@@ -89,7 +89,7 @@ package com.unboxds.ebook
 
 			Gaia.api.goto(page.branch);
 
-			if (model.dataServiceType == ServiceConstants.LOCAL_STORAGE && navModel.getCurrentPage().branch != page.branch)
+			if (model.dataServiceType == ServiceConstants.LOCAL_STORAGE)
 				controller.save();
 		}
 

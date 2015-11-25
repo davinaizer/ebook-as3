@@ -16,7 +16,7 @@
 		 scormReplaceDoubleQuotes: true | false // for compatibility among LMSs. Some accept only double quotes, other single.
 	-->
 
-	<config consultMode="true"
+	<config consultMode="false"
 			enableAlerts="false"
 			dataServiceType="LocalStorage"
 			scormReplaceDoubleQuotes="false"
@@ -24,7 +24,7 @@
 			outputXMLContent="false"
 			version="eBookAS_V3">
 		<activities>
-			<maxScore>1,1,1,1</maxScore>
+			<maxScore>1,1</maxScore>
 		</activities>
 	</config>
 

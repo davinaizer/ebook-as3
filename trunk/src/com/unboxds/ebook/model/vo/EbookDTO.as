@@ -1,18 +1,16 @@
 package com.unboxds.ebook.model.vo
 {
-	import com.unboxds.ebook.constants.ScormConstants;
-
 	/**
 	 * ...
 	 * @author UNBOX® - http://www.unbox.com.br - All rights reserved.
 	 */
-	public class EbookVO
+	public class EbookDTO
 	{
 		private var _statusVO:StatusVO;
 		private var _scormVO:ScormVO;
 		private var _navVO:NavVO;
 
-		public function EbookVO()
+		public function EbookDTO()
 		{
 			_statusVO = new StatusVO();
 			_scormVO = new ScormVO();

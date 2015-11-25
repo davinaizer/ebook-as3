@@ -6,7 +6,7 @@
 	import com.unboxds.ebook.constants.ServiceConstants;
 	import com.unboxds.ebook.model.EbookModel;
 	import com.unboxds.ebook.model.NavModel;
-	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.ebook.model.vo.EbookDTO;
 	import com.unboxds.ebook.services.IEbookDataService;
 	import com.unboxds.ebook.services.LocalStorageService;
 	import com.unboxds.ebook.services.ScormDataService;
@@ -87,7 +87,7 @@
 			dataService.load();
 		}
 
-		private function onDataLoaded(data:EbookVO):void
+		private function onDataLoaded(data:EbookDTO):void
 		{
 			Logger.log("EbookController.onDataLoaded");
 			Logger.log("EbookController >>>>>>>>>> CHECKING DATA LOADED <<<<<<<< ");
@@ -159,7 +159,7 @@
 				if (ebookModel.status == EbookConstants.STATUS_COMPLETED)
 					ebookModel.lessonStatus = ScormConstants.STATUS_COMPLETED;
 
-				var data:EbookVO = ebookModel.dump();
+				var data:EbookDTO = ebookModel.dump();
 				data.navVO = navModel.dump();
 
 				Logger.log(ObjectUtils.toString(data));
@@ -178,7 +178,7 @@
 
 			if (ebookModel.isConsultMode == false && ebookModel.status == EbookConstants.STATUS_INITIALIZED)
 			{
-				ebookModel.endDate = new Date();
+				ebookModel.endDate = new Date().toString();
 				ebookModel.status = EbookConstants.STATUS_COMPLETED;
 
 				save();

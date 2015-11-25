@@ -1,6 +1,6 @@
 package com.unboxds.ebook.services
 {
-	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.ebook.model.vo.EbookDTO;
 
 	import org.osflash.signals.ISignal;
 
@@ -12,7 +12,7 @@ package com.unboxds.ebook.services
 	{
 		function load():void;
 
-		function save(data:EbookVO):void;
+		function save(data:EbookDTO):void;
 		
 		function get isAvailable():Boolean;
 

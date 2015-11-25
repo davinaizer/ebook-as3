@@ -2,7 +2,7 @@
 {
 	import com.unboxds.ebook.constants.EbookConstants;
 	import com.unboxds.ebook.constants.ScormConstants;
-	import com.unboxds.ebook.model.vo.EbookVO;
+	import com.unboxds.ebook.model.vo.EbookDTO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
 
@@ -27,8 +27,8 @@
 		//-- App State
 		private var _version:String;
 		private var _status:int;
-		private var _startDate:Date;
-		private var _endDate:Date;
+		private var _startDate:String;
+		private var _endDate:String;
 		private var _quizTries:int;
 		private var _quizScore:int;
 		private var _quizStatus:int;
@@ -69,8 +69,8 @@
 			_quizTries = 0;
 			_quizScore = 0;
 			_quizStatus = EbookConstants.STATUS_NOT_INITIALIZED;
-			_startDate = new Date();
-			_endDate = new Date();
+			_startDate = new Date().toString();
+			_endDate = new Date().toString();
 			_bookmarks = [];
 			_activitiesMaxScore = [];
 			_activitiesStatus = [];
@@ -96,11 +96,11 @@
 			sessionTimer.initSession();
 		}
 
-		public function dump():EbookVO
+		public function dump():EbookDTO
 		{
 			Logger.log("EbookModel.dump");
 
-			var ebookVO:EbookVO = new EbookVO();
+			var ebookVO:EbookDTO = new EbookDTO();
 
 			//-- Ebook Status Data
 			ebookVO.statusVO.activitiesStatus = _activitiesStatus;
@@ -126,14 +126,14 @@
 			return ebookVO;
 		}
 
-		public function restore(value:EbookVO):void
+		public function restore(value:EbookDTO):void
 		{
 			Logger.log("EbookModel.restore");
 
 			if (value != null)
 			{
-				ObjectUtils.copyProps(value.statusVO, this);
-				ObjectUtils.copyProps(value.scormVO, this);
+				ObjectUtils.copyComplexProps(value.statusVO, this);
+				ObjectUtils.copyComplexProps(value.scormVO, this);
 			}
 		}
 
@@ -193,23 +193,23 @@
 				_status = value;
 		}
 
-		public function get startDate():Date
+		public function get startDate():String
 		{
 			return _startDate;
 		}
 
-		public function set startDate(value:Date):void
+		public function set startDate(value:String):void
 		{
 			if (value)
 				_startDate = value;
 		}
 
-		public function get endDate():Date
+		public function get endDate():String
 		{
 			return _endDate;
 		}
 
-		public function set endDate(value:Date):void
+		public function set endDate(value:String):void
 		{
 			if (value)
 				_endDate = value;
@@ -429,10 +429,6 @@
 				_activitiesUserScore = value;
 		}
 
-		public function toString():String
-		{
-			return ObjectUtils.toString(this);
-		}
 
 		public function get outputXMLContent():Boolean
 		{
@@ -442,6 +438,11 @@
 		public function set outputXMLContent(value:Boolean):void
 		{
 			_outputXMLContent = value;
+		}
+
+		public function toString():String
+		{
+			return ObjectUtils.toString(this);
 		}
 	}
 }
