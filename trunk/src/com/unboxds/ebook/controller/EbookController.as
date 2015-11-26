@@ -124,7 +124,6 @@
 		}
 
 		//** EVENTS HANDLER
-
 		private function onDataSaved():void
 		{
 			Logger.log("EbookController.onDataSaved >> Saved successfully!");
@@ -161,8 +160,6 @@
 
 				var data:EbookDTO = ebookModel.dump();
 				data.navVO = navModel.dump();
-
-				Logger.log(ObjectUtils.toString(data));
 
 				dataService.save(data);
 			}

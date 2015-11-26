@@ -32,17 +32,17 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("ScormDataService.ScormDataService");
 
+			_onLoad = new Signal(EbookDTO);
+			_onSave = new Signal();
+			_onLoadError = new Signal(String);
+			_onSaveError = new Signal(String);
+
 			init();
 		}
 
 		private function init():void
 		{
 			Logger.log("ScormDataService.init");
-
-			_onLoad = new Signal(Object);
-			_onSave = new Signal();
-			_onLoadError = new Signal(String);
-			_onSaveError = new Signal(String);
 
 			if (ExternalInterface.available)
 			{
@@ -63,9 +63,19 @@ package com.unboxds.ebook.services
 
 			if (_isConnected)
 			{
-				var data:Object = {};
+				var ebookDTO:EbookDTO = new EbookDTO();
 
-				//-- store NAVVO, ebook DAta and Custom Data
+				//-- Load Scorm Data
+				ebookDTO.scormVO.lessonMode = getParam(ScormConstants.PARAM_LESSON_MODE);
+				ebookDTO.scormVO.lessonStatus = getParam(ScormConstants.PARAM_LESSON_STATUS);
+				ebookDTO.scormVO.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
+				ebookDTO.scormVO.scoreMin = Number(getParam(ScormConstants.PARAM_SCORE_MIN));
+				ebookDTO.scormVO.scoreRaw = Number(getParam(ScormConstants.PARAM_SCORE_RAW));
+				ebookDTO.scormVO.studentId = getParam(ScormConstants.PARAM_STUDENT_ID);
+				ebookDTO.scormVO.studentName = getParam(ScormConstants.PARAM_STUDENT_NAME);
+				ebookDTO.scormVO.totalTime = getParam(ScormConstants.PARAM_TOTAL_TIME);
+
+				//-- Load NavVO, StatusVO
 				var suspendData:String = getParam(ScormConstants.PARAM_SUSPEND_DATA);
 				if (suspendData.length > 0)
 				{
@@ -75,24 +85,15 @@ package com.unboxds.ebook.services
 					suspendData = suspendData.replace(/'/g, "\"");
 
 					var jsonObj:Object = JSON.parse(suspendData);
-
-					ObjectUtils.copyProps(jsonObj, data);
-				} else
+					ObjectUtils.copyProps(jsonObj.navVO, ebookDTO.navVO);
+					ObjectUtils.copyProps(jsonObj.statusVO, ebookDTO.statusVO);
+				}
+				else
 				{
 					Logger.log("ScormDataService.load > Ebook data not found. First access.");
 				}
 
-				//-- SCORM
-				data.lessonMode = getParam(ScormConstants.PARAM_LESSON_MODE);
-				data.lessonStatus = getParam(ScormConstants.PARAM_LESSON_STATUS);
-				data.scoreMax = Number(getParam(ScormConstants.PARAM_SCORE_MAX));
-				data.scoreMin = Number(getParam(ScormConstants.PARAM_SCORE_MIN));
-				data.scoreRaw = Number(getParam(ScormConstants.PARAM_SCORE_RAW));
-				data.studentId = getParam(ScormConstants.PARAM_STUDENT_ID);
-				data.studentName = getParam(ScormConstants.PARAM_STUDENT_NAME);
-				data.totalTime = getParam(ScormConstants.PARAM_TOTAL_TIME);
-
-				_onLoad.dispatch(data);
+				_onLoad.dispatch(ebookDTO);
 			}
 			else
 			{
@@ -105,17 +106,18 @@ package com.unboxds.ebook.services
 		 */
 		public function save(data:EbookDTO):void
 		{
-			//var ebookData:Object = {};
-
-			var suspendData:String = "";
-			suspendData = suspendData.replace(/"/g, "'");
-
-			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
+			//-- Save Scorm Data
 			setParam(ScormConstants.PARAM_LESSON_STATUS, data.scormVO.lessonStatus);
 			setParam(ScormConstants.PARAM_SCORE_MAX, String(data.scormVO.scoreMax));
 			setParam(ScormConstants.PARAM_SCORE_MIN, String(data.scormVO.scoreMin));
 			setParam(ScormConstants.PARAM_SCORE_RAW, String(data.scormVO.scoreRaw));
 			setParam(ScormConstants.PARAM_SESSION_TIME, data.scormVO.sessionTime);
+
+			//-- Save NaVO and StatusVO
+			var tmpObj:Object = {navVO: data.navVO, statusVO: data.statusVO};
+			var suspendData:String = JSON.stringify(tmpObj);
+			suspendData = suspendData.replace(/"/g, "'");
+			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
 
 			var success:Boolean = scormAPI.save();
 			if (_isConnected && success)

@@ -105,8 +105,6 @@ package com.unboxds.ebook.model
 
 		public function dump():NavVO
 		{
-			Logger.log("NavModel.dump");
-
 			var navVO:NavVO = new NavVO();
 			navVO.currentModule = _currentModule;
 			navVO.currentPage = _currentPage;

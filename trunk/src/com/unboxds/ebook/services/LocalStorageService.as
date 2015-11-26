@@ -47,8 +47,6 @@ package com.unboxds.ebook.services
 
 				var jsonObj:Object = JSON.parse(sol.data.ebookDTO);
 
-				ObjectUtils.toString(jsonObj);
-
 				ObjectUtils.copyProps(jsonObj.navVO, ebookDTO.navVO);
 				ObjectUtils.copyProps(jsonObj.scormVO, ebookDTO.scormVO);
 				ObjectUtils.copyProps(jsonObj.statusVO, ebookDTO.statusVO);

@@ -98,8 +98,6 @@
 
 		public function dump():EbookDTO
 		{
-			Logger.log("EbookModel.dump");
-
 			var ebookVO:EbookDTO = new EbookDTO();
 
 			//-- Ebook Status Data
