@@ -1,9 +1,6 @@
 package com.unboxds.ebook.pages
 {
-	import com.unboxds.button.SimpleButton;
-	import com.unboxds.ebook.EbookApi;
-
-	import flash.events.MouseEvent;
+	import com.gaiaframework.api.Gaia;
 
 	/**
 	 * ...
@@ -31,21 +28,8 @@ package com.unboxds.ebook.pages
 		override public function transitionInComplete():void
 		{
 			super.transitionInComplete();
-			init();
+			Gaia.api.getPage(Pages.NAV).content.enableNextButton();
 		}
 
-		override public function init():void
-		{
-			super.init();
-
-			var btn:SimpleButton = this.getChildByName("nextBtn") as SimpleButton;
-			if(btn)
-				btn.addEventListener(MouseEvent.CLICK, mouseHandler, false, 0, true);
-		}
-
-		private function mouseHandler(e:MouseEvent):void
-		{
-			EbookApi.getNavController().nextPage();
-		}
 	}
 }
