@@ -46,7 +46,7 @@ package com.unboxds.ebook.view.components
 
 		public function get progressPercent():Number
 		{
-			return (secondaryProgress / max) * 100;
+			return Math.floor(secondaryProgress / max * 100);
 		}
 	}
 }
