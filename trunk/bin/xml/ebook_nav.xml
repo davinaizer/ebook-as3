@@ -67,7 +67,7 @@
 						src="content/pages/M_00_P_00.swf"
 						title="Introdução"
 						navbarStatus="11011"
-						showProgress="true"
+						showProgress="false"
 						pageTransitionIn="fadeIn"
 						pageTransitionOut="fadeOut"
 						contentTransitionIn="fadeIn"
