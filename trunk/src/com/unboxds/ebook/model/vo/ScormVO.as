@@ -3,8 +3,6 @@
  */
 package com.unboxds.ebook.model.vo
 {
-	import com.unboxds.ebook.constants.ScormConstants;
-
 	public class ScormVO
 	{
 		private var _lessonMode:String;
