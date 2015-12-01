@@ -9,19 +9,17 @@
 
 	<!-- Define the commands to generate a SWC library -->
 	<target name="build-swc-lib" description="Generates a SWC library from a directory of as3 classes">
-
 		<echo>Generating SWC Library</echo>
 
 		<exec executable="${compc.exe}">
 			<!-- Set the output path -->
-			<arg line="-output ${OUTPUT}" />
+			<arg line="-output ${SWC_OUTPUT}" />
 
 			<!-- Include all of the AS3 files in LIBRARY -->
 			<arg line="-include-sources=src/" />
 
 			<!-- This is for linking directories or classes -->
 			<arg line="-source-path=lib/as" />
-			<!-- <arg line="-source-path+=C:/FlashClasses/as3" />  -->
 
 			<!-- This is for linking other SWC libraries -->
 			<arg line="-external-library-path+=lib/swc" />
@@ -34,8 +32,28 @@
 
 			<!-- Compile for Flash Player 10.0.0 and higher -->
 			<arg line="-target-player=12.0" />
-
 		</exec>
-
 	</target>
+
+	<!-- GENERATE SCORM -->
+	<target name="generate-scorm-file">
+		<echo>Generating SCORM Zip file...</echo>
+
+		<!--
+		<replace file="${BIN_FOLDER}/imsmanifest.xml" token="@version@" value="repository.version"/>
+		<copy file="abc.template.xml"
+			tofile="abc.xml"
+			filtering="yes" overwrite="yes">
+			<filterset>
+				<filter token="VERSION" value="1.0"/>
+			</filterset>
+			</copy>
+		-->
+
+		<zip destfile="${DEPLOY_FOLDER}/${project.company}_${project.name}_V${project.version}.zip"
+			 basedir="${BIN_FOLDER}"
+			 update="true"
+				/>
+	</target>
+
 </project>
