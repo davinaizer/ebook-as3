@@ -22,7 +22,8 @@
 		private var _isConsultMode:Boolean;
 		private var _enableAlerts:Boolean;
 		private var _enableDebugPanel:Boolean;
-		private var _outputXMLContent:Boolean
+		private var _outputXMLContent:Boolean;
+		private var _saveOnPageChange:Boolean;
 
 		//-- App State
 		private var _version:String;
@@ -438,9 +439,20 @@
 			_outputXMLContent = value;
 		}
 
+		public function get saveOnPageChange():Boolean
+		{
+			return _saveOnPageChange;
+		}
+
+		public function set saveOnPageChange(value:Boolean):void
+		{
+			_saveOnPageChange = value;
+		}
+
 		public function toString():String
 		{
 			return ObjectUtils.toString(this);
 		}
+
 	}
 }

@@ -14,6 +14,7 @@
 		 dataServiceType: LocalStorage | ScormServer
 		 outputXMLContent :true | false // Only use this option for outputting content. This should not be used in Final Version. It slows down the ebook loading.
 		 scormReplaceDoubleQuotes: true | false // for compatibility among LMSs. Some accept only double quotes, other single.
+		 saveOnPageChange: true | false // save LMS Data on every page change. Use only when the object is not inside a HTML page and the HTML unload event is not fired. May overload the server.
 	-->
 
 	<config consultMode="false"
@@ -22,6 +23,7 @@
 			scormReplaceDoubleQuotes="false"
 			enableDebugPanel="true"
 			outputXMLContent="false"
+			saveOnPageChange="true"
 			version="eBookAS_V3">
 		<activities>
 			<maxScore>1,1</maxScore>

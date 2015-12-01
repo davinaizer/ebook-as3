@@ -161,8 +161,6 @@ package com.unboxds.ebook.view.ui
 		
 		override public function open():void
 		{
-			Logger.log("Dashboard.open");
-			
 			if (!isOpen)
 			{
 				isOpen = true;
@@ -172,8 +170,6 @@ package com.unboxds.ebook.view.ui
 		
 		override public function close():void
 		{
-			Logger.log("Dashboard.close");
-			
 			if (isOpen)
 			{
 				isOpen = false;

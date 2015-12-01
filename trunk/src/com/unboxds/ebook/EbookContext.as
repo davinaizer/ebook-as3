@@ -1,7 +1,6 @@
 package com.unboxds.ebook
 {
 	import com.gaiaframework.api.Gaia;
-	import com.unboxds.ebook.constants.ServiceConstants;
 	import com.unboxds.ebook.controller.EbookController;
 	import com.unboxds.ebook.controller.NavController;
 	import com.unboxds.ebook.model.EbookModel;
@@ -23,8 +22,8 @@ package com.unboxds.ebook
 		private var data:XML;
 		private var contextView:DisplayObjectContainer;
 
-		private var model:EbookModel;
-		private var controller:EbookController;
+		private var ebookModel:EbookModel;
+		private var ebookController:EbookController;
 		private var navModel:NavModel;
 		private var navController:NavController;
 
@@ -41,8 +40,8 @@ package com.unboxds.ebook
 			Logger.log("[EbookAS Framework]\n[UNBOX® 2009-2015 — http://www.unbox.com.br — All rights reserved.]");
 			Logger.log("EbookContext.startup");
 
-			model = EbookApi.getEbookModel();
-			controller = EbookApi.getEbookController();
+			ebookModel = EbookApi.getEbookModel();
+			ebookController = EbookApi.getEbookController();
 			navModel = EbookApi.getNavModel();
 			navController = EbookApi.getNavController();
 
@@ -53,16 +52,17 @@ package com.unboxds.ebook
 		{
 			Logger.log("EbookContext.config");
 
-			model.enableAlerts = data.config.@enableAlerts == "true";
-			model.isConsultMode = data.config.@consultMode == "true";
-			model.dataServiceType = data.config.@dataServiceType;
-			model.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
-			model.enableDebugPanel = data.config.@enableDebugPanel == "true";
-			model.version = data.config.@version;
-			model.outputXMLContent = data.config.@outputXMLContent== "true";
-			model.activitiesMaxScore = ArrayUtils.toNumber(data.config.activities.maxScore.toString().split(","));
-			model.activitiesStatus = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
-			model.activitiesUserScore = ArrayUtils.fillArray(model.activitiesMaxScore.length, -1);
+			ebookModel.enableAlerts = data.config.@enableAlerts == "true";
+			ebookModel.isConsultMode = data.config.@consultMode == "true";
+			ebookModel.dataServiceType = data.config.@dataServiceType;
+			ebookModel.scormReplaceDoubleQuotes = data.config.@scormReplaceDoubleQuotes == "true";
+			ebookModel.enableDebugPanel = data.config.@enableDebugPanel == "true";
+			ebookModel.version = data.config.@version;
+			ebookModel.outputXMLContent = data.config.@outputXMLContent == "true";
+			ebookModel.saveOnPageChange = data.config.@saveOnPageChange == "true";
+			ebookModel.activitiesMaxScore = ArrayUtils.toNumber(data.config.activities.maxScore.toString().split(","));
+			ebookModel.activitiesStatus = ArrayUtils.fillArray(ebookModel.activitiesMaxScore.length, -1);
+			ebookModel.activitiesUserScore = ArrayUtils.fillArray(ebookModel.activitiesMaxScore.length, -1);
 
 			//-- start navigation
 			navModel.xmlData = data;
@@ -72,7 +72,7 @@ package com.unboxds.ebook
 			navController.init();
 
 			//-- start debug panel
-			if (model.enableDebugPanel)
+			if (ebookModel.enableDebugPanel)
 			{
 				debugPanel = new DebugPanel(this.contextView, navModel.totalPages);
 				debugPanel.setCallbacks(navController.backPage, navController.nextPage, navController.navigateToPageIndex);
@@ -89,10 +89,8 @@ package com.unboxds.ebook
 
 			Gaia.api.goto(page.branch);
 
-			if (model.dataServiceType == ServiceConstants.LOCAL_STORAGE)
-				controller.save();
+			if (!ebookModel.isConsultMode && ebookModel.saveOnPageChange)
+				ebookController.save();
 		}
-
 	}
-
 }

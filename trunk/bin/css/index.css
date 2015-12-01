@@ -1,0 +1,23 @@
+body {
+	height:           100%;
+	margin:           0;
+	padding:          0;
+	overflow:         hidden;
+	background-color: #FFFFFF;
+	background:       url(../imgs/bg.gif) repeat-x;
+}
+
+#flashcontent {
+	/* Center Flash Object */
+	top:                50%;
+	left:               50%;
+	display:            block;
+	position:           absolute;
+	width:              1000px;
+	height:             600px;
+	margin-top:         -300px; /* HALF OF THE HEIGHT */
+	margin-left:        -500px; /* HALF OF THE WIDTH */
+	-webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow:    0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+	box-shadow:         0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}

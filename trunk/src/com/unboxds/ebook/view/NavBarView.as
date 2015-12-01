@@ -44,6 +44,8 @@
 
 		private function onAdded(e:Event):void
 		{
+			Logger.log("NavBarView.onAdded");
+
 			removeEventListener(Event.ADDED_TO_STAGE, onAdded);
 			init();
 		}
