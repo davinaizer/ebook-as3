@@ -1,8 +1,7 @@
 
-build-swc-lib:
-     [echo] Generating SWC Library
-     [exec] Loading configuration file C:\Users\Naizer\AppData\Local\FlashDevelop\Apps\flexairsdk\4.6.0+18.0.0\frameworks\flex-config.xml
-     [exec] D:\Projetos\GIT_REPOS\eBookAS\trunk\deploy\eBookAS_v3.2.0.swc (254497 bytes)
+generate-scorm-file:
+     [echo] Generating SCORM Zip file...
+      [zip] Building zip: D:\Projetos\GIT_REPOS\eBookAS\trunk\deploy\UNBOX_eBookAS_v3.2.0.zip
 
 BUILD SUCCESSFUL
-Total time: 5 seconds
+Total time: 0 seconds
