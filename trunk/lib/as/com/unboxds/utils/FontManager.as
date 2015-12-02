@@ -1,7 +1,5 @@
-package com.unboxds.components
+package com.unboxds.utils
 {
-	import com.unboxds.utils.Logger;
-
 	import flash.display.MovieClip;
 	import flash.text.Font;
 
@@ -28,7 +26,7 @@ package com.unboxds.components
 		 U+1E00-U+1EFF, // Latin Extended Additional
 		 */
 		
-		[Embed(source="../../../../lib/fonts/Roboto-Light.ttf",
+		[Embed(source="../../../../fonts/Roboto-Light.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto Light",
 				fontWeight="normal",
@@ -38,7 +36,7 @@ package com.unboxds.components
 				unicodeRange="U+0020-U+007E,U+0080-U+00FF,U+2019-U+2022")]
 		private static var RobotoLight:Class;
 
-		[Embed(source="../../../../lib/fonts/Roboto-LightItalic.ttf",
+		[Embed(source="../../../../fonts/Roboto-LightItalic.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto Light",
 				fontWeight="normal",
@@ -48,7 +46,7 @@ package com.unboxds.components
 				unicodeRange="U+0020-U+007E,U+0080-U+00FF,U+2019-U+2022")]
 		private static var RobotoLightItalic:Class;
 
-		[Embed(source="../../../../lib/fonts/Roboto-Regular.ttf",
+		[Embed(source="../../../../fonts/Roboto-Regular.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto",
 				fontWeight="normal",
@@ -58,7 +56,7 @@ package com.unboxds.components
 				unicodeRange="U+0020-U+007E,U+0080-U+00FF,U+2019-U+2022")]
 		private static var Roboto:Class;
 
-		[Embed(source="../../../../lib/fonts/Roboto-Italic.ttf",
+		[Embed(source="../../../../fonts/Roboto-Italic.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto",
 				fontWeight="normal",
@@ -68,7 +66,7 @@ package com.unboxds.components
 				unicodeRange="U+0020-U+007E,U+0080-U+00FF,U+2019-U+2022")]
 		private static var RobotoItalic:Class;
 
-		[Embed(source="../../../../lib/fonts/Roboto-Bold.ttf",
+		[Embed(source="../../../../fonts/Roboto-Bold.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto",
 				fontWeight="bold",
@@ -78,7 +76,7 @@ package com.unboxds.components
 				unicodeRange="U+0020-U+007E,U+0080-U+00FF,U+2019-U+2022")]
 		private static var RobotoBold:Class;
 
-		[Embed(source="../../../../lib/fonts/Roboto-BoldItalic.ttf",
+		[Embed(source="../../../../fonts/Roboto-BoldItalic.ttf",
 				fontFamily="Roboto",
 				fontName="Roboto",
 				fontWeight="bold",

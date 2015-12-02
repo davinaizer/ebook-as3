@@ -4,7 +4,7 @@
 	 * [UNBOX® 2009-2013 — http://www.unbox.com.br — All rights reserved.]
 	 * */
 
-	import com.unboxds.components.FontManager;
+	import com.unboxds.utils.FontManager;
 	import com.unboxds.ebook.EbookContext;
 	import com.unboxds.ebook.GaiaContext;
 	import com.unboxds.utils.Logger;
