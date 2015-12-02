@@ -248,7 +248,7 @@
 				<page id="M_02_P_01"
 						src="pages/M_02_P_01.swf"
 						title="Introdução"
-						navbarStatus=""
+						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
 						pageTransitionOut="fadeOut"

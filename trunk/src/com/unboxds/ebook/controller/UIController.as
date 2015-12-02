@@ -182,27 +182,18 @@ package com.unboxds.ebook.controller
 
 		private function keyUpHandler(e:KeyboardEvent):void
 		{
-			if (isNavigationAvailable)
+			switch (e.keyCode)
 			{
-				switch (e.keyCode)
-				{
-					case Keyboard.RIGHT:
-					case Keyboard.SPACE:
-						if (navBar.getNextButtonStatus())
-						{
-							isNavigationAvailable = false;
-							EbookApi.getNavController().nextPage();
-						}
-						break;
+				case Keyboard.RIGHT:
+				case Keyboard.SPACE:
+					if (navBar.getNextButtonStatus())
+						EbookApi.getNavController().nextPage();
+					break;
 
-					case Keyboard.LEFT:
-						if (navBar.getBackButtonStatus())
-						{
-							isNavigationAvailable = false;
-							EbookApi.getNavController().backPage();
-						}
-						break;
-				}
+				case Keyboard.LEFT:
+					if (navBar.getBackButtonStatus())
+						EbookApi.getNavController().backPage();
+					break;
 			}
 		}
 
