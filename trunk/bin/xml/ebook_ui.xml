@@ -55,7 +55,7 @@
 			<tween id="nextBtn"
 				   type="to"
 				   target="nextBtn.btNextOver"
-				   duration="1"
+				   duration=".75"
 				   ease="Strong.easeIn">
 				<vars>
 					<paused>true</paused>

@@ -87,8 +87,6 @@ package com.unboxds.ebook.controller
 
 		private function setupStage():void
 		{
-			Logger.log("UIController.setupStage");
-
 			//-- DASHBOARD
 			var dashboardData:XML = XML(XMLList(contentXML.component.(@type == "Dashboard")).toXMLString());
 			dashboard = new Dashboard(dashboardData, stylesheet);
@@ -184,27 +182,18 @@ package com.unboxds.ebook.controller
 
 		private function keyUpHandler(e:KeyboardEvent):void
 		{
-			if (isNavigationAvailable)
+			switch (e.keyCode)
 			{
-				switch (e.keyCode)
-				{
-					case Keyboard.RIGHT:
-					case Keyboard.SPACE:
-						if (navBar.getNextButtonStatus())
-						{
-							isNavigationAvailable = false;
-							EbookApi.getNavController().nextPage();
-						}
-						break;
+				case Keyboard.RIGHT:
+				case Keyboard.SPACE:
+					if (navBar.getNextButtonStatus())
+						EbookApi.getNavController().nextPage();
+					break;
 
-					case Keyboard.LEFT:
-						if (navBar.getBackButtonStatus())
-						{
-							isNavigationAvailable = false;
-							EbookApi.getNavController().backPage();
-						}
-						break;
-				}
+				case Keyboard.LEFT:
+					if (navBar.getBackButtonStatus())
+						EbookApi.getNavController().backPage();
+					break;
 			}
 		}
 
@@ -226,7 +215,6 @@ package com.unboxds.ebook.controller
 			}
 		}
 
-		//TODO Refactor Switch-> change the way panels are managed (open and close)
 		private function navbarHandler(e:MouseEvent):void
 		{
 			var sourceName:String = e.target.name;
@@ -294,8 +282,6 @@ package com.unboxds.ebook.controller
 
 		private function togglePanel(panel:UIPanel, toggleBtn:ToggleButton):void
 		{
-			Logger.log("UIController.togglePanel > panel: " + panel);
-
 			if (currentPanel == null)
 			{
 				panel.open();
@@ -336,9 +322,6 @@ package com.unboxds.ebook.controller
 
 		private function closePanels():void
 		{
-			if(currentPanel)
-				Logger.log("UIController.closePanels > currentPanel : " + currentPanel);
-
 			if (currentPanel && currentPanel.isOpen)
 				currentPanel.close();
 
@@ -357,8 +340,6 @@ package com.unboxds.ebook.controller
 
 		private function bookmarkPage():void
 		{
-			Logger.log("UIController.bookmarkPage");
-
 			// -- SORT ARRAY
 			var pageFound:int = ArrayUtils.binarySearch(EbookApi.getEbookModel().bookmarks, currentPage.index);
 			if (pageFound > -1)

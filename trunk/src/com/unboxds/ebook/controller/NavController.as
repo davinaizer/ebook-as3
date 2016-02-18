@@ -33,7 +33,6 @@
 		{
 			if (_onBeforeNextPage != null)
 			{
-				Logger.log("NavController.nextPage >> onBeforeNextPage");
 				_onBeforeNextPage();
 			}
 			else
@@ -61,7 +60,6 @@
 		{
 			if (_onBeforeBackPage != null)
 			{
-				Logger.log("NavController.backPage >> _onBeforeBackPage");
 				_onBeforeBackPage();
 			}
 			else

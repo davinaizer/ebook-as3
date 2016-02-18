@@ -87,7 +87,7 @@ package com.unboxds.ebook.view.parser
 			if (bodyTxt.indexOf("{$") > -1)
 				bodyTxt = StringUtils.parseTextVars(bodyTxt, src.parent);
 
-			if (e.target is SimpleButton)
+			if (e.target is SimpleButton && src.name.indexOf(ContentType.TOOLTIP) > -1)
 			{
 				SimpleButton(e.target).setVisited(true);
 				TweenMax.killChildTweensOf(src, true);

@@ -1,5 +1,6 @@
 package com.unboxds.ebook.services
 {
+	import com.adobe.serialization.json.JSON;
 	import com.unboxds.ebook.model.vo.EbookDTO;
 	import com.unboxds.utils.Logger;
 	import com.unboxds.utils.ObjectUtils;
@@ -45,7 +46,7 @@ package com.unboxds.ebook.services
 			{
 				Logger.log("LocalStorageService.load >> Ebook Data found!");
 
-				var jsonObj:Object = JSON.parse(sol.data.ebookDTO);
+				var jsonObj:Object = com.adobe.serialization.json.JSON.decode(sol.data.ebookDTO);
 
 				ObjectUtils.copyProps(jsonObj.navVO, ebookDTO.navVO);
 				ObjectUtils.copyProps(jsonObj.scormVO, ebookDTO.scormVO);
@@ -63,7 +64,7 @@ package com.unboxds.ebook.services
 		{
 			Logger.log("LocalStorageService.save");
 
-			sol.data.ebookDTO = JSON.stringify(data);
+			sol.data.ebookDTO = com.adobe.serialization.json.JSON.encode(data);
 			sol.flush();
 			sol.close();
 

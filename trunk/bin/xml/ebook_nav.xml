@@ -4,7 +4,7 @@
 		indexFirst="true"
 		flow="cross"
 		menu="false"
-		preloader="Preloader.swf">
+		preloader="pages/Preloader.swf">
 
 	<!--
 		 DATACONFIG OPTIONS
@@ -14,6 +14,7 @@
 		 dataServiceType: LocalStorage | ScormServer
 		 outputXMLContent :true | false // Only use this option for outputting content. This should not be used in Final Version. It slows down the ebook loading.
 		 scormReplaceDoubleQuotes: true | false // for compatibility among LMSs. Some accept only double quotes, other single.
+		 saveOnPageChange: true | false // save LMS Data on every page change. Use only when the object is not inside a HTML page and the HTML unload event is not fired. May overload the server.
 	-->
 
 	<config consultMode="false"
@@ -22,7 +23,8 @@
 			scormReplaceDoubleQuotes="false"
 			enableDebugPanel="true"
 			outputXMLContent="false"
-			version="eBookAS_V3">
+			saveOnPageChange="true"
+			version="eBookAS_V3.2.1">
 		<activities>
 			<maxScore>1,1</maxScore>
 		</activities>
@@ -30,7 +32,7 @@
 
 	<!-- ** SYSTEM UI PAGES **  -->
 	<page id="index"
-			src="content/pages/IndexPage.swf"
+			src="pages/IndexPage.swf"
 			depth="bottom">
 		<asset id="styles"
 				src="css/ebook.css"
@@ -38,7 +40,7 @@
 
 		<!-- ** NAVBAR **  -->
 		<page id="nav"
-				src="content/pages/NavPage.swf"
+				src="pages/NavPage.swf"
 				depth="top">
 			<asset id="contentXML"
 					src="xml/ebook_ui.xml" />
@@ -46,38 +48,38 @@
 			<!-- ** COVER PAGE **  -->
 			<page id="cover"
 					title="Capa"
-					src="content/pages/CoverPage.swf"
+					src="pages/CoverPage.swf"
 					navbarStatus="00000"
 					showProgress="false"
-					pageTransitionIn="slideXIn"
-					pageTransitionOut="fadeOut"
-					contentTransitionIn="fadeIn"
+					pageTransitionIn="none"
+					pageTransitionOut="none"
+					contentTransitionIn="none"
 					contentTransitionOut="none">
 				<asset id="contentXML"
-						src="xml/pages/cover.xml" />
+						src="xml/pages/CoverPage.xml" />
 			</page>
 
 			<!-- ** EBOOK CONTENT - NORMAL PAGES - EDIT BELOW THIS **  -->
 
 			<!-- ** MOD 0 **  -->
 			<page id="module_00"
-					src="content/pages/ModulePage.swf"
+					src="pages/ModulePage.swf"
 					depth="top">
 				<page id="M_00_P_00"
-						src="content/pages/M_00_P_00.swf"
+						src="pages/M_00_P_00.swf"
 						title="Introdução"
 						navbarStatus="11011"
 						showProgress="false"
-						pageTransitionIn="fadeIn"
-						pageTransitionOut="fadeOut"
-						contentTransitionIn="fadeIn"
+						pageTransitionIn="none"
+						pageTransitionOut="none"
+						contentTransitionIn="none"
 						contentTransitionOut="none">
 					<asset id="contentXML"
 							src="xml/pages/M_00_P_00.xml" />
 				</page>
 
 				<page id="M_00_P_01"
-						src="content/pages/M_00_P_01.swf"
+						src="pages/M_00_P_01.swf"
 						title="Introdução"
 						navbarStatus=""
 						showProgress="true"
@@ -90,7 +92,7 @@
 				</page>
 
 				<page id="M_00_P_02"
-						src="content/pages/M_00_P_02.swf"
+						src="pages/M_00_P_02.swf"
 						title="Introdução"
 						navbarStatus=""
 						showProgress="true"
@@ -103,7 +105,7 @@
 				</page>
 
 				<page id="M_00_P_03"
-						src="content/pages/M_00_P_03.swf"
+						src="pages/M_00_P_03.swf"
 						title="Introdução"
 						navbarStatus=""
 						showProgress="true"
@@ -116,7 +118,7 @@
 				</page>
 
 				<page id="M_00_P_04"
-						src="content/pages/M_00_P_04.swf"
+						src="pages/M_00_P_04.swf"
 						title="Introdução"
 						navbarStatus="11111"
 						showProgress="true"
@@ -131,10 +133,10 @@
 
 			<!-- ** MOD 1 **  -->
 			<page id="module_01"
-					src="content/pages/ModulePage.swf"
+					src="pages/ModulePage.swf"
 					depth="top">
 				<page id="M_01_P_00"
-						src="content/pages/M_01_P_00.swf"
+						src="pages/M_01_P_00.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -147,7 +149,7 @@
 				</page>
 
 				<page id="M_01_P_01"
-						src="content/pages/M_01_P_01.swf"
+						src="pages/M_01_P_01.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -160,7 +162,7 @@
 				</page>
 
 				<page id="M_01_P_02"
-						src="content/pages/M_01_P_02.swf"
+						src="pages/M_01_P_02.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -173,7 +175,7 @@
 				</page>
 
 				<page id="M_01_P_03"
-						src="content/pages/M_01_P_03.swf"
+						src="pages/M_01_P_03.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -186,7 +188,7 @@
 				</page>
 
 				<page id="M_01_P_04"
-						src="content/pages/M_01_P_04.swf"
+						src="pages/M_01_P_04.swf"
 						title="Components de Interface"
 						navbarStatus="11111"
 						showProgress="true"
@@ -199,7 +201,7 @@
 				</page>
 
 				<page id="M_01_P_05"
-						src="content/pages/M_01_P_05.swf"
+						src="pages/M_01_P_05.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -212,7 +214,7 @@
 				</page>
 
 				<page id="M_01_P_06"
-						src="content/pages/M_01_P_06.swf"
+						src="pages/M_01_P_06.swf"
 						title="Components de Interface"
 						navbarStatus=""
 						showProgress="true"
@@ -228,10 +230,10 @@
 
 			<!-- ** MOD 2 **  -->
 			<page id="module_02"
-					src="content/pages/ModulePage.swf"
+					src="pages/ModulePage.swf"
 					depth="top">
 				<page id="M_02_P_00"
-						src="content/pages/M_02_P_00.swf"
+						src="pages/M_02_P_00.swf"
 						title="Introdução"
 						navbarStatus=""
 						showProgress="true"
@@ -244,9 +246,9 @@
 				</page>
 
 				<page id="M_02_P_01"
-						src="content/pages/M_02_P_01.swf"
+						src="pages/M_02_P_01.swf"
 						title="Introdução"
-						navbarStatus=""
+						navbarStatus="11111"
 						showProgress="true"
 						pageTransitionIn="fadeIn"
 						pageTransitionOut="fadeOut"

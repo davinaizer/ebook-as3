@@ -1,5 +1,6 @@
 package com.unboxds.ebook.services
 {
+	import com.adobe.serialization.json.JSON;
 	import com.pipwerks.SCORM;
 	import com.unboxds.ebook.constants.ScormConstants;
 	import com.unboxds.ebook.model.vo.EbookDTO;
@@ -84,7 +85,7 @@ package com.unboxds.ebook.services
 					// replace single quote
 					suspendData = suspendData.replace(/'/g, "\"");
 
-					var jsonObj:Object = JSON.parse(suspendData);
+					var jsonObj:Object = com.adobe.serialization.json.JSON.decode(suspendData);
 					ObjectUtils.copyProps(jsonObj.navVO, ebookDTO.navVO);
 					ObjectUtils.copyProps(jsonObj.statusVO, ebookDTO.statusVO);
 				}
@@ -115,7 +116,7 @@ package com.unboxds.ebook.services
 
 			//-- Save NaVO and StatusVO
 			var tmpObj:Object = {navVO: data.navVO, statusVO: data.statusVO};
-			var suspendData:String = JSON.stringify(tmpObj);
+			var suspendData:String = com.adobe.serialization.json.JSON.encode(tmpObj);
 			suspendData = suspendData.replace(/"/g, "'");
 			setParam(ScormConstants.PARAM_SUSPEND_DATA, suspendData);
 
