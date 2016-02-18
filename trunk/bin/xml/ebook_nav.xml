@@ -51,9 +51,9 @@
 					src="pages/CoverPage.swf"
 					navbarStatus="00000"
 					showProgress="false"
-					pageTransitionIn="slideXIn"
-					pageTransitionOut="fadeOut"
-					contentTransitionIn="fadeIn"
+					pageTransitionIn="none"
+					pageTransitionOut="none"
+					contentTransitionIn="none"
 					contentTransitionOut="none">
 				<asset id="contentXML"
 						src="xml/pages/CoverPage.xml" />
@@ -70,9 +70,9 @@
 						title="Introdução"
 						navbarStatus="11011"
 						showProgress="false"
-						pageTransitionIn="fadeIn"
-						pageTransitionOut="fadeOut"
-						contentTransitionIn="fadeIn"
+						pageTransitionIn="none"
+						pageTransitionOut="none"
+						contentTransitionIn="none"
 						contentTransitionOut="none">
 					<asset id="contentXML"
 							src="xml/pages/M_00_P_00.xml" />
