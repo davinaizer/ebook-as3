@@ -3,7 +3,7 @@
   <component name="AntConfiguration">
     <buildFile url="file://$PROJECT_DIR$/trunk/build.xml">
       <antCommandLine value="-logfile deploy/log.txt" />
-      <customJdkName value="jdk1.8" />
+      <customJdkName value="1.8" />
     </buildFile>
   </component>
 </project>
