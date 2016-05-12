@@ -3,7 +3,7 @@
   <component name="FlexBuildConfigurationManager" active="eBookAS">
     <configurations>
       <configuration name="eBookAS" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/trunk/bin">
-        <dependencies target-player="12.0">
+        <dependencies target-player="10.3">
           <entries>
             <entry library-id="382b889b-f884-4fa4-b00f-ad82825f29be">
               <dependency linkage="Merged" />
