@@ -233,9 +233,9 @@
 					   height="304"
 					   scrollbarColor="0xFFFFFF"
 					   scrollbarColorAlpha="0"
-					   thumbColor="0x333333"
+					   thumbColor="0xFFFFFF"
 					   thumbColorAlpha="1"
-					   autoHideThumb="true"/>
+					   autoHideThumb="false"/>
 
 			<content type="text">
 				<content instanceName="titleTxt">
@@ -284,7 +284,7 @@
 					   scrollbarColorAlpha="0"
 					   thumbColor="0xFFFFFF"
 					   thumbColorAlpha="1"
-					   autoHideThumb="true"/>
+					   autoHideThumb="false"/>
 
 			<component type="List"
 					   name="submenuList"
@@ -305,7 +305,7 @@
 					   scrollbarColorAlpha="0"
 					   thumbColor="0xFFFFFF"
 					   thumbColorAlpha="1"
-					   autoHideThumb="true"/>
+					   autoHideThumb="false"/>
 
 			<component type="menu">
 
@@ -685,7 +685,7 @@
 				   scrollbarColorAlpha="0"
 				   thumbColor="0xFFFFFF"
 				   thumbColorAlpha="1"
-				   autoHideThumb="true"/>
+				   autoHideThumb="false"/>
 
 		<content type="text">
 			<content instanceName="titleTxt">

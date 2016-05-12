@@ -95,6 +95,7 @@ package com.unboxds.ebook.view.components
 			var nY:Number = isVerticalScrolling ? thumbHeight * (_current - 1) : 0;
 			var nX:Number = isVerticalScrolling ? 0 : thumbWidth * (_current - 1);
 
+            thumb.visible = (_steps > 1);
 			TweenLite.to(thumb, .25, {overwrite: 1, x: nX, y: nY, alpha: 1, onComplete: onUpdate});
 		}
 
