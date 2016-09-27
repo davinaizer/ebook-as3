@@ -111,10 +111,14 @@ package com.unboxds.ebook.view.ui
 		{
 			if (e.keyCode == Keyboard.ENTER)
 			{
+				var searchStr:String = searchTxt.text;
+				searchStr = StringUtil.cleanSpecialChars(searchStr.toLowerCase());
+				searchStr = StringUtils.removeExtraWhitespace(searchStr);
+
 				//TODO REFACTOR CODE
 				if (_hasSearched)
 				{
-					if (searchTxt.text != keyword)
+					if (searchStr != keyword)
 						validateSearch();
 				}
 				else
@@ -128,7 +132,7 @@ package com.unboxds.ebook.view.ui
 				this.close();
 			}
 
-			if (_hasSearched && searchBtn.isToggled && searchTxt.text != keyword)
+			if (_hasSearched && searchBtn.isToggled && searchStr != keyword)
 				searchBtn.toggle();
 
 			e.stopPropagation();
@@ -145,7 +149,11 @@ package com.unboxds.ebook.view.ui
 					//TODO REFACTOR CODE
 					if (_hasSearched)
 					{
-						if (searchTxt.text != keyword)
+						var searchStr:String = searchTxt.text;
+						searchStr = StringUtil.cleanSpecialChars(searchStr.toLowerCase());
+						searchStr = StringUtils.removeExtraWhitespace(searchStr);
+
+						if (searchStr != keyword)
 						{
 							validateSearch();
 						}
