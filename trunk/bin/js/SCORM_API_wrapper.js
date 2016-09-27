@@ -1,9 +1,11 @@
+/*global console*/
+
 /* ===========================================================
 
 pipwerks SCORM Wrapper for JavaScript
-v1.1.20111123
+v1.1.20160322
 
-Created by Philip Hutchison, January 2008
+Created by Philip Hutchison, January 2008-2016
 https://github.com/pipwerks/scorm-api-wrapper
 
 Copyright (c) Philip Hutchison
@@ -25,7 +27,7 @@ further modified by Philip Hutchison
 
 var pipwerks = {};                                  //pipwerks 'namespace' helps ensure no conflicts with possible other "SCORM" variables
 pipwerks.UTILS = {};                                //For holding UTILS functions
-pipwerks.debug = { isActive: false };                //Enable (true) or disable (false) for debug mode
+pipwerks.debug = { isActive: true };                //Enable (true) or disable (false) for debug mode
 
 pipwerks.SCORM = {                                  //Define the SCORM object
     version:    null,                               //Store SCORM version.
@@ -169,21 +171,23 @@ pipwerks.SCORM.API.get = function(){
 
     var API = null,
         win = window,
-		scorm = pipwerks.SCORM,
+        scorm = pipwerks.SCORM,
         find = scorm.API.find,
         trace = pipwerks.UTILS.trace;
 
-    if(win.parent && win.parent != win){
+    API = find(win);
+
+    if(!API && win.parent && win.parent != win){
         API = find(win.parent);
     }
 
-    if(!API && win.top.opener){
+    if(!API && win.top && win.top.opener){
         API = find(win.top.opener);
     }
 
     //Special handling for Plateau
     //Thanks to Joseph Venditti for the patch
-    if(!API && win.top.opener && win.top.opener.document) {
+    if(!API && win.top && win.top.opener && win.top.opener.document) {
         API = find(win.top.opener.document);
     }
 
@@ -292,6 +296,9 @@ pipwerks.SCORM.connection.initialize = function(){
 
                             }
 
+                            //Commit changes
+                            scorm.save();
+
                         }
 
                     }
@@ -382,19 +389,26 @@ pipwerks.SCORM.connection.terminate = function(){
 
             }
 
-            switch(scorm.version){
-                case "1.2" : success = makeBoolean(API.LMSFinish("")); break;
-                case "2004": success = makeBoolean(API.Terminate("")); break;
-            }
+            //Ensure we persist the data
+            success = scorm.save();
 
             if(success){
 
-                scorm.connection.isActive = false;
+                switch(scorm.version){
+                    case "1.2" : success = makeBoolean(API.LMSFinish("")); break;
+                    case "2004": success = makeBoolean(API.Terminate("")); break;
+                }
 
-            } else {
+                if(success){
 
-                errorCode = debug.getCode();
-                trace(traceMsgPrefix +"failed. \nError code: " +errorCode +" \nError info: " +debug.getInfo(errorCode));
+                    scorm.connection.isActive = false;
+
+                } else {
+
+                    errorCode = debug.getCode();
+                    trace(traceMsgPrefix +"failed. \nError code: " +errorCode +" \nError info: " +debug.getInfo(errorCode));
+
+                }
 
             }
 
@@ -435,7 +449,7 @@ pipwerks.SCORM.data.get = function(parameter){
         scorm = pipwerks.SCORM,
         trace = pipwerks.UTILS.trace,
         debug = scorm.debug,
-        traceMsgPrefix = "SCORM.data.get(" +parameter +") ";
+        traceMsgPrefix = "SCORM.data.get('" +parameter +"') ";
 
     if(scorm.connection.isActive){
 
@@ -455,9 +469,9 @@ pipwerks.SCORM.data.get = function(parameter){
             //If value is an empty string, check errorCode to make sure there are no errors
             if(value !== "" || errorCode === 0){
 
-				//GetValue is successful.  
-				//If parameter is lesson_status/completion_status or exit status, let's
-				//grab the value and cache it so we can check it during connection.terminate()
+                //GetValue is successful.
+                //If parameter is lesson_status/completion_status or exit status, let's
+                //grab the value and cache it so we can check it during connection.terminate()
                 switch(parameter){
 
                     case "cmi.core.lesson_status":
@@ -512,7 +526,7 @@ pipwerks.SCORM.data.set = function(parameter, value){
         trace = pipwerks.UTILS.trace,
         makeBoolean = pipwerks.UTILS.StringToBoolean,
         debug = scorm.debug,
-        traceMsgPrefix = "SCORM.data.set(" +parameter +") ";
+        traceMsgPrefix = "SCORM.data.set('" +parameter +"') ";
 
 
     if(scorm.connection.isActive){
@@ -537,6 +551,8 @@ pipwerks.SCORM.data.set = function(parameter, value){
 
             } else {
 
+                errorCode = debug.getCode();
+
                 trace(traceMsgPrefix +"failed. \nError code: " +errorCode +". \nError info: " +debug.getInfo(errorCode));
 
             }
@@ -552,6 +568,8 @@ pipwerks.SCORM.data.set = function(parameter, value){
         trace(traceMsgPrefix +"failed: API connection is inactive.");
 
     }
+
+	trace(traceMsgPrefix +" value: " +value);
 
     return success;
 
@@ -790,6 +808,9 @@ pipwerks.SCORM.quit = pipwerks.SCORM.connection.terminate;
 pipwerks.UTILS.StringToBoolean = function(value){
     var t = typeof value;
     switch(t){
+       //typeof new String("true") === "object", so handle objects as string via fall-through.
+       //See https://github.com/pipwerks/scorm-api-wrapper/issues/3
+       case "object":
        case "string": return (/(true|1)/i).test(value);
        case "number": return !!value;
        case "boolean": return value;
@@ -813,7 +834,7 @@ pipwerks.UTILS.trace = function(msg){
      if(pipwerks.debug.isActive){
 
         if(window.console && window.console.log){
-            console.log(msg);
+            window.console.log(msg);
         } else {
             //alert(msg);
         }
